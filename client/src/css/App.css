@@ -1,0 +1,40 @@
+:root {
+ --primary: black;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+body {
+    background-color: white;
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding: 10rem 2rem;
+}
+
+.flex-c-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-c-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
