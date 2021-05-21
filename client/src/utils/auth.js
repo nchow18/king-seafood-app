@@ -132,7 +132,7 @@ getPromotions() {
         picture: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/toast-with-avocado-and-cress-royalty-free-image-544809990-1541541433.jpg?crop=0.667xw:1.00xh;0.147xw,0&resize=480:*',
         nameChinese: '龙虾',
         descriptionChinese: '',
-        Availability: true,
+        availability: false,
       },
     ]
 

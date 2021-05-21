@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { useLocation } from 'react-router-dom';
+import '../../css/Products.css';
 
 function SingleProduct() {
 
@@ -26,7 +27,7 @@ function SingleProduct() {
         location.pathname === `/product/${productId}` &&
         <>
     	    <div className="flex-c-column content">
-                <div className="flex-start-row single-product-container">
+                <div className="single-product-container">
                     <div>
                         <img alt={currentProduct[0]._id} src={currentProduct[0].picture} className="single-product-img" />
                     </div>
@@ -43,11 +44,11 @@ function SingleProduct() {
                         <span><b>Weight: </b>{currentProduct[0].weight}</span>
                         {currentProduct[0].availability ? (
                             <>
-                                <span><b>Availability:</b> Out Of Stock</span>
+                                <span><b>Availability: </b>In Stock</span>
                             </>
                         ) : (
                             <>
-                                <span><b>Availability:</b> In Stock</span>
+                                <span><b>Availability: </b>Out of Stock</span>
                             </>
                         )}
                     </div>

@@ -38,6 +38,11 @@
 
 .single-product-container {
     box-shadow: 5px 5px 20px rgb(0,0,0,0.7);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    margin: 2rem;
 }
 
 .single-product-details {
@@ -50,5 +55,16 @@
     width: 40rem;
     height: 40rem;
     object-fit: cover;
+}
 
+@media screen and (max-width: 1420px) {
+    .single-product-container {
+        width: 40rem;
+        flex-direction: column;
+    }
+    .single-product-details {
+        width: auto;
+        height: 40rem;
+        padding: 2rem;
+    }
 }
