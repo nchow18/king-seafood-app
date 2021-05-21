@@ -11,10 +11,17 @@ function SingleProduct() {
     console.log(productId);
     console.log(productType);
 
+    if (Auth.getMode() === 'dark') {
+        Auth.getMode();
+    }
+
     return (
-        location.pathname !== productId &&
+        location.pathname === `/product/${productId}` &&
         <>
-            {productType} - {productId}
+    	    <div className="flex-c-column content">
+                {productId}                
+            </div>
+
         </>
     )
 }

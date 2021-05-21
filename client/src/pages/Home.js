@@ -7,7 +7,9 @@ function Home() {
 
     return (
         <>
-            HOME PAGE
+    	    <div className="flex-c-column content">
+                HOME PAGE                
+            </div>
         </>
     )
 }

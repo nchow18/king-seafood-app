@@ -10,6 +10,57 @@ class AuthService {
     }
   }
 
+  getProductArr(arr) {
+    const products = [
+      {
+        _id: '1239',
+        name: 'Steak',
+        category: 'Meat',
+        price: '40',
+        description: 'Great Wagyu steak from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+        weight: '10oz',
+        picture: '',
+        nameChinese: '牛扒',
+        descriptionChinese: ''
+      },
+      {
+          _id: '1234',
+          category: 'Seafood',
+          name: 'Lobster',
+          price: '100',
+          description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+          weight: '10oz',
+          picture: '',
+          nameChinese: '龙虾',
+          descriptionChinese: ''
+        },
+        {
+          _id: '12348',
+          category: 'Vegetables',
+          name: 'Cabbage',
+          price: '100',
+          description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+          weight: '10oz',
+          picture: '',
+          nameChinese: '龙虾',
+          descriptionChinese: ''
+        },
+        {
+          _id: '12342',
+          category: 'Fruits',
+          name: 'Apple',
+          price: '100',
+          description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+          weight: '10oz',
+          picture: '',
+          nameChinese: '龙虾',
+          descriptionChinese: ''
+        },
+    ]
+
+    return products;
+  }
+
   getSingleProduct() {
     return localStorage.getItem('id_product');
   }
@@ -17,7 +68,7 @@ class AuthService {
   viewSingleProduct() {
     const productId = localStorage.getItem('id_product');
 
-    window.location.href = `/${productId}`;
+    window.location.href = `/product/${productId}`;
   }
 
   getProfile() {
@@ -47,6 +98,43 @@ class AuthService {
 
   setProduct(productType) {
     localStorage.setItem('product', productType);
+  }
+
+  lightMode(mode) {
+    localStorage.setItem('mode', mode)
+  }
+
+  getMode(mode) {
+    var body = document.querySelectorAll('body, .page');
+    var bgWhite = document.querySelectorAll('.night-bg');
+    const currentMode = localStorage.getItem('mode', mode);
+
+    body[0].style.backgroundColor = 'var(--tertiary)';
+    body[0].style.color = 'white';
+
+    for (var i = 0; i < bgWhite.length; i++) {
+        bgWhite[i].style.backgroundColor = 'rgb(74,74,74)';
+    }
+
+    if (currentMode === 'night') {
+
+        body[0].style.backgroundColor = 'var(--tertiary)';
+        body[0].style.color = 'white';
+
+        for (var i = 0; i < bgWhite.length; i++) {
+            bgWhite[i].style.backgroundColor = 'rgb(74,74,74)';
+        }
+    } else {
+        
+        body[0].style.backgroundColor = 'white';
+        body[0].style.color = 'black';
+
+        for (var u = 0; u < bgWhite.length; u++) {
+            bgWhite[u].style.backgroundColor = 'white';
+        }
+    }
+
+    return currentMode;
   }
 
   getToken() {

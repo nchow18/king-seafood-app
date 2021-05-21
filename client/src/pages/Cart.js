@@ -3,7 +3,9 @@ import React from 'react';
 function Cart() {
     return (
         <>
-            CART
+    	    <div className="flex-c-column content">
+                CART                
+            </div>
         </>
     )
 }

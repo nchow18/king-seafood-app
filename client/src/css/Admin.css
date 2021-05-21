@@ -1,0 +1,27 @@
+.admin-product-row {
+
+}
+
+.product-price {
+    width: 5rem;
+}
+
+.admin-product-button {
+    width: 5rem;
+    color: white;
+    background-color: black;
+}
+
+.product-id {
+    width: 5rem;
+    color: black;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.page-title {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}

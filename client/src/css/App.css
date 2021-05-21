@@ -1,9 +1,31 @@
 :root {
  --primary: black;
+ --secondary: rgb(74,74,74);
+ --tertiary: rgb(34, 34, 34);
+ --quatenary: black;
+ --quinary:  black;
+}
+
+input {
+    border: 1px solid black;
+}
+
+.night-bg {
+    /* background-color: rgb(74, 74, 74); */
+}
+
+button {
+    background-color: black;
+    color: white;
 }
 
 .bold {
     font-weight: bold;
+}
+
+.content {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 body {
@@ -14,19 +36,33 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
-    padding: 10rem 2rem;
+    padding: 10rem 0rem;
+}
+
+.flex-start-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .flex-c-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.flex-start-row {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
 }
 
 .flex-c-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .flex-column {

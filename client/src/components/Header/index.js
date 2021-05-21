@@ -27,23 +27,8 @@ function Header(props) {
         Auth.logout();
     };
 
-    const setDark = event => {
-        event.preventDefault();
-
-        var body = document.querySelectorAll('body, .page');
-        body[0].style.backgroundColor = 'black';
-        body[0].style.color = 'white';
-
-
-    }
-
-    const setLight = event => {
-        event.preventDefault();
-
-        var body = document.querySelectorAll('body, .page');
-        body[0].style.backgroundColor = 'white';
-        body[0].style.color = 'black';
-
+    function setMode(mode) {
+        Auth.lightMode(mode);
     }
 
     return (
@@ -55,8 +40,8 @@ function Header(props) {
                     {headerLinks.map((link) => (
                         <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
                     ))}
-                    <div onClick={setDark}><i className="far fa-moon header-icon"></i></div>
-                    <div onClick={setLight}><i className="far fa-sun header-icon"></i></div>
+                    <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon"></i></div>
+                    <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon"></i></div>
                 </div>
             </div>
     )

@@ -12,7 +12,6 @@ import { StoreProvider } from "./utils/GlobalState";
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Products from './pages/Products';
-import ProductHeader from './components/ProductHeader';
 import Auth from './utils/auth';
 import SingleProduct from './components/SingleProduct';
 import Promotions from './pages/Promotions';
@@ -42,7 +41,7 @@ function App() {
 		},
 		{
 			name: 'Products',
-			href: '/',
+			href: '/products',
 			for: 'guest'
 		},
 		{
@@ -77,32 +76,7 @@ function App() {
 		}
 	]);
 
-	const [productLinks] = useState([
-		{
-			name: 'Meat',
-			href: '/products'
-		},
-		{
-			name: 'Seafood',
-			href: '/products'
-		},
-		{
-			name: 'Vegetables',
-			href: '/products'
-		},
-		{
-			name: 'Fruits',
-			href: '/products'
-		},
-
-	])
-
-	const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
-
-	const currentProduct = { product: currentProductLink.name }
-
-	Auth.setProduct(currentProduct.product)
 
 	const productId = Auth.getSingleProduct();
     const productType = Auth.getProduct();
@@ -111,24 +85,17 @@ function App() {
 	console.log(productType);
 
     return (
-        <ApolloProvider client={client}>
+        <ApolloProvider client={client} onload={Auth.getMode()}>
           <Router>
             <StoreProvider>
               <>
 			  <nav className="header-container">
-				  <div>FREE DELIVER + FREE GIFT (MINIMUM ORDER RM 150)</div>
+				  <div>FREE DELIVERY + FREE GIFT (MINIMUM ORDER RM 150)</div>
 				<Header 
 						headerLinks={headerLinks}
 						currentHeaderLink={currentHeaderLink}
 						setCurrentHeaderLink={setCurrentHeaderLink}
 					/>
-					{currentHeaderLink.name === 'Products' && (
-					<ProductHeader 
-						productLinks={productLinks}
-						currentProductLink={currentProductLink}
-						setCurrentProductLink={setCurrentProductLink}
-					/>
-					)}
 			  </nav>
 
                   <div className="page">
@@ -138,9 +105,9 @@ function App() {
                       <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
 					  <Route exact path="/profile" component={Profile} />
-					  <Route exact path="/dashboard" component={Dashboard} />
+					  <Route exact path="/admindashboard" component={Dashboard} />
 					  <Route exact path="/cart" component={Cart} />
-					  <Route exact path="/:id" component={SingleProduct} />
+					  <Route exact path="/product/:id" component={SingleProduct} />
                       <Route component={NoMatch} />
                     </Switch>
                   </div>

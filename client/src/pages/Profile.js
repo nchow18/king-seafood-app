@@ -3,7 +3,9 @@ import React from 'react';
 function Profile() {
     return (
         <>
-        PROFILE
+    	    <div className="flex-c-column content">
+                PROFILE                
+            </div>
         </>
     )
 }

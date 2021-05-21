@@ -25,6 +25,7 @@
     text-decoration: none;
     padding: .5rem;
     margin: 1rem;
+    color: white;
 }
 
 .header-link:hover {
