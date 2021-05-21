@@ -10,12 +10,34 @@ class AuthService {
     }
   }
 
+  adminSetCategory(item) {
+    return localStorage.setItem('adminCategory', item);
+  }
+
+  adminGetCategory() {
+    return localStorage.getItem('adminCategory');
+  }
+
+
+
+  getCategories() {
+    const categories = [
+      'All',
+      'Meat',
+      'Vegetables',
+      'Fruits',
+      'Seafood',
+    ]
+
+    return categories;
+  }
+
   getProductArr(arr) {
     const products = [
       {
         _id: '1239',
-        name: 'Steak',
         category: 'Meat',
+        name: 'Steak',
         price: '40',
         description: 'Great Wagyu steak from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
         weight: '10oz',
@@ -121,8 +143,8 @@ class AuthService {
         body[0].style.backgroundColor = 'var(--tertiary)';
         body[0].style.color = 'white';
 
-        for (var i = 0; i < bgWhite.length; i++) {
-            bgWhite[i].style.backgroundColor = 'rgb(74,74,74)';
+        for (var q = 0; q < bgWhite.length; q++) {
+            bgWhite[q].style.backgroundColor = 'rgb(74,74,74)';
         }
     } else {
         

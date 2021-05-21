@@ -1,22 +1,44 @@
-import React from 'react';
+import React, { useState, useEfect, useEffect } from 'react';
 import Auth from '../utils/auth';
 import '../css/Admin.css';
+import AdminCategories from '../components/AdminComponents/Products';
+import ReactDOM from 'react-dom';
 
 function AdminProducts() {
 
-    const products = Auth.getProductArr();
+    const productsArr = Auth.getProductArr();
+    const catArr = Auth.getCategories();
 
-    function updateProduct() {
-        window.confirm('Confirm Product Update');
-    }
-
-    function deleteProduct(id) {
-        window.confirm('product ' + id + ' removed')
-    }
+    const categories = catArr;
 
     function addProduct() {
         window.confirm('Add product?')
     }
+
+    var chosenArr = '';
+
+    const sortCategory = async (event) => {
+        event.preventDefault();
+        const e = document.getElementById('select-category');
+        const category = e.value;
+        
+        Auth.adminSetCategory(category);
+    }
+
+    if (Auth.adminGetCategory() === 'All') {
+        chosenArr = productsArr;
+        console.log(chosenArr);
+    } else {
+        chosenArr = productsArr.filter((product) => product.category === Auth.adminGetCategory());
+        console.log(chosenArr);
+    }
+
+    useEffect((event) => {
+        console.log('render!');
+    })
+
+    const [mounted, setMounted] = useState(true);
+    const toggle = () => setMounted(!mounted);
 
     return (
         <>
@@ -25,7 +47,7 @@ function AdminProducts() {
                 ADD NEW PRODUCT
             </div>
             <div className="admin-product-row flex-start-row">
-                <input className="product-id" value="ID"></input>
+                <div className="product-id" value="ID">ID</div>
                 <form onSubmit={addProduct}>
                     <input className="product-name" name='name' placeholder="NAME" type="text"></input>
                     <input className="product-category" name='category' placeholder="CATEGORY" type="text"></input>
@@ -37,35 +59,26 @@ function AdminProducts() {
                     <button className="admin-add-product-button" type='submit'>ADD PRODUCT</button>
                 </form>
             </div>
-            <div className="page-title">
-                CURRENT PRODUCTS
-            </div>
-            <div className="admin-product-row flex-start-row">
-                <input className="product-id" value="ID"></input>
-                <input className="product-name" value="NAME"></input>
-                <input className="product-category" value="CATEGORY"></input>
-                <input className="product-price" value="PRICE"></input>
-                <input className="product-description" value="DESCRIPTION"></input>
-                <input className="product-weight" value="WEIGHT"></input>
-                <input className="product-name-chinese" value="NAME-CHINESE"></input>
-                <input className="product-description-chinese" value="DESCRIPTION-CHINESE"></input>
-            </div>
-            {products.map((product) => (
-                <div className="admin-product-row flex-start-row">
-                    <input className="product-id" value={product._id}></input>
-                    <form onSubmit={updateProduct}>
-                        <input className="product-name" name='name' placeholder={product.name} type="text"></input>
-                        <input className="product-category" name='category' placeholder={product.category} type="text"></input>
-                        <input className="product-price" name='price' placeholder={product.price} type="text"></input>
-                        <input className="product-description" name='description' placeholder={product.description} type="text"></input>
-                        <input className="product-weight" name='weight' placeholder={product.weight} type="text"></input>
-                        <input className="product-name-chinese" name='nameChinese' placeholder={product.nameChinese} type="text"></input>
-                        <input className="product-description-chinese" name='descriptionChinese' placeholder={product.descriptionChinese} type="text"></input>
-                        <button className="admin-product-button" type='submit'>UPDATE</button>
-                    </form>
-                    <button className="admin-product-button" id={product._id} onClick={() => { deleteProduct(product._id )}}>DELETE</button>
+            <div className="flex-start-row">
+                <div className="page-title">
+                    CURRENT PRODUCTS
                 </div>
-            ))}
+                <form className="sort-list" onSubmit={sortCategory}>
+                    <label for="category">Sort by CATEGORY:</label>
+                    <select id="select-category" name="category">
+                        {categories.map((category) => (
+                            <option key={category} value={category}>{category}</option>
+                        ))}
+                    </select>
+                    <button onClick={toggle} type="submit">SELECT</button>
+                    - (Click twice to REFRESH)
+                </form>
+            </div>
+            {mounted && <AdminCategories
+            chosenArr={chosenArr}
+             />}
+
+
         </div>
 
         </>

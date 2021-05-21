@@ -75,6 +75,8 @@ function ProductCard() {
     } else {
         currentProduct = products.filter((product) => product.category === Auth.getProduct());
     }
+
+    console.log(currentProduct);
     
     return (
         <>

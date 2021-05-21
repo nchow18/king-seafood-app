@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import ProductCard from '../components/ProductCard';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import ProductHeader from '../components/ProductHeader';
 
 function Products() {
 
-  const location = useLocation();
+//   const location = useLocation();
 
   const [productLinks] = useState([
 		{

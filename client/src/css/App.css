@@ -56,6 +56,8 @@ body {
     display: flex;
     flex-direction: row;
     align-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .flex-c-row {

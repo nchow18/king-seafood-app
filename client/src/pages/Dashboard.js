@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import DashboardHeader from '../components/DashboardHeader';
 import AdminOrders from '../pages/AdminOrders';
 import AdminProducts from '../pages/AdminProducts';
+import AdminPromotions from '../pages/AdminPromotions';
 
 function Dashboard() {
 
     const [dashLinks] = useState([
         {
-            name: 'Products'
+            name: 'Products',
+            href: '/admindashboard'
         },
         {
-            name: 'Orders'
+            name: 'Orders',
+            href: '/admindashboard'
+        },
+        {
+            name: 'Promotions',
+            href: '/admindashboard'
         },
     ])
 
@@ -33,7 +40,12 @@ function Dashboard() {
                     <>
                         <AdminOrders />
                     </>
-                )}               
+                )}
+                {currentDashLink.name === 'Promotions' && (
+                    <>
+                        <AdminPromotions />
+                    </>
+                )}                
             </div>
         </>
     )
