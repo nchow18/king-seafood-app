@@ -30,14 +30,17 @@ function AdminCategories(props) {
                             <input className="product-category admin-input-width" name='category' placeholder={product.category} type="text"></input>
                             <label className="bold">Price</label>
                             <input className="product-price admin-input-width" name='price' placeholder={product.price} type="text"></input>
+                        </div>
+                        <div className="flex-start-column padding-1rem">
                             <label className="bold">Description</label>
                             <input className="product-description admin-input-width" name='description' placeholder={product.description} type="text"></input>
-                        </div>
-                        <div className="flex-start-column">
-                        <label className="bold">Weight</label>
+                            <label className="bold">Weight</label>
                             <input className="product-weight admin-input-width" name='weight' placeholder={product.weight} type="text"></input>
                             <label className="bold">Chinese Name</label>
                             <input className="product-name-chinese admin-input-width" name='nameChinese' placeholder={product.nameChinese} type="text"></input>
+
+                        </div>
+                        <div className="flex-start-column padding-1rem">
                             <label className="bold">Chinese Description</label>
                             <input className="product-description-chinese admin-input-width" name='descriptionChinese' placeholder={product.descriptionChinese} type="text"></input>
                             <label className="bold">Picture Location</label>

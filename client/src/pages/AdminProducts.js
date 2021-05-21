@@ -46,7 +46,7 @@ function AdminProducts() {
             <div className="page-title bold font-2rem">
                     ADD NEW PRODUCT
             </div>
-            <div className="admin-product-row flex-start-row">
+            <div className="admin-product-row flex-start-row night-bg">
                 <div className="product-id" value="ID">ID</div>
                 <form className="flex-start-row" onSubmit={addProduct}>
                         <div className="flex-start-column padding-1rem">
@@ -84,7 +84,7 @@ function AdminProducts() {
                         ))}
                     </select>
                     <button onClick={toggle} type="submit">SELECT</button>
-                    - (Click twice to REFRESH)
+                     (Click twice to REFRESH)
                 </form>
             </div>
             {mounted && <AdminCategories
