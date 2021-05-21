@@ -36,3 +36,19 @@
     top: -3rem;
 }
 
+.single-product-container {
+    box-shadow: 5px 5px 20px rgb(0,0,0,0.7);
+}
+
+.single-product-details {
+    width: 40rem;
+    height: 40rem;
+    padding: 2rem;
+}
+
+.single-product-img {
+    width: 40rem;
+    height: 40rem;
+    object-fit: cover;
+
+}

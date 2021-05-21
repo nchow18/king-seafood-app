@@ -26,12 +26,30 @@ function SingleProduct() {
         location.pathname === `/product/${productId}` &&
         <>
     	    <div className="flex-c-column content">
-                <div className="flex-start-row">
+                <div className="flex-start-row single-product-container">
                     <div>
-                        {/* <img alt={currentProduct.} */}
+                        <img alt={currentProduct[0]._id} src={currentProduct[0].picture} className="single-product-img" />
                     </div>
-                    <div>
-
+                    <div className="flex-start-column single-product-details">
+                        <span><b>Name: </b>{currentProduct[0].name}</span>
+                        {currentProduct[0].nameChinese !== '' && (
+                            <span><b>Chinese Name: </b>{currentProduct[0].nameChinese}</span>
+                        )}
+                        <span><b>Price: </b>{currentProduct[0].name}</span>
+                        <span><b>Description: </b>{currentProduct[0].name}</span>
+                        {currentProduct[0].descriptionChinese !== '' && (
+                            <span><b>Chinese Description: </b>{currentProduct[0].name}</span>
+                        )}
+                        <span><b>Weight: </b>{currentProduct[0].weight}</span>
+                        {currentProduct[0].availability ? (
+                            <>
+                                <span><b>Availability:</b> Out Of Stock</span>
+                            </>
+                        ) : (
+                            <>
+                                <span><b>Availability:</b> In Stock</span>
+                            </>
+                        )}
                     </div>
                 </div>                
             </div>
