@@ -86,11 +86,7 @@ function App() {
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
 
-	const productId = Auth.getSingleProduct();
-    const productType = Auth.getProduct();
-
-	console.log(productId);
-	console.log(productType);
+	const promo = Auth.getPromotions();
 
     return (
         <ApolloProvider client={client} onload={Auth.getMode()}>
@@ -98,7 +94,7 @@ function App() {
             <StoreProvider>
               <>
 			  <nav className="header-container">
-				  <div>FREE DELIVERY + FREE GIFT (MINIMUM ORDER RM 150)</div>
+				  <div>{promo[0].mainPromo}</div>
 				<Header 
 						headerLinks={headerLinks}
 						currentHeaderLink={currentHeaderLink}

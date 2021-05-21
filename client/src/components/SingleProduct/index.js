@@ -8,12 +8,19 @@ function SingleProduct() {
     const productType = Auth.getProduct();
     const location = useLocation();
 
-    console.log(productId);
-    console.log(productType);
-
     if (Auth.getMode() === 'dark') {
         Auth.getMode();
     }
+
+    const products = Auth.getProductArr();
+
+    var currentProduct = '';
+
+    if (productId) {
+        currentProduct = products.filter((id) => id._id === productId)
+    }
+
+    console.log(currentProduct);
 
     return (
         location.pathname === `/product/${productId}` &&

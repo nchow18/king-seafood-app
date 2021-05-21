@@ -11,15 +11,15 @@ function ProductCard() {
 
     const products = [
         {
-          _id: '1239',
-          name: 'Steak',
-          category: 'Meat',
-          price: '40',
-          description: 'Great Wagyu steak from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
-          weight: '10oz',
-          picture: Steak,
-          nameChinese: '牛扒',
-          descriptionChinese: ''
+            _id: '1239',
+            name: 'Steak',
+            category: 'Meat',
+            price: '40',
+            description: 'Great Wagyu steak from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+            weight: '10oz',
+            picture: 'https://assets.bonappetit.com/photos/57ae47b5f1c801a1038bd23a/16:9/w_1280,c_limit/garlic-rosemary-steak.jpg',
+            nameChinese: '牛扒',
+            descriptionChinese: ''
         },
         {
             _id: '1234',
@@ -28,32 +28,32 @@ function ProductCard() {
             price: '100',
             description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
             weight: '10oz',
-            picture: Seafood,
+            picture: 'https://st.depositphotos.com/1874629/1688/i/600/depositphotos_16882595-stock-photo-cooked-european-common-lobster.jpg',
             nameChinese: '龙虾',
             descriptionChinese: ''
-          },
-          {
+            },
+            {
             _id: '12348',
             category: 'Vegetables',
             name: 'Cabbage',
             price: '100',
             description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
             weight: '10oz',
-            picture: Cabbage,
+            picture: 'https://healthyrecipesblogs.com/wp-content/uploads/2013/10/steamed-cabbage-square-2020.jpg',
             nameChinese: '龙虾',
             descriptionChinese: ''
-          },
-          {
+            },
+            {
             _id: '12342',
             category: 'Fruits',
             name: 'Apple',
             price: '100',
             description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
             weight: '10oz',
-            picture: Apple,
+            picture: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/toast-with-avocado-and-cress-royalty-free-image-544809990-1541541433.jpg?crop=0.667xw:1.00xh;0.147xw,0&resize=480:*',
             nameChinese: '龙虾',
             descriptionChinese: ''
-          },
+            },
       ]
 
     function viewProduct(productId) {

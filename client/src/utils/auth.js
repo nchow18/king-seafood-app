@@ -29,9 +29,10 @@ getPromotions() {
     promoMsg3: 'Free Tomato',
     promo3Start: '11/11/11',
     promo3End: '11/11/11',
-    featuredProduct1: [{ name: 'Steak', price: '100', picture: 'https://www.thespruceeats.com/thmb/kxu3tr3tIob-VCMNTKc5b7g2VFA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/marinated-top-round-steak-3060302-hero-02-ed071d5d7e584bea82857112aa734a94.jpg'}],
-    featuredProduct2: [{ name: 'Steak', price: '100', picture: 'https://static.toiimg.com/thumb/61589069.cms?width=1200&height=900'}],
-    featuredProduct3: [{ name: 'Steak', price: '100', picture: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2F1542062283%2Fchocolate-and-cream-layer-cake-1812-cover.jpg%3Fitok%3DrEWL7AIN'}],
+    mainPromo: 'FREE DELIVERY + FREE GIFT (MINIMUM ORDER RM 150)',
+    featuredProduct1: [{ productId: '1239', name: 'Steak', price: '100', picture: 'https://www.thespruceeats.com/thmb/kxu3tr3tIob-VCMNTKc5b7g2VFA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/marinated-top-round-steak-3060302-hero-02-ed071d5d7e584bea82857112aa734a94.jpg'}],
+    featuredProduct2: [{ productId: '1239', name: 'Chicken', price: '100', picture: 'https://static.toiimg.com/thumb/61589069.cms?width=1200&height=900'}],
+    featuredProduct3: [{ productId: '12342', name: 'Fruits', price: '100', picture: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2F1542062283%2Fchocolate-and-cream-layer-cake-1812-cover.jpg%3Fitok%3DrEWL7AIN'}],
   }]
 
   return promo;

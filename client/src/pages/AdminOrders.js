@@ -36,8 +36,6 @@ function AdminOrders() {
                                 <div className="order-section not-confirm font-2rem">NOT DELIVERED</div>
                             )}
                         </div>
-
-                        
                     </div>
                 ))}
             </div>
