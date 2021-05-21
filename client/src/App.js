@@ -20,6 +20,7 @@ import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
 import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
+import SingleOrder from './pages/AdminSingleOrder';
 
 const client = new ApolloClient({
     request: operation => {
@@ -117,6 +118,7 @@ function App() {
 					  <Route exact path="/admindashboard" component={Dashboard} />
 					  <Route exact path="/cart" component={Cart} />
 					  <Route exact path="/product/:id" component={SingleProduct} />
+					  <Route exact path="/order/:id" component={SingleOrder} />
                       <Route component={NoMatch} />
                     </Switch>
                   </div>

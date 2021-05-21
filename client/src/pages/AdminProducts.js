@@ -49,27 +49,39 @@ function AdminProducts() {
             <div className="admin-product-row flex-start-row night-bg">
                 <div className="product-id" value="ID">ID</div>
                 <form className="flex-start-row" onSubmit={addProduct}>
-                        <div className="flex-start-column padding-1rem">
+                        <div className="flex-start-column">
                             <label className="bold">Name</label>
                             <input className="product-name admin-input-width" name='name' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
                             <label className="bold">Category</label>
                             <input className="product-category admin-input-width" name='category' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
                             <label className="bold">Price</label>
                             <input className="product-price admin-input-width" name='price' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
                             <label className="bold">Description</label>
                             <input className="product-description admin-input-width" name='description' type="text"></input>
                         </div>
                         <div className="flex-start-column">
-                        <label className="bold">Weight</label>
+                            <label className="bold">Weight</label>
                             <input className="product-weight admin-input-width" name='weight' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
                             <label className="bold">Chinese Name</label>
                             <input className="product-name-chinese admin-input-width" name='nameChinese' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
                             <label className="bold">Chinese Description</label>
                             <input className="product-description-chinese admin-input-width" name='descriptionChinese' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
                             <label className="bold">Picture Location</label>
                             <input className="product-picture admin-input-width" name='picture' type="text"></input>
-                            <button className="admin-product-button admin-input-width" type='submit'>ADD PRODUCT</button>
                         </div>
+                            <button className="admin-product-button admin-input-width" type='submit'>ADD PRODUCT</button>
                     </form>
             </div>
             <div className="flex-start-row">

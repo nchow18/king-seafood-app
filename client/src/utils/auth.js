@@ -18,7 +18,24 @@ class AuthService {
     return localStorage.getItem('adminCategory');
   }
 
+getPromotions() {
+  const promo = [{
+    promoMsg1: 'Free Shipping',
+    promo1Start: '11/11/11',
+    promo1End: '11/11/11',
+    promoMsg2: 'Free Gift',
+    promo2Start: '11/11/11',
+    promo2End: '11/11/11',
+    promoMsg3: 'Free Tomato',
+    promo3Start: '11/11/11',
+    promo3End: '11/11/11',
+    featuredProduct1: [{ name: 'Steak', price: '100', picture: 'https://www.thespruceeats.com/thmb/kxu3tr3tIob-VCMNTKc5b7g2VFA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/marinated-top-round-steak-3060302-hero-02-ed071d5d7e584bea82857112aa734a94.jpg'}],
+    featuredProduct2: [{ name: 'Steak', price: '100', picture: 'https://static.toiimg.com/thumb/61589069.cms?width=1200&height=900'}],
+    featuredProduct3: [{ name: 'Steak', price: '100', picture: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2F1542062283%2Fchocolate-and-cream-layer-cake-1812-cover.jpg%3Fitok%3DrEWL7AIN'}],
+  }]
 
+  return promo;
+}
 
   getCategories() {
     const categories = [
@@ -32,13 +49,47 @@ class AuthService {
     return categories;
   }
 
+  getOrders() {
+    const cart = this.getProductArr();
+    var cartPriceArr = [];
+    var orderArr = [];
+  
+    for (var i = 0; i < cart.length; i++) {
+      cartPriceArr.push(cart[i].price);
+    }
+
+    for (var r = 0; r < cart.length; r++) {
+        orderArr.push({
+        orderName: cart[r].name, 
+        orderCategory: cart[r].category, 
+        orderWeight: cart[r].weight,
+        orderPrice: cart[r].price,
+        productId: cart[r]._id
+        });
+    }
+
+    var cartTotal = cartPriceArr.reduce((a, b) => a + b, 0);
+
+    const orders = [{
+      user_id: "123",
+      _id: '555',
+      createdAt: '11/11/11',
+      orderTotal: cartTotal,
+      orders: orderArr,
+      deliveryDate: '05/28/2021',
+      delivered: false,
+    }]
+
+    return orders;
+  }
+
   getProductArr(arr) {
     const products = [
       {
         _id: '1239',
         category: 'Meat',
         name: 'Steak',
-        price: '40',
+        price: 40,
         description: 'Great Wagyu steak from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
         weight: '10oz',
         picture: '',
@@ -49,7 +100,7 @@ class AuthService {
           _id: '1234',
           category: 'Seafood',
           name: 'Lobster',
-          price: '100',
+          price: 100,
           description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
           weight: '10oz',
           picture: '',
@@ -60,7 +111,7 @@ class AuthService {
           _id: '12348',
           category: 'Vegetables',
           name: 'Cabbage',
-          price: '100',
+          price: 20,
           description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
           weight: '10oz',
           picture: '',
@@ -71,7 +122,7 @@ class AuthService {
           _id: '12342',
           category: 'Fruits',
           name: 'Apple',
-          price: '100',
+          price: 30,
           description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
           weight: '10oz',
           picture: '',
@@ -91,6 +142,20 @@ class AuthService {
     const productId = localStorage.getItem('id_product');
 
     window.location.href = `/product/${productId}`;
+  }
+
+  setSingleOrder(order_id) {
+    return localStorage.setItem('id_order', order_id);
+  }
+
+  getSingleOrder() {
+    return localStorage.getItem('id_order')
+  }
+
+  viewSingleOrder() {
+    const orderId = this.getSingleOrder();
+
+    window.location.href = `/order/${orderId}`;
   }
 
   getProfile() {

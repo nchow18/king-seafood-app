@@ -4,6 +4,7 @@
  --tertiary: rgb(34, 34, 34);
  --quatenary: black;
  --quinary:  black;
+ --light-blue: rgb(194, 194, 252);
 }
 
 input {
@@ -67,7 +68,7 @@ body {
     display: flex;
     flex-direction: row;
     align-content: flex-start;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
 }
 
