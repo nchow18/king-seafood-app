@@ -18,6 +18,8 @@ import Promotions from './pages/Promotions';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
+import SignIn from './components/SignIn';
+import SignUp from './components/Signup';
 
 const client = new ApolloClient({
     request: operation => {
@@ -45,7 +47,7 @@ function App() {
 			for: 'guest'
 		},
 		{
-			name: 'Profile',
+			name: 'Account',
 			href: '/profile',
 			for: 'user'
 		},
@@ -53,6 +55,11 @@ function App() {
 			name: 'Promotions',
 			href: '/promotions',
 			for: 'guest'
+		},
+		{
+			name: 'Cart',
+			href: '/cart',
+			for: 'user'
 		},
 		{
 			name: 'Dashboard',
@@ -105,6 +112,8 @@ function App() {
                       <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
 					  <Route exact path="/profile" component={Profile} />
+					  <Route exact path="/signup" component={SignUp} />
+					  <Route exact path="/signin" component={SignIn} />
 					  <Route exact path="/admindashboard" component={Dashboard} />
 					  <Route exact path="/cart" component={Cart} />
 					  <Route exact path="/product/:id" component={SingleProduct} />

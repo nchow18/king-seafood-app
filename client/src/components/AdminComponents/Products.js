@@ -19,28 +19,31 @@ function AdminCategories(props) {
 
     return (
         <>
-            <div className="admin-product-row flex-start-row">
-                <input className="product-id" value="ID"></input>
-                <input className="product-name" value="NAME"></input>
-                <input className="product-category" value="CATEGORY"></input>
-                <input className="product-price" value="PRICE"></input>
-                <input className="product-description" value="DESCRIPTION"></input>
-                <input className="product-weight" value="WEIGHT"></input>
-                <input className="product-name-chinese" value="NAME_CHINESE"></input>
-                <input className="product-description-chinese" value="DESCRIPTION_CHINESE"></input>
-            </div>
             {chosenArr.map((product) => (
-                <div className="admin-product-row flex-start-row">
+                <div className="admin-product-row flex-start-row night-bg">
                     <div className="product-id" value={product._id}>{product._id}</div>
-                    <form onSubmit={updateProduct}>
-                        <input className="product-name" name='name' placeholder={product.name} type="text"></input>
-                        <input className="product-category" name='category' placeholder={product.category} type="text"></input>
-                        <input className="product-price" name='price' placeholder={product.price} type="text"></input>
-                        <input className="product-description" name='description' placeholder={product.description} type="text"></input>
-                        <input className="product-weight" name='weight' placeholder={product.weight} type="text"></input>
-                        <input className="product-name-chinese" name='nameChinese' placeholder={product.nameChinese} type="text"></input>
-                        <input className="product-description-chinese" name='descriptionChinese' placeholder={product.descriptionChinese} type="text"></input>
-                        <button className="admin-product-button" type='submit'>UPDATE</button>
+                    <form className="flex-start-row" onSubmit={updateProduct}>
+                        <div className="flex-start-column padding-1rem">
+                            <label className="bold">Name</label>
+                            <input className="product-name admin-input-width" name='name' placeholder={product.name} type="text"></input>
+                            <label className="bold">Category</label>
+                            <input className="product-category admin-input-width" name='category' placeholder={product.category} type="text"></input>
+                            <label className="bold">Price</label>
+                            <input className="product-price admin-input-width" name='price' placeholder={product.price} type="text"></input>
+                            <label className="bold">Description</label>
+                            <input className="product-description admin-input-width" name='description' placeholder={product.description} type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
+                        <label className="bold">Weight</label>
+                            <input className="product-weight admin-input-width" name='weight' placeholder={product.weight} type="text"></input>
+                            <label className="bold">Chinese Name</label>
+                            <input className="product-name-chinese admin-input-width" name='nameChinese' placeholder={product.nameChinese} type="text"></input>
+                            <label className="bold">Chinese Description</label>
+                            <input className="product-description-chinese admin-input-width" name='descriptionChinese' placeholder={product.descriptionChinese} type="text"></input>
+                            <label className="bold">Picture Location</label>
+                            <input className="product-picture admin-input-width" name='picture' placeholder={product.picture} type="text"></input>
+                            <button className="admin-product-button admin-input-width" type='submit'>UPDATE</button>
+                        </div>
                     </form>
                     <button className="admin-product-button" id={product._id} onClick={() => { deleteProduct(product._id )}}>DELETE</button>
                 </div>

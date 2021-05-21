@@ -43,24 +43,37 @@ function AdminProducts() {
     return (
         <>
         <div className="flex-start-column">
-            <div className="page-title">
-                ADD NEW PRODUCT
+            <div className="page-title bold font-2rem">
+                    ADD NEW PRODUCT
             </div>
             <div className="admin-product-row flex-start-row">
                 <div className="product-id" value="ID">ID</div>
-                <form onSubmit={addProduct}>
-                    <input className="product-name" name='name' placeholder="NAME" type="text"></input>
-                    <input className="product-category" name='category' placeholder="CATEGORY" type="text"></input>
-                    <input className="product-price" name='price' placeholder="PRICE" type="text"></input>
-                    <input className="product-description" name='description' placeholder="DESCRIPTION" type="text"></input>
-                    <input className="product-weight" name='weight' placeholder="WEIGHT" type="text"></input>
-                    <input className="product-name-chinese" name='nameChinese' placeholder="NAME_CHINESE" type="text"></input>
-                    <input className="product-description-chinese" name='descriptionChinese' placeholder="DESCRIPTION_CHINESE" type="text"></input>
-                    <button className="admin-add-product-button" type='submit'>ADD PRODUCT</button>
-                </form>
+                <form className="flex-start-row" onSubmit={addProduct}>
+                        <div className="flex-start-column padding-1rem">
+                            <label className="bold">Name</label>
+                            <input className="product-name admin-input-width" name='name' type="text"></input>
+                            <label className="bold">Category</label>
+                            <input className="product-category admin-input-width" name='category' type="text"></input>
+                            <label className="bold">Price</label>
+                            <input className="product-price admin-input-width" name='price' type="text"></input>
+                            <label className="bold">Description</label>
+                            <input className="product-description admin-input-width" name='description' type="text"></input>
+                        </div>
+                        <div className="flex-start-column">
+                        <label className="bold">Weight</label>
+                            <input className="product-weight admin-input-width" name='weight' type="text"></input>
+                            <label className="bold">Chinese Name</label>
+                            <input className="product-name-chinese admin-input-width" name='nameChinese' type="text"></input>
+                            <label className="bold">Chinese Description</label>
+                            <input className="product-description-chinese admin-input-width" name='descriptionChinese' type="text"></input>
+                            <label className="bold">Picture Location</label>
+                            <input className="product-picture admin-input-width" name='picture' type="text"></input>
+                            <button className="admin-product-button admin-input-width" type='submit'>ADD PRODUCT</button>
+                        </div>
+                    </form>
             </div>
             <div className="flex-start-row">
-                <div className="page-title">
+                <div className="page-title bold font-2rem">
                     CURRENT PRODUCTS
                 </div>
                 <form className="sort-list" onSubmit={sortCategory}>

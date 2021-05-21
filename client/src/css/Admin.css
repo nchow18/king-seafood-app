@@ -1,5 +1,7 @@
 .admin-product-row {
-
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.7);
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .product-price {
@@ -32,4 +34,8 @@
 
 .product-weight {
     width: 5rem;
+}
+
+.admin-input-width {
+    width: 35rem;
 }

@@ -10,6 +10,10 @@ input {
     border: 1px solid black;
 }
 
+.font-2rem {
+    font-size: 2rem;
+}
+
 .night-bg {
     /* background-color: rgb(74, 74, 74); */
 }
@@ -23,9 +27,14 @@ button {
     font-weight: bold;
 }
 
+.padding-1rem {
+    padding: 1rem;
+}
+
 .content {
     padding-left: 2rem;
     padding-right: 2rem;
+    padding-bottom: 8rem;
 }
 
 body {
@@ -43,6 +52,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
 }
 
 .flex-c-column {
@@ -75,4 +86,16 @@ body {
 .flex-row {
     display: flex;
     flex-direction: row;
+}
+
+.form-input-width {
+    width: 25rem;
+    height: 3rem;
+    padding: .5rem;
+    margin: .25rem;
+}
+
+.form-container {
+    box-shadow: 10px 10px 20px rgb(0,0,0,0.7);
+    padding: 2rem;
 }
