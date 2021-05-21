@@ -13,6 +13,10 @@
 
 .product-card-description {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
 }
 
 .product-button {

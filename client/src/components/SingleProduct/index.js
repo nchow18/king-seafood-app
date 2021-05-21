@@ -41,14 +41,17 @@ function SingleProduct() {
                         {currentProduct[0].descriptionChinese !== '' && (
                             <span><b>Chinese Description: </b>{currentProduct[0].name}</span>
                         )}
-                        <span><b>Weight: </b>{currentProduct[0].weight}</span>
-                        {currentProduct[0].availability ? (
+                        {currentProduct[0].weight !== ''&& (
+                            <span><b>Weight: </b>{currentProduct[0].weight}</span>
+                        )}
+
+                        {currentProduct[0].availability !== 0 ? (
                             <>
                                 <span><b>Availability: </b>In Stock</span>
                             </>
                         ) : (
                             <>
-                                <span><b>Availability: </b>Out of Stock</span>
+                                <span><b>Availability: </b>Out Of Stock</span>
                             </>
                         )}
                     </div>

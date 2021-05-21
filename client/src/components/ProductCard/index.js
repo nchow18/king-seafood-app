@@ -36,15 +36,24 @@ function ProductCard() {
                     <img alt={product._id} src={product.picture} className="product-card-picture"/>
                 </div>
                 <div className="product-card-description">
-                    <p className="bold">{product.name} {product.nameChinese !== '' && (
-                        <>({ product.nameChinese })</> )}</p>
-                    <p>RM {product.price}</p>
-                    {product.weight !== '' && (
-                        <p>{product.weight}</p>
-                    )}
-                    <p>{product.description}</p>
-                    <div className="product-button" key={product._id} onClick={() => {viewProduct(product._id)}}>VIEW PRODUCT</div>
-                    <div className="product-button">ADD TO CART</div>
+                    <div>
+                        <p className="bold">{product.name} {product.nameChinese !== '' && (
+                            <>({ product.nameChinese })</> )}</p>
+                        <p>RM {product.price}</p>
+                        {product.weight !== '' && (
+                            <p>{product.weight}</p>
+                        )}
+                        {product.description !== 0 ? (
+                            <p>Product Available</p>
+                        ) : (
+                            <p>Out Of Stock</p>
+                        )}
+                        <p>{product.description}</p>
+                    </div>
+                    <div>
+                        <div className="product-button" key={product._id} onClick={() => {viewProduct(product._id)}}>VIEW PRODUCT</div>
+                        <div className="product-button">ADD TO CART</div>
+                    </div>
                 </div>
             </div>
         ))}

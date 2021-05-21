@@ -1,14 +1,13 @@
 .promo-img {
-    height: 50rem;
-    width: 50rem;
+    height: 40rem;
+    width: 40rem;
     object-fit: cover;
-
 }
 
 .promo-img-container {
     margin: 1rem;
-    height: 50rem;
-    width: 50rem;
+    height: 40rem;
+    width: 40rem;
 }
 
 .promo-img-title {
