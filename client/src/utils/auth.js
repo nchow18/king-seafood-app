@@ -98,38 +98,38 @@ getPromotions() {
         descriptionChinese: ''
       },
       {
-          _id: '1234',
-          category: 'Seafood',
-          name: 'Lobster',
-          price: 100,
-          description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
-          weight: '10oz',
-          picture: '',
-          nameChinese: '龙虾',
-          descriptionChinese: ''
-        },
-        {
-          _id: '12348',
-          category: 'Vegetables',
-          name: 'Cabbage',
-          price: 20,
-          description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
-          weight: '10oz',
-          picture: '',
-          nameChinese: '龙虾',
-          descriptionChinese: ''
-        },
-        {
-          _id: '12342',
-          category: 'Fruits',
-          name: 'Apple',
-          price: 30,
-          description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
-          weight: '10oz',
-          picture: '',
-          nameChinese: '龙虾',
-          descriptionChinese: ''
-        },
+        _id: '1234',
+        category: 'Seafood',
+        name: 'Lobster',
+        price: 100,
+        description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+        weight: '10oz',
+        picture: '',
+        nameChinese: '龙虾',
+        descriptionChinese: ''
+      },
+      {
+        _id: '12348',
+        category: 'Vegetables',
+        name: 'Cabbage',
+        price: 20,
+        description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+        weight: '10oz',
+        picture: '',
+        nameChinese: '龙虾',
+        descriptionChinese: ''
+      },
+      {
+        _id: '12342',
+        category: 'Fruits',
+        name: 'Apple',
+        price: 30,
+        description: 'Great Lobster from Japan, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mi id justo dignissim vulputate. Quisque ut erat dapibus, condimentum.',
+        weight: '10oz',
+        picture: '',
+        nameChinese: '龙虾',
+        descriptionChinese: ''
+      },
     ]
 
     return products;

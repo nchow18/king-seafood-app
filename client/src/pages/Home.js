@@ -26,14 +26,14 @@ function Home() {
                     </div>
                     <div className="promo-img-container">
                         <img alt={promo[0].featuredProduct1[0].name} className="promo-img" src={promo[0].featuredProduct2[0].picture} />
-                        <div className="promo-img-title">
+                        <div key={promo[0].featuredProduct2[0].productId} onClick={() => { viewProduct(promo[0].featuredProduct2[0].productId )}} className="promo-img-title">
                             <p>{promo[0].featuredProduct2[0].name}</p>
                             <p>RM {promo[0].featuredProduct2[0].price}</p>
                         </div>
                     </div>
                     <div className="promo-img-container">
                         <img alt={promo[0].featuredProduct1[0].name} className="promo-img" src={promo[0].featuredProduct3[0].picture} />
-                        <div className="promo-img-title">
+                        <div key={promo[0].featuredProduct3[0].productId} onClick={() => { viewProduct(promo[0].featuredProduct3[0].productId )}} className="promo-img-title">
                             <p>{promo[0].featuredProduct3[0].name}</p>
                             <p>RM {promo[0].featuredProduct3[0].price}</p>
                         </div>

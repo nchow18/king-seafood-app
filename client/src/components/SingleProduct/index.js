@@ -26,7 +26,14 @@ function SingleProduct() {
         location.pathname === `/product/${productId}` &&
         <>
     	    <div className="flex-c-column content">
-                {productId}                
+                <div className="flex-start-row">
+                    <div>
+                        {/* <img alt={currentProduct.} */}
+                    </div>
+                    <div>
+
+                    </div>
+                </div>                
             </div>
 
         </>

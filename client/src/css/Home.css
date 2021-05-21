@@ -7,6 +7,8 @@
 
 .promo-img-container {
     margin: 1rem;
+    height: 50rem;
+    width: 50rem;
 }
 
 .promo-img-title {
@@ -23,3 +25,4 @@
 .promo-img-title:hover {
     background-color: rgb(0,0,0,0.4);
 }
+
