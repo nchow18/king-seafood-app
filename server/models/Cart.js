@@ -3,7 +3,7 @@ const { Schema } = require('mongoose');
 const cartSchema = new Schema(
     {
         cart_list: [],
-        deliverDate: String,
+        deliveryDate: String,
         paid: {
             type: Boolean,
             required: false 

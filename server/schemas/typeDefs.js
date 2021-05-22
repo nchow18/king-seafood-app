@@ -25,6 +25,12 @@ const typeDefs = gql`
         phone: String
     }
 
+    type Cart {
+        _id: ID
+        deliveryDate: String
+        paid: Boolean
+    }
+
     type AuthUser {
         token: ID
         user: User
@@ -32,33 +38,33 @@ const typeDefs = gql`
 
     type Product {
         _id: ID
-        name: String!
-        category: String!
-        price: Int!
-        description: String
-        weight: String
-        picture: String
-        nameChinese: String
-        descriptionChinese: String
+        product_name: String!
+        product_category: String!
+        product_price: Int!
+        product_description: String
+        product_weight: String
+        product_picture: String
+        product_nameChinese: String
+        product_descriptionChinese: String
     }
 
-    input Product {
+    input ProductInput {
         _id: ID
-        name: String!
-        category: String!
-        price: Int!
-        description: String
-        weight: String
-        picture: String
-        nameChinese: String
-        descriptionChinese: String
+        product_name: String!
+        product_category: String!
+        product_price: Int!
+        product_description: String
+        product_weight: String
+        product_picture: String
+        product_nameChinese: String
+        product_descriptionChinese: String
     }
 
     type Order {
         _id: ID
         orderTotal: Int
+        cart: Cart
     }
-
 
     type Address {
         street_name: String!
@@ -124,6 +130,9 @@ const typeDefs = gql`
         user(user_id: ID!): User
         users: [User]
         userMe: User
+
+        order(order_id: ID): Order
+        orders: [Order]
 
         products: [Product]
         product(product_id: ID): Product

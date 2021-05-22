@@ -2,42 +2,42 @@ const { Schema, model } = require('mongoose');
 
 const productSchema = new Schema(
     {
-        category: {
+        product_category: {
             type: String,
             required: true,
             trim: true
         },
-        name: {
+        product_name: {
             type: String,
             required: true,
             trim: true
         },
-        price: {
+        product_price: {
             type: Number,
             required: true,
             trim: true
         },
-        description: {
+        product_description: {
             type: String,
             required: true,
             trim: true
         },
-        weight: {
+        product_weight: {
             type: String,
             required: true,
             trim: true
         },
-        picture: {
+        product_picture: {
             type: String,
             required: true,
             trim: true
         },
-        nameChinese: {
+        product_nameChinese: {
             type: String,
             required: true,
             trim: true
         },
-        descriptionChinese: {
+        product_descriptionChinese: {
             type: String,
             required: true,
             trim: true

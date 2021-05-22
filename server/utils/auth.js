@@ -38,8 +38,8 @@ module.exports = {
 
         return req;
     },
-    signTokenOwner: function ({ firstName, lastName, email, _id, admin }) {
-        const payload = { firstName, lastName, email, _id, admin };
+    signTokenUser: function ({ first_name, last_name, email, _id, admin }) {
+        const payload = { first_name, last_name, email, _id, admin };
 
         return jwt.sign(
             { data: payload },
@@ -47,13 +47,4 @@ module.exports = {
             { expiresIn: expiration }
         );
     },
-    signTokenWalker: function ({ firstName, lastName, email, _id }) {
-        const payload = { firstName, lastName, email, _id };
-
-        return jwt.sign(
-            { data: payload },
-            secret,
-            { expiresIn: expiration }
-        );
-    }
 };

@@ -3,10 +3,6 @@ const cartSchema = require("./Cart");
 
 const orderSchema = new Schema(
     {
-        products: {
-            type: String,
-            required: true
-        },
         orderTotal: Number,
         cart: cartSchema,
         delivered: Boolean
