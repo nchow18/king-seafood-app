@@ -16,7 +16,7 @@ import Auth from './utils/auth';
 import SingleProduct from './components/SingleProduct';
 import Promotions from './pages/Promotions';
 import Cart from './pages/Cart';
-import Profile from './pages/Profile';
+import Account from './pages/Account';
 import Dashboard from './pages/Dashboard';
 import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
@@ -49,7 +49,7 @@ function App() {
 		},
 		{
 			name: 'Account',
-			href: '/profile',
+			href: '/account',
 			for: 'user'
 		},
 		{
@@ -108,7 +108,7 @@ function App() {
                       <Route exact path="/about" component={About} />
                       <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
-					  <Route exact path="/profile" component={Profile} />
+					  <Route exact path="/account" component={Account} />
 					  <Route exact path="/signup" component={SignUp} />
 					  <Route exact path="/signin" component={SignIn} />
 					  <Route exact path="/admindashboard" component={Dashboard} />

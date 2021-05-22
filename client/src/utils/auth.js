@@ -18,12 +18,6 @@ class AuthService {
     return localStorage.getItem('adminCategory');
   }
 
-  getUser() {
-    const user = [{
-
-    }]
-  }
-
 getPromotions() {
   const promo = [{
     promoMsg1: 'Free Shipping',
@@ -88,6 +82,51 @@ getPromotions() {
     }]
 
     return orders;
+  }
+
+  getUser() {
+    const user = [
+      {
+        user_id: '111',
+        firstName: 'Nathan',
+        lastName: 'Chow',
+        streetNumber: 5,
+        streetName: 'street',
+        region: 'penang',
+        postalCode: '5555',
+        city: 'MalaysiaCity',
+        state: 'Malaysia',
+        email: 'test@gmail.com'
+      }
+    ]
+
+    return user;
+  }
+
+  getCart() {
+    const product = this.getProductArr();
+    const productArr = product[0];
+    var totalArr = [];
+
+    for (var i = 0; i < productArr.length; i++) {
+      totalArr.push(productArr[i].price)
+    }
+
+    const totalCart = totalArr.reduce((a,b) => a + b, 0)
+
+    var cart = [
+      {
+        user_id: '111',
+        cartTotal: totalCart,
+        productList: [{
+          qty: '1', product_id: '1239', product: productArr
+        }],
+        deliveryDate: '11/11/11',
+        status: 'completed'
+      }
+    ];
+
+    return cart;
   }
 
   getProductArr(arr) {
