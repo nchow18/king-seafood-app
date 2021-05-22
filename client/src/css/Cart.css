@@ -1,5 +1,12 @@
 .cart-row {
-    background-color: pink;
+    background-color: var(--light-blue);
+    box-shadow: 5px 5px 15px rgb(0,0,0,0.5);
+    margin: .5rem;
+}
+
+.payment-column {
+    width: 30rem;
+    padding: 1rem;
 }
 
 .cart-picture {

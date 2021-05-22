@@ -108,11 +108,12 @@ getPromotions() {
     const productArr = product[0];
     var totalArr = [];
 
-    for (var i = 0; i < productArr.length; i++) {
-      totalArr.push(productArr[i].price)
+    for (var i = 0; i < product.length; i++) {
+      totalArr.push(product[i].price)
     }
 
     const totalCart = totalArr.reduce((a,b) => a + b, 0)
+
 
     var cart = [
       {
@@ -120,10 +121,13 @@ getPromotions() {
         cartTotal: totalCart,
         productList: [{
           qty: '1', product_id: '1239', product: productArr
+        },
+        {
+          qty: '1', product_id: '1239', product: productArr
         }],
         deliveryDate: '11/11/11',
         status: 'completed'
-      }
+      },
     ];
 
     return cart;

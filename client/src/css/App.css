@@ -50,12 +50,30 @@ body {
     padding: 10rem 0rem;
 }
 
+.flex-middle-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex-top-center-row {
+    display: flex;
+    flex-direction: row;
+}
+
 .flex-start-column {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
+}
+
+.flex-start-between-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .flex-c-column {
