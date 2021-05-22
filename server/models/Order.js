@@ -1,47 +1,15 @@
 const { Schema, model } = require('mongoose');
-const dogSchema = require('./Dog');
-
-const coordsSchema = new Schema( 
-    {
-        lon: {
-            type: Number,
-            required: true
-        },
-        lat: {
-            type: Number,
-            required: true,
-        }
-    }
-);
+const cartSchema = require("./Cart");
 
 const orderSchema = new Schema(
     {
-        service_date: {
+        products: {
             type: String,
             required: true
         },
-        service_time: {
-            type: String,
-            required: true
-        },
-        status: {
-            type: String,
-            enum: ['PENDING_WALKER', 'PENDING_PROGRESS', 'IN_PROGRESS', 'FULLFILLED', 'CHARGED', 'FINALIZED'],
-            default: 'PENDING_WALKER'
-        },
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: 'Owner'
-        },
-        walker: {
-            type: Schema.Types.ObjectId,
-            ref: 'Walker'
-        },
-        dogs: [{
-            type: Schema.Types.ObjectId,
-            ref: 'dogSchema'
-        }],
-        coords: [coordsSchema]
+        orderTotal: Number,
+        cart: cartSchema,
+        delivered: Boolean
     },
     {
         toJSON: {
@@ -50,8 +18,8 @@ const orderSchema = new Schema(
     }
 );
 
-orderSchema.virtual('dog_count').get(function () {
-    return this.dogs.length;
+orderSchema.virtual('order_count').get(function () {
+    return this.order.length;
 });
 
 

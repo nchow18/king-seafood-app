@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const addressSchema = require('./Address');
-const dogSchema = require('./Dog');
+const cartSchema = require('./Cart');
 
-const ownerSchema = new Schema(
+const userSchema = new Schema(
     {
         first_name: {
             type: String,
@@ -26,7 +26,6 @@ const ownerSchema = new Schema(
             required: true,
             minlength: 5
         },
-        avatar: String,
         admin: {
             type: Boolean,
             default: false
@@ -35,13 +34,8 @@ const ownerSchema = new Schema(
         phone: {
             type: String
         },
-        dogs: [dogSchema],
-        status: {
-            type: String,
-            required: true,
-            enum: ["PENDING_INFORMATION", "ACTIVE", "SUSPENDED"],
-            default: "PENDING_INFORMATION"
-        },
+        cart: [cartSchema],
+        pastOrders: [],
         stripe_customer_id: {
             type: String,
             match: [/^cus_.+/, 'Must be a valid stripe customer id!']
@@ -59,24 +53,23 @@ const ownerSchema = new Schema(
 );
 
 // set up pre-save middleware to create password
-ownerSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
     }
-
     next();
 });
 
 // compare the incoming password with the hashed password
-ownerSchema.methods.isCorrectPassword = async function (password) {
+userSchema.methods.isCorrectPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
 };
 
-ownerSchema.virtual('dog_count').get(function() {
-    return this.dogs.length;
+userSchema.virtual('cart_count').get(function() {
+    return this.cart.length;
 });
 
-const Owner = model('Owner', ownerSchema);
+const User = model('User', userSchema);
 
-module.exports = Owner;
+module.exports = User;
