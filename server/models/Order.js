@@ -1,10 +1,9 @@
 const { Schema, model } = require('mongoose');
-const cartSchema = require("./Cart");
 
 const orderSchema = new Schema(
     {
         orderTotal: Number,
-        cart: cartSchema,
+        cart: [String],
         delivered: Boolean
     },
     {

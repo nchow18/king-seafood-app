@@ -1,14 +1,22 @@
 const { Schema } = require('mongoose');
 
-const cartSchema = new Schema(
+const cartSchema = new Schema( 
     {
-        cart_list: [],
-        deliveryDate: String,
+        cart_list: [String],
         paid: {
             type: Boolean,
-            required: false 
+            required: true,
+            trim: true
+        },
+        deliveryDate: {
+            type: String,
+            trim: true
+        },
+        time: {
+            type: String,
+            trim: true
         }
-    }
+    },
 );
 
 module.exports = cartSchema;

@@ -11,8 +11,12 @@ const typeDefs = gql`
         phone: String
         stripe_customer_id: String
         stripe_setup_intent: String
-        cart: Cart
-        pastOrders: Order
+        cart: [String]
+        pastOrders: [String]
+    }
+
+    input CartInput {
+        cart: [String]
     }
 
     input UserInput {
@@ -23,24 +27,27 @@ const typeDefs = gql`
         admin: Boolean
         address: AddressInput
         phone: String
+        cart: [String]
     }
 
-    type Cart {
-        _id: ID
-        deliveryDate: String
-        paid: Boolean
-    }
-
-    type AuthUser {
-        token: ID
-        user: User
+    input UserAccountInput {
+        first_name: String!
+        last_name: String!
+        email: String!
+        password: String!
+        admin: Boolean
+        address: AddressInput
+        phone: String
+        cart: [String]
+        stripe_customer_id: String
+        stripe_setup_intent: String
     }
 
     type Product {
         _id: ID
-        product_name: String!
-        product_category: String!
-        product_price: Int!
+        product_name: String
+        product_category: String
+        product_price: Int
         product_description: String
         product_weight: String
         product_picture: String
@@ -49,7 +56,6 @@ const typeDefs = gql`
     }
 
     input ProductInput {
-        _id: ID
         product_name: String!
         product_category: String!
         product_price: Int!
@@ -63,7 +69,12 @@ const typeDefs = gql`
     type Order {
         _id: ID
         orderTotal: Int
-        cart: Cart
+        cart: [String]
+    }
+
+    type OrderInput {
+        orderTotal: Int
+        cart: [String]
     }
 
     type Address {
@@ -126,21 +137,28 @@ const typeDefs = gql`
         data: [Payment]
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     type Query {
         user(user_id: ID!): User
         users: [User]
         userMe: User
 
-        order(order_id: ID): Order
-        orders: [Order]
-
+        product(product_id: ID!): Product
         products: [Product]
-        product(product_id: ID): Product
-        
     }
 
     type Mutation {
-        addUser(input: UserInput): AuthUser
+        addUser(input: UserInput): Auth
+        login(email: String!, password: String!): Auth
+        addCart(input: [CartInput]): User
+        updateUser(input: UserAccountInput): User
+        addProduct(input: ProductInput!): Product
+        updateProduct(input: ProductInput!, product_id: ID!): Product
+
     }
 
 `;

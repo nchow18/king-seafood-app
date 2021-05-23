@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const addressSchema = require('./Address');
-const cartSchema = require('./Cart');
 
 const userSchema = new Schema(
     {
@@ -34,8 +33,8 @@ const userSchema = new Schema(
         phone: {
             type: String
         },
-        cart: [cartSchema],
-        pastOrders: [],
+        cart: [String],
+        pastOrders: [String],
         stripe_customer_id: {
             type: String,
             match: [/^cus_.+/, 'Must be a valid stripe customer id!']
@@ -67,7 +66,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 userSchema.virtual('cart_count').get(function() {
-    return this.cart.length;
+    return this.cart.cart_list.length;
 });
 
 const User = model('User', userSchema);
