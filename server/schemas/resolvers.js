@@ -40,6 +40,9 @@ const resolvers = {
         },
         orders: async(parent, args, context) => {
             return await Order.find({})
+        },
+        promo: async (parent, args, context) => {
+            return await Promo.find({})
         }
 
     },
@@ -92,15 +95,13 @@ const resolvers = {
             }
         throw new AuthenticationError('Not Logged in');
         },
-        removeCart: async(parent, { cart_id }, context) => {
-
-            console.log(cart_id);
+        removeCart: async(parent, { product_id }, context) => {
 
             if(context.user) {
 
                 return await User.findByIdAndUpdate(
                     context.user._id,
-                    { $pull: { cart: { product_id: cart_id }}},
+                    { $pull: { cart: { product_id: product_id }}},
                     { new: true }
                 )
             }
@@ -149,23 +150,112 @@ const resolvers = {
         },
         addOrder: async (parent, { input }, context) => {
 
+            if (context.user) {
             const user_data = await User.findById(context.user._id);
             const user_cart = user_data.cart;
+            const productArr = await Product.find({});
             
-            // add User.Cart array into Order.cart Array
-            input.cart = user_cart;
+            var cart_total = [];
+            var cart_array = [];
 
-            console.log(input);
+            for (var i = 0; i < user_cart.length; i++) {
 
-            if (context.user) {
+                const cart_price = productArr.filter(product => product._id = user_cart[i].product_id)
+                const price = cart_price[0].product_price;
+                const quantity = user_cart[i].quantity;
+
+                cart_total.push(price * quantity);
+            }
+
+            //add the total of the cart, product_price * quantity
+            const order_total = cart_total.reduce((a,b) => a + b, 0);
+
                 return await Order.create(
-                    input
+                    { paid: input.paid, delivery_date: input.delivery_date, orderTotal: order_total }
                 )
             }
             throw new AuthenticationError('Not logged in');
         },
-        //updateOrder(delivered)
-        //updatePromotion
+        updateOrder: async(parent, { input, order_id }, context) => {
+  
+            if (context.user) {
+                const user_id = context.user._id;
+                const user_data = await User.findById(user_id);
+                const cart_data = user_data.cart;
+                var cart_array = [];
+
+                for (var i = 0; i < cart_data.length; i++) {
+                    cart_array.push(cart_data[i])
+                }
+
+                return await Order.findByIdAndUpdate(
+                    order_id,
+                    {$push: { cart: cart_array }},
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('Not Logged In');
+        },
+        updateOrderStatus: async(parent, { input, order_id }, context) => {
+            if (context.user.admin === true ) {
+                return await Order.findByIdAndUpdate(
+                    order_id,
+                    {...input},
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('Not Admin')
+        },
+        createPromo: async(parent, { input }, context) => {
+            if (context.user.admin === true) {
+                const promoQty = await Promo.find({})
+                if (promoQty.length >= 1) {
+
+                throw new AuthenticationError('request cancelled')
+                }
+                return await Promo.create(
+                    input
+                )
+            }
+            throw new AuthenticationError('Not Admin');
+        },
+        updatePromo: async(parent, { input, promo_id }, context) => {
+            if (context.user.admin === true) {
+                return await Promo.findByIdAndUpdate(
+                    promo_id,
+                    {...input},
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('Not Admin');
+        },
+        updateUserAddress: async(parent, { input, user_id }, context) => {
+            if(context.user) {
+
+                console.log(input);
+                await User.findByIdAndUpdate(
+                    user_id,
+                    {$set: { address: [] }},
+                    { new: true }
+                )
+                return await User.findByIdAndUpdate(
+                    user_id,
+                    {$push: { address: input }}
+                )
+            }
+            throw new AuthenticationError('Not Logged In');
+        },
+        updateUserAccount: async(parent, { input, user_id }, context) => {
+            if (context.user) {
+                return await User.findByIdAndUpdate(
+                    user_id,
+                    {...input},
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('Not Logged In');
+        }
+        
 
     }
 };

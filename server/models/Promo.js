@@ -53,9 +53,9 @@ const promoSchema = new Schema(
             required: false,
             trim: true
         },
-        featuredProduct1: [],
-        featuredProduct2: [],
-        featuredProduct3: [],
+        featuredProduct1: String,
+        featuredProduct2: String,
+        featuredProduct3: String,
     },
     {
         toJSON: {

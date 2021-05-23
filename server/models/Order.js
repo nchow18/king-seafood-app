@@ -1,4 +1,12 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
+
+const orderCartSchema = new Schema(
+    {
+        product_id: String,
+        quantity: Number
+    }
+)
 
 const orderSchema = new Schema(
     {
@@ -6,16 +14,23 @@ const orderSchema = new Schema(
         cart: [String],
         delivery_status: {
             type: Boolean,
-            required: true
+            required: true,
+            default: false
         },
         delivery_date: {
             type: String,
             required: true,
         },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: timestamp => dateFormat(timestamp)
+        },
         paid: {
             type: Boolean,
             required: true
-        }
+        },
+        cart: [orderCartSchema],
     },
     {
         toJSON: {

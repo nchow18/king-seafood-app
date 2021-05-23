@@ -7,7 +7,7 @@ const typeDefs = gql`
         last_name: String
         email: String
         admin: Boolean
-        address: Address
+        address: [Address]
         phone: String
         stripe_customer_id: String
         stripe_setup_intent: String
@@ -26,23 +26,23 @@ const typeDefs = gql`
     }
 
     input UserInput {
-        first_name: String!
-        last_name: String!
-        email: String!
-        password: String!
+        first_name: String
+        last_name: String
+        email: String
+        password: String
         admin: Boolean
-        address: AddressInput
+        address: [AddressInput]
         phone: String
         cart: [String]
     }
 
     input UserAccountInput {
-        first_name: String!
-        last_name: String!
+        first_name: String
+        last_name: String
         email: String!
-        password: String!
+        password: String
         admin: Boolean
-        address: AddressInput
+        address: [AddressInput]
         phone: String
         cart: [String]
         stripe_customer_id: String
@@ -77,17 +77,26 @@ const typeDefs = gql`
     type Order {
         _id: ID
         orderTotal: Int
-        cart: [String]
+        cart: [Cart]
         paid: Boolean
         delivery_date: String
         delivery_status: Boolean
+        createdAt: String
     }
 
     input OrderInput {
         orderTotal: Int
-        cart: [String]
+        cart: [CartInput]
         paid: Boolean!
         delivery_date: String!
+        delivery_status: Boolean
+    }
+
+    input OrderUpdate {
+        cart: [CartInput]
+    }
+
+    input OrderStatus {
         delivery_status: Boolean!
     }
 
@@ -107,6 +116,39 @@ const typeDefs = gql`
         postal_code: String!
         region: String!
         state: String!
+    }
+
+    type Promo {
+        _id: ID
+        promoMsg1: String
+        promo1Start: String
+        promo1End: String
+        promoMsg2: String
+        promo2Start: String
+        promo2End: String
+        promoMsg3: String
+        promo3Start: String
+        promo3End: String
+        mainPromo: String
+        featuredProduct1: String
+        featuredProduct2: String
+        featuredProduct3: String
+    }
+
+    input PromoInput {
+        promoMsg1: String
+        promo1Start: String
+        promo1End: String
+        promoMsg2: String
+        promo2Start: String
+        promo2End: String
+        promoMsg3: String
+        promo3Start: String
+        promo3End: String
+        mainPromo: String
+        featuredProduct1: String
+        featuredProduct2: String
+        featuredProduct3: String
     }
 
     type Customer {
@@ -166,6 +208,8 @@ const typeDefs = gql`
 
         order(order_id: ID!): Order
         orders: [Order]
+
+        promo: [Promo]
     }
 
     type Mutation {
@@ -178,9 +222,12 @@ const typeDefs = gql`
         updateProduct(input: ProductInput!, product_id: ID!): Product
         removeProduct(product_id: ID!): Product
         addOrder(input: OrderInput!): Order
-        updateOrder(input: OrderInput): Order
-
-
+        updateOrder(input: OrderUpdate, order_id: ID!): Order
+        updateOrderStatus(input: OrderStatus, order_id: ID!): Order
+        createPromo(input: PromoInput): Promo
+        updatePromo(input: PromoInput, promo_id: ID!): Promo
+        updateUserAccount(input: UserInput, user_id: ID!): User
+        updateUserAddress(input: AddressInput, user_id: ID!): User
     }
 
 `;
