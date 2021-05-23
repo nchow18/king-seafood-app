@@ -2,6 +2,21 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const addressSchema = require('./Address');
 
+const cartSchema = new Schema(
+    {
+        product_id: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        quantity: {
+            type: Number,
+            required: true,
+            trim: true
+        }
+    }
+)
+
 const userSchema = new Schema(
     {
         first_name: {
@@ -33,7 +48,7 @@ const userSchema = new Schema(
         phone: {
             type: String
         },
-        cart: [String],
+        cart: [cartSchema],
         pastOrders: [String],
         stripe_customer_id: {
             type: String,

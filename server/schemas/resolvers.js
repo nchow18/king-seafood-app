@@ -69,17 +69,42 @@ const resolvers = {
         },
         addCart: async (parent, { input }, context) => {
 
-            console.log(input[0].cart[0])
-            console.log(context.user);
-
             if (context.user) {
+                const product_id = input[0].product_id;
+                const user = await User.findById(context.user._id)
+
+                var duplicate = '';
+
+                for (var i = 0; i < user.cart.length; i++ ) {
+                    if (product_id === user.cart[i].product_id) {
+                        duplicate = 'exists';
+                    }
+                }
+
+                if (duplicate !== 'exists') {
+                    return await User.findByIdAndUpdate(
+                        { _id: context.user._id },
+                        {$addToSet: { cart: input[0] }},
+                        { new: true }
+                    )
+                }
+                throw new AuthenticationError('Item exists in cart');
+            }
+        throw new AuthenticationError('Not Logged in');
+        },
+        removeCart: async(parent, { cart_id }, context) => {
+
+            console.log(cart_id);
+
+            if(context.user) {
+
                 return await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    {$addToSet: { cart: input[0].cart[0]}},
+                    context.user._id,
+                    { $pull: { cart: { product_id: cart_id }}},
                     { new: true }
                 )
             }
-        throw new AuthenticationError('Not Logged in');
+            throw new AuthenticationError('Not logged in');
         },
         updateUser: async (parent, { input }, context) => {
 
@@ -139,7 +164,6 @@ const resolvers = {
             }
             throw new AuthenticationError('Not logged in');
         },
-        //addOrder(deliveryDate, time, cart)
         //updateOrder(delivered)
         //updatePromotion
 

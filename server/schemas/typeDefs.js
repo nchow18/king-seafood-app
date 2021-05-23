@@ -11,12 +11,18 @@ const typeDefs = gql`
         phone: String
         stripe_customer_id: String
         stripe_setup_intent: String
-        cart: [String]
+        cart: [Cart]
         pastOrders: [String]
     }
 
+    type Cart {
+        product_id: String
+        quantity: Int
+    }
+
     input CartInput {
-        cart: [String]
+        product_id: String
+        quantity: Int
     }
 
     input UserInput {
@@ -53,6 +59,7 @@ const typeDefs = gql`
         product_picture: String
         product_nameChinese: String
         product_descriptionChinese: String
+        product_status: Boolean!
     }
 
     input ProductInput {
@@ -64,6 +71,7 @@ const typeDefs = gql`
         product_picture: String
         product_nameChinese: String
         product_descriptionChinese: String
+        product_status: Boolean
     }
 
     type Order {
@@ -164,12 +172,14 @@ const typeDefs = gql`
         addUser(input: UserInput): Auth
         login(email: String!, password: String!): Auth
         addCart(input: [CartInput]): User
+        removeCart(product_id: ID!): User
         updateUser(input: UserAccountInput): User
         addProduct(input: ProductInput!): Product
         updateProduct(input: ProductInput!, product_id: ID!): Product
         removeProduct(product_id: ID!): Product
         addOrder(input: OrderInput!): Order
         updateOrder(input: OrderInput): Order
+
 
     }
 
