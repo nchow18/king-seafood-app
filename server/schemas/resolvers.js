@@ -31,16 +31,20 @@ const resolvers = {
         product: async (parent, { product_id }, context) => {
             console.log( product_id )
             return await Product.findById(product_id)
-                .select('-__v -password');
         },
         products: async (parent, args, context) => {
             return await Product.find({})
-                .select('-__v -password');
+        },
+        order: async(parent, { order_id }, context) => {
+            return await Order.findById(order_id)
+        },
+        orders: async(parent, args, context) => {
+            return await Order.find({})
         }
 
     },
     Mutation: {
-        addUser: async (parent, {input}) => {
+        addUser: async (parent, { input }) => {
             const user = await User.create(input);
             const token = signToken(user);
 
@@ -111,7 +115,30 @@ const resolvers = {
             }
             throw new AuthenticationError('Not Admin')
         },
-        //removeProduct
+        removeProduct: async(parent, { input, product_id }, context) => {
+            if (context.user.admin === true) {
+                return await Product.findByIdAndDelete(
+                    product_id,
+                )
+            }
+        },
+        addOrder: async (parent, { input }, context) => {
+
+            const user_data = await User.findById(context.user._id);
+            const user_cart = user_data.cart;
+            
+            // add User.Cart array into Order.cart Array
+            input.cart = user_cart;
+
+            console.log(input);
+
+            if (context.user) {
+                return await Order.create(
+                    input
+                )
+            }
+            throw new AuthenticationError('Not logged in');
+        },
         //addOrder(deliveryDate, time, cart)
         //updateOrder(delivered)
         //updatePromotion

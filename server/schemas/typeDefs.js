@@ -70,11 +70,17 @@ const typeDefs = gql`
         _id: ID
         orderTotal: Int
         cart: [String]
+        paid: Boolean
+        delivery_date: String
+        delivery_status: Boolean
     }
 
-    type OrderInput {
+    input OrderInput {
         orderTotal: Int
         cart: [String]
+        paid: Boolean!
+        delivery_date: String!
+        delivery_status: Boolean!
     }
 
     type Address {
@@ -149,6 +155,9 @@ const typeDefs = gql`
 
         product(product_id: ID!): Product
         products: [Product]
+
+        order(order_id: ID!): Order
+        orders: [Order]
     }
 
     type Mutation {
@@ -158,6 +167,9 @@ const typeDefs = gql`
         updateUser(input: UserAccountInput): User
         addProduct(input: ProductInput!): Product
         updateProduct(input: ProductInput!, product_id: ID!): Product
+        removeProduct(product_id: ID!): Product
+        addOrder(input: OrderInput!): Order
+        updateOrder(input: OrderInput): Order
 
     }
 

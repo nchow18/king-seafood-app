@@ -4,7 +4,18 @@ const orderSchema = new Schema(
     {
         orderTotal: Number,
         cart: [String],
-        delivered: Boolean
+        delivery_status: {
+            type: Boolean,
+            required: true
+        },
+        delivery_date: {
+            type: String,
+            required: true,
+        },
+        paid: {
+            type: Boolean,
+            required: true
+        }
     },
     {
         toJSON: {
