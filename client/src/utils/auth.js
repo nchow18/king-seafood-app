@@ -203,17 +203,23 @@ getPromotions() {
     window.location.href = `/product/${productId}`;
   }
 
-  setSingleOrder(order_id) {
-    return localStorage.setItem('id_order', order_id);
-  }
 
-  updateSingleProduct(product_id) {
+
+  updateSingleProduct() {
+    const product_id = this.getSingleProductId();
     window.location.href = `/productupdate/${product_id}`;
   }
 
-  getSingleProductId(product_id) {
-    console.log(product_id);
-    return product_id;
+  setAdminSingleProductId(id) {
+    return localStorage.setItem('id_admin_product', id)
+  }
+
+  getSingleProductId() {
+    return localStorage.getItem('id_admin_product')
+  }
+
+  setSingleOrder(order_id) {
+    return localStorage.setItem('id_order', order_id);
   }
 
   getSingleOrder() {

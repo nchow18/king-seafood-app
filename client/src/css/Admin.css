@@ -84,3 +84,10 @@
 .single-order-list {
     margin-right: 1rem;
 }
+
+.product-form-container {
+    width: 30rem;
+    background-color: var(--light-blue);
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgb(0,0,0,0.5);
+}

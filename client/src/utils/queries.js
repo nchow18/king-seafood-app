@@ -40,6 +40,7 @@ query product($product_id: ID!) {
     product_picture
     product_nameChinese
     product_descriptionChinese
+    product_status
   }
 }
 `;

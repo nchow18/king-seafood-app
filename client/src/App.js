@@ -128,13 +128,15 @@ function App() {
 					  )}
 
 					  {Auth.getAdmin() === true && (
-					  	<Route exact path="/admindashboard" component={Dashboard} />
+						<>
+							<Route exact path="/admindashboard" component={Dashboard} />
+							<Route exact path="/productupdate/:id" component={SingleProductEdit} />
+						</>
 					  )}
 					  {Auth.getAdmin() === false && (
 						<>
 							<Route exact path="/account" component={Account} />
 							<Route exact path="/cart" component={Cart} />
-							<Route exact path="/productupdate/:id" components={SingleProductEdit} />
 						</>
 					  )}
 					  <Route exact path="/product/:id" component={SingleProduct} />

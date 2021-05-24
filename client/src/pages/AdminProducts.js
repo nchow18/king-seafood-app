@@ -3,7 +3,7 @@ import Auth from '../utils/auth';
 import '../css/Admin.css';
 import AdminCategories from '../components/AdminComponents/Products';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { ADD_PRODUCT, REMOVE_PRODUCT, UPDATE_PRODUCT } from '../utils/mutations';
+import { ADD_PRODUCT } from '../utils/mutations';
 
 
 

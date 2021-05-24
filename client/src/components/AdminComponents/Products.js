@@ -16,10 +16,9 @@ function AdminCategories(props) {
         product_nameChinese: '',
         product_descriptionChinese: '',
     })
-    const [state, dispatch] = useStoreContext();
     const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT)
     const { loading, data} = useQuery(PRODUCTS)
-    const { products } = state;
+
 
     const productArr = data?.products || {};
 
@@ -31,27 +30,25 @@ function AdminCategories(props) {
         })
     }
 
-    function updateProductFormSubmit(id) {
-        Auth.getSingleProductId(id);
-        Auth.updateSingleProduct(id);
+    const updateProductFormSubmit = async (e) => {
+        Auth.setAdminSingleProductId(e);
+        Auth.updateSingleProduct();
     } 
-
-    const deleteProductFormSubmit = async (e) => {
-        e.preventDefault();
-    }
 
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
     console.log(formData);
 
+
     return (
         <>  
+        <div className="flex-start-column">
             <button>Refresh Products Data</button>
             {productArr.map((product) => (
                 <div className="admin-product-row flex-start-row night-bg">
                     <div className="product-id id-input-width" value={`${product._id}`}>{product._id}</div>
-                    <form className="flex-start-row" onSubmit={updateProductFormSubmit}>
+                    <div className="flex-start-row">
 
                     <div className="flex-start-column">
                             <label className="bold">Name</label>
@@ -89,11 +86,11 @@ function AdminCategories(props) {
                             <label className="bold">Picture Location</label>
                             <input value={formData.product_picture} onChange={handleInputChange} className="product-picture admin-input-width" name='product_picture' placeholder={product.product_picture} type="text"></input>
                         </div>
-                            <button id={product._id} onClick={() => {updateProductFormSubmit( product._id )}} className="admin-product-button admin-input-width" type='submit'>UPDATE</button>
-                    </form>
-                    <button className="admin-product-button" id={product._id} onClick={() => { deleteProductFormSubmit(product._id )}}>DELETE</button>
+                            <button id={product._id} onClick={() => {updateProductFormSubmit( product._id )}} className="admin-product-button admin-input-width">UPDATE</button>
+                    </div>
                 </div>
             ))}
+            </div>
         </>
     )
 }
