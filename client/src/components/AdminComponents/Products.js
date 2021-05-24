@@ -3,6 +3,7 @@ import Auth from '../../utils/auth';
 import { PRODUCT, PRODUCTS } from '../../utils/queries';
 import { REMOVE_PRODUCT, UPDATE_PRODUCT } from '../../utils/mutations';
 import { useMutation, useLazyQuery } from '@apollo/react-hooks';
+import { useStoreContext } from '../../utils/GlobalState';
 
 function AdminCategories(props) {
 
@@ -15,14 +16,20 @@ function AdminCategories(props) {
         product_nameChinese: '',
         product_descriptionChinese: '',
     })
-
+    const [state, dispatch] = useStoreContext();
     const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT)
     const [productData, { loading, data }] = useLazyQuery(PRODUCTS)
     const { products } = state;
 
     useEffect(() => {
-        if ()
-    })
+        if (!products && !data) {
+            productData();
+        } else if (!products && !data) {
+            dispatch({
+                type: PRODUCTS
+            })
+    }
+}, [products, data, loading, dispatch]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -31,6 +38,8 @@ function AdminCategories(props) {
             [name]: value
         })
     }
+
+    console.log(data);
 
     const updateProductFormSubmit = async (e) => {
         e.preventDefault();
