@@ -119,3 +119,22 @@ body {
     box-shadow: 10px 10px 20px rgb(0,0,0,0.7);
     padding: 2rem;
 }
+
+.margin-2rem {
+    margin: 2rem;
+}
+
+.product-admin-list {
+    background-color: white;
+    border: 1px solid black;
+    width: 12rem;
+    height: 2rem;
+    padding: .4rem;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.font-center {
+    text-align: center;
+}

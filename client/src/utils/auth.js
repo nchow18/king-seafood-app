@@ -204,7 +204,6 @@ getPromotions() {
   }
 
 
-
   updateSingleProduct() {
     const product_id = this.getSingleProductId();
     window.location.href = `/productupdate/${product_id}`;

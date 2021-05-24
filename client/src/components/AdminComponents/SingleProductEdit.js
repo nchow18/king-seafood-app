@@ -10,8 +10,9 @@ function SingleProductEdit() {
 
 
     const location = useLocation();
-    const product_id = Auth.getSingleProductId()
-    const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT)
+    const product_id = Auth.getSingleProductId();
+    const [removeProduct, { error }] = useMutation(REMOVE_PRODUCT);
+    const [updateProduct] = useMutation(UPDATE_PRODUCT);
     const { loading, data} = useQuery(PRODUCT, { variables: { product_id: product_id }})
 
     const product = data?.product || {};
@@ -60,7 +61,25 @@ function SingleProductEdit() {
     } 
 
     const deleteProductFormSubmit = async (e) => {
-        e.preventDefault();
+        var confirm = window.confirm('Continue to DELETE product');
+
+        if (confirm === false) {
+            return false;
+        }
+
+        try {
+            removeProduct({ variables: {
+                product_id: product_id
+            }})
+
+            window.location.href =`/admindashboard`;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    function returnDashboard() {
+        window.location.href = `/admindashboard`;
     }
 
     if (loading) return 'Loading...';
@@ -72,6 +91,7 @@ function SingleProductEdit() {
         location.pathname === `/productupdate/${product_id}` &&
         <>
             <div className="flex-c-column content">
+                <button className="margin-2rem" onClick={returnDashboard}>Return To Product List</button>
                 <form className="flex-c-column product-form-container" onSubmit={updateProductFormSubmit}>
                     <div className="product-id id-input-width" value={product._id}>{product._id}</div>
                     <div className="flex-start-column">
