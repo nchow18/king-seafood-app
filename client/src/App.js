@@ -119,17 +119,17 @@ function App() {
                       <Route exact path="/about" component={About} />
                       <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
-					  {!Auth.getToken() && (
+					  {!Auth.loggedIn() && (
 						<>
 							<Route exact path="/signup" component={SignUp} />
 							<Route exact path="/signin" component={SignIn} />
 						</>
 					  )}
 
-					  {Auth.getProfileType() === 'admin' && (
+					  {Auth.getAdmin() === true && (
 					  	<Route exact path="/admindashboard" component={Dashboard} />
 					  )}
-					  {Auth.getProfileType === 'user' && (
+					  {Auth.getAdmin() === false && (
 						<>
 							<Route exact path="/account" component={Account} />
 							<Route exact path="/cart" component={Cart} />
