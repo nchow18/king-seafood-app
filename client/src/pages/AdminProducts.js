@@ -134,7 +134,7 @@ function AdminProducts() {
                     CURRENT PRODUCTS
                 </div>
                 <form className="sort-list" onSubmit={sortCategory}>
-                    <label for="category">Sort by CATEGORY:</label>
+                    <label>Sort by CATEGORY:</label>
                     <select id="select-category" name="category">
                         {categories.map((category) => (
                             <option key={category} value={category}>{category}</option>

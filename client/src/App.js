@@ -21,6 +21,7 @@ import Dashboard from './pages/Dashboard';
 import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
 import SingleOrder from './pages/AdminSingleOrder';
+import SingleProductEdit from './components/AdminComponents/SingleProductEdit'
 
 const client = new ApolloClient({
     request: operation => {
@@ -133,6 +134,7 @@ function App() {
 						<>
 							<Route exact path="/account" component={Account} />
 							<Route exact path="/cart" component={Cart} />
+							<Route exact path="/productupdate/:id" components={SingleProductEdit} />
 						</>
 					  )}
 					  <Route exact path="/product/:id" component={SingleProduct} />

@@ -207,6 +207,15 @@ getPromotions() {
     return localStorage.setItem('id_order', order_id);
   }
 
+  updateSingleProduct(product_id) {
+    window.location.href = `/productupdate/${product_id}`;
+  }
+
+  getSingleProductId(product_id) {
+    console.log(product_id);
+    return product_id;
+  }
+
   getSingleOrder() {
     return localStorage.getItem('id_order')
   }
