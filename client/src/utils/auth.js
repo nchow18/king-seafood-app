@@ -4,9 +4,14 @@ class AuthService {
   getProfileType() {
     if (this.loggedIn()) {
         const { data } = decode(this.getToken());
-        return data?.admin === undefined ? "walker" : (data?.admin ? "admin" : "owner");
-    } else {
-        return "guest";
+        return data.admin === true ? 'admin' : 'user'
+    } 
+  }
+
+  getAdmin() {
+    if (this.loggedIn()) {
+      const { data } = decode(this.getToken());
+      return data.admin ? true : false
     }
   }
 
@@ -287,12 +292,12 @@ getPromotions() {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
 
-    if (this.getProfileType() === 'owner') {
-      window.location.assign('/ownerprofile');
-    } else if (this.getProfileType() === 'walker') {
-      window.location.assign('/walkerprofile');
+    if (this.loggedIn() === false) {
+      window.location.assign('/home');
+    } else if (this.getProfileType() === 'user') {
+      window.location.assign('/account');
     } else if (this.getProfileType() === 'admin') {
-        window.location.assign('/adminprofile');
+        window.location.assign('/admindashboard');
     }
   }
 

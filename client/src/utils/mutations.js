@@ -1,414 +1,208 @@
 import gql from 'graphql-tag';
 
-/* ORDER mutations
-    - ADD_ORDER
-    - UPDATE_ORDER
-    - UPDATE_ORDER_STATUS
-    - REMOVE_ORDER
-*/
-export const ADD_ORDER = gql`
-    mutation addOrder($input: OrderInput!) {
-        addOrder(input: $input) {
+//0 LOGIN
+//1 ADD_USER
+//2 ADD_CART
+//3 REMOVE_CART
+//4 UPDATE_USER
+//5 ADD_PRODUCT
+//6 UPDATE_PRODUCT
+//7 REMOVE_PRODUCT
+//8 ADD_ORDER
+//9 UPDATE_ORDER
+//10 UPDATE_ORDER_STATUS
+//11 UPDATE_PROMO
+//12 UPDATE_ADDRESS
+
+export const LOGIN = gql`
+    mutation login($email: String!, $password:String!) {
+        login(email: $email, password: $password) {
+        token
+        user {
             _id
-            service_date
-            service_time
-            owner{
-                _id
-            }
-            walker{
-                _id
-            }
-        }
-    }
-`;
-
-export const UPDATE_ORDER = gql`
-    mutation updateOrder($order_id: ID!, $input: UpdateOrderInput!) {
-        updateOrder(order_id: $order_id, input: $input) {
-            _id
-            service_date
-            service_time
-            owner{
-                _id
-            }
-            walker{
-                _id
-            }
-            dogs{
-                _id
-            }
-        }
-    }
-`;
-
-/* example query variables
-
-{
-  "order_id": "609d910d1342e402388e2a2f",
-  "status": "IN_PROGRESS"
-}
-
-*/
-
-export const UPDATE_ORDER_STATUS = gql`
-    mutation updateOrderStatus($order_id: ID!, $status: String!) {
-        updateOrderStatus(order_id: $order_id, status: $status) {
-            _id
-            service_date
-            service_time
-            status
-            owner{
-                _id
-            }
-            walker{
-                _id
-            }
-            dogs{
-                _id
-            }
-        }
-    }
-`;
-
-export const UPDATE_ORDER_COORDS = gql`
-    mutation updateOrderCoords($order_id: ID!, $coords: Array!) {
-        updateOrderCoords(order_id: $order_id, coords: $coords) {
-            _id
-            serviceDate
-            serviceTime
-            owner{
-                _id
-            }
-            walker{
-                _id
-            }
-            dogs{
-                _id
-            }
-            coords
-        }
-    }
-`;
-
-export const REMOVE_ORDER = gql`
-    mutation removeOrder($order_id: ID!) {
-        removeOrder(order_id: $order_id) {
-            _id
-            service_date
-            service_time
-            owner{
-                _id
-            }
-            walker{
-                _id
-            }
-            dogs{
-                _id
-            }
-        }
-    }
-`;
-
-/* REVIEW mutations
-    - ADD_REVIEW
-    - REMOVE_REVIEW
-    - UPDATE_REVIEW
-    - CLEAR_REVIEW
-*/
-
-export const ADD_REVIEW = gql`
-  mutation addReview( $input: ReviewInput ) {
-    addReview( input: $input ) {
-      _id
-      first_name
-      last_name
-      reviews{
-        owner_id{
-            _id
-            first_name
-            last_name
-          }
-        rating
-        review_text
-      }
-    }
-  }
-`;
-
-export const REMOVE_REVIEW = gql`
-    mutation removeReview($walker_id: ID! ) {
-        removeReview(walker_id: $walker_id ) {
-            _id
-            first_name
-            last_name
-            reviews{
-                owner_id{
-                    _id
-                    first_name
-                    last_name
-                  }
-                rating
-                review_text
-            }
-        }
-    }
-`;
-
-export const UPDATE_REVIEW = gql`
-    mutation updateReview($input: ReviewInput ) {
-        updateReview(input: $input ) {
-            _id
-            first_name
-            last_name
-            reviews{
-                owner_id{
-                    _id
-                    first_name
-                    last_name
-                  }
-                rating
-                review_text
-            }
-        }
-    }
-`;
-
-export const CLEAR_REVIEW = gql`
-    mutation clearReview($walker_id: ID! ) {
-        clearReview(walker_id: $walker_id) {
-            _id
-            first_name
-            last_name
-            reviews{
-                owner_id{
-                    _id
-                    first_name
-                    last_name
-                  }
-                rating
-                review_text
-            }
-            average_rating
-        }
-    }
-`;
-
-/* WALKER mutations
-    - ADD_WALKER
-    - LOGIN_WALKER
-    - UPDATE_WALKER_PROFILE
-    - UPDATE_WALKER_PASSWORD
-    - UPDATE_WALKER_AVAILABILITY
-    - UPDATE_WALKER_STATUS
-*/
-
-export const ADD_WALKER = gql`
-    mutation addWalker($input: WalkerInput) {
-        addWalker(input: $input) {
-            token
-            walker {
-                _id
-                first_name
-                last_name
-                email
-            }
-        }
-    }
-`;
-
-export const LOGIN_WALKER = gql`
-    mutation loginWalker($email: String!, $password: String!) {
-        loginWalker(email: $email, password: $password) {
-            token
-            walker {
-                _id
-                email
-            }
-        }
-    }
-`;
-
-export const UPDATE_WALKER_PROFILE = gql`
-    mutation updateWalkerProfile($input: WalkerProfileInput) {
-        updateWalkerProfile(input: $input) {
-            _id
-            first_name
-            last_name
             email
-            avatar
-            address {
-                street
-                city
-                neighbourhood
-                province
-                postal_code
-            }
-            reviews{
-                owner_id{
-                    _id
-                    first_name
-                    last_name
-                  }
-                rating
-                review_text
-            }
-            earnings
-            average_rating
-            neighbourhoods
-            status
-            availability {
-                date
-                slot9am
-                slot11am
-                slot1pm
-                slot3pm
-                slot5pm
-                slot7pm
-                slot9pm
-            }
+            admin
+        }
         }
     }
 `;
 
-export const UPDATE_WALKER_PASSWORD = gql`
-    mutation updateWalkerPassword($old_password: String!, $new_password: String!) {
-        updateWalkerPassword(old_password: $old_password, new_password: $new_password) {
-            _id
-        }
-    }
-`;
-
-export const UPDATE_WALKER_AVAILABILITY = gql`
-    mutation updateWalkerAvailability($input: [AvailabilityInput]) {
-        updateWalkerAvailability(input: $input) {
-            _id
-            first_name
-            last_name
-            email
-            avatar
-            address {
-                street
-                city
-                neighbourhood
-                province
-                postal_code
-            }
-            reviews{
-                owner_id{
-                    _id
-                    first_name
-                    last_name
-                  }
-                rating
-                review_text
-            }
-            earnings
-            average_rating
-            neighbourhoods
-            status
-            availability {
-                date
-                slot9am
-                slot11am
-                slot1pm
-                slot3pm
-                slot5pm
-                slot7pm
-                slot9pm
-            }
-        }
-    }
-`;
-
-/* OWNER mutations
-    - ADD_OWNER
-    - LOGIN_OWNER
-*/
-
-export const ADD_OWNER = gql`
-    mutation addOwner($input: OwnerInput) {
-        addOwner(input: $input) {
+export const ADD_USER = gql`
+    mutation addUser($input: UserInput) {
+        addUser(input: $input) {
             token
-            owner {
+            user {
                 _id
                 first_name
                 last_name
                 email
                 admin
-                dogs {
-                    name
-                }
             }
         }
     }
 `;
 
-export const LOGIN_OWNER = gql`
-    mutation loginOwner($email: String!, $password: String!) {
-        loginOwner(email: $email, password: $password) {
-            token
-            owner {
-                _id
-                email
-            }
+export const ADD_CART = gql`
+    mutation addCart($input: [CartInput]) {
+        addCart(input: $input) {
+            cart {
+            product_id
+            quantity
         }
-}
+        _id
+        first_name
+        last_name
+        }
+    }
 `;
 
-export const UPDATE_OWNER_PROFILE = gql`
-    mutation updateOwnerProfile($input: OwnerProfileInput) {
-        updateOwnerProfile(input: $input) {
+export const REMOVE_CART = gql`
+    mutation removeCart($product_id: ID!) {
+        removeCart(product_id: $product_id) {
+            cart {
+            product_id
+            quantity
+        }
+        _id
+        first_name
+        last_name
+        }
+    }
+`;
+
+export const UPDATE_USER = gql`
+    mutation updateUser($input: UserAccountInput) {
+        updateUser(input: $input) {
+        first_name
+        last_name
+        email
+        phone
+        _id
+        }
+    }
+`;
+
+export const ADD_PRODUCT = gql`
+    mutation addProduct($input: ProductInput!) {
+        addProduct(input:$input) {
+        _id
+        product_name
+        product_category
+        product_price
+        product_description
+        product_weight
+        product_picture
+        product_nameChinese
+        product_descriptionChinese
+        product_status
+        }
+    }
+`;
+
+export const UPDATE_PRODUCT = gql`
+    mutation updateProduct($input: ProductInput!, $product_id: ID!) {
+        updateProduct(input:$input, product_id: $product_id) {
+        _id
+        product_name
+        product_category
+        product_price
+        product_description
+        product_weight
+        product_picture
+        product_nameChinese
+        product_descriptionChinese
+        product_status
+        }
+    }
+`;
+
+export const REMOVE_PRODUCT = gql`
+    mutation removeProduct($product_id: ID!) {
+        removeProduct(product_id: $product_id) {
             _id
-            first_name
-            last_name
-            email
-            avatar
-            admin
-            status
-            address {
-                street
-                city
-                neighbourhood
-                province
-                postal_code
-            }
-            phone
-            dogs {
-                name
-                breed
-                weight
-                treats
-                avatar
-            }
-            dog_count
-            stripe_customer_id
-            stripe_setup_intent
         }
     }
 `;
 
-export const UPDATE_OWNER_PASSWORD = gql`
-    mutation updateOwnerPassword($old_password: String!, $new_password: String!) {
-        updateOwnerPassword(old_password: $old_password, new_password: $new_password) {
-            _id
+export const ADD_ORDER = gql`
+    mutation addOrder($input:OrderInput!) {
+        addOrder(input:$input) {
+        orderTotal
+        delivery_date
+        paid
+        createdAt
+        delivery_status
+        _id
         }
     }
 `;
 
-export const ADD_DOG = gql`
-    mutation addDog($input: DogInput) {
-        addDog(input: $input){
-            _id
-            first_name
-            last_name
-            email
-            dogs{
-                _id
-                name
-                breed
-                weight
-                treats
-            }
+export const UPDATE_ORDER = gql`
+    mutation updateOrder($input:OrderUpdate, $order_id: ID!) {
+        updateOrder(input:$input, order_id:$order_id) {
+        _id
+        cart {
+            product_id
+            quantity
+        }
+        paid
+        delivery_date
+        delivery_status
         }
     }
 `;
+
+export const UPDATE_ORDER_STATUS = gql`
+    mutation updateOrderStatus($input:OrderStatus,$order_id: ID!) {
+        updateOrderStatus(input:$input, order_id:$order_id) {
+        _id
+        delivery_date
+        delivery_status
+        orderTotal
+        cart {
+            product_id
+            quantity
+        }
+        paid
+        createdAt
+        }
+    }
+`;
+
+export const UPDATE_PROMO = gql`
+    mutation updatePromo($input:PromoInput, $promo_id: ID!) {
+        updatePromo(input:$input, promo_id:$promo_id) {
+        _id
+            promoMsg1
+            promo1Start
+            promo1End
+            promoMsg2
+            promo2Start
+            promo2End
+            promoMsg3
+            promo3Start
+            promo3End
+            mainPromo
+            featuredProduct1
+            featuredProduct2
+            featuredProduct3
+        }
+    }
+`;
+
+export const UPDATE_ADDRESS = gql`
+    mutation updateUserAddress($input:AddressInput, $user_id:ID!) {
+        updateUserAddress(input:$input, user_id:$user_id) {
+        _id
+        first_name
+        last_name
+        address {
+            street_name
+            street_number
+            city
+        }
+        }
+    }
+`;
+
+

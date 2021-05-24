@@ -40,48 +40,59 @@ function App() {
 		{
 			name: 'Home',
 			href: '/',
-			for: 'guest'
+			guest: true,
+			user: true,
+			admin: true
 		},
 		{
 			name: 'Products',
 			href: '/products',
-			for: 'guest'
+			guest: true,
+			user: true,
+			admin: true
 		},
 		{
 			name: 'Account',
 			href: '/account',
-			for: 'user'
+			guest: false,
+			user: true,
+			admin: false
 		},
 		{
 			name: 'Promotions',
 			href: '/promotions',
-			for: 'guest'
+			guest: true,
+			user: true,
+			admin: true
 		},
 		{
 			name: 'Cart',
 			href: '/cart',
-			for: 'user'
+			guest: false,
+			user: true,
+			admin: false
 		},
 		{
 			name: 'Dashboard',
 			href: '/admindashboard',
-			for: 'admin'
+			guest: false,
+			user: false,
+			admin: true
 		},
 		{
 			name: 'Sign In',
 			href: '/signin',
-			for: 'guest'
+			guest: true,
+			user: false,
+			admin: false
 		},
 		{
 			name: 'Sign Up',
 			href: '/signup',
-			for: 'guest'
+			guest: true,
+			user: false,
+			admin: false
 		},
-		{
-			name: 'Log Out',
-			href: '/logout',
-			for: 'user'
-		}
 	]);
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
@@ -108,11 +119,22 @@ function App() {
                       <Route exact path="/about" component={About} />
                       <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
-					  <Route exact path="/account" component={Account} />
-					  <Route exact path="/signup" component={SignUp} />
-					  <Route exact path="/signin" component={SignIn} />
-					  <Route exact path="/admindashboard" component={Dashboard} />
-					  <Route exact path="/cart" component={Cart} />
+					  {!Auth.getToken() && (
+						<>
+							<Route exact path="/signup" component={SignUp} />
+							<Route exact path="/signin" component={SignIn} />
+						</>
+					  )}
+
+					  {Auth.getProfileType() === 'admin' && (
+					  	<Route exact path="/admindashboard" component={Dashboard} />
+					  )}
+					  {Auth.getProfileType === 'user' && (
+						<>
+							<Route exact path="/account" component={Account} />
+							<Route exact path="/cart" component={Cart} />
+						</>
+					  )}
 					  <Route exact path="/product/:id" component={SingleProduct} />
 					  <Route exact path="/order/:id" component={SingleOrder} />
                       <Route component={NoMatch} />
