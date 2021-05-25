@@ -1,27 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import { useLocation } from 'react-router-dom';
 import '../../css/Products.css';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import { PRODUCT } from '../../utils/queries';
+import { ADD_CART } from '../../utils/mutations';
 
 function SingleProduct() {
 
     const productId = Auth.getSingleProduct();
-    const productType = Auth.getProduct();
+    // const productType = Auth.getProduct();
     const location = useLocation();
+    const { loading, data } = useQuery(PRODUCT, { variables: { product_id: productId }});
+    const [addCart, {error}] = useMutation(ADD_CART);
+    const [ formData, setFormData ] = useState ({
+        quantity: '',
+    })
 
     if (Auth.getMode() === 'dark') {
         Auth.getMode();
     }
 
-    const products = Auth.getProductArr();
+    const product = data?.product || {};
 
-    var currentProduct = '';
-
-    if (productId) {
-        currentProduct = products.filter((id) => id._id === productId)
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        })
     }
 
-    console.log(currentProduct);
+    const addToCart = async (e) => {
+
+        try {
+            addCart({ variables: {
+                input: {
+                    product_id: product._id,
+                    quantity: parseInt(formData.quantity),
+                }
+            }})
+            alert('Added to cart');
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    if (loading) return 'Loading...';
 
     return (
         location.pathname === `/product/${productId}` &&
@@ -29,23 +54,23 @@ function SingleProduct() {
     	    <div className="flex-c-column content">
                 <div className="single-product-container">
                     <div>
-                        <img alt={currentProduct[0]._id} src={currentProduct[0].picture} className="single-product-img" />
+                        <img alt={product._id} src={product.product_picture} className="single-product-img" />
                     </div>
                     <div className="flex-start-column single-product-details">
-                        <span><b>Name: </b>{currentProduct[0].name}</span>
-                        {currentProduct[0].nameChinese !== '' && (
-                            <span><b>Chinese Name: </b>{currentProduct[0].nameChinese}</span>
+                        <span><b>Name: </b>{product.product_name}</span>
+                        {product.product_nameChinese !== '' && (
+                            <span><b>Chinese Name: </b>{product.product_nameChinese}</span>
                         )}
-                        <span><b>Price: </b>{currentProduct[0].name}</span>
-                        <span><b>Description: </b>{currentProduct[0].name}</span>
-                        {currentProduct[0].descriptionChinese !== '' && (
-                            <span><b>Chinese Description: </b>{currentProduct[0].name}</span>
+                        <span><b>Price: </b>{product.product_name}</span>
+                        <span><b>Description: </b>{product.product_name}</span>
+                        {product.descriptionChinese !== '' && (
+                            <span><b>Chinese Description: </b>{product.product_name}</span>
                         )}
-                        {currentProduct[0].weight !== ''&& (
-                            <span><b>Weight: </b>{currentProduct[0].weight}</span>
+                        {product.weight !== ''&& (
+                            <span><b>Weight: </b>{product.product_weight}</span>
                         )}
 
-                        {currentProduct[0].availability !== 0 ? (
+                        {product.product_status !== 0 ? (
                             <>
                                 <span><b>Availability: </b>In Stock</span>
                             </>
@@ -54,6 +79,8 @@ function SingleProduct() {
                                 <span><b>Availability: </b>Out Of Stock</span>
                             </>
                         )}
+                        <span><b>Quantity: </b></span><input value={formData.quantity} onChange={handleInputChange} name="quantity" />
+                        <button className="product-button" onClick={() => { addToCart() }}>ADD TO CART</button>
                     </div>
                 </div>                
             </div>

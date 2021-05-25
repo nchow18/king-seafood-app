@@ -6,8 +6,6 @@ import '../css/Home.css';
 
 function Home() {
 
-    const promo = Auth.getPromotions();
-
     function viewProduct(id) {
         Auth.setSingleProduct(id);
         Auth.viewSingleProduct();
@@ -15,7 +13,7 @@ function Home() {
 
     return (
         <>
-    	    <div className="flex-c-column content">
+    	    {/* <div className="flex-c-column content">
                 <div className="flex-c-row">
                     <div className="promo-img-container">
                         <img alt={promo[0].featuredProduct1[0].name} className="promo-img" src={promo[0].featuredProduct1[0].picture} />
@@ -39,7 +37,7 @@ function Home() {
                         </div>
                     </div>
                 </div>                
-            </div>
+            </div> */}
         </>
     )
 }

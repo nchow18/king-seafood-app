@@ -22,6 +22,10 @@ query user($user_id: ID!) {
     address{
       street_name
       street_number
+      city
+      region
+      state
+      postal_code
     }
   }
 }

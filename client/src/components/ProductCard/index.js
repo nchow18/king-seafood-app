@@ -3,16 +3,33 @@ import Auth from '../../utils/auth';
 import '../../css/Products.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { PRODUCTS } from '../../utils/queries';
+import { ADD_CART } from '../../utils/mutations';
 
 function ProductCard() {
 
     const { loading, data } = useQuery(PRODUCTS);
+    const [addCart, {error}] = useMutation(ADD_CART);
 
     const products = data?.products || {};
 
     function viewProduct(productId) {
         Auth.setSingleProduct(productId);
         Auth.viewSingleProduct();
+    }
+
+    const addToCart = async (data) => {
+
+        try {
+            addCart({ variables: {
+                input: {
+                    product_id: data,
+                    quantity: 1,
+                }
+            }})
+            alert('Added to cart');
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     var currentProduct = '';
@@ -22,13 +39,15 @@ function ProductCard() {
     } else {
         currentProduct = products.filter((product) => product.category === Auth.getProduct());
     }
+
+    if (loading) return 'Loading...';
     
     return (
         <>
         {currentProduct.map((product) => (
             <div key={product._id} className="product-card night-bg">
                 <div className="product-card-picture-container">
-                    <img alt={product._id} src={product.product_picture} className="product-card-picture"/>
+                    <img alt={product.product_name} src={product.product_picture} className="product-card-picture"/>
                 </div>
                 <div className="product-card-description">
                     <div>
@@ -46,8 +65,8 @@ function ProductCard() {
                         <p>{product.product_description}</p>
                     </div>
                     <div>
-                        <div className="product-button" key={product._id} onClick={() => {viewProduct(product._id)}}>VIEW PRODUCT</div>
-                        <div className="product-button">ADD TO CART</div>
+                        <div className="product-button" key={product._id} onClick={() => { viewProduct(product._id) }}>VIEW PRODUCT</div>
+                        <div className="product-button" key={product._id} onClick={() => { addToCart(product._id) }}>ADD TO CART</div>
                     </div>
                 </div>
             </div>

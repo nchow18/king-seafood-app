@@ -22,14 +22,6 @@ function AdminCategories(props) {
 
     const productArr = data?.products || {};
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setProductFormData({
-            ...formData,
-            [name]: value
-        })
-    }
-
     const updateProductFormSubmit = async (e) => {
         Auth.setAdminSingleProductId(e);
         Auth.updateSingleProduct();

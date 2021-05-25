@@ -71,7 +71,7 @@ function App() {
 			href: '/cart',
 			guest: false,
 			user: true,
-			admin: false
+			admin: true
 		},
 		{
 			name: 'Dashboard',
@@ -98,7 +98,6 @@ function App() {
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
 
-	const promo = Auth.getPromotions();
 
     return (
         <ApolloProvider client={client} onload={Auth.getMode()}>
@@ -106,7 +105,7 @@ function App() {
             <StoreProvider>
               <>
 			  <nav className="header-container">
-				  <div>{promo[0].mainPromo}</div>
+				  {/* <div>{promo[0].mainPromo}</div> */}
 				<Header 
 						headerLinks={headerLinks}
 						currentHeaderLink={currentHeaderLink}
@@ -120,6 +119,8 @@ function App() {
                       <Route exact path="/about" component={About} />
                       <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
+					  <Route exact path="/product/:id" component={SingleProduct} />
+					  <Route exact path="/order/:id" component={SingleOrder} />
 					  {!Auth.loggedIn() && (
 						<>
 							<Route exact path="/signup" component={SignUp} />
@@ -130,6 +131,7 @@ function App() {
 					  {Auth.getAdmin() === true && (
 						<>
 							<Route exact path="/admindashboard" component={Dashboard} />
+							<Route exact path="/cart" component={Cart} />
 							<Route exact path="/productupdate/:id" component={SingleProductEdit} />
 						</>
 					  )}
@@ -139,8 +141,6 @@ function App() {
 							<Route exact path="/cart" component={Cart} />
 						</>
 					  )}
-					  <Route exact path="/product/:id" component={SingleProduct} />
-					  <Route exact path="/order/:id" component={SingleOrder} />
                       <Route component={NoMatch} />
                     </Switch>
                   </div>
