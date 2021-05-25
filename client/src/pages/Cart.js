@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Auth from '../utils/auth';
 import '../css/Cart.css';
 import '../css/App.css';
-import { useMutation, useQuery, useLazyQuery } from '@apollo/react-hooks';
-import { REMOVE_CART, UPDATE_CART } from '../utils/mutations';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import { REMOVE_CART } from '../utils/mutations';
 import { USER, PRODUCTS } from '../utils/queries';
 
 function Cart() {
@@ -56,6 +56,7 @@ function Cart() {
     Auth.getCartTotal(cart_total);
 
     if (loading) return `...Loading`;
+    if (error) return '...ERROR';
 
     return (
         <>

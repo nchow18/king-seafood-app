@@ -47,6 +47,7 @@ function SingleProduct() {
     }
 
     if (loading) return 'Loading...';
+    if (error) return '...ERROR';
 
     return (
         location.pathname === `/product/${productId}` &&

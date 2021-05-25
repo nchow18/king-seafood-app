@@ -24,7 +24,7 @@ function AdminCategories(props) {
         <div className="flex-start-column">
             <button onClick={toggle} >Refresh Products Data</button>
             {productArr.map((product) => (
-                <div className="admin-product-row flex-start-row night-bg">
+                <div key={product._id} className="admin-product-row flex-start-row night-bg">
                     <div className="product-id id-input-width" value={`${product._id}`}>{product._id}</div>
                     <div className="flex-start-row">
                         <div className="flex-start-row">

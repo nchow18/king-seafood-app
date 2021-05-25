@@ -46,8 +46,6 @@ function AdminPromotions() {
         }
     }
 
-    console.log(formData);
-
     if (error) return `...ERROR`;
 
     return (
@@ -67,25 +65,25 @@ function AdminPromotions() {
                             <b>Promotion 1</b>
                             <input onChange={handleInputChange} name="promoMsg1" value={formData.promoMsg1} />
                             <b>Promotion 1 - Start Date</b>
-                            <input className="date-input-size" name="promo1Start" value={formData.promo1Start} type="text" />
+                            <input onChange={handleInputChange} className="date-input-size" name="promo1Start" value={formData.promo1Start} type="text" />
                             <b>Promotion 1 - End Date</b>
-                            <input className="date-input-size" name="promo1End" value={formData.promo1End} type="text" />
+                            <input onChange={handleInputChange} className="date-input-size" name="promo1End" value={formData.promo1End} type="text" />
                         </div>
                         <div className="flex-start-row admin-input-width">
                             <b>Promotion 2</b>
                             <input onChange={handleInputChange} name="promoMsg2" value={formData.promoMsg2} />
                             <b>Promotion 2 - Start Date</b>
-                            <input className="date-input-size" name="promo2Start" value={formData.promo2Start} type="text" />
+                            <input onChange={handleInputChange} className="date-input-size" name="promo2Start" value={formData.promo2Start} type="text" />
                             <b>Promotion 2 - End Date</b>
-                            <input className="date-input-size" name="promo2End" value={formData.promo2End} type="text" />
+                            <input onChange={handleInputChange} className="date-input-size" name="promo2End" value={formData.promo2End} type="text" />
                         </div>
                         <div className="flex-start-row admin-input-width">
                             <b>Promotion 3</b>
                             <input  onChange={handleInputChange} name="promoMsg3" value={formData.promoMsg3} />
                             <b>Promotion 3 - Start Date</b>
-                            <input className="date-input-size" name="promo3Start" value={formData.promo3Start} type="text" />
+                            <input onChange={handleInputChange} className="date-input-size" name="promo3Start" value={formData.promo3Start} type="text" />
                             <b>Promotion 3 - End Date</b>
-                            <input className="date-input-size" name="promo3End" value={formData.promo3End} type="text" />
+                            <input onChange={handleInputChange} className="date-input-size" name="promo3End" value={formData.promo3End} type="text" />
                         </div>
                     </div>
 

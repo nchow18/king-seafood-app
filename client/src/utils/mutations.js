@@ -37,6 +37,7 @@ export const ADD_USER = gql`
                 last_name
                 email
                 admin
+                password
             }
         }
     }

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Auth from '../../utils/auth';
 
 function ProductHeader(props) {
 
@@ -14,7 +13,7 @@ function ProductHeader(props) {
         <>
             <div className="productHeader-container flex-c-row">
                 {productLinks.map((link) => (
-                    <Link to={link.href} className={`header-link ${currentProductLink.name === link.name && `headerActive`}`} onClick={() => {
+                    <Link to={link.href} key={link.name} className={`header-link ${currentProductLink.name === link.name && `headerActive`}`} onClick={() => {
                         setCurrentProductLink(link);
                     }}>{link.name}</Link>
                 ))}

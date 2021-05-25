@@ -1,5 +1,4 @@
-import React, { useState} from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import Auth from '../utils/auth';
 import { PROMO, PRODUCTS } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
@@ -12,7 +11,6 @@ function Home() {
     const promo = data?.promo || {};
     const { data: Data } = useQuery(PRODUCTS);
     const products = Data?.products || {};
-    console.log(products);
 
     const featuredProducts = [];
 
@@ -30,9 +28,6 @@ function Home() {
         }
     }
 
-    console.log(promo);
-    console.log(featuredProducts);
-
     function viewProduct(id) {
         Auth.setSingleProduct(id);
         Auth.viewSingleProduct();
@@ -43,7 +38,7 @@ function Home() {
     	    <div className="flex-c-column content">
                 <div className="flex-c-row">
                     {featuredProducts.map((product) => (
-                        <div className="promo-img-container">
+                        <div key={product._id} className="promo-img-container">
                             <img alt={product.product_name} className="promo-img" src={product.product_picture} />
                             <div key={product._id} onClick={() => { viewProduct( product._id )}} className="promo-img-title">
                                 <p>{product.product_name}</p>
@@ -51,21 +46,6 @@ function Home() {
                             </div>
                         </div>
                     ))}
-
-                    {/* <div className="promo-img-container">
-                        <img alt={promo[0].featuredProduct1[0].name} className="promo-img" src={promo[0].featuredProduct2[0].picture} />
-                        <div key={promo[0].featuredProduct2[0].productId} onClick={() => { viewProduct(promo[0].featuredProduct2[0].productId )}} className="promo-img-title">
-                            <p>{promo[0].featuredProduct2[0].name}</p>
-                            <p>RM {promo[0].featuredProduct2[0].price}</p>
-                        </div>
-                    </div>
-                    <div className="promo-img-container">
-                        <img alt={promo[0].featuredProduct1[0].name} className="promo-img" src={promo[0].featuredProduct3[0].picture} />
-                        <div key={promo[0].featuredProduct3[0].productId} onClick={() => { viewProduct(promo[0].featuredProduct3[0].productId )}} className="promo-img-title">
-                            <p>{promo[0].featuredProduct3[0].name}</p>
-                            <p>RM {promo[0].featuredProduct3[0].price}</p>
-                        </div>
-                    </div> */}
                 </div>                
             </div>
         </>

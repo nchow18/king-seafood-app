@@ -93,6 +93,7 @@ function Profile() {
     }
 
     if (loading) return 'Loading...';
+    if (error) return 'ERROR...';
 
     return (
         <>

@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import '../../css/Header.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-// import { useStoreContext } from "../../utils/GlobalState";
-// import { NavLink } from 'react-router-dom';
-
 
 function Header(props) {
 
@@ -14,13 +10,6 @@ function Header(props) {
         currentHeaderLink,
         setCurrentHeaderLink
     } = props
-
-    
-    // useEffect(() => {
-    //     if(result === 'owner' || result === 'admin'){
-    //         setCurrentLink(result === 'owner' ? links[1] : links[2]);
-    //     }
-    // }, [result, links]);
 
     const logout = event => {
         event.preventDefault();

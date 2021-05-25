@@ -21,10 +21,6 @@ function AdminProducts() {
     const [addProduct, { error }] = useMutation(ADD_PRODUCT);
     const { loading, data } = useQuery(PRODUCTS);
     const products = data?.products || {};
-    console.log(data);
-
-
-    // const [state, dispatch] = useStoreContext();
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -33,8 +29,6 @@ function AdminProducts() {
             [name]: value
         })
     }
-
-    console.log(formData);
 
     const addProductFormSubmit = async (e) => {
         e.preventDefault();
@@ -75,10 +69,8 @@ function AdminProducts() {
     if (products) {
         if (Auth.adminGetCategory() === 'All') {
             chosenArr = products;
-            console.log(chosenArr);
         } else {
             chosenArr = products.filter((product) => product.category === Auth.adminGetCategory());
-            console.log(chosenArr);
         }
     }
 

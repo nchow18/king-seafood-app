@@ -4,6 +4,7 @@ import '../../css/Products.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { PRODUCTS } from '../../utils/queries';
 import { ADD_CART } from '../../utils/mutations';
+import ViewProduct from '../Buttons/ViewProduct';
 
 function ProductCard() {
 
@@ -11,11 +12,6 @@ function ProductCard() {
     const [addCart, {error}] = useMutation(ADD_CART);
 
     const products = data?.products || {};
-
-    function viewProduct(productId) {
-        Auth.setSingleProduct(productId);
-        Auth.viewSingleProduct();
-    }
 
     const addToCart = async (data) => {
 
@@ -41,11 +37,13 @@ function ProductCard() {
     }
 
     if (loading) return 'Loading...';
+    if (error) return '...ERROR';
+
     
     return (
         <>
         {currentProduct.map((product) => (
-            <div className="product-card night-bg">
+            <div key={product._id} className="product-card night-bg">
                 <div className="product-card-picture-container">
                     <img alt={product.product_name} src={product.product_picture} className="product-card-picture"/>
                 </div>
@@ -65,7 +63,7 @@ function ProductCard() {
                         <p>{product.product_description}</p>
                     </div>
                     <div>
-                        <div className="product-button" key={product._id} onClick={() => { viewProduct(product._id) }}>VIEW PRODUCT</div>
+                        <ViewProduct product_id={product._id} />
                         <div className="product-button" key={product._id} onClick={() => { addToCart(product._id) }}>ADD TO CART</div>
                     </div>
                 </div>
