@@ -12,10 +12,10 @@
 
 .promo-img-title {
     position: relative;
-    top: -14rem;
+    top: -8rem;
     color: white;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 2rem;
     line-height: 1rem;
     padding: .1rem 2rem;
     background-image: linear-gradient(to right, rgba(0, 0, 0, .6), rgb(0, 0, 0, 0));

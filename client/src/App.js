@@ -21,7 +21,7 @@ import Dashboard from './pages/Dashboard';
 import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
 import SingleOrder from './pages/AdminSingleOrder';
-import SingleProductEdit from './components/AdminComponents/SingleProductEdit'
+import SingleProductEdit from './components/AdminComponents/SingleProductEdit';
 
 const client = new ApolloClient({
     request: operation => {

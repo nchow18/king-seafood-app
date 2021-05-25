@@ -4,8 +4,7 @@ import '../css/Admin.css';
 import AdminCategories from '../components/AdminComponents/Products';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_PRODUCT } from '../utils/mutations';
-
-
+import { PRODUCTS } from '../utils/queries';
 
 function AdminProducts() {
 
@@ -20,7 +19,11 @@ function AdminProducts() {
     })
 
     const [addProduct, { error }] = useMutation(ADD_PRODUCT);
-    
+    const { loading, data } = useQuery(PRODUCTS);
+    const products = data?.products || {};
+    console.log(data);
+
+
     // const [state, dispatch] = useStoreContext();
 
     const handleInputChange = (event) => {
@@ -55,7 +58,6 @@ function AdminProducts() {
         }
     } 
 
-    const productsArr = Auth.getProductArr();
     const catArr = Auth.getCategories();
 
     const categories = catArr;
@@ -70,16 +72,21 @@ function AdminProducts() {
         Auth.adminSetCategory(category);
     }
 
-    if (Auth.adminGetCategory() === 'All') {
-        chosenArr = productsArr;
-        console.log(chosenArr);
-    } else {
-        chosenArr = productsArr.filter((product) => product.category === Auth.adminGetCategory());
-        console.log(chosenArr);
+    if (products) {
+        if (Auth.adminGetCategory() === 'All') {
+            chosenArr = products;
+            console.log(chosenArr);
+        } else {
+            chosenArr = products.filter((product) => product.category === Auth.adminGetCategory());
+            console.log(chosenArr);
+        }
     }
 
     const [mounted, setMounted] = useState(true);
     const toggle = () => setMounted(!mounted);
+
+    if (loading) return `..Loading`;
+    if (error) return `...ERROR`;
 
     return (
         <>

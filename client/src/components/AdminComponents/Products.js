@@ -1,24 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Auth from '../../utils/auth';
-import { PRODUCT, PRODUCTS } from '../../utils/queries';
-import { REMOVE_PRODUCT, UPDATE_PRODUCT } from '../../utils/mutations';
-import { useMutation, useQuery } from '@apollo/react-hooks';
-import { useStoreContext } from '../../utils/GlobalState';
+import { PRODUCTS } from '../../utils/queries';
+import { useQuery } from '@apollo/react-hooks';
 
 function AdminCategories(props) {
 
-    const [formData, setProductFormData] = useState({
-        product_name: '',
-        product_category: '',
-        product_weight: '',
-        product_price: '',
-        product_picture: '',
-        product_nameChinese: '',
-        product_descriptionChinese: '',
-    })
-    const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT)
+    const [mounted, setMounted] = useState(true);
     const { loading, data} = useQuery(PRODUCTS)
-
 
     const productArr = data?.products || {};
 
@@ -28,15 +16,13 @@ function AdminCategories(props) {
     } 
 
     if (loading) return 'Loading...';
-    if (error) return `Error! ${error.message}`;
 
-    console.log(formData);
-
+    const toggle = () => setMounted(!mounted);
 
     return (
         <>  
         <div className="flex-start-column">
-            <button>Refresh Products Data</button>
+            <button onClick={toggle} >Refresh Products Data</button>
             {productArr.map((product) => (
                 <div className="admin-product-row flex-start-row night-bg">
                     <div className="product-id id-input-width" value={`${product._id}`}>{product._id}</div>

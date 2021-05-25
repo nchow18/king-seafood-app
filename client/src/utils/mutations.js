@@ -173,19 +173,19 @@ export const UPDATE_PROMO = gql`
     mutation updatePromo($input:PromoInput, $promo_id: ID!) {
         updatePromo(input:$input, promo_id:$promo_id) {
         _id
-            promoMsg1
-            promo1Start
-            promo1End
-            promoMsg2
-            promo2Start
-            promo2End
-            promoMsg3
-            promo3Start
-            promo3End
-            mainPromo
-            featuredProduct1
-            featuredProduct2
-            featuredProduct3
+        promoMsg1
+        promo1Start
+        promo1End
+        promoMsg2
+        promo2Start
+        promo2End
+        promoMsg3
+        promo3Start
+        promo3End
+        mainPromo
+        featuredProduct1
+        featuredProduct2
+        featuredProduct3
         }
     }
 `;

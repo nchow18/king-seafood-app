@@ -2,63 +2,67 @@ import React, { useEffect } from 'react';
 import Auth from '../utils/auth';
 import '../css/Cart.css';
 import '../css/App.css';
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation, useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { REMOVE_CART, UPDATE_CART } from '../utils/mutations';
 import { USER, PRODUCTS } from '../utils/queries';
 
 function Cart() {
 
-    const {loading, data} = useQuery(PRODUCTS)
-
-    const user_cart = JSON.parse(localStorage.getItem('user_cart'));
-    const products = data?.products || {};
-
+    const profileData = Auth.getProfile();
+    const user_id = profileData.data._id;
+    const [removeCart, { error }] = useMutation(REMOVE_CART);
+    const {data: dataR} = useQuery(USER, { variables: { user_id: user_id }});
+    const user_data = dataR?.user || {};
+    const {loading, data} = useQuery(PRODUCTS);
+    const product_data = data?.products || {};
+    const cartArr = [];
+    const user_cart = cartArr;
+    const cart_price = [];
     console.log(user_cart);
 
-    const cartArr = [];
-    const cartTotal = [];
-    var newCart = [];
+    if (user_data) {
+        for (var i = 0; i < user_data.cart.length; i++) {
+            for (var t = 0; t < product_data.length; t++) {
+                if (user_data.cart[i].product_id === product_data[t]._id) {
+                    cartArr.push(product_data[t])
+                    cartArr[i].quantity = product_data[t].product_price;
+                    cart_price.push(product_data[t].product_price);
 
-    useEffect(() => {
-
-    })
-
-    if (Auth.getToken()) {
-        for (var i = 0; i < user_cart.length; i++) {
-
-        let test = i;
-
-            const productsArr = Object.values(products).filter(product => product._id === user_cart[test].product_id)
-
-            cartArr.push(productsArr);
-        }
-
-        for (var y = 0; y < cartArr.length; y++) {
-            const price = cartArr[y][0].product_price;
-            cartTotal.push(price);
-            newCart.push(cartArr[y][0])
-        }
-        for (var t = 0; t < user_cart.length; t++) {
-            newCart[t].quantity = user_cart[t].quantity;
+                }
+            }
         }
     }
-    const cart_total = cartTotal.reduce((a,b) => a + b, 0);
+    
+    const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
     function viewProduct(id) {
         Auth.setSingleProduct(id);
         Auth.viewSingleProduct();
     }
 
+    const removeProduct = async (id) => {
+        try {
+            removeCart({
+                variables: {
+                    product_id: id
+                }
+            })
+            alert('removed from cart')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     Auth.getCartTotal(cart_total);
 
-    if (loading) return 'Loading...';
+    if (loading) return `...Loading`;
 
     return (
         <>
     	    <div className="flex-c-column content">
                 <div className="flex-top-center-row">
                     <div className="flex-start-column">
-                        {newCart.map((cart) => (
+                        {user_cart.map((cart) => (
                         <div key={cart.product_id} className="flex-start-row cart-row">
                             <div>
                                 <img className="cart-picture" alt={cart.product_id} src={cart.product_picture} />
@@ -68,6 +72,7 @@ function Cart() {
                                 <span>{cart.product_name}</span>
                                 <span>{cart.product_description}</span>
                                 <button key={cart._id} onClick={() => {viewProduct(cart._id)}}>VIEW ITEM</button>
+                                <button key={cart._id} onClick={() => {removeProduct(cart._id)}}>REMOVE</button>
                             </div>
                             <div className="flex-middle-column cart-column-small">
                                 <div className="flex-middle-column">

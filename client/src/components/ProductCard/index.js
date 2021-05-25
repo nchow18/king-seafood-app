@@ -45,7 +45,7 @@ function ProductCard() {
     return (
         <>
         {currentProduct.map((product) => (
-            <div key={product._id} className="product-card night-bg">
+            <div className="product-card night-bg">
                 <div className="product-card-picture-container">
                     <img alt={product.product_name} src={product.product_picture} className="product-card-picture"/>
                 </div>

@@ -44,6 +44,10 @@ class AuthService {
     return localStorage.setItem('user_cart', JSON.stringify(data));
   }
 
+  getCart() {
+    return localStorage.getItem('usr_cart');
+  }
+
   getOrders() {
 
   }
@@ -55,6 +59,10 @@ class AuthService {
   getCartTotal(data) {
     const total = data;
     return total;
+  }
+
+  setProductArr() {
+
   }
 
   getProductArr() {

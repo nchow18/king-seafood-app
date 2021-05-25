@@ -96,7 +96,7 @@ function SingleProductEdit() {
                     <div className="product-id id-input-width" value={product._id}>{product._id}</div>
                     <div className="flex-start-column">
                             <label className="bold">Name</label>
-                            <input key="test" value={formData.product_name} onChange={handleInputChange} className="product-name admin-input-width" name='product_name' placeholder={product.product_name} type="text"></input>
+                            <input value={formData.product_name} onChange={handleInputChange} className="product-name admin-input-width" name='product_name' placeholder={product.product_name} type="text"></input>
                         </div>
                         <div className="flex-start-column">
                             <label className="bold">Category</label>
