@@ -172,7 +172,6 @@ class AuthService {
             bgWhite[u].style.backgroundColor = 'white';
         }
     }
-
     return currentMode;
   }
 
