@@ -6,8 +6,6 @@ import './css/App.css';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Header from './components/Header';
-// import PrivateRoute from './components/PrivateRoute';
-// import PublicRoute from './components/PublicRoute';
 import { StoreProvider } from "./utils/GlobalState";
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
@@ -98,9 +96,8 @@ function App() {
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
 
-
     return (
-        <ApolloProvider client={client} onload={Auth.getMode()}>
+        <ApolloProvider client={client}>
           <Router>
             <StoreProvider>
               <>
