@@ -20,7 +20,7 @@ function Cart() {
     const cart_price = [];
     console.log(user_cart);
 
-    if (user_data) {
+    if (dataR) {
         for (var i = 0; i < user_data.cart.length; i++) {
             for (var t = 0; t < product_data.length; t++) {
                 if (user_data.cart[i].product_id === product_data[t]._id) {

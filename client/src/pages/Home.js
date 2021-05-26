@@ -7,14 +7,14 @@ import '../css/Home.css';
 
 function Home() {
 
-    const { data } = useQuery(PROMO);
+    const { loading, data } = useQuery(PROMO);
     const promo = data?.promo || {};
     const { data: Data } = useQuery(PRODUCTS);
     const products = Data?.products || {};
 
     const featuredProducts = [];
 
-    if (promo) {
+    if (data) {
         for (var i = 0; i < products.length; i++) {
             if (promo[0].featuredProduct1 === products[i]._id) {
                 featuredProducts.push(products[i])
@@ -32,6 +32,8 @@ function Home() {
         Auth.setSingleProduct(id);
         Auth.viewSingleProduct();
     }
+
+    if (loading) return `...Loading`;
 
     return (
         <>
