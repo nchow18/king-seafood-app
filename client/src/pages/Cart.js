@@ -18,7 +18,6 @@ function Cart() {
     const cartArr = [];
     const user_cart = cartArr;
     const cart_price = [];
-    console.log(user_cart);
 
     if (dataR) {
         for (var i = 0; i < user_data.cart.length; i++) {
@@ -62,40 +61,47 @@ function Cart() {
         <>
     	    <div className="flex-c-column content">
                 <div className="flex-top-center-row">
+                {user_cart.length >= 1 && (
+                    <>
                     <div className="flex-start-column">
                         {user_cart.map((cart) => (
-                        <div key={cart.product_id} className="flex-start-row cart-row">
-                            <div>
-                                <img className="cart-picture" alt={cart.product_id} src={cart.product_picture} />
-                            </div>
-                            <div className="flex-start-between-column cart-column">
-                                <span><b>Order Details</b></span>
-                                <span>{cart.product_name}</span>
-                                <span>{cart.product_description}</span>
-                                <button key={cart._id} onClick={() => {viewProduct(cart._id)}}>VIEW ITEM</button>
-                                <button key={cart._id} onClick={() => {removeProduct(cart._id)}}>REMOVE</button>
-                            </div>
-                            <div className="flex-middle-column cart-column-small">
-                                <div className="flex-middle-column">
-                                    <span><b>Price</b></span>
-                                    <span>{cart.product_price} RM</span>
+                            <div key={cart.product_id} className="flex-start-row cart-row">
+                                <div>
+                                    <img className="cart-picture" alt={cart.product_id} src={cart.product_picture} />
                                 </div>
-                                <div className="flex-middle-column">
-                                    <span><b>Weight</b></span>
-                                    <span>{cart.product_weight}</span>
+                                <div className="flex-start-between-column cart-column">
+                                    <span><b>Order Details</b></span>
+                                    <span>{cart.product_name}</span>
+                                    <span>{cart.product_description}</span>
+                                    <button key={cart._id} onClick={() => {viewProduct(cart._id)}}>VIEW ITEM</button>
+                                    <button key={cart._id} onClick={() => {removeProduct(cart._id)}}>REMOVE</button>
                                 </div>
+                                <div className="flex-middle-column cart-column-small">
+                                    <div className="flex-middle-column">
+                                        <span><b>Price</b></span>
+                                        <span>{cart.product_price} RM</span>
+                                    </div>
+                                    <div className="flex-middle-column">
+                                        <span><b>Weight</b></span>
+                                        <span>{cart.product_weight}</span>
+                                    </div>
 
+                                </div>
+                                <div className="flex-middle-column cart-column-small">
+                                    <span><b>Quantity</b></span>
+                                    <span>{cart.quantity}</span>
+                                </div>
                             </div>
-                            <div className="flex-middle-column cart-column-small">
-                                <span><b>Quantity</b></span>
-                                <span>{cart.quantity}</span>
-                            </div>
-                        </div>
                         ))}
                     </div>
                     <div className="flex-start-column payment-column cart-row">
-                        <span><b>Cart Total: </b>{cart_total} RM</span>
+                            <span><b>Cart Total: </b>{cart_total} RM</span>
                     </div>
+                    </>
+                )}
+                {user_cart.length === 0 && (
+                    <b>Your cart is empty</b>
+                )}
                 </div>
             </div>
         </>
