@@ -48,7 +48,7 @@ function ProductCard() {
                     <img alt={product.product_name} src={product.product_picture} className="product-card-picture"/>
                 </div>
                 <div className="product-card-description">
-                    <div>
+                    <div className="product-card-font">
                         <p className="bold">{product.product_name} {product.product_nameChinese !== '' && (
                             <>({ product.product_nameChinese })</> )}</p>
                         <p>RM {product.product_price}</p>
@@ -62,7 +62,7 @@ function ProductCard() {
                         )}
                         <p>{product.product_description}</p>
                     </div>
-                    <div>
+                    <div className="product-button-container">
                         <ViewProduct product_id={product._id} />
                         <div className="product-button" key={product._id} onClick={() => { addToCart(product._id) }}>ADD TO CART</div>
                     </div>

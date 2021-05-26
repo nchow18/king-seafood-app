@@ -97,7 +97,7 @@
         width: 100%;
         position: relative;
         right: 0;
-        color: black;
+        color: white;
     }
 
     .links-public {
@@ -126,7 +126,7 @@
     }
 
     .mobile-icon {
-        font-size: 3rem;
+        font-size: 2rem;
         padding: 1rem;
         display: flex;
     }
@@ -139,14 +139,26 @@
     }  
     
     .night-mode {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
         display: flex;
-        flex-direction: row;
     }
 
     .night-header-display {
         display: none;
+    }
+
+    .night-left-display {
+        position: fixed;
+        left: 1rem;
+        top: .5rem;
+    }
+
+    .night-right-display {
+        position: fixed;
+        right: 1rem;
+        top: .5rem;
+    }
+
+    .logo-name {
+        font-size: 1.5rem;
     }
 }

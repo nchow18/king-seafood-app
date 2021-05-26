@@ -47,8 +47,8 @@ function Header(props) {
                 <div className="header-mobile">
                     <div className="bold logo-name">KING SEAFOOD</div>
                     <div className="night-mode">
-                        <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-display"></i></div>
-                        <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-display"></i></div>
+                        <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-right-display"></i></div>
+                        <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-left-display"></i></div>
                     </div>
                 </div>
                 <div className="header-links-container">

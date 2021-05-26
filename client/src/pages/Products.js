@@ -45,7 +45,7 @@ function Products() {
 			setCurrentProductLink={setCurrentProductLink}
 		/>
 		PRODUCT - {currentProduct.product}
-    	<div className="flex-c-row content">
+    	<div className="products-card-display product-content">
         	<ProductCard />
       	</div>
     </>

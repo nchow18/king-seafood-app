@@ -20,8 +20,8 @@
 }
 
 .product-button {
-    background-color: black;
-    color: white;
+    background-color: rgb(186, 186, 8);
+    color: black;
     margin-bottom: .5rem;
     margin-top: .5rem;
     padding: .5rem;
@@ -34,10 +34,15 @@
 }
 
 .productHeader-container {
-    background-color: black;
+    background-color: white;
     width: 100%;
     position: relative;
     top: -4rem;
+}
+
+.product-header-link {
+    text-decoration: none;
+    padding: 1rem;
 }
 
 .single-product-container {
@@ -61,7 +66,19 @@
     object-fit: cover;
 }
 
-@media screen and (max-width: 1420px) {
+.products-card-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-content {
+    margin: 2rem;
+    padding-bottom: 8rem;
+}
+
+@media screen and (max-width: 1120px) {
     .single-product-container {
         width: 40rem;
         flex-direction: column;
@@ -71,4 +88,84 @@
         height: 40rem;
         padding: 2rem;
     }
+
+    .productHeader-container {
+        background-color: white;
+        width: 100%;
+        position: relative;
+        top: -5.5rem;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    
+    .product-card-display {
+        flex-direction: column;
+    }
+
+    .product-card {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        height: 10rem;
+        margin: .2rem .2rem;
+        box-shadow: none;
+        border: 1px solid gray;
+        padding: .2rem;
+    }
+
+    .product-card-font {
+        font-size: .7rem;
+    }
+
+    .product-content {
+        margin: 0rem;
+    }
+
+    .product-card-picture {
+        width: 9rem;
+        height: 9rem;
+    }
+
+    .product-card-description {
+        flex-direction: column;
+        width: 100%;
+        padding: .2rem .2rem .2rem .7rem;
+        line-height: .3rem;
+        align-content: normal;
+        justify-content: space-between;
+    }
+
+    .product-button {
+        font-size: .7rem;
+        width: 8rem;
+    }
+
+    .product-button-container {
+        display: flex;
+        flex-direction: column;
+        height: 3rem;
+    }
+
+    .product-button {
+        margin-top: .1rem;
+        margin-bottom: .1rem
+    }
+
+    .product-header-link {
+        font-size: .8rem;
+    }
+
+    .productHeader-container {
+        top: -6rem;
+        font-weight: bold;
+    }
+
+    .product-card-picture-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
 }
