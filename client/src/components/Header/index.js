@@ -52,8 +52,9 @@ function Header(props) {
                     </div>
                 </div>
                 <div className="header-links-container">
-                    <input type="checkbox" id="check"/ >
+                <input type="checkbox" id="check"/ >
                     <div className="links">
+                        <label className="mobile-header-toggle" for="check"><i class="fas fa-times mobile-icon"></i></label>
                         {Auth.loggedIn() === false && (
                             <>
                         {headerLinks.filter((link) => link.guest === true).map((link) => (

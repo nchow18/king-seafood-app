@@ -5,6 +5,7 @@
  --quatenary: black;
  --quinary:  black;
  --light-blue: rgb(194, 194, 252);
+ --button: rgb(186, 186, 8);
 }
 
 input {
@@ -47,7 +48,7 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
-    padding: 10rem 0rem;
+    padding: 7rem 0rem;
 }
 
 .flex-middle-column {
@@ -138,3 +139,5 @@ body {
 .font-center {
     text-align: center;
 }
+
+

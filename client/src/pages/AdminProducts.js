@@ -83,50 +83,50 @@ function AdminProducts() {
 
     return (
         <>
-        <div className="flex-start-column">
+        <div className="admin-container">
             <div className="page-title bold font-2rem">
                     ADD NEW PRODUCT
             </div>
-            <div className="admin-product-row flex-start-row night-bg">
-                <div className="product-id" value="ID">ID</div>
+            <div className="admin-form-container night-bg">
+                <div className="admin-input-width" value="ID">ID</div>
                 <form className="flex-start-row" onSubmit={addProductFormSubmit}>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Name</label>
                             <input value={formData.product_name} onChange={handleInputChange} className="product-name admin-input-width" name='product_name' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Category</label>
                             <input value={formData.product_category} onChange={handleInputChange} className="product-category admin-input-width" name='product_category' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Price</label>
                             <input value={formData.product_price} onChange={handleInputChange} className="product-price admin-input-width" name='product_price' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Description</label>
                             <input value={formData.product_description} onChange={handleInputChange} className="product-description admin-input-width" name='product_description' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Weight</label>
                             <input value={formData.product_weight} onChange={handleInputChange} className="product-weight admin-input-width" name='product_weight' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Chinese Name</label>
                             <input value={formData.product_nameChinese} onChange={handleInputChange} className="product-name-chinese admin-input-width" name='product_nameChinese' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Chinese Description</label>
                             <input value={formData.product_descriptionChinese} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_descriptionChinese' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Product Status: true/false</label>
                             <input value={formData.product_status} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_status' type="text"></input>
                         </div>
-                        <div className="flex-start-column">
+                        <div className="admin-input-row">
                             <label className="bold">Picture Location</label>
                             <input value={formData.product_picture} onChange={handleInputChange} className="product-picture admin-input-width" name='product_picture' type="text"></input>
                         </div>
-                            <button className="admin-product-button admin-input-width" type='submit'>ADD PRODUCT</button>
+                            <button className="admin-button" type='submit'>ADD PRODUCT</button>
                     </form>
             </div>
             <div className="flex-start-row">

@@ -19,10 +19,10 @@ function AdminCategories(props) {
 
     return (
         <>  
-        <div className="flex-start-column">
+        <div className="admin-container">
             <button onClick={toggle} >Refresh Products Data</button>
             {productArr.map((product) => (
-                <div key={product._id} className="admin-product-row flex-start-row night-bg">
+                <div key={product._id} className="admin-form-container night-bg">
                     <div className="product-id id-input-width" value={`${product._id}`}>{product._id}</div>
                     <div className="flex-start-row">
                         <div className="flex-start-row">
@@ -39,10 +39,6 @@ function AdminCategories(props) {
                                 <div className="product-admin-list">{product.product_price}</div>
                             </div>
                             <div className="flex-start-column">
-                                <label className="bold">Description</label>
-                                <div className="product-admin-list">{product.product_description}</div>
-                            </div>
-                            <div className="flex-start-column">
                                 <label className="bold">Weight</label>
                                 <div className="product-admin-list">{product.product_weight}</div>
                             </div>
@@ -51,16 +47,8 @@ function AdminCategories(props) {
                                 <div className="product-admin-list">{product.product_chineseName}</div>
                             </div>
                             <div className="flex-start-column">
-                                <label className="bold">Chinese Description</label>
-                                <div className="product-admin-list">{product.product_chineseDescrition}</div>
-                            </div>
-                            <div className="flex-start-column">
                                 <label className="bold">Status: true/false</label>
                                 <div className="product-admin-list">{product.product_status}</div>
-                            </div>
-                            <div className="flex-start-column">
-                                <label className="bold">Picture Location</label>
-                                <div className="product-admin-list">{product.product_picture}</div>
                             </div>
                             <button id={product._id} onClick={() => {updateProductFormSubmit( product._id )}} className="admin-product-button admin-input-width">UPDATE</button>
                         </div>

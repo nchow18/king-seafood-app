@@ -103,6 +103,7 @@ function App() {
               <>
 			  <nav className="header-container">
 				  {/* <div>{promo[0].mainPromo}</div> */}
+
 				<Header 
 						headerLinks={headerLinks}
 						currentHeaderLink={currentHeaderLink}

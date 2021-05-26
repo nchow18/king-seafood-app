@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { LOGIN } from '../../utils/mutations';
+import '../../css/Signin.css';
 
 function Login() {
     const [formData, setUserFormData] = useState({ email: '', password: '' })
@@ -31,22 +32,22 @@ function Login() {
 
     return (
         <>
-            <div className="flex-c-column">
+            <div className="sign-container">
                 <form 
                 onSubmit={handleFormSubmit} 
-                className="flex-c-column form-container night-bg">
-                    SIGN IN
+                className="sign-form-container night-bg">
+                    <p>Sign In</p>
                     <input 
                         onChange={handleInputChange} 
                         value={formData.email} 
-                        className="form-input-width" 
+                        className="sign-input" 
                         name="email" 
                         placeholder="EMAIL">
                     </input>
                     <input 
                         onChange={handleInputChange} 
                         value={formData.password} 
-                        className="form-input-width" 
+                        className="sign-input" 
                         type="password"
                         name="password" 
                         placeholder="PASSWORD">
@@ -59,7 +60,7 @@ function Login() {
                     <button 
                         disabled={!(formData.email && formData.password)}
                         onChange={handleInputChange} 
-                        className="form-input-width" 
+                        className="sign-input" 
                         type="submit"
                         variant="success"
                     >

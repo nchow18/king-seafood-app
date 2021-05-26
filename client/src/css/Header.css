@@ -161,4 +161,22 @@
     .logo-name {
         font-size: 1.5rem;
     }
+
+
+    .mobile-header-toggle {
+        position: static;
+        right: 0;
+        height: 2.5rem;
+        color: black;
+    }
+
+    #mobile-header-check {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header-link {
+        margin: .5rem;
+    }
 }

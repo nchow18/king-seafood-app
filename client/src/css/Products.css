@@ -37,7 +37,9 @@
     background-color: white;
     width: 100%;
     position: relative;
-    top: -4rem;
+    top: -0rem;
+    margin-top: 0rem;
+    color: black;
 }
 
 .product-header-link {
@@ -93,7 +95,8 @@
         background-color: white;
         width: 100%;
         position: relative;
-        top: -5.5rem;
+        top: -3rem;
+        margin-top: 0rem;
     }
 }
 
@@ -157,7 +160,7 @@
     }
 
     .productHeader-container {
-        top: -6rem;
+        margin-top: 0rem;
         font-weight: bold;
     }
 
@@ -165,6 +168,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .mobile-header-toggle {
+        position: static;
+        right: 0;
+        height: 2.5rem;
+        color: black;
+    }
+
+    #mobile-header-check {
+        display: none;
+    }
+
+    #mobile-header-check ~ .links {
+        display: none;
     }
 
 

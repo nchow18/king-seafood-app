@@ -30,7 +30,6 @@ function Dashboard() {
                 currentDashLink={currentDashLink}
                 setCurrentDashLink={setCurrentDashLink}
             />
-            <div className="flex-c-column content">
                 {currentDashLink.name === 'Products' && (
                     <>
                         <AdminProducts />
@@ -46,7 +45,6 @@ function Dashboard() {
                         <AdminPromotions />
                     </>
                 )}                
-            </div>
         </>
     )
 }
