@@ -2,6 +2,7 @@ import React from 'react';
 import Auth from '../utils/auth';
 import { PROMO, PRODUCTS } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
+import { useLocation } from 'react-router-dom';
 
 import '../css/Home.css';
 
@@ -11,10 +12,11 @@ function Home() {
     const promo = data?.promo || {};
     const { data: Data } = useQuery(PRODUCTS);
     const products = Data?.products || {};
+    const location = useLocation();
 
     const featuredProducts = [];
 
-    if (!loading) {
+    if (Data) {
         for (var i = 0; i < products.length; i++) {
             if (promo[0].featuredProduct1 === products[i]._id) {
                 featuredProducts.push(products[i])
@@ -36,6 +38,7 @@ function Home() {
     if (loading) return `...Loading`;
 
     return (
+        location.pathname === `/home` &&
         <>
     	    <div className="flex-c-column content">
                 <div className="flex-c-row">
