@@ -9,7 +9,6 @@ function AdminCategories(props) {
     const { loading, data} = useQuery(PRODUCTS)
     const productArr = data?.products || {};
 
-
     const updateProductFormSubmit = async (e) => {
         Auth.setAdminSingleProductId(e);
         Auth.updateSingleProduct();

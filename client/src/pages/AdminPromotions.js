@@ -5,11 +5,6 @@ import { PROMO } from '../utils/queries';
 
 function AdminPromotions() {
 
-    const [updatePromo, { error }] = useMutation(UPDATE_PROMO);
-    const { loading, data } = useQuery(PROMO);
-    const promo_data = data.promo || {};
-    const promo_id = promo_data[0]._id;
-
     const [formData, setFormData] = useState({
         promoMsg1: '',
         promo1Start: '',
@@ -25,6 +20,14 @@ function AdminPromotions() {
         featuredProduct2: '',
         featuredProduct3: '',
     })
+
+    const [updatePromo, { error }] = useMutation(UPDATE_PROMO);
+    const { loading, data } = useQuery(PROMO);
+    const promo_data = data?.promo || {};
+    if (loading) return `...LOADING`;
+    const promo_id = promo_data[0]._id;
+
+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -50,7 +53,9 @@ function AdminPromotions() {
         }
     }
 
+
     if (error) return `...ERROR`;
+
 
     return (
         <>

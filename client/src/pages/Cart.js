@@ -19,6 +19,9 @@ function Cart() {
     const user_cart = cartArr;
     const cart_price = [];
 
+    if (loading) return `...Loading`;
+    if (error) return '...ERROR';
+
     if (dataR) {
         for (var i = 0; i < user_data.cart.length; i++) {
             for (var t = 0; t < product_data.length; t++) {
@@ -53,9 +56,6 @@ function Cart() {
     }
 
     Auth.getCartTotal(cart_total);
-
-    if (loading) return `...Loading`;
-    if (error) return '...ERROR';
 
     return (
         <>
