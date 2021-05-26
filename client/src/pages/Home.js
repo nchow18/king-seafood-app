@@ -14,7 +14,7 @@ function Home() {
 
     const featuredProducts = [];
 
-    if (data) {
+    if (!loading) {
         for (var i = 0; i < products.length; i++) {
             if (promo[0].featuredProduct1 === products[i]._id) {
                 featuredProducts.push(products[i])

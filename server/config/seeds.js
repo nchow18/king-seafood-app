@@ -26,6 +26,16 @@ db.once('open', async () => {
         }
     )
 
+    await User.create(
+        {
+            first_name: 'admin',
+            last_name: 'admin',
+            email: 'admin@gmail.com',
+            admin: true,
+            password: 'administrator123'
+        }
+    )
+
     console.log('order seeded');
 
     process.exit();
