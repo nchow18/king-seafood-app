@@ -7,17 +7,16 @@ function AdminCategories(props) {
 
     const [mounted, setMounted] = useState(true);
     const { loading, data} = useQuery(PRODUCTS)
-
     const productArr = data?.products || {};
+
 
     const updateProductFormSubmit = async (e) => {
         Auth.setAdminSingleProductId(e);
         Auth.updateSingleProduct();
     } 
 
-    if (loading) return 'Loading...';
-
     const toggle = () => setMounted(!mounted);
+    if (loading) return 'Loading...';
 
     return (
         <>  

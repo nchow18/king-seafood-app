@@ -10,8 +10,6 @@ function AdminPromotions() {
     const promo_data = data.promo || {};
     const promo_id = promo_data[0]._id;
 
-    console.log(promo_id);
-
     const [formData, setFormData] = useState({
         promoMsg1: '',
         promo1Start: '',
