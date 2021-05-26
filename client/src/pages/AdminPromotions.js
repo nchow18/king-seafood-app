@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { UPDATE_PROMO } from '../utils/mutations';
+import { PROMO } from '../utils/queries';
 
 function AdminPromotions() {
 
     const [updatePromo, { error }] = useMutation(UPDATE_PROMO);
+    const { loading, data } = useQuery(PROMO);
+    const promo_data = data.promo || {};
+    const promo_id = promo_data[0]._id;
+
+    console.log(promo_id);
 
     const [formData, setFormData] = useState({
         promoMsg1: '',
@@ -37,7 +43,7 @@ function AdminPromotions() {
                     input: {
                         ...formData
                     },
-                    promo_id: '60aade22b00f2b64a4d4f697'
+                    promo_id: promo_id
                 }
             })
             alert('Promotions Updated');

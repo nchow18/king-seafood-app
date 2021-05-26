@@ -49,6 +49,7 @@ function AdminProducts() {
             alert('product added');
         } catch (e) {
             console.log(e);
+            alert(e);
         }
     } 
 
@@ -73,7 +74,6 @@ function AdminProducts() {
     if (error) return `...ERROR`;
 
     if (data) {
-        console.log('no data');
         if (Auth.adminGetCategory() === 'All') {
             chosenArr = products;
         } else {

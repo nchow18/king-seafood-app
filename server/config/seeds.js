@@ -36,6 +36,25 @@ db.once('open', async () => {
         }
     )
 
+    await Promo.deleteMany();
+    await Promo.create(
+        {
+            promoMsg1: '',
+            promo1Start: '',
+            promo1End: '',
+            promoMsg2: '',
+            promo2Start: '',
+            promo2End: '',
+            promoMsg3: '',
+            promo3Start: '',
+            promo3End: '',
+            mainPromo: '',
+            featuredProduct1: '',
+            featuredProduct2: '',
+            featuredProduct3: '',
+        }
+    )
+
     console.log('order seeded');
 
     process.exit();
