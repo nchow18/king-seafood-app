@@ -5,12 +5,14 @@ import { useQuery } from '@apollo/react-hooks';
 
 function Promotions() {
     
-    const { data } = useQuery(PROMO);
+    const { loading, data } = useQuery(PROMO);
     const promo = data?.promo || {};
     const { data: Data } = useQuery(PRODUCTS);
     const products = Data?.products || {};
 
     const featuredProducts = [];
+
+    if (loading) return `...Loading`;
 
     if (data) {
         for (var i = 0; i < products.length; i++) {

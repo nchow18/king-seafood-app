@@ -66,19 +66,20 @@ function AdminProducts() {
         Auth.adminSetCategory(category);
     }
 
-    if (products) {
+    const [mounted, setMounted] = useState(true);
+    const toggle = () => setMounted(!mounted);
+
+    if (loading) return `..Loading`;
+    if (error) return `...ERROR`;
+
+    if (data) {
+        console.log('no data');
         if (Auth.adminGetCategory() === 'All') {
             chosenArr = products;
         } else {
             chosenArr = products.filter((product) => product.category === Auth.adminGetCategory());
         }
     }
-
-    const [mounted, setMounted] = useState(true);
-    const toggle = () => setMounted(!mounted);
-
-    if (loading) return `..Loading`;
-    if (error) return `...ERROR`;
 
     return (
         <>

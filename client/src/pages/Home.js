@@ -16,6 +16,8 @@ function Home() {
 
     const featuredProducts = [];
 
+    if (loading) return `...Loading`;
+
     if (data) {
         for (var i = 0; i < products.length; i++) {
             if (promo[0].featuredProduct1 === products[i]._id) {
@@ -35,7 +37,7 @@ function Home() {
         Auth.viewSingleProduct();
     }
 
-    if (loading) return `...Loading`;
+
 
     return (
         location.pathname === `/home` &&
