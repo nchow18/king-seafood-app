@@ -27,8 +27,6 @@ function AdminPromotions() {
     if (loading) return `...LOADING`;
     const promo_id = promo_data[0]._id;
 
-
-
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -53,9 +51,7 @@ function AdminPromotions() {
         }
     }
 
-
     if (error) return `...ERROR`;
-
 
     return (
         <>

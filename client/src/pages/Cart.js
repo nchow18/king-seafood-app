@@ -22,7 +22,8 @@ function Cart() {
     if (loading) return `...Loading`;
     if (error) return '...ERROR';
 
-    if (dataR) {
+    if (dataR.length && data.length) {
+        console.log('YES')
         for (var i = 0; i < user_data.cart.length; i++) {
             for (var t = 0; t < product_data.length; t++) {
                 if (user_data.cart[i].product_id === product_data[t]._id) {
@@ -33,6 +34,8 @@ function Cart() {
                 }
             }
         }
+    } else {
+        console.log('no user data');
     }
     
     const cart_total = cart_price.reduce((a,b) => a + b, 0);
@@ -61,7 +64,7 @@ function Cart() {
         <>
     	    <div className="flex-c-column content">
                 <div className="flex-top-center-row">
-                {user_cart.length >= 1 && (
+                {user_cart.length && (
                     <>
                     <div className="flex-start-column">
                         {user_cart.map((cart) => (
@@ -99,7 +102,7 @@ function Cart() {
                     </div>
                     </>
                 )}
-                {user_cart.length === 0 && (
+                {!user_cart.length && (
                     <b>Your cart is empty</b>
                 )}
                 </div>

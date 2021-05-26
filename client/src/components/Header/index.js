@@ -39,12 +39,21 @@ function Header(props) {
         }
     }
 
+
+
     return (
             <div className="header-items">
-                <div className="bold logo-name">
-                    KING SEAFOOD
+
+                <div className="header-mobile">
+                    <div className="bold logo-name">KING SEAFOOD</div>
+                    <div className="night-mode">
+                        <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-display"></i></div>
+                        <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-display"></i></div>
+                    </div>
                 </div>
                 <div className="header-links-container">
+                    <input type="checkbox" id="check"/ >
+                    <div className="links">
                         {Auth.loggedIn() === false && (
                             <>
                         {headerLinks.filter((link) => link.guest === true).map((link) => (
@@ -67,12 +76,21 @@ function Header(props) {
                             ))}
                             </>
                         )}
+                        {Auth.loggedIn() && (
+                            <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>   
+                        )}
+                        <div className="night-mobile">
+                            <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-header-display"></i></div>
+                            <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>
+                        </div>
+                    </div>
+                <div className="icons">
+                    <i class="fas fa-home mobile-icon"></i>
+                    <i class="fas fa-tags mobile-icon"></i>
+                    <i class="fas fa-shopping-cart mobile-icon"></i>
+                    <label key='list' for="check" ><i className="fas fa-bars drop-down mobile-icon"></i></label>
+                </div>
 
-                    {Auth.loggedIn() && (
-                        <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>   
-                    )}
-                 <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon"></i></div>
-                    <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon"></i></div>
                 </div>
             </div>
     )
