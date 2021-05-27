@@ -6,6 +6,12 @@
     padding: 0rem .5rem;
 }
 
+.product-id {
+  width: 17rem;
+  background-color: black;
+  color: white
+}
+
 .not-confirm {
     background-color: red;
     font-weight: bold;
@@ -17,7 +23,9 @@
 }
 
 .admin-form-container {
-
+  margin: .5rem 0rem;
+  width: 800px;
+  padding: .5rem;
 }
 
 .admin-container {
@@ -39,6 +47,7 @@
 .admin-input-width {
     width: 20rem;
     background-color: white;
+    border: 1px solid black;
 }
 
 .admin-button {
@@ -46,6 +55,13 @@
     color: black;
     font-size: .7rem;
     font-weight: bold;
+    margin: .2rem;
+}
+
+@media screen and (max-width: 850px) {
+  .admin-form-container {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -63,6 +79,10 @@
         margin: .1rem;
         font-size: 1rem;
     }
+
+    .admin-form-container {
+      width: 100%;
+    }
     
     .admin-input-width {
         width: 20rem;
@@ -79,7 +99,7 @@
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .admin-container {
         width: 100%;
         display: flex;
@@ -96,7 +116,7 @@
     }
 
     .admin-input-width {
-        width: 12rem;
+        width: 13rem;
         background-color: white;
     }
 
@@ -105,5 +125,10 @@
         color: black;
         font-size: .7rem;
         font-weight: bold;
+    }
+
+    .product-id {
+      width: 15rem;
+      font-size: .8rem;
     }
 }

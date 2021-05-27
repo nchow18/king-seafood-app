@@ -54,7 +54,7 @@ function Header(props) {
                 <div className="header-links-container">
                 <input type="checkbox" id="check"/ >
                     <div className="links">
-                        <label className="mobile-header-toggle" for="check"><i class="fas fa-times mobile-icon"></i></label>
+                        <label className="mobile-header-toggle" for="check"><i className="fas fa-times mobile-icon"></i></label>
                         {Auth.loggedIn() === false && (
                             <>
                         {headerLinks.filter((link) => link.guest === true).map((link) => (
@@ -86,9 +86,9 @@ function Header(props) {
                         </div>
                     </div>
                 <div className="icons">
-                    <i class="fas fa-home mobile-icon"></i>
-                    <i class="fas fa-tags mobile-icon"></i>
-                    <i class="fas fa-shopping-cart mobile-icon"></i>
+                    <i className="fas fa-home mobile-icon"></i>
+                    <i className="fas fa-tags mobile-icon"></i>
+                    <i className="fas fa-shopping-cart mobile-icon"></i>
                     <label key='list' for="check" ><i className="fas fa-bars drop-down mobile-icon"></i></label>
                 </div>
 
