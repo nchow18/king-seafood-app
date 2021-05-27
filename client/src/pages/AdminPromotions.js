@@ -56,15 +56,15 @@ function AdminPromotions() {
   return (
     <>
       <div className="admin-container">
-        <form onSubmit={updatePromotions} className="admin-container night-bg">
+        <form onSubmit={updatePromotions} className="admin-promo-container night-bg">
           <div>
-            <div className="flex-start-row admin-input-width">
+            <div className="promo-column admin-input-width">
               <b>MAIN PROMO</b>
               <textarea  onChange={handleInputChange} name="mainPromo" value={formData.mainPromo}></textarea>
             </div>
           </div>
 
-          <div className="admin-container night-bg">
+          <div className="promo-container night-bg">
             <div className="promo-column">
               <b>Promotion 1</b>
               <input onChange={handleInputChange} name="promoMsg1" value={formData.promoMsg1} />
@@ -91,6 +91,7 @@ function AdminPromotions() {
             </div>
           </div>
 
+          <div className="promo-container">
             <div className="promo-column">
               <b>Featured 1 Product ID</b>
               <input onChange={handleInputChange} name="featuredProduct1" value={formData.featuredProduct1} />
@@ -103,6 +104,7 @@ function AdminPromotions() {
               <b>Featured 3 Product ID</b>
               <input type="text" onChange={handleInputChange} name="featuredProduct3" value={formData.featuredProduct3} />
             </div>
+          </div>
           <button type="submit" className="order-button">UPDATE</button>
         </form>
       </div>

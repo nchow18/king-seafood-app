@@ -38,6 +38,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
+}
+
+.admin-promo-container {
+  display: flex;
+  width: 800px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .admin-input-row {
@@ -63,13 +71,29 @@
     margin: .2rem;
 }
 
+.promo-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .promo-column {
-  margin: .2rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 @media screen and (max-width: 850px) {
   .admin-form-container {
     width: 100%;
+  }
+
+  .admin-promo-container {
+    width: 100%;
+  }
+
+  .promo-container {
+    flex-direction: column;
   }
 }
 
