@@ -20,6 +20,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
 import SingleOrder from './pages/AdminSingleOrder';
 import SingleProductEdit from './components/AdminComponents/SingleProductEdit';
+import MainPromo from './components/Header/MainPromo';
 
 const client = new ApolloClient({
     request: operation => {
@@ -102,7 +103,7 @@ function App() {
             <StoreProvider>
               <>
 			  <nav className="header-container">
-				  {/* <div>{promo[0].mainPromo}</div> */}
+				  <MainPromo />
 
 				<Header 
 						headerLinks={headerLinks}
@@ -111,11 +112,11 @@ function App() {
 					/>
 			  </nav>
 
-                  <div className="page">
-                    <Switch>
-                      <Route exact path='/home' component={Home} />
-                      <Route exact path="/about" component={About} />
-                      <Route exact path="/products" component={Products} />
+        <div className="page">
+          <Switch>
+            <Route exact path='/home' component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
 					  <Route exact path="/product/:id" component={SingleProduct} />
 					  <Route exact path="/order/:id" component={SingleOrder} />
@@ -139,14 +140,14 @@ function App() {
 							<Route exact path="/cart" component={Cart} />
 						</>
 					  )}
-                      <Route component={NoMatch} />
-                    </Switch>
-                  </div>
-                <Footer />
-              </>
-            </StoreProvider> 
-          </Router>
-        </ApolloProvider>
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      <Footer />
+    </>
+  </StoreProvider> 
+</Router>
+</ApolloProvider>
     );
 }
 export default App;
