@@ -6,6 +6,7 @@
     padding: 0rem .5rem;
 }
 
+
 .admin-header-link {
   text-decoration: none;
   padding: 1rem;
@@ -69,6 +70,10 @@
     font-size: .7rem;
     font-weight: bold;
     margin: .2rem;
+}
+
+.admin-products-container {
+  margin-bottom: 5rem;
 }
 
 .promo-container {
@@ -137,6 +142,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        padding: 0rem;
     }
 
     .admin-input-row {
@@ -151,6 +157,7 @@
     .admin-input-width {
         width: 13rem;
         background-color: white;
+        font-size: 0.8rem;
     }
 
     .admin-button {
@@ -170,4 +177,10 @@
       flex-direction: column;
       width: 90%;
     }
+}
+
+@media screen and (max-width: 400px) {
+  .admin-input-width {
+    width: 11rem;
+  }
 }

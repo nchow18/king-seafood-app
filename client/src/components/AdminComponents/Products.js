@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Auth from '../../utils/auth';
 import { PRODUCTS } from '../../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
+import DeleteSingleProduct from '../Buttons/DeleteSingleProduct';
 
 function AdminCategories(props) {
 
@@ -18,9 +19,11 @@ function AdminCategories(props) {
   if (loading) return 'Loading...';
 
   return (
-    <>  
-    <div className="admin-container">
-      <button onClick={toggle} >Refresh Products Data</button>
+    <>
+    {/* <button onClick={toggle} >Refresh Products Data</button> */}
+    {mounted && (
+      <>
+      <div className="admin-products-container">
       {productArr.map((product) => (
         <div key={product._id} className="admin-form-container night-bg">
           <div className="admin-input-width" value={`${product._id}`}>{product._id}</div>
@@ -48,12 +51,18 @@ function AdminCategories(props) {
               <div className="admin-input-row">
                 <label className="bold">Status: true/false</label>
                 <div className="admin-input-width">{JSON.parse(product.product_status)}</div>
-              </div>
+              </div>              
               <button id={product._id} onClick={() => {updateProductFormSubmit( product._id )}} className="admin-button">UPDATE</button>
+              <DeleteSingleProduct 
+                product_id={product._id}
+              />
             </div>
           </div>
          ))}
       </div>
+      </>
+    )}  
+    
     </>
   )
 }
