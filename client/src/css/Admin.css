@@ -6,6 +6,11 @@
     padding: 0rem .5rem;
 }
 
+.admin-header-link {
+  text-decoration: none;
+  padding: 1rem;
+}
+
 .product-id {
   width: 17rem;
   background-color: black;
@@ -56,6 +61,10 @@
     font-size: .7rem;
     font-weight: bold;
     margin: .2rem;
+}
+
+.promo-column {
+  margin: .2rem;
 }
 
 @media screen and (max-width: 850px) {
@@ -130,5 +139,11 @@
     .product-id {
       width: 15rem;
       font-size: .8rem;
+    }
+
+    .promo-column {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
     }
 }

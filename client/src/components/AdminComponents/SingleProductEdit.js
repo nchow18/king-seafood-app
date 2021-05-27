@@ -94,7 +94,7 @@ function SingleProductEdit() {
         <button className="margin-2rem" onClick={returnDashboard}>Return To Product List</button>
         <form className="admin-form-container night-bg" onSubmit={updateProductFormSubmit}>
           <div className="product-id bold" value={product._id}>{product._id}</div>
-          <div className="admin-input-row">
+            <div className="admin-input-row">
               <label className="bold">Name</label>
               <input value={formData.product_name} onChange={handleInputChange} className="product-name admin-input-width" name='product_name' placeholder={product.product_name} type="text"></input>
             </div>
