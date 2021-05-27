@@ -52,12 +52,12 @@ function SingleProduct() {
     return (
         location.pathname === `/product/${productId}` &&
         <>
-    	    <div className="flex-c-column content">
+    	    <div className="single-product-page">
                 <div className="single-product-container">
                     <div>
                         <img alt={product._id} src={product.product_picture} className="single-product-img" />
                     </div>
-                    <div className="flex-start-column single-product-details">
+                    <div className="single-product-details">
                         <span><b>Name: </b>{product.product_name}</span>
                         {product.product_nameChinese !== '' && (
                             <span><b>Chinese Name: </b>{product.product_nameChinese}</span>
