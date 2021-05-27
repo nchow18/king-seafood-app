@@ -29,13 +29,15 @@
 }
 
 #whatsapp:checked ~ .whatsapp-display {
-  display: initial;
+  display: flex;
 }
 
 .whatsapp-display {
   position: fixed;
   bottom: 20rem;
-  left: 3rem;
+  width: 100%;
+  display: none;
+  justify-content: center;
 }
 
 .triangle-right {
