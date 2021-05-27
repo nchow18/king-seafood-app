@@ -5,71 +5,71 @@ import { LOGIN } from '../../utils/mutations';
 import '../../css/Signin.css';
 
 function Login() {
-    const [formData, setUserFormData] = useState({ email: '', password: '' })
-    const [login, { error } ] = useMutation(LOGIN)
+  const [formData, setUserFormData] = useState({ email: '', password: '' })
+  const [login, { error } ] = useMutation(LOGIN)
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setUserFormData({
-            ...formData,
-            [name]: value
-        })
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formData.email, formData.password)
+
+    try {
+      const { data } = await login({
+        variables: {...formData}
+      })
+      Auth.login(data.login.token)
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formData.email, formData.password)
-
-        try {
-            const { data } = await login({
-                variables: {...formData}
-            })
-            Auth.login(data.login.token)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    return (
-        <>
-            <div className="sign-container">
-                <form 
-                onSubmit={handleFormSubmit} 
-                className="sign-form-container night-bg">
-                    <p>Sign In</p>
-                    <input 
-                        onChange={handleInputChange} 
-                        value={formData.email} 
-                        className="sign-input" 
-                        name="email" 
-                        placeholder="EMAIL">
-                    </input>
-                    <input 
-                        onChange={handleInputChange} 
-                        value={formData.password} 
-                        className="sign-input" 
-                        type="password"
-                        name="password" 
-                        placeholder="PASSWORD">
-                    </input>
-                        {
-                        error ? <div>
-                            <p className="error-text" >The provided credentials are incorrect</p>
-                        </div> : null
-                        }
-                    <button 
-                        disabled={!(formData.email && formData.password)}
-                        onChange={handleInputChange} 
-                        className="sign-input" 
-                        type="submit"
-                        variant="success"
-                    >
-                        SIGN IN
-                    </button>
-                </form>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="sign-container">
+        <form 
+        onSubmit={handleFormSubmit} 
+        className="sign-form-container night-bg">
+          <p>Sign In</p>
+          <input 
+            onChange={handleInputChange} 
+            value={formData.email} 
+            className="sign-input" 
+            name="email" 
+            placeholder="EMAIL">
+          </input>
+          <input 
+            onChange={handleInputChange} 
+            value={formData.password} 
+            className="sign-input" 
+            type="password"
+            name="password" 
+            placeholder="PASSWORD">
+          </input>
+            {
+            error ? <div>
+              <p className="error-text" >The provided credentials are incorrect</p>
+            </div> : null
+            }
+          <button 
+            disabled={!(formData.email && formData.password)}
+            onChange={handleInputChange} 
+            className="sign-input" 
+            type="submit"
+            variant="success"
+          >
+            SIGN IN
+          </button>
+        </form>
+      </div>
+    </>
+  )
 }
 
 export default Login;
