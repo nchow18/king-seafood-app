@@ -100,6 +100,12 @@
   }
 }
 
+@media screen and (max-width: 720px) {
+  .product-button {
+    width: 15rem;
+  }
+}
+
 @media screen and (max-width: 560px) {
   
   .product-card-display {
@@ -185,5 +191,13 @@
     display: none;
   }
 
+}
 
+@media screen and (max-width: 400px) {
+  .product-button {
+    font-size: .5rem;
+    font-weight: bold;
+    margin: .1rem .2rem;
+    padding: 0rem;
+  }
 }

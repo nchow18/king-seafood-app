@@ -5,6 +5,7 @@ import '../css/App.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { REMOVE_CART } from '../utils/mutations';
 import { USER, PRODUCTS } from '../utils/queries';
+import ViewProduct from '../components/Buttons/ViewProduct';
 
 function Cart() {
 
@@ -21,9 +22,6 @@ function Cart() {
 
   if (loading) return `...Loading`;
   if (error) return '...ERROR';
-
-  console.log(dataR);
-  console.log(data);
 
   if (dataR.user.cart.length) {
     console.log('YES')
@@ -42,11 +40,6 @@ function Cart() {
   }
   
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
-
-  function viewProduct(id) {
-    Auth.setSingleProduct(id);
-    Auth.viewSingleProduct();
-  }
 
   const removeProduct = async (id) => {
     try {
@@ -68,6 +61,7 @@ function Cart() {
   	  <div className="cart-container">
         {user_cart.length && (
           <>
+          <div className="cart-items-container">
             {user_cart.map((cart) => (
               <div key={cart.product_id} className="cart-row">
                 <div>
@@ -93,12 +87,15 @@ function Cart() {
                     <span><b>Quantity</b></span>
                     <span>{cart.quantity}</span>
                   </div>
-                  <button className="admin-button" key={cart._id} onClick={() => {viewProduct(cart._id)}}>VIEW</button>
-                  <button className="admin-button" key={cart._id} onClick={() => {removeProduct(cart._id)}}>REMOVE</button>
+                  <div className="cart-buttons-row">
+                    <ViewProduct product_id={cart._id} />
+                    <div className="product-button" key={cart._id} onClick={() => {removeProduct(cart._id)}}>REMOVE</div>
+                  </div>
                 </div>
               </div>
             ))}
-          <div className="flex-start-column payment-column cart-row">
+            </div>
+          <div className="payment-column cart-row">
               <span><b>Cart Total: </b>{cart_total} RM</span>
           </div>
           </>
