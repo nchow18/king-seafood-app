@@ -1,0 +1,70 @@
+.whatsapp-icon {
+  font-size: 5rem;
+  position: fixed;
+  right: 1rem;
+  bottom: 10rem;
+  z-index: 10;
+  color: green;
+}
+
+#whatsapp {
+  display: none;
+}
+
+.whatsapp-container {
+  height: 20rem;
+  width: 20rem;
+  background-color: green;
+  padding: 1rem;
+  position: relative;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.whatsapp-display {
+  display: none;
+}
+
+#whatsapp:checked ~ .whatsapp-display {
+  display: initial;
+}
+
+.whatsapp-display {
+  position: fixed;
+  bottom: 20rem;
+  left: 3rem;
+}
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-top: 30px solid green;
+  position: absolute;
+  bottom: -2rem;
+  right: 2rem;
+}
+
+.whatsapp-row {
+  margin: .5rem 0rem;
+  width: 100%;
+}
+
+textarea {
+  height: 8rem;
+}
+
+.whatsapp-send {
+  font-weight: bold;
+  border: 2px solid white;
+  padding: .35rem;
+  border-radius: 10px;
+}
+
+.whatsapp-send:hover {
+  background-color: darkgreen;
+}

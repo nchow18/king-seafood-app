@@ -21,6 +21,8 @@ import SignUp from './components/Signup';
 import SingleOrder from './pages/AdminSingleOrder';
 import SingleProductEdit from './components/AdminComponents/SingleProductEdit';
 import MainPromo from './components/Header/MainPromo';
+import WhatsApp from './components/WhatsApp/WhatsApp';
+import './css/Whatsapp.css';
 
 const client = new ApolloClient({
     request: operation => {
@@ -143,7 +145,13 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
         </div>
-      <Footer />
+      <input type="checkbox" id="whatsapp" />
+      <div className="whatsapp-display">
+        <WhatsApp />
+      </div>
+      <label for="whatsapp"><div className="whatsapp-button"><i class="fab fa-whatsapp-square whatsapp-icon"></i></div></label>
+      {/* <Footer /> */}
+
     </>
   </StoreProvider> 
 </Router>

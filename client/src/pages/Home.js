@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useLocation } from 'react-router-dom';
 import PromoCarousel from '../components/Carousel/Promotions';
 import {Link} from 'react-router-dom';
+import AboutSection from '../components/About/About';
 
 import '../css/Home.css';
 
@@ -71,6 +72,7 @@ function Home() {
             products={featuredProducts}
         />
       </div>  
+      <AboutSection />
     </>
   )
 }
