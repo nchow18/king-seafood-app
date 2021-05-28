@@ -82,6 +82,10 @@
   display: none;
 }
 
+.home-section {
+  margin: 5rem 0rem;
+}
+
 @media screen and (max-width: 1556px) {
 
 }
@@ -131,5 +135,12 @@
     font-weight: normal;
     font-size: 1rem;
     width: 7rem;
+  }
+  .promo-img {
+    height: 20rem;
+  }
+
+  .promo-img-container {
+    height: 20rem;
   }
 }
