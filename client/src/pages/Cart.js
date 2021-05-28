@@ -13,25 +13,28 @@ function Cart() {
   const user_id = profileData.data._id;
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER, { variables: { user_id: user_id }});
-  const user_data = dataR?.user || {};
   const {loading, data} = useQuery(PRODUCTS);
+
+  if (loading) return `...Loading`;
+
+  const user_data = dataR?.user || {};
   const product_data = data?.products || {};
   const cartArr = [];
   const user_cart = cartArr;
   const cart_price = [];
 
-  if (loading) return `...Loading`;
-  if (error) return '...ERROR';
+  console.log(cartArr);
 
-  if (dataR.user.cart.length) {
-    console.log('YES')
+  if (dataR) {
+    console.log(dataR.user.cart);
+    console.log(data);
+    console.log('ITEMS IN CART')
     for (var i = 0; i < user_data.cart.length; i++) {
       for (var t = 0; t < product_data.length; t++) {
         if (user_data.cart[i].product_id === product_data[t]._id) {
           cartArr.push(product_data[t])
           cartArr[i].quantity = product_data[t].product_price;
           cart_price.push(product_data[t].product_price);
-
         }
       }
     }
@@ -101,7 +104,9 @@ function Cart() {
           </>
         )}
         {!user_cart.length && (
-          <b>Your cart is empty</b>
+          <div className="flex-c-column">
+            <b>Your cart is empty</b>
+          </div>
         )}
       </div>
     </>

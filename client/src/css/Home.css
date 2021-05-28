@@ -122,6 +122,7 @@
 @media screen and (max-width: 500px) {
   .home-banner-text {
     font-size: 1rem;
+    padding: 1rem;
   }
 
   .home-button-white {

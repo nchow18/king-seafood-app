@@ -86,8 +86,8 @@ function Header(props) {
                         </div>
                     </div>
                 <div className="icons">
-                    <Link to="/home"><i className="fas fa-home mobile-icon"></i></Link>
-                    <Link to="/promotions"><i className="fas fa-tags mobile-icon"></i></Link>
+                    <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
+                    <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>
                     <Link to="/cart"><i className="fas fa-shopping-cart mobile-icon"></i></Link>
                     <label key='list' for="check" ><i className="fas fa-bars drop-down mobile-icon"></i></label>
                 </div>
