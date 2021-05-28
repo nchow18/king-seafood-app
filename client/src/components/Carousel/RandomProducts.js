@@ -21,8 +21,8 @@ function ProductCarousel() {
 
   if (data) {
     for (var i = 0; i < Math.round(productsArr.length * .3); i++ ) {
-      var randomNumber = productsArr[Math.round(Math.random(productsArr.length))];
-      randomProducts.push(randomNumber);
+      var randomProduct = productsArr[Math.round(Math.random((productsArr.length * 0.3) * i))];
+      randomProducts.push(randomProduct);
     }
   }
 

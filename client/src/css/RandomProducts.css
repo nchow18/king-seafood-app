@@ -1,5 +1,6 @@
 .carousel-img {
   height: 20rem;
+  object-fit: cover;
 }
 
 .carousel-img-container {
