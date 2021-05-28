@@ -40,7 +40,7 @@ function Home() {
   }
 
   return (
-    location.pathname === `/home` &&
+    location.pathname === `/` &&
     <>
   	  <div className="home-page">
         <div className="home-banner-content">

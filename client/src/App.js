@@ -41,7 +41,7 @@ function App() {
   const [headerLinks] = useState([
 		{
 			name: 'Home',
-			href: '/home',
+			href: '/',
 			guest: true,
 			user: true,
 			admin: true
@@ -116,7 +116,7 @@ function App() {
 
         <div className="page">
           <Switch>
-            <Route exact path='/home' component={Home} />
+            <Route exact path='/' component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
