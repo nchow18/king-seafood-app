@@ -7,6 +7,7 @@ import PromoCarousel from '../components/Carousel/Promotions';
 import {Link} from 'react-router-dom';
 import AboutSection from '../components/About/About';
 import '../css/Home.css';
+import ProductCarousel from '../components/Carousel/RandomProducts'
 
 function Home() {
 
@@ -46,7 +47,7 @@ function Home() {
         <div className="home-banner-content">
           <img alt="home-banner" src="https://wallpaperaccess.com/full/1491748.jpg" className="home-banner" />
           <div className="home-banner-text">
-            <p>FRESH AND PACKED BY</p>
+            <p>PACKED FRESH BY</p>
             <p>KING SEAFOOD</p>
             <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
           </div>
@@ -67,10 +68,17 @@ function Home() {
         </div> 
       </div>
       <div className="home-promo-mobile">
+      <b className="section-title">Featured Products</b>
         <PromoCarousel
             products={featuredProducts}
         />
-      </div>  
+      </div>
+       
+      <div className="home-section">
+        <b className="section-title">Products you might like</b>
+        <p></p>
+        <ProductCarousel />
+      </div>
       <AboutSection />
     </>
   )

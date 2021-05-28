@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Auth from '../../utils/auth';
 import Flickity from 'react-flickity-component';
 import '../../css/flickity.css';
 
 function PromoCarousel(props) {
-
-  const [currentPromo, setNextPromo] = useState(0)
 
   const {
     products = []
@@ -19,9 +17,7 @@ function PromoCarousel(props) {
   if (products.length === 0) return `...Loading Data`;
 
   const featuredProducts = products;
-  console.log(products);
   
-
   return (
     <>
 

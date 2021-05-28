@@ -1,6 +1,5 @@
 .product-card {
   background-color: white;
-  box-shadow: 10px 10px 20px rgb(0,0,0,0.7);
   width: 25rem;
   margin: 2rem;
 }
@@ -114,7 +113,7 @@
 
 @media screen and (max-width: 720px) {
   .product-button {
-    width: 15rem;
+    width: 100%;
   }
 
   .single-product-container {
@@ -240,9 +239,6 @@
     flex-direction: column;
     width: 100vw;
   }
-
-  
-
 
 }
 

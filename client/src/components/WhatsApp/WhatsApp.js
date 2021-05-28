@@ -21,7 +21,6 @@ function WhatsApp() {
   const message = formData.name + " || " + formData.phone + " || " + formData.message;
   const number = '6472986836'
 
-  console.log(formData);
   
   function sendMessage() {
    window.confirm('Proceed to send message?');

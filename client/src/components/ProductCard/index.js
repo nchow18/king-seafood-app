@@ -60,7 +60,6 @@ function ProductCard() {
                         ) : (
                             <p>Out Of Stock</p>
                         )}
-                        <p>{product.product_description}</p>
                     </div>
                     <div className="product-button-container">
                         <ViewProduct product_id={product._id} />
