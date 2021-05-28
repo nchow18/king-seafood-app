@@ -54,7 +54,7 @@ function SingleProduct() {
         <>
     	    <div className="single-product-page">
                 <div className="single-product-container">
-                    <div>
+                    <div className="single-product-img-container">
                         <img alt={product._id} src={product.product_picture} className="single-product-img" />
                     </div>
                     <div className="single-product-details">
