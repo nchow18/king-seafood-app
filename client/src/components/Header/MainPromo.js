@@ -12,7 +12,10 @@ function MainPromo() {
 
   return (
     <>
-    {mainPromo}
+    <div className="header-main-promo">
+      {mainPromo}
+    </div>
+
     </>
   )
 }

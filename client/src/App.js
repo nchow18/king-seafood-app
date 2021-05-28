@@ -104,13 +104,12 @@ function App() {
           <Router>
             <StoreProvider>
               <>
-			  <nav className="header-container">
-				  <MainPromo />
-
-				<Header 
-						headerLinks={headerLinks}
-						currentHeaderLink={currentHeaderLink}
-						setCurrentHeaderLink={setCurrentHeaderLink}
+              <MainPromo />
+			    <nav className="header-container">
+          <Header 
+            headerLinks={headerLinks}
+            currentHeaderLink={currentHeaderLink}
+            setCurrentHeaderLink={setCurrentHeaderLink}
 					/>
 			  </nav>
 
@@ -139,16 +138,21 @@ function App() {
 					  {Auth.getAdmin() === false && (
 						<>
 							<Route exact path="/account" component={Account} />
-							<Route exact path="/cart" component={Cart} />
+              <div className="window-cart">
+							  <Route exact path="/cart" component={Cart} />
+              </div>
+
 						</>
 					  )}
             <Route component={NoMatch} />
           </Switch>
         </div>
       <input type="checkbox" id="whatsapp" />
+
       <div className="whatsapp-display">
         <WhatsApp />
       </div>
+
       <label for="whatsapp"><div className="whatsapp-button"><i class="fab fa-whatsapp-square whatsapp-icon"></i></div></label>
       {/* <Footer /> */}
 

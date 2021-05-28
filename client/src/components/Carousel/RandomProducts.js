@@ -20,29 +20,35 @@ function ProductCarousel() {
   const products = randomProducts;
   const randomNumbers = [];
 
+  console.log(productsArr.length);
+
   if (data) {
     console.log('begin sorting numbers');
-    for (var i = 0; i < Math.round(productsArr.length * .3); i++ ) {
-      var number = 1;
+    for (var i = 0; i < Math.round(productsArr.length); i++ ) {
+      var number = 1 + i;
 
-      console.log(number)
+      console.log(number);
       // get random number within the range of productsArr
-      var randomNumber = Math.round(Math.random((productsArr.length * 0.3) * number));
+      var randomNumber = Math.round(Math.random() * productsArr.length);
       randomNumbers.push(randomNumber);
-      
-      //checks if there is a duplicate number in randomNumbers array with randomNumber, true or false.
-      var duplicateCheck = randomNumbers.map((number) => number === randomNumber);
 
-      // if true and randomNumbers length greater than 1, proceed to add product to randomProducts array list
-      if (duplicateCheck && randomNumbers.length > 1) {
-        return false;
-      } else {
+      console.log(randomNumbers);
+
+      var verify = randomNumbers.filter(function (number) {
+        return number === i;
+      })
+
+      console.log(verify.length);
+      console.log('verify: ' + verify)
+      
+      if (verify.length === 0) {
+        console.log('pushing to random products')
         randomProducts.push(productsArr[i])
       }
-      number += 1;
+
       }
     }
-
+    console.log(randomProducts);
     console.log(randomNumbers);
 
   if (loading) return `...Loading Data`;

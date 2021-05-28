@@ -1,0 +1,60 @@
+.mobile-component {
+  display: flex;
+  flex-direction: column;
+  width: 0rem;
+  position: fixed;
+  /* right: -30rem; */
+  right: 0;
+  top: 6rem;
+  z-index: 10;
+  height: 95%;
+  transition: width 2s ease-in;
+}
+
+#mobile-cart {
+  display: none;
+}
+
+@media screen and (max-width: 1093px) {
+  .mobile-component {
+    display: none;
+  }
+
+  .mobile-cart-container {
+    background-color: white;
+    color: black;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .window-cart {
+    display: none;
+  }
+
+  .mobile-component {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    position: fixed;
+    right: -30rem;
+    top: 6rem;
+    z-index: 10;
+    height: 95%;
+    transition: right .7s ease-in;
+  }
+
+  #mobile-cart:checked ~ .mobile-component {
+    display: flex;
+    right: 0rem;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .mobile-component {
+    width: 80%;
+    right: -80%;
+  }
+}

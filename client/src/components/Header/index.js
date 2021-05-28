@@ -2,6 +2,7 @@
 import '../../css/Header.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import MobileCart from '../../components/Cart/MobileCart';
 
 function Header(props) {
 
@@ -85,13 +86,20 @@ function Header(props) {
                             <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>
                         </div>
                     </div>
-                <div className="icons">
-                    <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
-                    <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>
-                    <Link to="/cart"><i className="fas fa-shopping-cart mobile-icon"></i></Link>
-                    <label key='list' for="check" ><i className="fas fa-bars drop-down mobile-icon"></i></label>
+                  <div className="icons">
+                      <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
+                      <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>
+                      <label for="mobile-cart">
+                        <i className="fas fa-shopping-cart mobile-icon"></i>
+                      </label>
+                      <label key='list' for="check" >
+                        <i className="fas fa-bars drop-down mobile-icon"></i>
+                      </label>
+                  </div>
                 </div>
-
+                <input type="checkbox" id="mobile-cart" />
+                <div className="mobile-component mobile-cart">
+                  <MobileCart />
                 </div>
             </div>
     )
