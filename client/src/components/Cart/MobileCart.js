@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/MobileCart.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { REMOVE_CART, UPDATE_CART } from '../../utils/mutations';
+import { REMOVE_CART } from '../../utils/mutations';
 import { USER, PRODUCTS } from '../../utils/queries';
 import ViewProduct from '../../components/Buttons/ViewProduct';
+import UpdateCartButton from '../../components/Buttons/UpdateCart';
 
 function MobileCart() {
 
-  const [formData, setFormData] = useState({
-    quantity: '',
-  })
-
   const profileData = Auth.getProfile();
   const user_id = profileData.data._id;
-  const [updateCart] = useMutation(UPDATE_CART);
+ 
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER, { variables: { user_id: user_id }});
   const {loading, data} = useQuery(PRODUCTS);
@@ -26,8 +23,6 @@ function MobileCart() {
   const cartArr = [];
   const user_cart = cartArr;
   const cart_price = [];
-
-  console.log(formData);
 
   const removeProduct = async (id) => {
     try {
@@ -83,28 +78,6 @@ function MobileCart() {
     }
   }
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    })
-  }
-
-  const updateUserCart = async (id) => {
-    console.log(id)
-    try {
-      updateCart({
-        variables: {
-          quantity: formData.quantity,
-          product_id: id,
-        }
-      })
-      alert('Cart Quantity Updated')
-    } catch (e) {
-      console.log(e);
-    }
-  }
 
   console.log(user_cart);
   console.log(dataR);
@@ -135,10 +108,7 @@ function MobileCart() {
                   </div>
                   <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
                 </div>
-                <div className="mobile-cart-quantity">
-                  <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeHolder={product.product_quantity} min="1" name="quantity" />
-                  <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id)}} >UPDATE</div>
-                </div>
+                <UpdateCartButton product={product} />
               </div>
             ))}
 
