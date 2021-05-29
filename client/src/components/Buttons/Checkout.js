@@ -8,9 +8,13 @@ function Checkout(props) {
 
   console.log(cart);
 
+  const checkout = async (event) => {
+    console.log('checking out');
+  }
+
   return (
     <>
-      <div className="checkout-button">CHECKOUT</div>
+      <div onClick={checkout} className="checkout-button">CHECKOUT</div>
     </>
   )
 }

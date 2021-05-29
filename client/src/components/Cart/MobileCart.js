@@ -79,10 +79,6 @@ function MobileCart() {
     }
   }
 
-
-  console.log(user_cart);
-  console.log(dataR);
-  
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
   if (error) return `...ERROR`;
