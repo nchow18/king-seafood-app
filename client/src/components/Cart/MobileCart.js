@@ -6,6 +6,7 @@ import { REMOVE_CART } from '../../utils/mutations';
 import { USER, PRODUCTS } from '../../utils/queries';
 import ViewProduct from '../../components/Buttons/ViewProduct';
 import UpdateCartButton from '../../components/Buttons/UpdateCart';
+import Checkout from '../Buttons/Checkout';
 
 function MobileCart() {
 
@@ -114,7 +115,7 @@ function MobileCart() {
 
           </div>
           <div className="mobile-cart-checkout-container">
-            <div className="checkout-button">CHECKOUT</div>
+            <Checkout cart={user_cart} />
             <div className="checkout-disclaimer">Checkout with SWIPE</div>
           </div>
         </div>

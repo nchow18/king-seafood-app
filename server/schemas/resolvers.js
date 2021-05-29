@@ -257,11 +257,9 @@ const resolvers = {
         },
         updateCart: async(parent, { quantity, product_id }, context) => {
           if (context.user) {
-            console.log(quantity, product_id)
             const user_data = await User.findById(context.user._id);
             var index = '';
 
-            console.log(user_data.cart);
             for (var i = 0; i < user_data.cart.length; i++) {
                 if (user_data.cart[i].product_id === product_id) {
                   index = i;
