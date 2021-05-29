@@ -14,7 +14,10 @@ function ProductCard() {
     const products = data?.products || {};
 
     const addToCart = async (data) => {
-
+      if (Auth.loggedIn() === false) {
+        return alert('Please Sign in OR Sign up');
+      }
+      
         try {
             addCart({ variables: {
                 input: {
