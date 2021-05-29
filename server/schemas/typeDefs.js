@@ -216,6 +216,7 @@ const typeDefs = gql`
         addUser(input: UserInput): Auth
         login(email: String!, password: String!): Auth
         addCart(input: [CartInput]): User
+        updateCart(quantity: Int, product_id: String!): User
         removeCart(product_id: ID!): User
         updateUser(input: UserAccountInput): User
         addProduct(input: ProductInput!): Product
@@ -228,6 +229,7 @@ const typeDefs = gql`
         updatePromo(input: PromoInput, promo_id: ID!): Promo
         updateUserAccount(input: UserInput, user_id: ID!): User
         updateUserAddress(input: AddressInput, user_id: ID!): User
+
     }
 
 `;

@@ -254,8 +254,33 @@ const resolvers = {
                 )
             }
             throw new AuthenticationError('Not Logged In');
+        },
+        updateCart: async(parent, { quantity, product_id }, context) => {
+          if (context.user) {
+            console.log(quantity, product_id)
+            const user_data = await User.findById(context.user._id);
+            var index = '';
+
+            console.log(user_data.cart);
+            for (var i = 0; i < user_data.cart.length; i++) {
+                if (user_data.cart[i].product_id === product_id) {
+                  index = i;
+                }
+            }
+
+            await User.findByIdAndUpdate(
+              context.user._id,
+              {$pull: { cart: { product_id: product_id }}}
+            )
+
+            return await User.findByIdAndUpdate(
+              context.user._id,
+              {$addToSet: {cart: { quantity: quantity, product_id: product_id }}},
+              { new: true }
+            )
+          }
+          throw new AuthenticationError('Not Logged In');
         }
-        
 
     }
 };

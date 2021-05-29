@@ -13,7 +13,7 @@ function MobileCart() {
   })
   const profileData = Auth.getProfile();
   const user_id = profileData.data._id;
-  const [updateCart] = useMutation(UPATE_CART);
+  const [updateCart] = useMutation(UPDATE_CART);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER, { variables: { user_id: user_id }});
   const {loading, data} = useQuery(PRODUCTS);
@@ -48,6 +48,10 @@ function MobileCart() {
       ...formData,
       [name]: value
     })
+  }
+
+  const updateUserCart = async (event) => {
+    console.log('updating user cart')
   }
 
   if (user_data.cart.length === 0) {
@@ -95,6 +99,8 @@ function MobileCart() {
   
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
+  if (error) return `...ERROR`;
+
   Auth.getCartTotal(cart_total);
   return (
     <> 
@@ -118,7 +124,7 @@ function MobileCart() {
                   <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
                 </div>
                 <div className="mobile-cart-quantity">
-                  <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeHolder={product.product_quantity} min="1" name="quantity" />
+                  <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} key={product._id} onClick={() => {updateUserCart(product._id)}} placeHolder={product.product_quantity} min="1" name="quantity" />
                 </div>
               </div>
             ))}

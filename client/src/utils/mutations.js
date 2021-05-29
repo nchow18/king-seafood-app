@@ -13,6 +13,7 @@ import gql from 'graphql-tag';
 //10 UPDATE_ORDER_STATUS
 //11 UPDATE_PROMO
 //12 UPDATE_ADDRESS
+//13 UPDATE_CART
 
 export const LOGIN = gql`
     mutation login($email: String!, $password:String!) {
@@ -204,6 +205,19 @@ export const UPDATE_ADDRESS = gql`
         }
         }
     }
+`;
+
+export const UPDATE_CART = gql`
+  mutation updateCart($quantity: Int, $product_id: String!) {
+    updateCart(quantity: $quantity, product_id: $product_id) {
+      cart {
+        quantity
+        product_id
+      }
+    }
+  }
+`;
+
 `;
 
 
