@@ -22,7 +22,10 @@ function Login() {
 
         try {
             const { data } = await login({
-                variables: {...formData}
+                variables: {
+                  email: formData.email.toLowerCase(),
+                  password: formData.password
+                }
             })
             Auth.login(data.login.token)
         } catch (error) {
