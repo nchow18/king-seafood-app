@@ -1,5 +1,5 @@
 .mobile-component {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 0rem;
   position: fixed;

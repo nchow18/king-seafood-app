@@ -70,8 +70,8 @@ function MobileCart() {
         console.log('adding product to cart');
         if (user_data.cart[i].product_id === product_data[t]._id) {
           cartArr.push(product_data[t])
-          cartArr[i].total_price = product_data[t].product_price;
           cartArr[i].quantity = user_data.cart[i].quantity;
+          cartArr[i].total_price = (product_data[t].product_price * user_data.cart[i].quantity);
           cart_price.push(product_data[t].product_price);
         }
       }

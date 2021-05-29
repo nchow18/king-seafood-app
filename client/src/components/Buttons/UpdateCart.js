@@ -23,32 +23,27 @@ function UpdateCartButton(props) {
 
   const updateUserCart = async (id) => {
 
-    const quantity = 'quantity-'+id;
-
-    console.log(quantity);
-    console.log(formData);
-
-    // try {
-    //   updateCart({
-    //     variables: {
-    //       quantity: formData.quantity,
-    //       product_id: id,
-    //     }
-    //   })
-    //   alert('Cart Quantity Updated')
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    const quantity = formData.quantity;
+    
+    try {
+      updateCart({
+        variables: {
+          quantity: parseInt(quantity),
+          product_id: id,
+        }
+      })
+      alert('Cart Quantity Updated')
+    } catch (e) {
+      console.log(e);
+    }
   }
-
-  console.log(formData);
 
   if (error) return `...ERROR`;
 
   return (
     <>
       <div className="mobile-cart-quantity">
-        <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name={`quantity-${product._id}`} />
+        <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" />
         <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id)}} >UPDATE</div>
       </div>
     </>
