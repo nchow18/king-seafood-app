@@ -218,6 +218,5 @@ export const UPDATE_CART = gql`
   }
 `;
 
-`;
 
 

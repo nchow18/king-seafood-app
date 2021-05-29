@@ -113,12 +113,20 @@
   }
 
   .mobile-cart-quantity-input {
-    width: 3rem;
+    width: 4rem;
   }
 
   .mobile-cart-quantity {
     position: absolute;
     right: 3rem;
-    width: 3rem;
+    width: 4rem;
+  }
+
+  .mobile-cart-update {
+    background-color: var(--button);
+    padding: .5rem;
+    font-size: .7rem;
+    width: 4rem;
+    margin: .5rem 0rem;
   }
 }

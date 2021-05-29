@@ -11,6 +11,7 @@ function MobileCart() {
   const [formData, setFormData] = useState({
     quantity: '',
   })
+
   const profileData = Auth.getProfile();
   const user_id = profileData.data._id;
   const [updateCart] = useMutation(UPDATE_CART);
@@ -40,18 +41,6 @@ function MobileCart() {
     } catch (e) {
       console.log(e)
     }
-  }
-
-  const handleInputChange = event => {
-    const { name, value } = value.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    })
-  }
-
-  const updateUserCart = async (event) => {
-    console.log('updating user cart')
   }
 
   if (user_data.cart.length === 0) {
@@ -94,6 +83,29 @@ function MobileCart() {
     }
   }
 
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
+  const updateUserCart = async (id) => {
+    console.log(id)
+    try {
+      updateCart({
+        variables: {
+          quantity: formData.quantity,
+          product_id: id,
+        }
+      })
+      alert('Cart Quantity Updated')
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   console.log(user_cart);
   console.log(dataR);
   
@@ -124,7 +136,8 @@ function MobileCart() {
                   <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
                 </div>
                 <div className="mobile-cart-quantity">
-                  <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} key={product._id} onClick={() => {updateUserCart(product._id)}} placeHolder={product.product_quantity} min="1" name="quantity" />
+                  <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeHolder={product.product_quantity} min="1" name="quantity" />
+                  <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id)}} >UPDATE</div>
                 </div>
               </div>
             ))}
