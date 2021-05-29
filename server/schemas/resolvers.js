@@ -11,7 +11,6 @@ const stripe = require('stripe')(process.env.STRIPE_KEY || process.env.STRIPE_TE
 const resolvers = {
     Query: {
         user: async (parent, { user_id }, context) => {
-            console.log( user_id )
             return await User.findById(user_id)
                 .select('-__v -password')
         },
@@ -29,7 +28,6 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
         product: async (parent, { product_id }, context) => {
-            console.log( product_id )
             return await Product.findById(product_id)
         },
         products: async (parent, args, context) => {
@@ -108,9 +106,6 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
         updateUser: async (parent, { input }, context) => {
-
-            console.log(input);
-            console.log(context.user);
 
             if (context.user) {
                 return await User.findByIdAndUpdate(
@@ -232,7 +227,6 @@ const resolvers = {
         updateUserAddress: async(parent, { input, user_id }, context) => {
             if(context.user) {
 
-                console.log(input);
                 await User.findByIdAndUpdate(
                     user_id,
                     {$set: { address: [] }},
