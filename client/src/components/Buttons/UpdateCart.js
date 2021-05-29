@@ -43,6 +43,7 @@ function UpdateCartButton(props) {
   return (
     <>
       <div className="mobile-cart-quantity">
+        <div>Quantity</div>
         <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" />
         <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id)}}>UPDATE</div>
       </div>

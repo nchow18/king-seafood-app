@@ -82,7 +82,6 @@ if (user_data.cart) {
 
   if (error) return `...ERROR`;
 
-  Auth.getCartTotal(cart_total);
   return (
     <> 
     {dataR ? (
@@ -126,8 +125,6 @@ if (user_data.cart) {
     ) : (
       <h1 className="mobile-cart-container night-bg">You are not logged-in</h1>
     )}
-
-
     </>
   )
 }
