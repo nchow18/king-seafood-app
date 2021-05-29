@@ -3,6 +3,7 @@ import '../../css/Header.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import MobileCart from '../../components/Cart/MobileCart';
+import WindowCart from '../../components/Cart/WindowCart';
 
 function Header(props) {
 
@@ -40,8 +41,6 @@ function Header(props) {
         }
     }
 
-
-
     return (
             <div className="header-items">
 
@@ -55,6 +54,7 @@ function Header(props) {
                 <div className="header-links-container">
                 <input type="checkbox" id="check"/ >
                     <div className="links">
+
                         <label className="mobile-header-toggle" htmlFor="check"><i className="fas fa-times mobile-icon"></i></label>
                         {Auth.loggedIn() === false && (
                             <>
@@ -65,8 +65,11 @@ function Header(props) {
                         )}
                         {Auth.getAdmin() === true && (
                             <>
+                            
                             {headerLinks.filter((link) => link.admin === true).map((link) => (
-                                <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+                                <>
+                                  <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+                                </>                
                             ))}
                             </>
                         )}
@@ -74,18 +77,28 @@ function Header(props) {
                         {Auth.getAdmin() === false && (
                             <>
                             {headerLinks.filter((link) => link.user === true).map((link) => (
-                                <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+                                  <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
                             ))}
                             </>
                         )}
                         {Auth.loggedIn() && (
-                            <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>   
+                          <>
+                            <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
+                            <label htmlFor="window-cart">
+                              <i className="fas fa-shopping-cart cart-link"></i>
+                            </label>
+                          </>   
                         )}
                         <div className="night-mobile">
                             <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-header-display"></i></div>
                             <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>
                         </div>
                     </div>
+                  <input type="checkbox" id="window-cart" />
+                  <div className="window-cart-container">
+                    <label htmlFor="window-cart"><i className="fas fa-times cart-icon"></i></label>
+                    <WindowCart />
+                  </div>
                   <div className="icons">
                       <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
                       <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>

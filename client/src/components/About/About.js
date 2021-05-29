@@ -11,8 +11,8 @@ function AboutSection() {
         </div>
         <div className="about-right-container">
           <div className="row">
-            <Link to="/"><i class="fab fa-facebook about-icon"></i></Link>
-            <Link to="/"><i class="fab fa-instagram about-icon"></i></Link>
+            <Link to="/"><i className="fab fa-facebook about-icon"></i></Link>
+            <Link to="/"><i className="fab fa-instagram about-icon"></i></Link>
           </div>
 
         </div>

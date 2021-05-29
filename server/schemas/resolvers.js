@@ -11,7 +11,7 @@ const stripe = require('stripe')(process.env.STRIPE_KEY || process.env.STRIPE_TE
 const resolvers = {
     Query: {
         user: async (parent, { user_id }, context) => {
-            return await User.findById(context)
+            return await User.findById( user_id )
                 .select('-__v -password')
         },
         users: async (parent, args, context) => {

@@ -68,13 +68,6 @@ function App() {
 			admin: true
 		},
 		{
-			name: 'Cart',
-			href: '/cart',
-			guest: false,
-			user: true,
-			admin: true
-		},
-		{
 			name: 'Dashboard',
 			href: '/admindashboard',
 			guest: false,
@@ -131,7 +124,6 @@ function App() {
 					  {Auth.getAdmin() === true && (
 						<>
 							<Route exact path="/admindashboard" component={Dashboard} />
-							<Route exact path="/cart" component={Cart} />
 							<Route exact path="/productupdate/:id" component={SingleProductEdit} />
 						</>
 					  )}
