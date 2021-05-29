@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 // 4 ORDER
 // 5 ORDERS
 // 6 PROMO
+// 7 USER_ME
 
 export const USER = gql`
 query user($user_id: ID!) {
@@ -110,5 +111,24 @@ query {
     featuredProduct2
     featuredProduct3
   }
+}
+`;
+
+export const USER_ME = gql`
+query {userMe {
+  _id
+  first_name
+  last_name
+  email
+  phone
+  cart {
+    product_id
+    quantity
+  }
+  address{
+    street_name
+    street_number
+  }
+}
 }
 `;

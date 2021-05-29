@@ -3,18 +3,15 @@ import Auth from '../../utils/auth';
 import '../../css/MobileCart.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { REMOVE_CART } from '../../utils/mutations';
-import { USER, PRODUCTS } from '../../utils/queries';
+import { USER_ME, PRODUCTS } from '../../utils/queries';
 import ViewProduct from '../../components/Buttons/ViewProduct';
 import UpdateCartButton from '../../components/Buttons/UpdateCart';
 import Checkout from '../Buttons/Checkout';
 
 function MobileCart() {
-
-  const profileData = Auth.getProfile();
-  const user_id = profileData.data._id;
  
   const [removeCart, { error }] = useMutation(REMOVE_CART);
-  const {data: dataR} = useQuery(USER, { variables: { user_id: user_id }});
+  const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
 
   if (loading) return `...Loading`;
@@ -24,6 +21,8 @@ function MobileCart() {
   const cartArr = [];
   const user_cart = cartArr;
   const cart_price = [];
+
+  console.log(dataR);
 
   const removeProduct = async (id) => {
     try {
@@ -81,6 +80,10 @@ if (user_data.cart) {
 }
 
 
+
+console.log(Auth.loggedIn());
+
+
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
   if (error) return `...ERROR`;
@@ -88,17 +91,14 @@ if (user_data.cart) {
   Auth.getCartTotal(cart_total);
   return (
     <> 
-    {Auth.loggedIn() ? (
+    {dataR ? (
       <>
-      {!user_data.cart === false && (
-        <div className="mobile-cart-container to-night">You have <b>0</b> items in your cart</div>
-      )}
-      {user_data.cart.length >= 1 && (
+      {dataR && (
         <div className="mobile-cart-container to-night">
           <div className="mobile-cart-items-container to-night">
             PRODUCTS
             {user_cart.map((product) => (
-              <div className="mobile-cart-product-row">
+              <div key={product._id} className="mobile-cart-product-row">
                 <img className="mobile-cart-product-img" alt={product.product_name} src={product.product_picture} />
                 <div className="mobile-cart-product-details">
                   <div>
