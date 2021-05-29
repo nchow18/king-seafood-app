@@ -16,7 +16,7 @@ function MobileCart() {
 
   if (loading) return `...Loading`;
 
-  const user_data = dataR?.user || {};
+  const user_data = dataR?.userMe || {};
   const product_data = data?.products || {};
   const cartArr = [];
   const user_cart = cartArr;
