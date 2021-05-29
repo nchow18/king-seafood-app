@@ -90,7 +90,7 @@ if (user_data.cart) {
     <> 
     {Auth.loggedIn() ? (
       <>
-      {user_data.cart.length === 0 && (
+      {!user_data.cart === false && (
         <div className="mobile-cart-container to-night">You have <b>0</b> items in your cart</div>
       )}
       {user_data.cart.length >= 1 && (
