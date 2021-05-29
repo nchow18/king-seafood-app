@@ -107,7 +107,7 @@
 
     .links {
         display: none;
-        background-color: var(--light-blue);
+        background-color: var(--light-gray);
         flex-direction: column;
         width: 100%;
         position: relative;

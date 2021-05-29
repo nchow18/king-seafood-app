@@ -99,7 +99,7 @@ function Header(props) {
                 </div>
                 <input type="checkbox" id="mobile-cart" />
                 <div className="mobile-component mobile-cart">
-                  <label htmlFor="mobile-cart"><i class="fas fa-times mobile-icon"></i></label>
+                  <label htmlFor="mobile-cart"><i className="fas fa-times mobile-icon"></i></label>
                   <MobileCart />
                 </div>
             </div>

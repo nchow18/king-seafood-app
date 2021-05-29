@@ -7,6 +7,7 @@ import { USER_ME, PRODUCTS } from '../../utils/queries';
 import ViewProduct from '../../components/Buttons/ViewProduct';
 import UpdateCartButton from '../../components/Buttons/UpdateCart';
 import Checkout from '../Buttons/Checkout';
+import CheckoutDisplay from '../Cart/CheckoutDisplay';
 
 function MobileCart() {
  
@@ -108,8 +109,15 @@ if (user_data.cart) {
             ))}
 
           </div>
+          <input type="checkbox" id="mobile-checkout-display" />
+          <div className="checkout-display-container">
+            <label htmlFor="mobile-checkout-display"><i className="fas fa-times checkout-x-icon"></i></label>
+            <CheckoutDisplay />
+          </div>
           <div className="mobile-cart-checkout-container">
-            <Checkout cart={user_cart} />
+            <label htmlFor="mobile-checkout-display">
+              <Checkout cart={user_cart} />
+            </label>
             <div className="checkout-disclaimer">Checkout with SWIPE</div>
           </div>
         </div>
