@@ -38,7 +38,7 @@ function MobileCart() {
       console.log(e)
     }
   }
-
+if (user_data.cart) {
   if (user_data.cart.length === 0) {
     console.log('there are no items in your cart')
   } else {
@@ -77,7 +77,9 @@ function MobileCart() {
         }
       }
     }
-  }
+  }  
+}
+
 
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
