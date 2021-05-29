@@ -22,8 +22,6 @@ function MobileCart() {
   const user_cart = cartArr;
   const cart_price = [];
 
-  console.log(dataR);
-
   const removeProduct = async (id) => {
     try {
       removeCart({
@@ -79,11 +77,6 @@ if (user_data.cart) {
   }  
 }
 
-
-
-console.log(Auth.loggedIn());
-
-
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
   if (error) return `...ERROR`;
@@ -93,7 +86,10 @@ console.log(Auth.loggedIn());
     <> 
     {dataR ? (
       <>
-      {dataR && (
+      {user_data.cart.length === 0 && (
+        <b>You have <u>0</u> products in your cart</b>
+      )}
+      {user_data.cart.length >= 1 && (
         <div className="mobile-cart-container to-night">
           <div className="mobile-cart-items-container to-night">
             PRODUCTS
