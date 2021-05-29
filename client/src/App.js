@@ -153,7 +153,7 @@ function App() {
         <WhatsApp />
       </div>
 
-      <label for="whatsapp"><div className="whatsapp-button"><i class="fab fa-whatsapp-square whatsapp-icon"></i></div></label>
+      <label htmlFor="whatsapp"><div className="whatsapp-button"><i className="fab fa-whatsapp-square whatsapp-icon"></i></div></label>
       {/* <Footer /> */}
 
     </>

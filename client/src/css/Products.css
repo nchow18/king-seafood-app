@@ -2,6 +2,16 @@
   background-color: white;
   width: 25rem;
   margin: 2rem;
+  display: relative;
+  height: 35rem;
+}
+
+.product-button-container {
+  display: flex;
+  flex-direction: column;
+  height: 3rem;
+  display: absolute;
+  bottom: 0;
 }
 
 .single-product-page {
@@ -23,6 +33,7 @@
   flex-direction: column;
   align-content: space-between;
   justify-content: space-between;
+  height: 16rem;
 }
 
 .product-button {
@@ -168,6 +179,7 @@
     line-height: .3rem;
     align-content: normal;
     justify-content: space-between;
+    height: 100%;
   }
 
   .product-button {
@@ -179,6 +191,8 @@
     display: flex;
     flex-direction: column;
     height: 3rem;
+    display: absolute;
+    bottom: 0;
   }
 
   .product-button {
@@ -247,6 +261,7 @@
     font-size: .5rem;
     font-weight: bold;
     margin: .1rem .2rem;
-    padding: 0rem;
+    padding: .4rem;
+    height: 1rem;
   }
 }
