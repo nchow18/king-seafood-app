@@ -98,6 +98,9 @@ function App() {
             <StoreProvider>
               <>
               <MainPromo />
+              <div className="king-logo-mobile">
+                King Seafood
+              </div>
 			    <nav className="header-container">
           <Header 
             headerLinks={headerLinks}

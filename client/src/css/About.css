@@ -2,11 +2,11 @@
   width: 100%;
   background-color: black;
   color: white;
-  position: absolute;
-  bottom: 0;
   padding: 1rem;
   display: flex;
   flex-direction: row;
+  padding-bottom: 3rem;
+  margin-bottom: -2rem;
 }
 
 .about-left-container {

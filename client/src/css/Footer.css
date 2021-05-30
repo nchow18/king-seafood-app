@@ -10,8 +10,37 @@
     display: none;
 }
 
+#footer-links {
+  display: none;
+}
+
+.king-logo-mobile {
+  display: none;
+  position: fixed;
+  z-index: 25;
+}
+
 @media screen and (max-width: 1100px) {
-    .footer-container {
-        display: initial;
-    }
+  .footer-container {
+      display: flex;
+  }
+
+  #footer-links:checked ~ .links {
+    display: flex;
+  }
+
+  .king-logo-mobile {
+    display: initial;
+    position: fixed;
+    background-color: black;
+    color: white;
+    top: 5rem;
+    left: -3rem;
+    transform: rotate(90deg);
+    padding: 0.5rem .25rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    z-index: 25;
+  }
 }
