@@ -48,7 +48,7 @@ function Footer( props) {
         {Auth.loggedIn() === false && (
           <>
         {headerLinks.filter((link) => link.guest === true).map((link) => (
-          <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+          <Link key={link.href} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
         ))}
           </>
         )}
@@ -57,7 +57,7 @@ function Footer( props) {
           
           {headerLinks.filter((link) => link.admin === true).map((link) => (
             <>
-              <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+              <Link key={link.href} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
             </>        
           ))}
           </>
@@ -66,7 +66,7 @@ function Footer( props) {
         {Auth.getAdmin() === false && (
           <>
           {headerLinks.filter((link) => link.user === true).map((link) => (
-              <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+              <Link key={link.href} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
           ))}
           </>
         )}
