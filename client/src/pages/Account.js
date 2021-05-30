@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { UPDATE_USER, UPDATE_ADDRESS } from '../utils/mutations';
 import { USER } from '../utils/queries';
 import { validateEmail } from '../utils/helpers'
+import '../css/Account.css';
 
 function Profile() {
 
@@ -65,6 +66,26 @@ function Profile() {
     console.log(user);
     console.log(address);
 
+    const updateOnlyAddress = e => {
+      alert('address updated');
+
+      try {
+        updateAddress({ variables: {
+            input: {
+                street_name: formData.street_name,
+                street_number: formData.street_number,
+                city: formData.city,
+                region: formData.region,
+                postal_code: formData.postal_code,
+                state: formData.state
+            }
+        }})
+        alert('Account Updated');
+    } catch (e) {
+        console.log(e);
+    }
+    }
+
     const formHandler = e => {
         try {
             updateUser({ variables: {
@@ -76,16 +97,6 @@ function Profile() {
                 }
             }})
 
-            updateAddress({ variables: {
-                input: {
-                    street_name: formData.street_name,
-                    street_number: formData.street_number,
-                    city: formData.city,
-                    region: formData.region,
-                    postal_code: formData.postal_code,
-                    state: formData.state
-                }
-            }})
             alert('Account Updated');
         } catch (e) {
             console.log(e);
@@ -97,76 +108,92 @@ function Profile() {
 
     return (
         <>
-    	    <div className="flex-c-column content">
-                <form onSubmit={formHandler} className="flex-c-column form-container night-bg">
-                        My Account
+    	    <div className="account-container">
+                <form onSubmit={formHandler} className="account-form night-bg">
+                        <b>My Account</b>
+                            <div>First Name</div>
                             <input 
-                                className="form-input-width" 
+                                className="account-input-width" 
                                 onChange={handleInputChange} 
                                 value={formData.first_name} 
                                 name="first_name" 
-                                placeholder={user.first_name}></input>
+                                placeholder={user.first_name} />
+                            <div>Last Name</div>
                             <input 
-                                className="form-input-width" 
+                                className="account-input-width" 
                                 onChange={handleInputChange} 
                                 value={formData.last_name} 
                                 name="last_name" 
-                                placeholder={user.last_name}></input>
+                                placeholder={user.last_name} />
+                            <div>Email</div>
                             <input 
-                                className="form-input-width" 
-                                onChange={handleInputChange} 
-                                value={formData.street_number} 
-                                name="street_number" 
-                                placeholder={address.street_number}></input>
-                            <input 
-                                className="form-input-width" 
-                                onChange={handleInputChange} 
-                                value={formData.street_name} 
-                                name="street_name" 
-                                placeholder={address.street_name}></input>
-                            <input 
-                                className="form-input-width" 
-                                onChange={handleInputChange} 
-                                value={formData.region} name="region" 
-                                placeholder={address.region}></input>
-                            <input 
-                                className="form-input-width" 
-                                onChange={handleInputChange} 
-                                value={formData.postal_code} 
-                                name="postal_code" 
-                                placeholder={address.postal_code}></input>
-                            <input 
-                                className="form-input-width" 
-                                onChange={handleInputChange} 
-                                value={formData.city} name="city" 
-                                placeholder={address.city}></input>
-                            <input 
-                                className="form-input-width" 
-                                onChange={handleInputChange} 
-                                value={formData.state} 
-                                name="state" 
-                                placeholder={address.state}></input>
-                            <input 
-                                className="form-input-width" 
+                                className="account-input-width" 
                                 onChange={handleInputChange} 
                                 value={formData.email} 
                                 name="email" 
-                                placeholder={user.email}></input>
+                                placeholder={user.email} />
+                            <div>Password</div>
                             <input 
                                 type="password" 
-                                className="form-input-width" 
+                                className="account-input-width" 
                                 onChange={handleInputChange} 
                                 value={formData.password} 
                                 name="password" 
-                                placeholder='PASSWORD'></input>
+                                placeholder='PASSWORD' />
                             {errorMessage && (
                                 <div>
                                 <p className="error-text">{errorMessage}</p>
                                 </div>
                                 )}
                             <button 
-                                className="form-input-width" 
+                                className="account-input-width"
+                                disabled={!(formData.first_name && formData.last_name && formData.email && formData.password)} 
                                 type="submit">Update Information</button>
+                            <div>Street Number</div>
+                            <input 
+                                className="account-input-width" 
+                                onChange={handleInputChange} 
+                                value={formData.street_number} 
+                                name="street_number" 
+                                placeholder={address.street_number} />
+                            <div>Street Name</div>
+                            <input 
+                                className="account-input-width" 
+                                onChange={handleInputChange} 
+                                value={formData.street_name} 
+                                name="street_name" 
+                                placeholder={address.street_name} />
+                            <div>Region</div>
+                            <input 
+                                className="account-input-width" 
+                                onChange={handleInputChange} 
+                                value={formData.region} name="region" 
+                                placeholder={address.region} />
+                            <div>Postal Code</div>
+                            <input 
+                                className="account-input-width" 
+                                onChange={handleInputChange} 
+                                value={formData.postal_code} 
+                                name="postal_code" 
+                                placeholder={address.postal_code} />
+                            <div>City</div>
+                            <input 
+                                className="account-input-width" 
+                                onChange={handleInputChange} 
+                                value={formData.city} name="city" 
+                                placeholder={address.city} />
+                            <div>State</div>
+                            <input 
+                                className="account-input-width" 
+                                onChange={handleInputChange} 
+                                value={formData.state} 
+                                name="state" 
+                                placeholder={address.state} />
+                              <button 
+                                className="account-input-width"
+                                disabled={!(formData.street_number && formData.street_name && formData.region && formData.postal_code && formData.city && formData.state)} 
+                                onClick={updateOnlyAddress}>Update Address</button>
+
                         </form>               
                 </div>
         </>
