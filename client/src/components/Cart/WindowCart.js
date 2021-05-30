@@ -16,10 +16,6 @@ function WindowCart() {
   const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
 
-  if(dataR === false) {
-    return;
-  }
-
   if (loading) return `...Loading`;
 
   const user_data = dataR?.userMe || {};
@@ -82,6 +78,10 @@ if (user_data.cart) {
     }
   }  
 }
+
+  if (dataR) {
+    Auth.setCartQuantity(user_data.cart.length);
+  }
 
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
   Auth.getCartTotal(cart_total);

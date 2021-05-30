@@ -85,7 +85,7 @@ function Header(props) {
                           <>
                             <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
                             <label htmlFor="window-cart">
-                              <i className="fas fa-shopping-cart cart-link"></i>
+                              <i className="fas fa-shopping-cart cart-link"><b> ({Auth.getCartQuantity()})</b></i>
                             </label>
                           </>   
                         )}
