@@ -95,10 +95,12 @@ function Header(props) {
                         </div>
                     </div>
                   <input type="checkbox" id="window-cart" />
-                  <div className="window-cart-container">
-                    <label htmlFor="window-cart"><i className="fas fa-times cart-icon"></i></label>
-                    <WindowCart />
-                  </div>
+                  {Auth.loggedIn() === true && (
+                    <div className="window-cart-container">
+                      <label htmlFor="window-cart"><i className="fas fa-times cart-icon"></i></label>
+                      <WindowCart />
+                    </div>
+                  )}
                   <div className="icons">
                       <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
                       <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>
@@ -111,10 +113,13 @@ function Header(props) {
                   </div>
                 </div>
                 <input type="checkbox" id="mobile-cart" />
-                <div className="mobile-component mobile-cart">
-                  <label htmlFor="mobile-cart"><i className="fas fa-times mobile-icon"></i></label>
-                  <MobileCart />
-                </div>
+                {Auth.loggedIn() === true && (
+                  <div className="mobile-component mobile-cart">
+                    <label htmlFor="mobile-cart"><i className="fas fa-times mobile-icon"></i></label>
+                    <MobileCart />
+                  </div>
+                )}
+
             </div>
     )
 }

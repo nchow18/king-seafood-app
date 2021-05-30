@@ -10,10 +10,14 @@ import Checkout from '../Buttons/Checkout';
 import CheckoutDisplay from '../Cart/CheckoutDisplay';
 
 function MobileCart() {
- 
+
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
+
+  if (dataR === false) {
+    return;
+  }
 
   if (loading) return `...Loading`;
 

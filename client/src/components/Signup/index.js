@@ -30,7 +30,6 @@ function SignUp() {
                 variables: { input: {...formData}}
             })
 
-
             Auth.login(data.addUser.token)
         } catch (e) {
             console.log(e)
@@ -67,11 +66,6 @@ function SignUp() {
                             className="sign-input" 
                             name="password" 
                             placeholder="PASSWORD"/>
-                        {
-                            error ? <div>
-                                <p className="error-text" >The provided credentials are incorrect</p>
-                            </div> : null
-                        }
                         <button disabled={!(formData.email && formData.password && formData.first_name && formData.last_name)} className="sign-input" type="submit">SIGN IN</button>
                     </form>
             </div>
