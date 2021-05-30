@@ -146,7 +146,10 @@ function App() {
       </div>
 
       <label htmlFor="whatsapp"><div className="whatsapp-button"><i className="fab fa-whatsapp-square whatsapp-icon"></i></div></label>
-      {/* <Footer /> */}
+      <Footer 
+        headerLinks={headerLinks}
+        currentHeaderLink={currentHeaderLink}
+        setCurrentHeaderLink={setCurrentHeaderLink} />
 
     </>
   </StoreProvider> 

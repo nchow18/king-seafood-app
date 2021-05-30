@@ -150,6 +150,9 @@
 }
 
 @media screen and (max-width: 1100px) {
+  .header-container {
+    display: none;
+  }
 
   .window-cart-container {
     display: none;

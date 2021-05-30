@@ -43,7 +43,6 @@ function Header(props) {
 
     return (
             <div className="header-items">
-
                 <div className="header-mobile">
                     <div className="bold logo-name">KING SEAFOOD</div>
                     <div className="night-mode">
@@ -94,32 +93,7 @@ function Header(props) {
                             <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>
                         </div>
                     </div>
-                  <input type="checkbox" id="window-cart" />
-                  {Auth.loggedIn() === true && (
-                    <div className="window-cart-container">
-                      <label htmlFor="window-cart"><i className="fas fa-times cart-icon"></i></label>
-                      <WindowCart />
-                    </div>
-                  )}
-                  <div className="icons">
-                      <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
-                      <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>
-                      <label htmlFor="mobile-cart">
-                        <i className="fas fa-shopping-cart mobile-icon"></i>
-                      </label>
-                      <label key='list' htmlFor="check" >
-                        <i className="fas fa-bars drop-down mobile-icon"></i>
-                      </label>
                   </div>
-                </div>
-                <input type="checkbox" id="mobile-cart" />
-                {Auth.loggedIn() === true && (
-                  <div className="mobile-component mobile-cart">
-                    <label htmlFor="mobile-cart"><i className="fas fa-times mobile-icon"></i></label>
-                    <MobileCart />
-                  </div>
-                )}
-
             </div>
     )
 }
