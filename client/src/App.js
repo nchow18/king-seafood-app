@@ -23,6 +23,7 @@ import SingleProductEdit from './components/AdminComponents/SingleProductEdit';
 import MainPromo from './components/Header/MainPromo';
 import WhatsApp from './components/WhatsApp/WhatsApp';
 import './css/Whatsapp.css';
+import './css/Footer.css';
 
 const client = new ApolloClient({
     request: operation => {

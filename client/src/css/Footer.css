@@ -8,6 +8,7 @@
     justify-content: center;
     padding: 1rem;
     display: none;
+    z-index: 20;
 }
 
 #footer-links {
@@ -31,16 +32,22 @@
 
   .king-logo-mobile {
     display: initial;
-    position: fixed;
-    background-color: black;
+    position: sticky;
+    position: -webkit-sticky;
     color: white;
-    top: 5rem;
-    left: -3rem;
-    transform: rotate(90deg);
-    padding: 0.5rem .25rem;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    background-color: black;
+    top: .5rem;
+    left: 2rem;
+    width: 100%;
+    padding: .35rem;
+    border-radius: 15px;
     font-weight: bold;
-    z-index: 25;
+    z-index: 17;
   }
+}
+
+@media screen and (max-width: 400px) {
+ .king-logo-mobile {
+   transform: rotate(0deg);
+ }
 }

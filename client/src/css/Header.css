@@ -21,7 +21,7 @@
 
 .header-main-promo {
   background-color: black;
-  position: absolute;
+  position: relative;
   width: 100%;
   color: white;
   text-align: center;
