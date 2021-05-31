@@ -37,7 +37,7 @@
     color: white;
     background-color: black;
     top: .5rem;
-    left: 2rem;
+    left: .5rem;
     width: 100%;
     padding: .35rem;
     border-radius: 15px;
@@ -46,8 +46,12 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 590px) {
  .king-logo-mobile {
-   transform: rotate(0deg);
+   transform: rotate(90deg);
+   position: fixed;
+   width: auto;
+   top: 3rem;
+   left: -3rem;
  }
 }
