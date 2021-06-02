@@ -182,7 +182,11 @@ export const UPDATE_PROMO = gql`
         promoMsg3
         promo3Start
         promo3End
+        promoPicture1
+        promoPicture2
+        promoPicture3
         mainPromo
+        discount
         featuredProduct1
         featuredProduct2
         featuredProduct3

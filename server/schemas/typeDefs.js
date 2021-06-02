@@ -130,6 +130,10 @@ const typeDefs = gql`
         promo3Start: String
         promo3End: String
         mainPromo: String
+        promoPicture1: String
+        promoPicture2: String
+        promoPicture3: String
+        discount: Int
         featuredProduct1: String
         featuredProduct2: String
         featuredProduct3: String
@@ -146,6 +150,10 @@ const typeDefs = gql`
         promo3Start: String
         promo3End: String
         mainPromo: String
+        promoPicture1: String
+        promoPicture2: String
+        promoPicture3: String
+        discount: Int
         featuredProduct1: String
         featuredProduct2: String
         featuredProduct3: String

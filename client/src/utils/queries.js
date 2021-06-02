@@ -107,6 +107,10 @@ query {
     promo3Start
     promo3End
     mainPromo
+    promoPicture1
+    promoPicture2
+    promoPicture3
+    discount
     featuredProduct1
     featuredProduct2
     featuredProduct3
