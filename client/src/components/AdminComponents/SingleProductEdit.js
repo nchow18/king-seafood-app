@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth';
-import { PRODUCT } from '../../utils/queries';
-import { useMutation, useQuery } from '@apollo/react-hooks';
-import { REMOVE_PRODUCT, UPDATE_PRODUCT } from '../../utils/mutations';
-import { useLocation } from 'react-router-dom';
+import { useMutation} from '@apollo/react-hooks';
+import { REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT_PICTURE } from '../../utils/mutations';
 import '../../css/Admin.css';
+import SingleProductUpdate from '../AdminComponents/SinglePictureUpdate';
 
 function SingleProductEdit(props) {
 
@@ -14,9 +13,11 @@ function SingleProductEdit(props) {
   } = props
 
   const product = singleProduct
+  const pictureArr = product.product_picture;
 
   const [removeProduct, { error }] = useMutation(REMOVE_PRODUCT);
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
+  const [addPicture] = useMutation(ADD_PRODUCT_PICTURE);
 
   const [formData, setFormData] = useState({
     product_name: product.product_name,
@@ -69,6 +70,7 @@ function SingleProductEdit(props) {
   } 
 
   const deleteProductFormSubmit = async (e) => {
+
     var confirm = window.confirm('Continue to DELETE product');
 
     if (confirm === false) {
@@ -86,9 +88,27 @@ function SingleProductEdit(props) {
     }
   }
 
+  const addProductPicture = async (e) => {
+
+    console.log('adding picture slot');
+
+    try {
+      addPicture({
+        variables: {
+          product_url: "",
+          product_id: product._id
+        }
+      })
+      alert('Picture slot added');
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   function returnDashboard() {
     window.location.href = `/admindashboard`;
   }
+
 
   if (error) return `Error! ${error.message}`;
 
@@ -96,8 +116,8 @@ function SingleProductEdit(props) {
     <>
       <div className="admin-container">
         <i onClick={() => {setModal(false)}} className="fas fa-times admin-close"></i>
-        <button className="margin-2rem" onClick={returnDashboard}>Return To Product List</button>
-        <form className="admin-form-container night-bg" onSubmit={updateProductFormSubmit}>
+          <div className="margin-2rem" onClick={returnDashboard}>Return To Product List</div>
+        <form className="admin-form-container night-bg">
           <div className="product-id bold" value={product._id}>{product._id}</div>
             <div className="admin-input-row">
               <b className="bold">Name</b>
@@ -145,12 +165,17 @@ function SingleProductEdit(props) {
             </div>
             {product.product_picture.map((picture) => (
               <div key={picture} className="admin-input-row">
-                <b className="bold">Picture</b>
-                <input value={formData.product_picture} onChange={handleInputChange} className="product-picture admin-input-width" name='product_picture' placeholder={product.product_picture} type="text"   />
+                <SingleProductUpdate
+                pictureArr={pictureArr}
+                product_id={product._id}
+                picture={picture} />
               </div>
             ))}
-              <button onClick={() => {updateProductFormSubmit()}} className="admin-button" type='submit'>UPDATE</button>
-              <button className="admin-button" onClick={() => { deleteProductFormSubmit()}}>DELETE</button>
+                <div className="admin-input-row">
+                  <div onClick={() => {updateProductFormSubmit()}} className="admin-button">UPDATE</div>
+                  <div onClick={() => {addProductPicture()}} className="admin-button">ADD PICTURE SLOT</div>
+                  <div className="admin-button" onClick={() => { deleteProductFormSubmit()}}>DELETE</div>
+                </div>
           </form>
         </div>
     </>

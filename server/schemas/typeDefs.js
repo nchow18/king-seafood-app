@@ -244,6 +244,7 @@ const typeDefs = gql`
     addProduct(input: ProductInput!): Product
     removeProductPicture(product_id: String!, product_url: String): Product
     addProductPicture(product_url: String, product_id: String!): Product
+    updateProductPicture(product_url: String, product_id: String!, product_old_url: String!): Product
     updateProduct(input: ProductInput!, product_id: ID!): Product
     removeProduct(product_id: ID!): Product
     addOrder(input: OrderInput!): Order

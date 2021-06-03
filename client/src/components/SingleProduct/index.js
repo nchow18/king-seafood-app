@@ -5,6 +5,7 @@ import '../../css/Products.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { PRODUCT } from '../../utils/queries';
 import { ADD_CART } from '../../utils/mutations';
+import ProductPictureCarousel from '../Carousel/ProductPicture';
 
 function SingleProduct(props) {
 
@@ -54,7 +55,9 @@ function SingleProduct(props) {
       <i onClick={() => {setModal(false)}} className="fas fa-times admin-close"></i>
         <div className="single-product-container">
           <div className="single-product-img-container">
-            <img alt={product._id} src={product.product_picture} className="single-product-img" />
+            <ProductPictureCarousel
+            product={product} 
+            />
           </div>
           <div className="single-product-details">
             <span><b>Name: </b>{product.product_name}</span>
@@ -71,10 +74,10 @@ function SingleProduct(props) {
               </>
             )}
             {product.product_sale_price && (
-              <b className="font-red">Sale Price: {product.product_sale_price} RM</b>
+              <b className="font-red">Sale Price: RM {product.product_sale_price}</b>
             )}
             {product.product_bulk_quantity && (
-              <b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} for {product.product_bulk_price} RM</b>
+              <b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b>
             )}
             <span><b>Description: </b>{product.product_name}</span>
             {product.descriptionChinese !== '' && (

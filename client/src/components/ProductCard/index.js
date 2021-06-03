@@ -62,20 +62,34 @@ function ProductCard() {
     {currentProduct.map((product) => (
       <div key={product._id} className="product-card night-bg">
         <div className="product-card-picture-container">
-          <img alt={product.product_name} src={product.product_picture} className="product-card-picture"/>
+          <img alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
         </div>
         <div className="product-card-description">
           <div className="product-card-font">
-            <p className="bold">{product.product_name} {product.product_nameChinese !== '' && (
-              <>({ product.product_nameChinese })</> )}</p>
-            <p>RM {product.product_price}</p>
+            <span className="bold">{product.product_name} {product.product_nameChinese !== '' && (
+              <>({ product.product_nameChinese })</> )}</span>
+            {product.product_sale_price ? (
+              <>
+              <span><b>Price: </b><span className="font-strike">{product.product_price}</span></span>
+              </>
+            ) : (
+              <>
+              <b>Price: </b><span>{product.product_price}</span>
+              </>
+            )}
+            {product.product_sale_price && (
+              <b className="font-red">Sale Price: RM {product.product_sale_price}</b>
+            )}
+            {product.product_bulk_quantity && (
+              <b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b>
+            )}
             {product.product_weight !== '' && (
-              <p>{product.product_weight}</p>
+              <span>{product.product_weight}</span>
             )}
             {product.product_description !== 0 ? (
-              <p>Product Available</p>
+              <span>Product Available</span>
             ) : (
-              <p>Out Of Stock</p>
+              <span>Out Of Stock</span>
             )}
           </div>
 

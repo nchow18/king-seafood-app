@@ -131,8 +131,6 @@ const resolvers = {
         },
         addProductPicture: async(parent, { product_url, product_id }, context) => {
           if (context.user.admin === true) {
-            console.log(product_url)
-            console.log(product_id)
             return await Product.findByIdAndUpdate(
               product_id,
               {$push: { product_picture: product_url }},
@@ -143,11 +141,22 @@ const resolvers = {
         },
         removeProductPicture: async(parent, { product_id, product_url }, context) => {
           if (context.user.admin === true) {
-            console.log(product_id)
-            console.log(product_url)
             return await Product.findByIdAndUpdate(
               product_id,
               {$pull: { product_picture: { $in: [ product_url ] }}}
+            )
+          }
+          throw new AuthenticationError('Not Logged In');
+        },
+        updateProductPicture: async(parent, { product_url, product_id, product_old_url}, context) => {
+          if (context.user.admin === true) {
+            await Product.findByIdAndUpdate(
+              product_id,
+              {$pull: { product_picture: { $in: [ product_old_url ] }}}
+            )
+            return await Product.findByIdAndUpdate(
+              product_id,
+              {$push: { product_picture: product_url }}
             )
           }
           throw new AuthenticationError('Not Logged In');
