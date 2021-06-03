@@ -68,7 +68,7 @@ function Home() {
       </div>
     </div> 
     </div>
-    <div className="home-promo-mobile">
+    <div className="home-section">
       <b className="section-title">Current Promotions</b>
       <PromoCarousel
         promotions={promo}

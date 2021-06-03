@@ -43,7 +43,10 @@ function AdminProducts() {
         product_descriptionChinese: formData.product_descriptionChinese,
         product_picture: formData.product_picture,
         product_category: formData.product_category,
-        product_status: JSON.parse(formData.product_status.toLowerCase())
+        product_status: JSON.parse(formData.product_status.toLowerCase()),
+        product_sale_price: JSON.stringify(formData.product_sale_price),
+        product_bulk_quantity: JSON.stringify(formData.product_bulk_quantity),
+        product_bulk_price: JSON.stringify(formData.product_bulk_price)
       } }})
 
       alert('product added');
@@ -121,6 +124,18 @@ function AdminProducts() {
             <div className="admin-input-row">
               <label className="bold">Product Status: true/false</label>
               <input value={formData.product_status} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_status' type="text"></input>
+            </div>
+            <div className="admin-input-row">
+              <label className="bold">Sale Price</label>
+              <input value={formData.product_sale_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_sale_price' type="text"></input>
+            </div>
+            <div className="admin-input-row">
+              <label className="bold">Bulk Quantity</label>
+              <input value={formData.product_bulk_quantity} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_bulk_quantity' type="text"></input>
+            </div>
+            <div className="admin-input-row">
+              <label className="bold">Bulk Sale Price</label>
+              <input value={formData.product_bulk_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_bulk_price' type="text"></input>
             </div>
             <div className="admin-input-row">
               <label className="bold">Picture Location</label>

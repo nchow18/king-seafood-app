@@ -3,19 +3,20 @@ import Auth from '../../utils/auth';
 import { PRODUCTS } from '../../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
 import DeleteSingleProduct from '../Buttons/DeleteSingleProduct';
+import SingleProductEdit from './SingleProductEdit';
+import '../../css/Admin.css';
 
 function AdminCategories(props) {
 
+  const [isModal, setModal] = useState(false);
   const [mounted, setMounted] = useState(true);
   const { loading, data} = useQuery(PRODUCTS)
   const productArr = data?.products || {};
+  const [products] = useState({...productArr})
 
-  const updateProductFormSubmit = async (e) => {
-    Auth.setAdminSingleProductId(e);
-    Auth.updateSingleProduct();
-  } 
+  const [singleProduct, setSingleProduct] = useState(products[0])
 
-  const toggle = () => setMounted(!mounted);
+  // const toggle = () => setMounted(!mounted);
   if (loading) return 'Loading...';
 
   return (
@@ -24,6 +25,15 @@ function AdminCategories(props) {
     {mounted && (
       <>
       <div className="admin-products-container">
+      {isModal && (
+        <div className="single-product-edit-container">  
+          <SingleProductEdit
+            singleProduct={singleProduct}
+            setSingleProduct={setSingleProduct}
+            products={products}
+            setModal={setModal} />
+        </div>
+      )}
       {productArr.map((product) => (
         <div key={product._id} className="admin-form-container night-bg">
           <div className="admin-input-width" value={`${product._id}`}>{product._id}</div>
@@ -51,8 +61,26 @@ function AdminCategories(props) {
               <div className="admin-input-row">
                 <label className="bold">Status: true/false</label>
                 <div className="admin-input-width">{JSON.parse(product.product_status)}</div>
-              </div>              
-              <button id={product._id} onClick={() => {updateProductFormSubmit( product._id )}} className="admin-button">UPDATE</button>
+              </div>
+              <div className="admin-input-row">
+                <label className="bold">Product Sale Price</label>
+                <div className="admin-input-width">{product.product_sale_price}</div>
+              </div>
+              <div className="admin-input-row">
+                <label className="bold">Product Bulk Quantity</label>
+                <div className="admin-input-width">{product.product_bulk_quantity}</div>
+              </div>
+              <div className="admin-input-row">
+                <label className="bold">Product Bulk Price</label>
+                <div className="admin-input-width">{product.product_bulk_price}</div>
+              </div>
+              {product.product_picture.map((picture) => (
+                <div className="admin-input-row">
+                <label className="bold">Picture</label>
+                <div className="admin-input-width admin-picture-font-size">{picture}</div>
+                </div>
+              ))}              
+              <button id={product._id} onClick={() => {setSingleProduct(product);setModal(true)}} className="admin-button">UPDATE</button>
               <DeleteSingleProduct 
                 product_id={product._id}
               />

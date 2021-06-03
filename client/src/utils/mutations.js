@@ -14,6 +14,9 @@ import gql from 'graphql-tag';
 //11 UPDATE_PROMO
 //12 UPDATE_ADDRESS
 //13 UPDATE_CART
+//14 REMOVE_PRODUCT_PICTURE
+//15 ADD_PRODUCT_PICTURE
+//16 REMOVE_ORDER
 
 export const LOGIN = gql`
     mutation login($email: String!, $password:String!) {
@@ -95,6 +98,9 @@ export const ADD_PRODUCT = gql`
         product_nameChinese
         product_descriptionChinese
         product_status
+        product_sale_price
+        product_bulk_quantity
+        product_bulk_price
         }
     }
 `;
@@ -112,6 +118,9 @@ export const UPDATE_PRODUCT = gql`
         product_nameChinese
         product_descriptionChinese
         product_status
+        product_sale_price
+        product_bulk_quantity
+        product_bulk_price
         }
     }
 `;
@@ -220,5 +229,30 @@ export const UPDATE_CART = gql`
   }
 `;
 
+export const ADD_PRODUCT_PICTURE = gql`
+  mutation addProductPicture($product_url: String, $product_id: String!) {
+    addProductPicture(product_url:$product_url, product_id:$product_id) {
+        _id
+        product_name
+        product_picture 
+    }
+  }
+`;
 
+export const REMOVE_PRODUCT_PICTURE = gql`
+  mutation removeProductPicture($product_id: String!, $product_url: String) {
+    removeProductPicture(product_id:$product_id, product_url:$product_url) {
+      _id
+      product_name
+      product_picture
+    }
+  }
+`;
 
+export const REMOVE_ORDER = gql`
+  mutation removeOrder($order_id: String!) {
+    removeOrder(order_id: $order_id) {
+      _id
+    }
+  }
+`;

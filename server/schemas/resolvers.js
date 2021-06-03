@@ -129,6 +129,29 @@ const resolvers = {
             } 
             throw new AuthenticationError('Not Admin');
         },
+        addProductPicture: async(parent, { product_url, product_id }, context) => {
+          if (context.user.admin === true) {
+            console.log(product_url)
+            console.log(product_id)
+            return await Product.findByIdAndUpdate(
+              product_id,
+              {$push: { product_picture: product_url }},
+              { new: true }
+            )
+          }
+          throw new AuthenticationError('Not Logged In');
+        },
+        removeProductPicture: async(parent, { product_id, product_url }, context) => {
+          if (context.user.admin === true) {
+            console.log(product_id)
+            console.log(product_url)
+            return await Product.findByIdAndUpdate(
+              product_id,
+              {$pull: { product_picture: { $in: [ product_url ] }}}
+            )
+          }
+          throw new AuthenticationError('Not Logged In');
+        },
         updateProduct: async(parent, { input, product_id }, context) => {
             if (context.user.admin === true) {
                 return await Product.findByIdAndUpdate(
@@ -193,6 +216,12 @@ const resolvers = {
                 )
             }
             throw new AuthenticationError('Not Logged In');
+        },
+        removeOrder: async(parent, {order_id}, context) => {
+          if (context.user.admin === true) {
+            return await Order.findByIdAndDelete(order_id)
+          }
+          throw new AuthenticationError('Not Logged In');
         },
         updateOrderStatus: async(parent, { input, order_id }, context) => {
             if (context.user.admin === true ) {

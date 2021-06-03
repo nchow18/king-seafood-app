@@ -1,5 +1,14 @@
 const { Schema, model } = require('mongoose');
 
+// const pictureSchema = new Schema(
+//   {
+//     product_url: {
+//       type: [String],
+//       trim: true
+//     }
+//   }
+// )
+
 const productSchema = new Schema(
   {
     product_category: {
@@ -27,11 +36,7 @@ const productSchema = new Schema(
       required: false,
       trim: true
     },
-    product_picture: {
-      type: String,
-      required: true,
-      trim: true
-    },
+    product_picture: [String],
     product_nameChinese: {
       type: String,
       required: false,
@@ -45,6 +50,21 @@ const productSchema = new Schema(
     product_status: {
       type: Boolean,
       required: true,
+      trim: true
+    },
+    product_sale_price: {
+      type: Number,
+      required: false,
+      trim: true
+    },
+    product_bulk_quantity: {
+      type: Number,
+      required: false,
+      trim: true
+    },
+    product_bulk_price: {
+      type: Number,
+      required: false,
       trim: true
     }           
   },

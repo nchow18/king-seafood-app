@@ -46,6 +46,9 @@ query product($product_id: ID!) {
     product_nameChinese
     product_descriptionChinese
     product_status
+    product_sale_price
+    product_bulk_quantity
+    product_bulk_price
   }
 }
 `;
@@ -63,6 +66,9 @@ query {
     product_nameChinese
     product_descriptionChinese
     product_status
+    product_sale_price
+    product_bulk_quantity
+    product_bulk_price
   }
 }
 `;

@@ -31,7 +31,7 @@
   }
 
   .king-logo-mobile {
-    display: initial;
+    display: none;
     position: sticky;
     position: -webkit-sticky;
     color: white;
