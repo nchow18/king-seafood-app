@@ -1,25 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import '../../css/ProductHeader.css';
 
 function ProductHeader(props) {
 
-    const {
-        productLinks = [],
-        currentProductLink,
-        setCurrentProductLink
-    } = props
+  const {
+    productLinks = [],
+    setCurrentProductLink,
+    setModal
+  } = props
 
-    return (
-        <>
-            <div className="productHeader-container flex-c-row">
-                {productLinks.map((link) => (
-                    <Link to={link.href} key={link.name} className={`product-header-link ${currentProductLink.name === link.name && `headerActive`}`} onClick={() => {
-                        setCurrentProductLink(link);
-                    }}>{link.name}</Link>
-                ))}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="product-header-container">
+        {productLinks.map((link) => (
+          <span to={link.href} key={link.name} className='product-header-link' onClick={() => {
+            setCurrentProductLink(link); setModal(false)
+          }}>{link.name}</span>
+        ))}
+      </div>
+    </>
+  )
 }
 
 export default ProductHeader;

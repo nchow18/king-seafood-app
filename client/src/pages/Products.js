@@ -8,28 +8,38 @@ function Products() {
 
 //   const location = useLocation();
 
+  const [isModal, setModal] = useState(false)
   const [productLinks] = useState([
 		{
 			name: 'All',
-			href: '/products'
 		},
 		{
 			name: 'Meat',
-			href: '/products'
 		},
 		{
 			name: 'Seafood',
-			href: '/products'
 		},
 		{
 			name: 'Vegetables',
-			href: '/products'
 		},
 		{
 			name: 'Fruits',
-			href: '/products'
 		},
-
+    {
+      name: 'Bundle Promotion',
+    },
+    {
+      name: 'Squid',
+    },
+    {
+      name: 'Special Items'
+    },
+    {
+      name: 'Shellfish'
+    },
+    {
+      name: 'Scallops'
+    }
 	])
 
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
@@ -37,16 +47,22 @@ function Products() {
   Auth.setProduct(currentProduct.product)
 
   return (
-    // location.pathname !== `/products` &&
     <>
-		<ProductHeader 
-			productLinks={productLinks}
-			currentProductLink={currentProductLink}
-			setCurrentProductLink={setCurrentProductLink}
-		/>
-		PRODUCT - {currentProduct.product}
+    <div className="categories-container" onClick={() => {setModal(true)}}>
+      <div className="categories-button">CATEGORIES</div>
+    </div>
+    {isModal && (
+      <ProductHeader 
+        productLinks={productLinks}
+        currentProductLink={currentProductLink}
+        setCurrentProductLink={setCurrentProductLink}
+        setModal={setModal}
+      />
+    )}
     	<div className="products-card-display product-content">
-        	<ProductCard />
+        	<ProductCard
+            currentProductLink={currentProductLink}
+          />
       	</div>
     </>
   )
