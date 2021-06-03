@@ -210,6 +210,15 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
+  setGlobalDiscount(sale) {
+    return localStorage.setItem('global_sale', sale)
+  }
+
+  getGlobalDiscount() {
+    const sale = localStorage.getItem('global_sale');
+    return sale;
+  }
+
   login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);

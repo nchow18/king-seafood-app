@@ -93,20 +93,53 @@ if (Auth.loggedIn()) {
       return item._id === cart_data.[r].product_id;
     })
 
+    // checks if items in local storage CART still exists
     if(checkExisting.length === 0) {
       console.log('items in your cart have non-existing products');
+      //if it does not exist, splice product at index (r)
       cart_data.splice(r, 1);
     } else {
       console.log('your cart products still exist in the database');
     }
+
+    // SORT and include product data from database
+    for (var y = 0; y < product_data.length; y++) {
+      if (cart_data[r].product_id === product_data[y]._id) {
+        cartArr.push(product_data[y])
+        cartArr[r].quantity = cart_data[r].quantity;
+
+        // IF no special discounts applied, proceed to apply GLOBAL discount
+        if (cartArr[r].product_sale_price === 0 && cartArr[r].product_bulk_quantity === 0 ) {
+          //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
+          const discount = Auth.getGlobalDiscount();
+          cartArr[r].total_price = (1 - discount/100) * cartArr[r].product_price * cartArr[r].quantity;
+      } else {
+        // Check if product_sale_price exists, if so, apply update
+        if (cartArr[r].product_sale_price >= 1) {
+          // Check IF product_bulk_quantity exists, if so, SKIP
+          if (cartArr[r].product_bulk_quantity >= 1) {
+            return;
+          } else {
+            // IF product_bulk_quantity does not exist,SALE PRICE * QUANTITY to total_price
+            cartArr[r].total_price = (product_data[y].product_sale_price * cart_data[r].quantity);
+          }
+        } else {
+          // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
+          if (cartArr[r].product_bulk_quantity <= cart_data[r].quantity) {
+            // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
+            cartArr[r].total_price = (cartArr[r].product_bulk_price * cart_data[r].quantity);
+          }
+        }
+      }
+
+      }
+    }
   }
 }
 
+  console.log(user_cart);
 
-
-  if (dataR) {
-    Auth.setCartQuantity(user_data.cart.length);
-  }
+  Auth.setCartQuantity(user_cart.length);
 
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
   Auth.getCartTotal(cart_total);
@@ -121,7 +154,7 @@ if (Auth.loggedIn()) {
             <b>Your Cart</b>
             {user_cart.map((product) => (
               <div key={product._id} className="window-cart-product-row">
-                <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture} />
+                <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
                 <div className="window-cart-product-details">
                   <div className="window-cart-product-text">
                     <b>{product.product_name}</b>

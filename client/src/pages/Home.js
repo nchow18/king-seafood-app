@@ -42,6 +42,8 @@ function Home() {
   Auth.viewSingleProduct();
   }
 
+  Auth.setGlobalDiscount(promo[0].discount);
+
   return (
   location.pathname === `/` &&
   <>
