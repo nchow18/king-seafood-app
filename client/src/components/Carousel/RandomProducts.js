@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import Flickity from 'react-flickity-component';
 import '../../css/flickity.css';
 import { useQuery } from '@apollo/react-hooks';
 import { PRODUCTS } from '../../utils/queries';
 import '../../css/RandomProducts.css';
+import SingleProduct from '../SingleProduct/index';
+import '../../css/Products.css';
 
 function ProductCarousel() {
 
   const { loading, data } = useQuery(PRODUCTS);
+  const [isModal, setModal] = useState(false);
   const productsArr = data?.products || {};
+
 
   function viewProduct(id) {
     Auth.setSingleProduct(id);
@@ -19,6 +23,8 @@ function ProductCarousel() {
   const randomProducts = [];
   const products = randomProducts;
   const randomNumbers = [];
+
+  const [links] = useState({...products})
 
   if (data) {
     for (var i = 0; i < Math.round(productsArr.length); i++ ) {
@@ -39,6 +45,8 @@ function ProductCarousel() {
       }
     }
 
+  const [currentProduct, setProduct] = useState(links[0])
+
   if (loading) return `...Loading Data`;
 
   return (
@@ -46,7 +54,7 @@ function ProductCarousel() {
 
       <Flickity>
       {products.map((product) => (
-          <div key={product._id} className="carousel-img-container">
+          <div key={product._id} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img-container">
             <img alt={product.product_name} className="carousel-img" src={product.product_picture[0]} />
             <div key={product._id} onClick={() => { viewProduct( product._id )}} className="carousel-img-title">
               <p>{product.product_name}</p>
@@ -55,7 +63,14 @@ function ProductCarousel() {
           </div>
         ))}
       </Flickity>
-
+      {isModal && (
+        <div className="random-product-display">
+          <SingleProduct
+            setModal={setModal}
+            singleProduct={currentProduct}
+            />
+        </div>
+      )}
     </>
   );
 }

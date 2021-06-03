@@ -54,8 +54,10 @@
 }
 
 .admin-close {
-  font-size: 2rem;
-  color: white;
+  font-size: 4rem;
+  color: black;
+  position: relative;
+  z-index: 900;
 }
 
 .admin-picture-font-size {
