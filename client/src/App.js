@@ -116,7 +116,6 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
-					  <Route exact path="/product/:id" component={SingleProduct} />
 					  <Route exact path="/order/:id" component={SingleOrder} />
 					  {!Auth.loggedIn() && (
 						<>
