@@ -11,8 +11,8 @@ function PromoCard(props) {
   return (
     <>
     <div className="promo-card-container">
-      <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
-      <img alt="promo" src={currentUrl} className="promo-img-card" />
+        <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
+        <img alt="promo" src={currentUrl} className="promo-img-card" />
     </div>
     </>
   )

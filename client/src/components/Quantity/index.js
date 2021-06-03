@@ -57,8 +57,10 @@ function Quantity(props) {
 
   return (
     <>
-      <span>Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} /></span>
-      <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity) }}>ADD TO CART</div>
+      <div className="quantity-button-container">
+        <span>Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} /></span>
+        <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity) }}>ADD TO CART</div>
+      </div>
     </>
   )
 }

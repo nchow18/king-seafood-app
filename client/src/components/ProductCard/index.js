@@ -39,7 +39,7 @@ function ProductCard(props) {
   {productCategory.map((product) => (
     <div key={product._id} className="product-card night-bg">
     <div className="product-card-picture-container">
-      <img alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+      <img onClick={() => {setSingleProduct(product); setModal(true)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
     </div>
     <div className="product-card-description">
       <div className="product-card-font">
@@ -74,9 +74,6 @@ function ProductCard(props) {
         <Quantity
           product={product}
         />
-        <div className="product-button-container">
-          <div className="product-button" onClick={() => {setSingleProduct(product); setModal(true)}}>VIEW PRODUCT</div>
-        </div>
       </div>
     </div>
     </div>

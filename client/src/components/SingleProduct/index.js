@@ -19,9 +19,8 @@ function SingleProduct(props) {
 
   return (
     <>
-  	  <div className="single-product-page">
-      <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
         <div className="single-product-container">
+        <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
           <div className="single-product-img-container">
             <ProductPictureCarousel
             product={product} 
@@ -42,10 +41,10 @@ function SingleProduct(props) {
               </>
             )}
             {product.product_sale_price >= 1 && (
-              <b className="font-red">Sale Price: RM {product.product_sale_price}</b>
+              <span><b className="font-red">Sale Price: RM {product.product_sale_price}</b></span>
             )}
             {product.product_bulk_quantity >= 1 && (
-              <b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b>
+              <span><b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b></span>
             )}
             <span><b>Description: </b>{product.product_name}</span>
             {product.descriptionChinese !== '' && (
@@ -69,8 +68,6 @@ function SingleProduct(props) {
             />
           </div>
         </div>        
-      </div>
-
     </>
   )
 }
