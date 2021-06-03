@@ -90,13 +90,14 @@
 
 .mobile-icon {
   font-size: 3rem;
+  
 }
 
 .window-cart-container {
   display: flex;
   position: fixed;
   top: 0;
-  padding-top: 5rem;
+  padding-top: 0rem;
   left: 0;
   height: 100vh;
   width: 100%;

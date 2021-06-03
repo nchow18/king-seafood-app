@@ -15,12 +15,13 @@
 
 .close-button {
   position: absolute;
-  top: 3rem;
-  left: 15vw;
+  top: 8rem;
+  left: 1.5rem;
   font-size: 5rem;
   border: .5rem solid black;
   padding: 0 1rem;
   border-radius: 50%;
+  z-index: 999;
 }
 
 .random-product-display {

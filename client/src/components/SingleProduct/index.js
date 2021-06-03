@@ -20,7 +20,7 @@ function SingleProduct(props) {
   return (
     <>
   	  <div className="single-product-page">
-      <i onClick={() => {setModal(false)}} className="fas fa-times admin-close"></i>
+      <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
         <div className="single-product-container">
           <div className="single-product-img-container">
             <ProductPictureCarousel

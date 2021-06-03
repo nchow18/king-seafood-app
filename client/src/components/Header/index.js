@@ -87,7 +87,7 @@ function Header(props) {
             )}
           {isModal && ( 
             <div className="window-cart-container">
-              <i onClick={() => {setModal(false)}} className="fas fa-times mobile-icon"></i>
+              <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
               <WindowCart />
             </div>
           )}
