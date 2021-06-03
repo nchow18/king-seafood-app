@@ -217,7 +217,7 @@ class AuthService {
     if (this.loggedIn() === false) {
       window.location.assign('/home');
     } else if (this.getProfileType() === 'user') {
-      window.location.assign('/account');
+      window.location.assign('/home');
     } else if (this.getProfileType() === 'admin') {
         window.location.assign('/admindashboard');
     }

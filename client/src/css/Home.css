@@ -4,6 +4,19 @@
     height: 25rem;
 }
 
+.logo-container {
+  position: absolute;
+  top: 12vh;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.king-logo {
+  height: 19rem;
+}
+
 .section-title {
   margin: 1rem;
   font-size: 1.5rem
@@ -29,6 +42,7 @@
 
 .home-banner {
   width: 100%;
+  height: 70vh;
   object-fit: cover;
 }
 

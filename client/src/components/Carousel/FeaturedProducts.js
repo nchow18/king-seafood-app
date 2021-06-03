@@ -20,11 +20,10 @@ function FeaturedCarousel(props) {
   
   return (
     <>
-
       <Flickity>
       {featuredProducts.map((product) => (
           <div key={product._id} className="promo-img-container">
-            <img alt={product.product_name} className="promo-img" src={product.product_picture} />
+            <img alt={product.product_name} className="promo-img" src={product.product_picture[0]} />
             <div key={product._id} onClick={() => { viewProduct( product._id )}} className="promo-img-title">
               <p>{product.product_name}</p>
               <p>RM {product.product_price}</p>

@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import AboutSection from '../components/About/About';
 import '../css/Home.css';
 import ProductCarousel from '../components/Carousel/RandomProducts'
+import Logo from '../assets/images/king-logo.png';
 
 function Home() {
 
@@ -47,9 +48,9 @@ function Home() {
   	  <div className="home-page">
     <div className="home-banner-content">
       <img alt="home-banner" src="https://wallpaperaccess.com/full/1491748.jpg" className="home-banner" />
+      <div className="logo-container"><img alt="logo" src={Logo} className="king-logo" /></div>
       <div className="home-banner-text">
-      <p>PACKED FRESH BY</p>
-      <p>KING SEAFOOD</p>
+      {/* TEXT HERE */}
       <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
       </div>
     </div>

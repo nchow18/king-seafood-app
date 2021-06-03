@@ -11,8 +11,6 @@ function PromoCarousel(props) {
 
   if (!promotions) return `...Loading Data`;
 
-  console.log(promotions[0].promoPicture1);
-
   return (
     <>
 
