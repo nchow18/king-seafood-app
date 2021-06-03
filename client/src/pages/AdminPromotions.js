@@ -66,6 +66,8 @@ function AdminPromotions() {
             <div className="promo-column admin-input-width">
               <b>MAIN PROMO</b>
               <textarea  onChange={handleInputChange} name="mainPromo" value={formData.mainPromo}></textarea>
+              <b>DISCOUNT</b>
+              <input onChange={handleInputChange} name="promoMsg1" value={parseInt(formData.discount)} />
             </div>
           </div>
 

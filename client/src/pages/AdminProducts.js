@@ -44,9 +44,9 @@ function AdminProducts() {
         product_picture: formData.product_picture,
         product_category: formData.product_category,
         product_status: JSON.parse(formData.product_status.toLowerCase()),
-        product_sale_price: JSON.stringify(formData.product_sale_price),
-        product_bulk_quantity: JSON.stringify(formData.product_bulk_quantity),
-        product_bulk_price: JSON.stringify(formData.product_bulk_price)
+        product_sale_price: parseInt(formData.product_sale_price),
+        product_bulk_quantity: parseInt(formData.product_bulk_quantity),
+        product_bulk_price: parseInt(formData.product_bulk_price)
       } }})
 
       alert('product added');
