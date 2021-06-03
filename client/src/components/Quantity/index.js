@@ -23,8 +23,6 @@ function Quantity(props) {
     })
   }
 
-  console.log(formData);
-
   const addToCart = async (data, quantity) => {
     if (Auth.loggedIn() === false) {
     //if NOT logged in, save to localStorage

@@ -41,103 +41,122 @@ function WindowCart() {
 if (Auth.loggedIn()) {
   // IF logged in, get data from USER Database
   console.log('getting data from USER cart data from database')
-  if (user_data.cart) {
-    if (user_data.cart.length === 0) {
-      console.log('there are no items in your cart')
-    } else {
-      console.log('there are items in your cart')
-      for (var i = 0; i < user_data.cart.length; i++) {
-        console.log('starting checking')
-  
-        var checkExisting = product_data.filter(function (item) {
-          return item._id === user_data.cart[i].product_id;
-        })
-  
-        if (checkExisting.length === 0) {
-          console.log('items in your cart have non-existing products');
-          console.log(user_data.cart[i].product_id)
-          try {
-            removeCart({
-              variables: {
-                product_id: user_data.cart[i].product_id
+    if (user_data.cart) {
+      if (user_data.cart.length === 0) {
+        console.log('there are no items in your cart')
+        } else {
+            console.log('there are items in your cart')
+            for (var i = 0; i < user_data.cart.length; i++) {
+              console.log('starting checking')
+        
+              var checkExisting = product_data.filter(function (item) {
+                return item._id === user_data.cart[i].product_id;
+              })
+        
+              if (checkExisting.length === 0) {
+                console.log('items in your cart have non-existing products');
+                console.log(user_data.cart[i].product_id)
+                try {
+                  removeCart({
+                    variables: {
+                      product_id: user_data.cart[i].product_id
+                    }
+                  })
+                  console.log('removed from cart');
+                } catch (e) {
+                  console.log(e)
+                }
+              } else {
+                console.log('your cart products still exist in the database');
               }
-            })
-            console.log('removed from cart');
-          } catch (e) {
-            console.log(e)
-          }
+
+              for (var t = 0; t < product_data.length; t++) {
+                if (user_data.cart[i].product_id === product_data[t]._id) {
+                  cartArr.push(product_data[t])
+                  cartArr[i].quantity = user_data.cart[i].quantity;
+                  console.log(cartArr);
+                  // IF no special discounts applied, proceed to apply GLOBAL discount
+                  if (cartArr[i].product_sale_price === 0 && cartArr[i].product_bulk_quantity === 0 ) {
+                    //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
+                    const discount = Auth.getGlobalDiscount();
+                    cartArr[i].total_price = (1 - discount/100) * cartArr[i].product_price * cartArr[i].quantity;
+                } else {
+                  // Check if product_sale_price exists, if so, apply update
+                  if (cartArr[i].product_sale_price >= 1) {
+                    // IF product_sale_price EXISTS,  SALE PRICE * QUANTITY to total_price
+                    cartArr[i].total_price = (product_data[t].product_sale_price * user_data.cart[i].quantity);
+                  } else {
+                    // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
+                    if (cartArr[i].product_bulk_quantity <= user_data.cart[i].quantity) {
+                      // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
+                      cartArr[i].total_price = (cartArr[i].product_bulk_price * user_data.cart[i].quantity);
+                    } else {
+                      // IF cart quantity is LESS than product_bulk_quantity, apply regular price
+                      cartArr[i].total_price = (cartArr[i].product_price * user_data.cart[i].quantity)
+                    }
+                  }
+                }
+              }
+            }  
+          }  
+        }
+      }
+    } else {
+      console.log('getting cart data from localStorage')
+      // IF NOT logged in, get data from localStorage 'guest_cart'
+      const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
+
+      for (var r = 0; r < cart_data.length; r++) {
+        var checkExisting = product_data.filter(function (item) {
+          return item._id === cart_data.[r].product_id;
+        })
+
+        // checks if items in local storage CART still exists
+        if(checkExisting.length === 0) {
+          console.log('items in your cart have non-existing products');
+          //if it does not exist, splice product at index (r)
+          cart_data.splice(r, 1);
         } else {
           console.log('your cart products still exist in the database');
         }
-  
-        for (var t = 0; t < product_data.length; t++) {
-          console.log('adding product to cart');
-          if (user_data.cart[i].product_id === product_data[t]._id) {
-            cartArr.push(product_data[t])
-            cartArr[i].quantity = user_data.cart[i].quantity;
-            cartArr[i].total_price = (product_data[t].product_price * user_data.cart[i].quantity);
-            cart_price.push(product_data[t].product_price);
-          }
-        }
-      }
-    }  
-  }
-} else {
-  console.log('getting cart data from localStorage')
-  // IF NOT logged in, get data from localStorage 'guest_cart'
-  const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
-  console.log(cart_data);
 
-  for (var r = 0; r < cart_data.length; r++) {
-    var checkExisting = product_data.filter(function (item) {
-      return item._id === cart_data.[r].product_id;
-    })
+        // SORT and include product data from database
+        for (var y = 0; y < product_data.length; y++) {
+          if (cart_data[r].product_id === product_data[y]._id) {
+            cartArr.push(product_data[y])
+            cartArr[r].quantity = cart_data[r].quantity;
 
-    // checks if items in local storage CART still exists
-    if(checkExisting.length === 0) {
-      console.log('items in your cart have non-existing products');
-      //if it does not exist, splice product at index (r)
-      cart_data.splice(r, 1);
-    } else {
-      console.log('your cart products still exist in the database');
-    }
-
-    // SORT and include product data from database
-    for (var y = 0; y < product_data.length; y++) {
-      if (cart_data[r].product_id === product_data[y]._id) {
-        cartArr.push(product_data[y])
-        cartArr[r].quantity = cart_data[r].quantity;
-
-        // IF no special discounts applied, proceed to apply GLOBAL discount
-        if (cartArr[r].product_sale_price === 0 && cartArr[r].product_bulk_quantity === 0 ) {
-          //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
-          const discount = Auth.getGlobalDiscount();
-          cartArr[r].total_price = (1 - discount/100) * cartArr[r].product_price * cartArr[r].quantity;
-      } else {
-        // Check if product_sale_price exists, if so, apply update
-        if (cartArr[r].product_sale_price >= 1) {
-          // Check IF product_bulk_quantity exists, if so, SKIP
-          if (cartArr[r].product_bulk_quantity >= 1) {
-            return;
+            // IF no special discounts applied, proceed to apply GLOBAL discount
+            if (cartArr[r].product_sale_price === 0 && cartArr[r].product_bulk_quantity === 0 ) {
+              //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
+              const discount = Auth.getGlobalDiscount();
+              cartArr[r].total_price = (1 - discount/100) * cartArr[r].product_price * cartArr[r].quantity;
           } else {
-            // IF product_bulk_quantity does not exist,SALE PRICE * QUANTITY to total_price
-            cartArr[r].total_price = (product_data[y].product_sale_price * cart_data[r].quantity);
-          }
-        } else {
-          // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
-          if (cartArr[r].product_bulk_quantity <= cart_data[r].quantity) {
-            // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
-            cartArr[r].total_price = (cartArr[r].product_bulk_price * cart_data[r].quantity);
+            // Check if product_sale_price exists, if so, apply update
+            if (cartArr[r].product_sale_price >= 1) {
+              // Check IF product_bulk_quantity exists, if so, SKIP
+              if (cartArr[r].product_bulk_quantity >= 1) {
+                return;
+              } else {
+                // IF product_bulk_quantity does not exist,SALE PRICE * QUANTITY to total_price
+                cartArr[r].total_price = (product_data[y].product_sale_price * cart_data[r].quantity);
+              }
+            } else {
+              // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
+              if (cartArr[r].product_bulk_quantity <= cart_data[r].quantity) {
+                // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
+                cartArr[r].total_price = (cartArr[r].product_bulk_price * cart_data[r].quantity);
+              }
+            }
           }
         }
       }
-
-      }
     }
   }
-}
 
-  console.log(user_cart);
+
+
+  console.table(user_cart);
 
   Auth.setCartQuantity(user_cart.length);
 

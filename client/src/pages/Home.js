@@ -37,12 +37,10 @@ function Home() {
   }
   }
 
-  function viewProduct(id) {
-  Auth.setSingleProduct(id);
-  Auth.viewSingleProduct();
-  }
 
   Auth.setGlobalDiscount(promo[0].discount);
+
+  console.log(promo[0].promo1End);
 
   return (
   location.pathname === `/` &&
@@ -56,13 +54,13 @@ function Home() {
       <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
       </div>
     </div>
-      <b className="section-title">Featured Products</b>
+      <b className="section-title featured-title">Featured Products</b>
     <div className="promo-fullscreen">
       <div className="promo-flex-row">
       {featuredProducts.map((product) => (
         <div key={product._id} className="promo-img-container">
         <img alt={product.product_name} className="promo-img" src={product.product_picture} />
-        <div key={product._id} onClick={() => { viewProduct( product._id )}} className="promo-img-title">
+        <div key={product._id} onClick={() => {}} className="promo-img-title">
           <p>{product.product_name}</p>
           <p>RM {product.product_price}</p>
         </div>
@@ -71,12 +69,15 @@ function Home() {
       </div>
     </div> 
     </div>
-    <div className="home-section">
-      <b className="section-title">Current Promotions</b>
-      <PromoCarousel
-        promotions={promo}
-      />
-    </div>
+    {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
+      <div className="home-section">
+        <b className="section-title">Current Promotions</b>
+        <PromoCarousel
+          promotions={promo}
+        />
+      </div>
+    )}
+
     <div className="home-promo-mobile">
       <b className="section-title">Featured Products</b>
       <FeaturedCarousel
