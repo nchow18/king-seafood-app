@@ -33,14 +33,14 @@ function Header(props) {
     console.log('guest account')
     headerArr.push(publicArr);
   } else {
-    if(Auth.getProfileType() === 'admin') {
-      console.log('admin account');
-      headerArr.push(adminArr)
-    } else {
-      console.log('user account');
-      headerArr.push(userArr);
-    }
+  if(Auth.getProfileType() === 'admin') {
+    console.log('admin account');
+    headerArr.push(adminArr)
+  } else {
+    console.log('user account');
+    headerArr.push(userArr);
   }
+}
 
   return (
       <div className="header-items">
@@ -82,9 +82,7 @@ function Header(props) {
             {Auth.loggedIn() && (
               <>
               <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
-              <label htmlFor="window-cart">
-                <i className="fas fa-shopping-cart cart-link"><b> ({Auth.getCartQuantity()})</b></i>
-              </label>
+              <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getCartQuantity()})</b></i>
               </>   
             )}
           {isModal && ( 
