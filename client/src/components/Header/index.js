@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import '../../css/Header.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
@@ -22,6 +22,7 @@ function Header(props) {
     Auth.lightMode(mode);
   }
 
+  const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
   const adminArr = headerLinks.filter((link) => link.admin === true);
@@ -51,15 +52,13 @@ function Header(props) {
           </div>
         </div>
         <div className="header-links-container">
-        <input type="checkbox" id="check"/ >
           <div className="links">
-
-            <label className="mobile-header-toggle" htmlFor="check"><i className="fas fa-times mobile-icon"></i></label>
             {Auth.loggedIn() === false && (
               <>
             {headerLinks.filter((link) => link.guest === true).map((link) => (
               <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
             ))}
+                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getCartQuantity()})</b></i>
               </>
             )}
             {Auth.getAdmin() === true && (
@@ -88,13 +87,12 @@ function Header(props) {
               </label>
               </>   
             )}
-            <input type="checkbox" id="window-cart" />
-            {Auth.loggedIn() === true && (
-              <div className="window-cart-container">
-              <label htmlFor="window-cart"><i className="fas fa-times cart-icon"></i></label>
+          {isModal && ( 
+            <div className="window-cart-container">
+              <i onClick={() => {setModal(false)}} className="fas fa-times mobile-icon"></i>
               <WindowCart />
-              </div>
-            )}
+            </div>
+          )}
             <div className="night-mobile">
               <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-header-display"></i></div>
               <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>

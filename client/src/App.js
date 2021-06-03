@@ -119,6 +119,9 @@ function App() {
             <Route exact path="/products" component={Products} />
 					  <Route exact path="/promotions" component={Promotions} />
 					  <Route exact path="/order/:id" component={SingleOrder} />
+              <div className="window-cart">
+							  <Route exact path="/cart" component={Cart} />
+              </div>
 					  {!Auth.loggedIn() && (
 						<>
 							<Route exact path="/signup" component={SignUp} />
@@ -134,10 +137,6 @@ function App() {
 					  {Auth.getAdmin() === false && (
 						<>
 							<Route exact path="/account" component={Account} />
-              <div className="window-cart">
-							  <Route exact path="/cart" component={Cart} />
-              </div>
-
 						</>
 					  )}
             <Route component={NoMatch} />

@@ -25,22 +25,25 @@ function Cart() {
 
   console.log(cartArr);
 
-  if (dataR) {
-    console.log(dataR.user.cart);
-    console.log(data);
-    console.log('ITEMS IN CART')
-    for (var i = 0; i < user_data.cart.length; i++) {
-      for (var t = 0; t < product_data.length; t++) {
-        if (user_data.cart[i].product_id === product_data[t]._id) {
-          cartArr.push(product_data[t])
-          cartArr[i].quantity = product_data[t].product_price;
-          cart_price.push(product_data[t].product_price);
+  if (Auth.loggedIn()) {
+    if (dataR) {
+      console.log(dataR.user.cart);
+      console.log(data);
+      console.log('ITEMS IN CART')
+      for (var i = 0; i < user_data.cart.length; i++) {
+        for (var t = 0; t < product_data.length; t++) {
+          if (user_data.cart[i].product_id === product_data[t]._id) {
+            cartArr.push(product_data[t])
+            cartArr[i].quantity = product_data[t].product_price;
+            cart_price.push(product_data[t].product_price);
+          }
         }
       }
+    } else {
+      console.log('no user data');
     }
-  } else {
-    console.log('no user data');
   }
+
   
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
 
@@ -62,8 +65,6 @@ function Cart() {
   return (
     <>
   	  <div className="cart-container">
-        {user_cart.length && (
-          <>
           <div className="cart-items-container">
             {user_cart.map((cart) => (
               <div key={cart.product_id} className="cart-row">
@@ -101,13 +102,6 @@ function Cart() {
           <div className="payment-column cart-row">
               <span><b>Cart Total: </b>{cart_total} RM</span>
           </div>
-          </>
-        )}
-        {!user_cart.length && (
-          <div className="flex-c-column">
-            <b>Your cart is empty</b>
-          </div>
-        )}
       </div>
     </>
   )

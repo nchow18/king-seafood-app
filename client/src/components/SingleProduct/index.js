@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Auth from '../../utils/auth';
-import { useLocation } from 'react-router-dom';
 import '../../css/Products.css';
-import { useMutation, useQuery } from '@apollo/react-hooks';
-import { PRODUCT } from '../../utils/queries';
-import { ADD_CART } from '../../utils/mutations';
 import ProductPictureCarousel from '../Carousel/ProductPicture';
+import Quantity from '../Quantity';
 
 function SingleProduct(props) {
 
@@ -15,39 +12,10 @@ function SingleProduct(props) {
   } = props
 
   const product = singleProduct;
-  const [addCart, {error}] = useMutation(ADD_CART);
-  const [ formData, setFormData ] = useState ({
-    quantity: '',
-  })
 
   if (Auth.getMode() === 'dark') {
     Auth.getMode();
   }
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    })
-  }
-
-  const addToCart = async (e) => {
-
-    try {
-      addCart({ variables: {
-        input: {
-          product_id: product._id,
-          quantity: parseInt(formData.quantity),
-        }
-      }})
-      alert('Added to cart');
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  if (error) return '...ERROR';
 
   return (
     <>
@@ -96,8 +64,9 @@ function SingleProduct(props) {
                 <span><b>Availability: </b>Out Of Stock</span>
               </>
             )}
-            <b>Quantity: </b><input value={formData.quantity} onChange={handleInputChange} name="quantity" className="quantity-product-input" />
-            <button className="product-button" onClick={() => { addToCart() }}>ADD TO CART</button>
+            <Quantity
+              product={product}
+            />
           </div>
         </div>        
       </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
-import { useMutation, useQuery } from '@apollo/react-hooks';
-import { ADD_CART } from '../../utils/mutations';
+
 import SingleProduct from '../SingleProduct/';
+import Quantity from '../Quantity';
 
 function ProductCard(props) {
 
@@ -12,27 +12,7 @@ function ProductCard(props) {
   currentProductLink
   } = props
 
-  const [addCart, {error}] = useMutation(ADD_CART)
-
   const [productArr] = useState({...products})
-
-  const addToCart = async (data) => {
-  if (Auth.loggedIn() === false) {
-  return alert('Please Sign in OR Sign up');
-  }
-  
-  try {
-    addCart({ variables: {
-    input: {
-      product_id: data,
-      quantity: 1,
-    }
-    }})
-    alert('Added to cart');
-  } catch (e) {
-    console.log(e);
-  }
-  }
 
   var productCategory = []
 
@@ -45,8 +25,6 @@ function ProductCard(props) {
 
   const [isModal, setModal] = useState(false);
   const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
-
-  if (error) return '...ERROR';
 
   return (
   <>
@@ -92,9 +70,13 @@ function ProductCard(props) {
       )}
       </div>
 
-      <div className="product-button-container">
-      <div className="product-button" onClick={() => {setSingleProduct(product); setModal(true)}}>VIEW PRODUCT</div>
-      <div className="product-button" key={product._id} onClick={() => { addToCart(product._id) }}>ADD TO CART</div>
+      <div className="quantity-section">
+        <Quantity
+          product={product}
+        />
+        <div className="product-button-container">
+          <div className="product-button" onClick={() => {setSingleProduct(product); setModal(true)}}>VIEW PRODUCT</div>
+        </div>
       </div>
     </div>
     </div>

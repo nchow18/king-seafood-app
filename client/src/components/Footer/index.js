@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/Header.css';
 import '../../css/Footer.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import MobileCart from '../../components/Cart/MobileCart';
 import WindowCart from '../../components/Cart/WindowCart';
 
 function Footer( props) {
@@ -19,6 +18,7 @@ function Footer( props) {
     Auth.logout();
   };
 
+  const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
   const adminArr = headerLinks.filter((link) => link.admin === true);
@@ -84,19 +84,19 @@ function Footer( props) {
         <Link to="/"><i className="fas fa-home mobile-icon"></i></Link>
         <Link to="/products"><i className="fas fa-tags mobile-icon"></i></Link>
         <label htmlFor="mobile-cart">
-        <i className="fas fa-shopping-cart mobile-icon"></i>
+        <i onClick={() => {setModal(true)}} className="fas fa-shopping-cart mobile-icon"></i>
         </label>
         <label key='list' htmlFor="footer-links" >
         <i className="fas fa-bars drop-down mobile-icon"></i>
         </label>
       </div>
     </div>
-    <input type="checkbox" id="mobile-cart" />
-
-      <div className="mobile-component mobile-cart">
-      <label htmlFor="mobile-cart"><i className="fas fa-times mobile-icon"></i></label>
-      <MobileCart />
-      </div>
+      {isModal && ( 
+        <div className="window-cart-container">
+          <i onClick={() => {setModal(false)}} className="fas fa-times mobile-icon"></i>
+          <WindowCart />
+        </div>
+      )}
   </div>
 )
 }

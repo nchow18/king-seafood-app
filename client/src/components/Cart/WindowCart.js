@@ -37,47 +37,72 @@ function WindowCart() {
       console.log(e)
     }
   }
-if (user_data.cart) {
-  if (user_data.cart.length === 0) {
-    console.log('there are no items in your cart')
-  } else {
-    console.log('there are items in your cart')
-    for (var i = 0; i < user_data.cart.length; i++) {
-      console.log('starting checking')
 
-      var checkExisting = product_data.filter(function (item) {
-        return item._id === user_data.cart[i].product_id;
-      })
-
-      if (checkExisting.length === 0) {
-        console.log('items in your cart have non-existing products');
-        console.log(user_data.cart[i].product_id)
-        try {
-          removeCart({
-            variables: {
-              product_id: user_data.cart[i].product_id
-            }
-          })
-          console.log('removed from cart');
-        } catch (e) {
-          console.log(e)
+if (Auth.loggedIn()) {
+  // IF logged in, get data from USER Database
+  console.log('getting data from USER cart data from database')
+  if (user_data.cart) {
+    if (user_data.cart.length === 0) {
+      console.log('there are no items in your cart')
+    } else {
+      console.log('there are items in your cart')
+      for (var i = 0; i < user_data.cart.length; i++) {
+        console.log('starting checking')
+  
+        var checkExisting = product_data.filter(function (item) {
+          return item._id === user_data.cart[i].product_id;
+        })
+  
+        if (checkExisting.length === 0) {
+          console.log('items in your cart have non-existing products');
+          console.log(user_data.cart[i].product_id)
+          try {
+            removeCart({
+              variables: {
+                product_id: user_data.cart[i].product_id
+              }
+            })
+            console.log('removed from cart');
+          } catch (e) {
+            console.log(e)
+          }
+        } else {
+          console.log('your cart products still exist in the database');
         }
-      } else {
-        console.log('your cart products still exist in the database');
-      }
-
-      for (var t = 0; t < product_data.length; t++) {
-        console.log('adding product to cart');
-        if (user_data.cart[i].product_id === product_data[t]._id) {
-          cartArr.push(product_data[t])
-          cartArr[i].quantity = user_data.cart[i].quantity;
-          cartArr[i].total_price = (product_data[t].product_price * user_data.cart[i].quantity);
-          cart_price.push(product_data[t].product_price);
+  
+        for (var t = 0; t < product_data.length; t++) {
+          console.log('adding product to cart');
+          if (user_data.cart[i].product_id === product_data[t]._id) {
+            cartArr.push(product_data[t])
+            cartArr[i].quantity = user_data.cart[i].quantity;
+            cartArr[i].total_price = (product_data[t].product_price * user_data.cart[i].quantity);
+            cart_price.push(product_data[t].product_price);
+          }
         }
       }
+    }  
+  }
+} else {
+  console.log('getting cart data from localStorage')
+  // IF NOT logged in, get data from localStorage 'guest_cart'
+  const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
+  console.log(cart_data);
+
+  for (var r = 0; r < cart_data.length; r++) {
+    var checkExisting = product_data.filter(function (item) {
+      return item._id === cart_data.[r].product_id;
+    })
+
+    if(checkExisting.length === 0) {
+      console.log('items in your cart have non-existing products');
+      cart_data.splice(r, 1);
+    } else {
+      console.log('your cart products still exist in the database');
     }
-  }  
+  }
 }
+
+
 
   if (dataR) {
     Auth.setCartQuantity(user_data.cart.length);
@@ -91,12 +116,6 @@ if (user_data.cart) {
   return (
     <div className="window-cart-content">
       <div className="border">
-      {dataR ? (
-      <>
-      {user_data.cart.length === 0 && (
-        <b>You have <u>0</u> products in your cart</b>
-      )}
-      {user_data.cart.length >= 1 && (
         <div className="window-cart-column to-night">
           <div className="window-cart-items-container to-night">
             <b>Your Cart</b>
@@ -127,11 +146,6 @@ if (user_data.cart) {
             <div className="checkout-disclaimer">Checkout with SWIPE</div>
           </div>
         </div>
-      )}
-      </>
-    ) : (
-      <h1 className="mobile-cart-container night-bg">You are not logged-in</h1>
-    )}
       </div>
     </div>
   )
