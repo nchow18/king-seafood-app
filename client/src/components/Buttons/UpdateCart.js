@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { UPDATE_CART } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function UpdateCartButton(props) {
 
@@ -23,19 +24,23 @@ function UpdateCartButton(props) {
 
   const updateUserCart = async (id) => {
 
-    const quantity = formData.quantity;
+    if (Auth.loggedIn()) {
+      const quantity = formData.quantity;
     
-    try {
-      updateCart({
-        variables: {
-          quantity: parseInt(quantity),
-          product_id: id,
-        }
-      })
-      alert('Cart Quantity Updated')
-    } catch (e) {
-      console.log(e);
+      try {
+        updateCart({
+          variables: {
+            quantity: parseInt(quantity),
+            product_id: id,
+          }
+        })
+        alert('Cart Quantity Updated')
+      } catch (e) {
+        console.log(e);
+      }
     }
+    // if NOT logged in (update localStorage Quantity)
+
   }
 
   if (error) return `...ERROR`;

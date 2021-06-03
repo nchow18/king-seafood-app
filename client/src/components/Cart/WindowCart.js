@@ -25,17 +25,22 @@ function WindowCart() {
   const cart_price = [];
 
   const removeProduct = async (id) => {
-    try {
-      removeCart({
-        variables: {
-          product_id: id
-        }
-      })
-      alert('removed from cart');
-      return;
-    } catch (e) {
-      console.log(e)
+
+    if (Auth.loggedIn()) {
+      try {
+        removeCart({
+          variables: {
+            product_id: id
+          }
+        })
+        alert('removed from cart');
+        return;
+      } catch (e) {
+        console.log(e)
+      }
     }
+    console.log('removing local storage item');
+
   }
 
 if (Auth.loggedIn()) {
@@ -154,8 +159,6 @@ if (Auth.loggedIn()) {
     }
   }
 
-
-
   console.table(user_cart);
 
   Auth.setCartQuantity(user_cart.length);
@@ -179,7 +182,7 @@ if (Auth.loggedIn()) {
                     <b>{product.product_name}</b>
                     <p>{product.total_price}</p>
                   </div>
-                  <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
+                    <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
                 </div>
                 <UpdateCartButton product={product} />
               </div>

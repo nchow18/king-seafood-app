@@ -95,15 +95,17 @@
 .window-cart-container {
   display: flex;
   position: fixed;
-  top: 5rem; 
+  top: 0;
+  padding-top: 5rem;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(255,255,255,.8);
+  overflow-y: scroll;
 }
 
 .cart-icon {
@@ -121,7 +123,7 @@
 
 .window-cart-content {
   background-color: white;
-  height: 80%;
+  height: 100vh;
   width: 70%;
   box-shadow: 10px 10px 25px rgb(0,0,0,0.7);
   padding: 1rem;
@@ -129,9 +131,10 @@
 
 .border {
   border: .7rem solid black;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   padding: 3rem;
+  background-color: white;
 }
 
 @media screen and (max-width: 1100px) {
