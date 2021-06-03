@@ -47,7 +47,7 @@ function ProductCarousel() {
       <Flickity>
       {products.map((product) => (
           <div key={product._id} className="carousel-img-container">
-            <img alt={product.product_name} className="carousel-img" src={product.product_picture} />
+            <img alt={product.product_name} className="carousel-img" src={product.product_picture[0]} />
             <div key={product._id} onClick={() => { viewProduct( product._id )}} className="carousel-img-title">
               <p>{product.product_name}</p>
               <p>RM {product.product_price}</p>

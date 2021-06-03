@@ -29,11 +29,36 @@ class AuthService {
 
   getCategories() {
     const categories = [
-      'All',
-      'Meat',
-      'Vegetables',
-      'Fruits',
-      'Seafood',
+		{
+			name: 'All',
+		},
+		{
+			name: 'Meat',
+		},
+		{
+			name: 'Seafood',
+		},
+		{
+			name: 'Vegetables',
+		},
+		{
+			name: 'Fruits',
+		},
+    {
+      name: 'Bundle Promotion',
+    },
+    {
+      name: 'Squid',
+    },
+    {
+      name: 'Special Items'
+    },
+    {
+      name: 'Shellfish'
+    },
+    {
+      name: 'Scallops'
+    }
     ]
 
     return categories;
@@ -195,6 +220,18 @@ class AuthService {
       window.location.assign('/account');
     } else if (this.getProfileType() === 'admin') {
         window.location.assign('/admindashboard');
+    }
+  }
+
+  checkToken() {
+    const token = this.getToken();
+    if (localStorage.getItem('id_token')) {
+      if (this.isTokenExpired(token)) {
+        localStorage.removeItem('id_token')
+      } else {
+        return
+      }
+      
     }
   }
 

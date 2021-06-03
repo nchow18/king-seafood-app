@@ -93,6 +93,8 @@ function App() {
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
 
+  Auth.checkToken();
+
     return (
         <ApolloProvider client={client}>
           <Router>

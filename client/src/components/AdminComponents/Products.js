@@ -8,21 +8,29 @@ import '../../css/Admin.css';
 
 function AdminCategories(props) {
 
+  const {
+    currentCategory
+  } = props
+
   const [isModal, setModal] = useState(false);
-  const [mounted, setMounted] = useState(true);
   const { loading, data} = useQuery(PRODUCTS)
   const productArr = data?.products || {};
   const [products] = useState({...productArr})
-
   const [singleProduct, setSingleProduct] = useState(products[0])
 
-  // const toggle = () => setMounted(!mounted);
+  var chosenArr = [];
+
+  if (currentCategory.name === 'All') {
+    chosenArr = productArr;
+  } else {
+    const filteredArr = productArr.filter((product) => product.product_category.toLowerCase() === currentCategory.name.toLowerCase());
+    chosenArr = filteredArr;
+  }
+
   if (loading) return 'Loading...';
 
   return (
     <>
-    {/* <button onClick={toggle} >Refresh Products Data</button> */}
-    {mounted && (
       <>
       <div className="admin-products-container">
       {isModal && (
@@ -34,7 +42,7 @@ function AdminCategories(props) {
             setModal={setModal} />
         </div>
       )}
-      {productArr.map((product) => (
+      {chosenArr.map((product) => (
         <div key={product._id} className="admin-form-container night-bg">
           <div className="admin-input-width" value={`${product._id}`}>{product._id}</div>
             <div className="flex-start-row">
@@ -89,8 +97,6 @@ function AdminCategories(props) {
          ))}
       </div>
       </>
-    )}  
-    
     </>
   )
 }
