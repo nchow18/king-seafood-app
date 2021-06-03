@@ -29,9 +29,9 @@ function SingleProductEdit(props) {
     product_nameChinese: product.product_nameChinese,
     product_status: JSON.stringify(product.product_status),
     product_descriptionChinese: product.product_descriptionChinese,
-    product_sale_price: JSON.stringify(product.product_sale_price),
-    product_bulk_quantity: JSON.stringify(product.product_bulk_quantity),
-    product_bulk_price: JSON.stringify(product.product_bulk_price)
+    product_sale_price: product.product_sale_price,
+    product_bulk_quantity: product.product_bulk_quantity,
+    product_bulk_price: product.product_bulk_price
   })
 
   const handleInputChange = (event) => {
@@ -46,7 +46,7 @@ function SingleProductEdit(props) {
 
     try {
       updateProduct({ variables: {
-        product_id: product.product_id, 
+        product_id: product._id, 
         input: {
           product_name: formData.product_name,
           product_description: formData.product_description,

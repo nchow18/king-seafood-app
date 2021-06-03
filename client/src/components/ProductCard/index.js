@@ -74,13 +74,13 @@ function ProductCard() {
               </>
             ) : (
               <>
-              <b>Price: </b><span>{product.product_price}</span>
+              <span><b>Price: </b>{product.product_price}</span>
               </>
             )}
-            {product.product_sale_price && (
+            {product.product_sale_price >= 1 && (
               <b className="font-red">Sale Price: RM {product.product_sale_price}</b>
             )}
-            {product.product_bulk_quantity && (
+            {product.product_bulk_quantity >=1 && (
               <b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b>
             )}
             {product.product_weight !== '' && (

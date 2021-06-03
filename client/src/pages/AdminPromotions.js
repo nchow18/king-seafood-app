@@ -45,7 +45,8 @@ function AdminPromotions() {
       updatePromo({
         variables: {
           input: {
-            ...formData
+            ...formData,
+            discount: parseInt(formData.discount)
           },
           promo_id: promo_id
         }
@@ -67,7 +68,7 @@ function AdminPromotions() {
               <b>MAIN PROMO</b>
               <textarea  onChange={handleInputChange} name="mainPromo" value={formData.mainPromo}></textarea>
               <b>DISCOUNT</b>
-              <input onChange={handleInputChange} name="promoMsg1" value={parseInt(formData.discount)} />
+              <input onChange={handleInputChange} name="discount" value={formData.discount} />
             </div>
           </div>
 

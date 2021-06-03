@@ -11,7 +11,6 @@ function SinglePictureUpdate(props) {
 
   const [removePicture, { error }] = useMutation(REMOVE_PRODUCT_PICTURE);
   const [updateProductPicture] = useMutation(UPDATE_PRODUCT_PICTURE);
-  console.log(picture);
   const [formData, setFormData] = useState({
     picture_url: picture
   })
