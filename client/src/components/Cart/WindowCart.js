@@ -25,7 +25,7 @@ function WindowCart(props) {
 
   const user_data = dataR?.userMe || {};
   const product_data = data?.products || {};
-  const cartArr = [];
+  let cartArr = [];
   const user_cart = cartArr;
   const cart_price = [];
 
@@ -131,6 +131,7 @@ if (Auth.loggedIn()) {
         }
       }
     } else {
+
       const cart_length = JSON.parse(localStorage.getItem('guest_cart'));
       console.log(cart_length)
     //Proceed if there are items in localStorage guest cart
@@ -153,46 +154,67 @@ if (Auth.loggedIn()) {
           console.log('your cart products still exist in the database');
         }
 
-        console.log(cart_data);
-        // SORT and include product data from database
-        for (var y = 0; y < product_data.length; y++) {
-          if (cart_data[r].product_id === product_data[y]._id) {
-            // if product still exists, push to cartArr
-            cartArr.push(product_data[y])
-            // create a key of quantity for CART Quantity
-            cartArr[r].quantity = cart_data[r].quantity;
-
-            // IF no special discounts applied, proceed to apply GLOBAL discount
-            if (cartArr[r].product_sale_price === 0 && cartArr[r].product_bulk_quantity === 0 ) {
-              //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
-              const discount = Auth.getGlobalDiscount();
-              cartArr[r].total_price = (1 - discount/100) * cartArr[r].product_price * cartArr[r].quantity;
-          } else {
-            // Check if product_sale_price exists, if so, apply update
-            if (cartArr[r].product_sale_price >= 1) {
-                // IF product_bulk_quantity does not exist,SALE PRICE * QUANTITY to total_price
-                cartArr[r].total_price = (product_data[y].product_sale_price * cart_data[r].quantity);
-            } else {
-              // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
-              if (cartArr[r].product_bulk_quantity <= cart_data[r].quantity) {
-                // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
-                cartArr[r].total_price = (cartArr[r].product_bulk_price * cart_data[r].quantity);
-              } else {
-                cartArr[r].total_price = (cartArr[r].product_price * cart_data[r].quantity)
-              }
+        //check for duplicates and remove from cart_data
+        if (cart_data.length >= 2) {
+          for (var p = 1; p < cart_data.length; p++) {
+            if (cart_data[r].product_id === cart_data[p].product_id && r !== p) {
+              cart_data.splice(p, 1);
+              console.log('duplicate at ' + p + ' index removed');
             }
           }
-
+          // remove old local storage guest_cart
+          localStorage.removeItem('guest_cart');
+          // update new local storage guest_cart
+          localStorage.setItem('guest_cart', JSON.stringify(cart_data));
         }
-      }
+        console.log('no duplicates found');
+        //push all product_id into cartArr
+
+        for (var q = 0; q < product_data.length; q++) {
+          if (cart_data[r].product_id === product_data[q]._id) {
+            //pushing product into cartArr
+            cartArr.push(product_data[q])
+            //add quantity KEY into cartArr[r]
+            cartArr[r].quantity = cart_data[r].quantity;
+          }
+        }
+
+        const global_discount = (1 - parseInt(Auth.getGlobalDiscount()) / 100);
+        //Start Discount Check
+        if (global_discount > 0) {
+          console.log('|||||||||||||||||||||||| ADDING PRICES ||||||||||||||||||||||||||')
+          //if discount exists, check if bulk and sale price exists before proceeding
+          //Check product_sale_price
+          if (cartArr[r].product_sale_price > 0) {
+            cartArr[r].total_price = (cartArr[r].product_sale_price * cartArr[r].quantity);
+          } else
+          //check product_bulk_quantity, greater than 0 AND quantity is greater than the bulk to qualify
+          if (cartArr[r].product_bulk_quantity > 0 && cartArr[r].product_bulk_quantity <= cartArr[r].quantity) {
+            console.log(cartArr[r].product_bulk_quantity * cartArr[r].product_bulk_price)
+            cartArr[r].total_price = (cartArr[r].product_bulk_quantity * cartArr[r].product_bulk_price);
+          } else if (global_discount > 0) {
+            // if quantity isn't enough, check if global discount is available to be applied
+            cartArr[r].total_price = (cartArr[r].product_price * global_discount * cartArr[r].quantity);
+          } else {
+            // if global discount doesn't exist, proceed with regular price
+            cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_price);
+          }
+
+        } else {
+          // Use regular price, since no discounts exist
+          cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_price);
+        }
+
+        console.log(cartArr);
     }
   } else {
-    console.log('your gust cart is empty')
+    console.log('your guest cart is empty')
   }
 }
 
-  console.table(user_cart);
-
+  localStorage.removeItem('new_cart');
+  localStorage.setItem('new_cart', JSON.stringify(user_cart))
+  const new_cart = localStorage.getItem('new_cart');
   Auth.setCartQuantity(user_cart.length);
 
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
@@ -206,7 +228,7 @@ if (Auth.loggedIn()) {
           <div className="window-cart-column to-night">            
             <div className="window-cart-items-container to-night">
               <b>Your Cart</b>
-              {user_cart.map((product) => (
+              {(JSON.parse(new_cart)).map((product) => (
                 <div key={product._id} className="window-cart-product-row">
                   <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
                   <div className="window-cart-product-details">
@@ -216,7 +238,9 @@ if (Auth.loggedIn()) {
                     </div>
                       <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
                   </div>
-                  <UpdateCartButton product={product} />
+                  <UpdateCartButton 
+                    product={product}
+                    user_cart={user_cart} />
                 </div>
               ))}
 
@@ -227,7 +251,8 @@ if (Auth.loggedIn()) {
                 <div className="checkout-container">
                 <CheckoutDisplay
                   setCheckOutModal={setCheckOutModal} 
-                  cart={user_cart} 
+                  cart={user_cart}
+                  local_cart={local_cart}
                 />
                 </div>
               )}

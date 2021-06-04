@@ -6,6 +6,8 @@ function CheckoutDisplay(props) {
     setCheckOutModal
   } = props
 
+
+  
 const payment = event => {
   console.log('processing payment');
 }

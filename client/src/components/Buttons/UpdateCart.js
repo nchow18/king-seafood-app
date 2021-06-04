@@ -6,12 +6,12 @@ import Auth from '../../utils/auth';
 function UpdateCartButton(props) {
 
   const {
-    product = []
+    product = [],
   } = props
 
   const [updateCart, { error }] = useMutation(UPDATE_CART);
   const [formData, setFormData] = useState({
-    quantity: '',
+    quantity: product.quantity,
   })
 
   const handleInputChange = event => {
@@ -38,10 +38,22 @@ function UpdateCartButton(props) {
       } catch (e) {
         console.log(e);
       }
-    }
+    } else {
     // if NOT logged in (update localStorage Quantity)
+      const local_cart = JSON.parse(localStorage.getItem('guest_cart'))
+      //find index of matching local_cart.product_id and id
+      for (var i = 0; i <  local_cart.length; i++) {
+        if (local_cart[i].product_id === id) {
+          local_cart[i].quantity = parseInt(formData.quantity);
+          // remove and save new updated 'guest_cart' from localStorage
 
+          localStorage.removeItem('guest_cart');
+          return localStorage.setItem('guest_cart', JSON.stringify(local_cart))
+        }
+      }
+    }
   }
+
 
   if (error) return `...ERROR`;
 
