@@ -126,9 +126,10 @@ if (Auth.loggedIn()) {
       }
     } else {
       const cart_length = JSON.parse(localStorage.getItem('guest_cart'));
-    
+
     //Proceed if there are items in localStorage guest cart
-    if (cart_length.length >= 1) {console.log('getting cart data from localStorage')
+    if (cart_length !== null) {
+      console.log('getting cart data from localStorage')
       // IF NOT logged in, get data from localStorage 'guest_cart'
       const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
 
