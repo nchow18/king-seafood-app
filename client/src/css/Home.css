@@ -15,8 +15,8 @@
 
 .close-button {
   position: absolute;
-  top: -1rem;
-  left: -1rem;
+  top: 1rem;
+  left: 1rem;
   font-size: 3rem;
   border: .5rem solid black;
   padding: 0 .5rem;
@@ -33,13 +33,29 @@
   left: 0rem;
   width: 100%;
   height: 100%;
-  background-color: rgb(255,255,255,.9);
+  background-color: rgb(0,0,0,.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: singleProduct 1.3s forwards;
+  animation-timing-function: cubic-bezier(.56,.07,.55,1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes singleProduct {
+  from {
+    transform: translateX(-100vw)
+  }
+  to {
+    transform: translateX(0vw);
+  }
 }
 
 .promo-card-display {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(255,255,255,0.8);
+  background-color: rgb(0,0,0,0.95);
   position: fixed;
   left: 0;
   top: 0rem;
@@ -49,6 +65,19 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
+  animation: singleProduct 1.3s forwards;
+  animation-timing-function: cubic-bezier(.56,.07,.55,1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes singleProduct {
+  from {
+    transform: translateX(-100vw)
+  }
+  to {
+    transform: translateX(0vw);
+  }
 }
 
 .promo-card-container {
@@ -109,6 +138,10 @@
   font-weight: bold;
   font-size: 4rem;
   line-height: 1rem;
+}
+
+.home-banner-text * {
+  margin-top: 1rem;
 }
 
 .home-button-white {

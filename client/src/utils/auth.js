@@ -69,6 +69,11 @@ class AuthService {
     return localStorage.setItem('user_cart', JSON.stringify(data));
   }
 
+  saveGuestCart(data) {
+    localStorage.removeItem('guest_cart');
+    return localStorage.setItem('guest_cart', JSON.stringify(data))
+  }
+
   setCartQuantity(quantity) {
     return localStorage.setItem('user_cart_quantity', quantity);
   }

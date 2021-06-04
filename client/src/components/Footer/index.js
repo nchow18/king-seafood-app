@@ -93,8 +93,8 @@ function Footer( props) {
     </div>
       {isModal && ( 
         <div className="window-cart-container">
-          <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>
-          <WindowCart />
+          <WindowCart
+            setModal={setModal} />
         </div>
       )}
   </div>

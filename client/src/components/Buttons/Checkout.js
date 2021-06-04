@@ -14,7 +14,7 @@ function Checkout(props) {
 
   return (
     <>
-      <div onClick={checkout} className="checkout-button">CHECKOUT</div>
+
     </>
   )
 }

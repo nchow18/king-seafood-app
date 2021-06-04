@@ -10,8 +10,13 @@ import UpdateCartButton from '../../components/Buttons/UpdateCart';
 import Checkout from '../Buttons/Checkout';
 import CheckoutDisplay from '../Cart/CheckoutDisplay';
 
-function WindowCart() {
+function WindowCart(props) {
 
+  const {
+    setModal
+  } = props
+
+  const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
@@ -27,6 +32,8 @@ function WindowCart() {
   const removeProduct = async (id) => {
 
     if (Auth.loggedIn()) {
+      console.log('removing from USER database')
+      // if LOGGED IN, remove from Database
       try {
         removeCart({
           variables: {
@@ -38,8 +45,20 @@ function WindowCart() {
       } catch (e) {
         console.log(e)
       }
+    } else {
+      console.log('removing local storage item');
+      // if NOT logged in, slice from localStorage
+      // use array to sort guest_cart to find matching product_id
+      for (var i = 0; i < user_cart.length; i++) {
+        if (id === user_cart[i]._id) {
+          //  splices at i = index, and 1 for removing 1 at a time
+          user_cart.splice(i,1);
+          console.log(user_cart);
+          // push new cart to localStorage
+          Auth.saveGuestCart(user_cart);
+        }
+      }
     }
-    console.log('removing local storage item');
 
   }
 
@@ -47,7 +66,7 @@ if (Auth.loggedIn()) {
   // IF logged in, get data from USER Database
   console.log('getting data from USER cart data from database')
     if (user_data.cart) {
-      if (user_data.cart.length === 0) {
+      if (user_data.cart.length === 0 && user_data === false) {
         console.log('there are no items in your cart')
         } else {
             console.log('there are items in your cart')
@@ -79,7 +98,6 @@ if (Auth.loggedIn()) {
                 if (user_data.cart[i].product_id === product_data[t]._id) {
                   cartArr.push(product_data[t])
                   cartArr[i].quantity = user_data.cart[i].quantity;
-                  console.log(cartArr);
                   // IF no special discounts applied, proceed to apply GLOBAL discount
                   if (cartArr[i].product_sale_price === 0 && cartArr[i].product_bulk_quantity === 0 ) {
                     //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
@@ -107,7 +125,10 @@ if (Auth.loggedIn()) {
         }
       }
     } else {
-      console.log('getting cart data from localStorage')
+      const cart_length = JSON.parse(localStorage.getItem('guest_cart'));
+    
+    //Proceed if there are items in localStorage guest cart
+    if (cart_length.length >= 1) {console.log('getting cart data from localStorage')
       // IF NOT logged in, get data from localStorage 'guest_cart'
       const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
 
@@ -124,11 +145,13 @@ if (Auth.loggedIn()) {
         } else {
           console.log('your cart products still exist in the database');
         }
-
+        console.log(cart_data);
         // SORT and include product data from database
         for (var y = 0; y < product_data.length; y++) {
-          if (cart_data[r].product_id === product_data[y]._id) {
+          if (cart_data[r]._id === product_data[y]._id) {
             cartArr.push(product_data[y])
+            // check for duplicate in cart and delete from guest_cart
+
             cartArr[r].quantity = cart_data[r].quantity;
 
             // IF no special discounts applied, proceed to apply GLOBAL discount
@@ -158,6 +181,7 @@ if (Auth.loggedIn()) {
       }
     }
   }
+}
 
   console.table(user_cart);
 
@@ -170,38 +194,39 @@ if (Auth.loggedIn()) {
 
   return (
     <div className="window-cart-content">
-      <div className="border">
-        <div className="window-cart-column to-night">
-          <div className="window-cart-items-container to-night">
-            <b>Your Cart</b>
-            {user_cart.map((product) => (
-              <div key={product._id} className="window-cart-product-row">
-                <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
-                <div className="window-cart-product-details">
-                  <div className="window-cart-product-text">
-                    <b>{product.product_name}</b>
-                    <p>{product.total_price}</p>
+      <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>         
+          <div className="window-cart-column to-night">            
+            <div className="window-cart-items-container to-night">
+              <b>Your Cart</b>
+              {user_cart.map((product) => (
+                <div key={product._id} className="window-cart-product-row">
+                  <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
+                  <div className="window-cart-product-details">
+                    <div className="window-cart-product-text">
+                      <b>{product.product_name}</b>
+                      <p>{product.total_price}</p>
+                    </div>
+                      <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
                   </div>
-                    <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
+                  <UpdateCartButton product={product} />
                 </div>
-                <UpdateCartButton product={product} />
-              </div>
-            ))}
+              ))}
 
-          </div>
-          <input type="checkbox" id="window-checkout-display" />
-          <div className="window-display-container">
-            <label htmlFor="window-checkout-display"><i className="fas fa-times checkout-x-icon"></i></label>
-            <CheckoutDisplay />
-          </div>
-          <div className="window-cart-checkout-container">
-            <label htmlFor="window-checkout-display">
-              <Checkout cart={user_cart} />
-            </label>
+            </div>
+            <input type="checkbox" id="window-checkout-display" />
+            <div className="window-cart-checkout-container">
+              {checkOutModal && (
+                <div className="checkout-container">
+                <CheckoutDisplay
+                  setCheckOutModal={setCheckOutModal} 
+                  cart={user_cart} 
+                />
+                </div>
+              )}
+            <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
             <div className="checkout-disclaimer">Checkout with SWIPE</div>
+            </div>
           </div>
-        </div>
-      </div>
     </div>
   )
 }
