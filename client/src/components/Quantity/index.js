@@ -26,17 +26,19 @@ function Quantity(props) {
   const addToCart = async (data, quantity) => {
     if (Auth.loggedIn() === false) {
     //if NOT logged in, save to localStorage
-    console.log(data)
     if (localStorage.getItem('guest_cart')) {
       const guest_cart = {product_id: data, quantity: parseInt(quantity)};
       const new_cart = JSON.parse(localStorage.getItem('guest_cart'));
       const cart = [...new_cart, guest_cart]
+      alert('Product added to cart');
       return localStorage.setItem('guest_cart', JSON.stringify(cart));
     } else {
       const guest_cart = [{product_id: data, quantity: parseInt(quantity)}];
+      alert('Product added to cart');
       return localStorage.setItem('guest_cart', JSON.stringify(guest_cart));
     }
-  
+
+
     } else {
     // if logged in, save data to user cart
     try {

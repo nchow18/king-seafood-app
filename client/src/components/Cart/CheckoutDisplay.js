@@ -10,7 +10,21 @@ function CheckoutDisplay(props) {
 const [formData, setFormData] = useState({
   first_name: '',
   last_name: '',
+  street_number: '',
+  street_name: '',
+  state: '',
+  region: '',
+  city: '',
+  postal_code: ''
 })
+
+const handleInputChange = async (event) => {
+  const { name, value} = event.target;
+  setFormData({
+    ...formData,
+    [name]: value
+  })
+}
 
 console.log(cart);
 
@@ -24,7 +38,7 @@ const payment = event => {
       <div className="checkout-display-content">
         <i onClick={() => {setCheckOutModal(false)}} className="fas fa-times close-button"></i>        
         <div className="checkout-details-container">
-          <p>DETAILS</p>
+          <input value={formData.first_name} onChange={handleInputChange} />
 
         </div>
         <div className="payment-container">
