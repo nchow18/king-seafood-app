@@ -94,6 +94,15 @@
   display: none;
 }
 
+.refresh-cart-button {
+  position: absolute;
+  right: 1rem;
+  background-color:firebrick;
+  padding: 1rem;
+  font-weight: bold;
+  top: 2rem;
+}
+
 .checkout-container {
   position: fixed;
   width: 100vw;

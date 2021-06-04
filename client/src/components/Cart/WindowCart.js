@@ -16,6 +16,9 @@ function WindowCart(props) {
     setModal
   } = props
 
+  const localArr = JSON.parse(localStorage.getItem('new_cart'))
+
+  const [currentState, updateState] = useState(true);
   const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
@@ -133,7 +136,7 @@ if (Auth.loggedIn()) {
     } else {
 
       const cart_length = JSON.parse(localStorage.getItem('guest_cart'));
-      console.log(cart_length)
+
     //Proceed if there are items in localStorage guest cart
     if (cart_length.length >= 1) {
       console.log('getting cart data from localStorage')
@@ -190,7 +193,7 @@ if (Auth.loggedIn()) {
           } else
           //check product_bulk_quantity, greater than 0 AND quantity is greater than the bulk to qualify
           if (cartArr[r].product_bulk_quantity > 0 && cartArr[r].product_bulk_quantity <= cartArr[r].quantity) {
-            console.log(cartArr[r].product_bulk_quantity * cartArr[r].product_bulk_price)
+
             cartArr[r].total_price = (cartArr[r].product_bulk_quantity * cartArr[r].product_bulk_price);
           } else if (global_discount > 0) {
             // if quantity isn't enough, check if global discount is available to be applied
@@ -204,8 +207,6 @@ if (Auth.loggedIn()) {
           // Use regular price, since no discounts exist
           cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_price);
         }
-
-        console.log(cartArr);
     }
   } else {
     console.log('your guest cart is empty')
@@ -222,10 +223,13 @@ if (Auth.loggedIn()) {
 
   if (error) return `...ERROR`;
 
+  console.log(currentState);
+
   return (
     <div className="window-cart-content">
       <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>         
-          <div className="window-cart-column to-night">            
+          <div className="window-cart-column to-night">
+          <span className="refresh-cart-button" onClick={() => {updateState(true)}}>Refresh Cart</span> 
             <div className="window-cart-items-container to-night">
               <b>Your Cart</b>
               {(JSON.parse(new_cart)).map((product) => (
@@ -234,13 +238,21 @@ if (Auth.loggedIn()) {
                   <div className="window-cart-product-details">
                     <div className="window-cart-product-text">
                       <b>{product.product_name}</b>
-                      <p>{product.total_price}</p>
+                      {currentState === true && (
+                      <>
+                        <p>{product.total_price}</p>
+                      </>
+                    )}
+
                     </div>
-                      <div key={product._id} onClick={() => {removeProduct(product._id)}} className="mobile-cart-remove-button">REMOVE</div>
+                      <div key={product._id} onClick={() => {removeProduct(product._id); updateState(false)}} className="mobile-cart-remove-button">REMOVE</div>
                   </div>
-                  <UpdateCartButton 
-                    product={product}
-                    user_cart={user_cart} />
+                    <UpdateCartButton
+                      product={product}
+                      user_cart={user_cart}
+                      updateState={updateState}
+                       />
+
                 </div>
               ))}
 
@@ -249,13 +261,14 @@ if (Auth.loggedIn()) {
             <div className="window-cart-checkout-container">
               {checkOutModal && (
                 <div className="checkout-container">
-                <CheckoutDisplay
+                  <CheckoutDisplay
                   setCheckOutModal={setCheckOutModal} 
                   cart={user_cart}
                   local_cart={local_cart}
                 />
                 </div>
               )}
+            
             <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
             <div className="checkout-disclaimer">Checkout with SWIPE</div>
             </div>
