@@ -132,14 +132,28 @@
   z-index: 100;
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
-  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 500px;
 }
 
 #window-checkout-display:checked ~ .window-display-container {
   right: 0rem;
   transition: all .7s ease-in-out;
+}
+
+.payment-button {
+  padding: 1rem;
+  background-color: black;
+  color: white;
 }
 
 @media screen and (max-width: 500px) {
@@ -154,5 +168,9 @@
   .mobile-cart-product-img {
     height: 4rem;
     width: 4rem;
+  }
+
+  .checkout-details-container {
+    width: 95%;
   }
 }

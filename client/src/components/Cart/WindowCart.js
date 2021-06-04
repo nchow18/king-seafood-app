@@ -17,6 +17,7 @@ function WindowCart(props) {
   } = props
 
   const [currentState, updateState] = useState(true);
+  const [deleteState, clearState] = useState(false);
   const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
@@ -248,7 +249,7 @@ if (Auth.loggedIn()) {
                     )}
 
                     </div>
-                      <div key={product._id} onClick={() => {removeProduct(product._id); updateState(false)}} className="mobile-cart-remove-button">REMOVE</div>
+                      <div key={product._id} onClick={() => {removeProduct(product._id); updateState(false); clearState(true)}} className="mobile-cart-remove-button">REMOVE</div>
                   </div>
                     <UpdateCartButton
                       product={product}
