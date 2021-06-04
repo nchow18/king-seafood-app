@@ -136,12 +136,12 @@
   padding: 3rem;
   color: white;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 20rem;
   line-height: 1rem;
 }
 
 .home-banner-text * {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .home-button-white {
@@ -200,7 +200,7 @@
   }
 
   .home-banner-text {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .home-button-white {

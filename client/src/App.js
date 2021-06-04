@@ -102,7 +102,7 @@ function App() {
               <>
               <MainPromo />
               <div className="king-logo-mobile">
-                King Seafood
+                King's Seafood 18
               </div>
 			    <nav className="header-container">
           <Header 

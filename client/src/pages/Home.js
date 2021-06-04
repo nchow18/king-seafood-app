@@ -50,7 +50,10 @@ function Home() {
       <img alt="home-banner" src="https://wallpaperaccess.com/full/1491748.jpg" className="home-banner" />
       <div className="logo-container"><img alt="logo" src={Logo} className="king-logo" /></div>
       <div className="home-banner-text">
-      {/* TEXT HERE */}FRESHLY FROZEN SEAFOOD
+      {/* TEXT HERE */}
+      <p>FRESHLY</p>
+      <p>FROZEN</p>
+      <p>SEAFOOD</p>
       <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
       </div>
     </div>

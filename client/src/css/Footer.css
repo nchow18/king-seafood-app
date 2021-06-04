@@ -19,7 +19,7 @@
   display: none;
   position: fixed;
   z-index: 25;
-  width: 9rem;
+  width: 11.5rem;
 }
 
 @media screen and (max-width: 1100px) {
@@ -38,8 +38,8 @@
     color: white;
     background-color: black;
     top: 2rem;
-    left: 83vw;
-    padding: .35rem;
+    left: 77vw;
+    padding: .5rem;
     border-radius: 15px;
     font-weight: bold;
     z-index: 17;
