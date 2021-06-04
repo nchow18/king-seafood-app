@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function CheckoutDisplay(props) {
 
   const {
-    setCheckOutModal
+    setCheckOutModal,
+    cart=[]
   } = props
 
+const [formData, setFormData] = useState({
+  first_name: '',
+  last_name: '',
+})
 
-  
+console.log(cart);
+
 const payment = event => {
   console.log('processing payment');
 }

@@ -16,8 +16,6 @@ function WindowCart(props) {
     setModal
   } = props
 
-  const localArr = JSON.parse(localStorage.getItem('new_cart'))
-
   const [currentState, updateState] = useState(true);
   const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
@@ -55,10 +53,15 @@ function WindowCart(props) {
       for (var i = 0; i < user_cart.length; i++) {
         if (id === user_cart[i]._id) {
           //  splices at i = index, and 1 for removing 1 at a time
-          user_cart.splice(i,1);
-          console.log(user_cart);
+          const guest_cart = JSON.parse(localStorage.getItem('guest_cart'));
+          const new_cart = JSON.parse(localStorage.getItem('new_cart'));
+          guest_cart.splice(i,1);
+          new_cart.splice(i,1);
+
+          localStorage.setItem('guest_cart', JSON.stringify(guest_cart))
+          localStorage.setItem('new_cart', JSON.stringify(new_cart))
           // push new cart to localStorage
-          Auth.saveGuestCart(user_cart);
+
         }
       }
     }
@@ -262,9 +265,9 @@ if (Auth.loggedIn()) {
               {checkOutModal && (
                 <div className="checkout-container">
                   <CheckoutDisplay
-                  setCheckOutModal={setCheckOutModal} 
-                  cart={user_cart}
-                  local_cart={local_cart}
+                    setCheckOutModal={setCheckOutModal} 
+                    cart={user_cart}
+                    local_cart={local_cart}
                 />
                 </div>
               )}
