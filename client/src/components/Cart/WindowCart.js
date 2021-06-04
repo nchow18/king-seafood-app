@@ -62,6 +62,12 @@ function WindowCart(props) {
 
   }
 
+const local_cart = JSON.parse(localStorage.getItem('guest_cart'));
+
+if (local_cart === null) {
+  return localStorage.setItem('guest_cart', JSON.stringify([]))
+}
+
 if (Auth.loggedIn()) {
   // IF logged in, get data from USER Database
   console.log('getting data from USER cart data from database')
@@ -126,9 +132,9 @@ if (Auth.loggedIn()) {
       }
     } else {
       const cart_length = JSON.parse(localStorage.getItem('guest_cart'));
-
+      console.log(cart_length)
     //Proceed if there are items in localStorage guest cart
-    if (cart_length !== null) {
+    if (cart_length.length >= 1) {
       console.log('getting cart data from localStorage')
       // IF NOT logged in, get data from localStorage 'guest_cart'
       const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
@@ -146,14 +152,16 @@ if (Auth.loggedIn()) {
         } else {
           console.log('your cart products still exist in the database');
         }
+
         console.log(cart_data);
         // SORT and include product data from database
         for (var y = 0; y < product_data.length; y++) {
-          if (cart_data[r]._id === product_data[y]._id) {
+          if (cart_data[r].product_id === product_data[y]._id) {
+            // if product still exists, push to cartArr
             cartArr.push(product_data[y])
-            // check for duplicate in cart and delete from guest_cart
-
+            // create a key of quantity for CART Quantity
             cartArr[r].quantity = cart_data[r].quantity;
+
 
             // IF no special discounts applied, proceed to apply GLOBAL discount
             if (cartArr[r].product_sale_price === 0 && cartArr[r].product_bulk_quantity === 0 ) {
@@ -181,6 +189,8 @@ if (Auth.loggedIn()) {
         }
       }
     }
+  } else {
+    console.log('your gust cart is empty')
   }
 }
 
