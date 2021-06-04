@@ -222,8 +222,18 @@ if (Auth.loggedIn()) {
   const new_cart = localStorage.getItem('new_cart');
   Auth.setCartQuantity(user_cart.length);
 
+  const cart_array_price = JSON.parse(new_cart);
+
+  for (var h = 0; h < cart_array_price.length; h++) {
+    cart_price.push(cart_array_price[h].total_price)
+  }
+
+  console.log(cart_price);
+
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
   Auth.getCartTotal(cart_total);
+
+  console.log(cart_total);
 
   if (error) return `...ERROR`;
 
@@ -234,6 +244,7 @@ if (Auth.loggedIn()) {
     <div className="window-cart-content">
       <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>         
           <div className="window-cart-column to-night">
+          <span className="total-text">Cart Total: {cart_total}</span>
           <span className="refresh-cart-button" onClick={() => {updateState(true)}}>Refresh Cart</span> 
             <div className="window-cart-items-container to-night">
               <b>Your Cart</b>
@@ -275,6 +286,7 @@ if (Auth.loggedIn()) {
                     setCheckOutModal={setCheckOutModal} 
                     cart={user_cart}
                     local_cart={local_cart}
+                    cart_total={cart_total}
                 />
                 </div>
               )}

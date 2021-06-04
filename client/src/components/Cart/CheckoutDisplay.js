@@ -6,7 +6,8 @@ function CheckoutDisplay(props) {
 
   const {
     setCheckOutModal,
-    cart=[]
+    cart=[],
+    cart_total
   } = props
 
   const [currentForm, setFormType] = useState(false)
@@ -32,8 +33,6 @@ function CheckoutDisplay(props) {
     })
   }
 
-  console.log(cart);
-
   var cart_message = '';
 
   for (var i = 0; i < cart.length; i++) {
@@ -53,12 +52,12 @@ function CheckoutDisplay(props) {
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
-  const message = info + cart_message;
+  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' +cart_total;
 
   const number = '60103893421'
 
   function sendMessage() {
-    window.confirm('Proceed to send message?');
+    window.confirm('Proceed to submit your order?');
     // // Check for perfect 10 digit length
     // if (formData.phone.length > 9) {
     //   alert('Please insert correct contact number');
@@ -75,7 +74,6 @@ function CheckoutDisplay(props) {
         alert('Make sure Whatsapp installed on your device');
       });   
   }
-
 
   return (
     <>
@@ -98,7 +96,7 @@ function CheckoutDisplay(props) {
             <input value={formData.region} name="region" placeholder="Region" onChange={handleInputChange} />
             <input value={formData.city} name="city" placeholder="City" onChange={handleInputChange} />
             <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} />
-            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date" onChange={handleInputChange} />
+            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} />
             </>
           )}
           <textarea value={formData.message} name="message" placeholder="Message" onChange={handleInputChange}></textarea>

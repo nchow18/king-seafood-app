@@ -19,6 +19,7 @@
   display: none;
   position: fixed;
   z-index: 25;
+  width: 9rem;
 }
 
 @media screen and (max-width: 1100px) {
@@ -31,27 +32,37 @@
   }
 
   .king-logo-mobile {
-    display: none;
+    display: flex;
     position: sticky;
     position: -webkit-sticky;
     color: white;
     background-color: black;
-    top: .5rem;
-    left: .5rem;
-    width: 100%;
+    top: 2rem;
+    left: 83vw;
     padding: .35rem;
     border-radius: 15px;
     font-weight: bold;
     z-index: 17;
+    animation: kingLogo 1s forwards;
+    animation-timing-function: cubic-bezier(.77,.24,.15,1.14);
   }
+
+  @keyframes kingLogo {
+    from {
+      transform: translateX(-100vw)
+    }
+    to {
+      transform: translateX(0vw);
+    }
+  }
+
+
 }
 
 @media screen and (max-width: 590px) {
  .king-logo-mobile {
-   transform: rotate(90deg);
    position: fixed;
-   width: auto;
    top: 3rem;
-   left: -3rem;
+   right: -3rem;
  }
 }
