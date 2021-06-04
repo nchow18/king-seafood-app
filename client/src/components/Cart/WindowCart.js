@@ -162,7 +162,6 @@ if (Auth.loggedIn()) {
             // create a key of quantity for CART Quantity
             cartArr[r].quantity = cart_data[r].quantity;
 
-
             // IF no special discounts applied, proceed to apply GLOBAL discount
             if (cartArr[r].product_sale_price === 0 && cartArr[r].product_bulk_quantity === 0 ) {
               //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
@@ -171,21 +170,19 @@ if (Auth.loggedIn()) {
           } else {
             // Check if product_sale_price exists, if so, apply update
             if (cartArr[r].product_sale_price >= 1) {
-              // Check IF product_bulk_quantity exists, if so, SKIP
-              if (cartArr[r].product_bulk_quantity >= 1) {
-                return;
-              } else {
                 // IF product_bulk_quantity does not exist,SALE PRICE * QUANTITY to total_price
                 cartArr[r].total_price = (product_data[y].product_sale_price * cart_data[r].quantity);
-              }
             } else {
               // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
               if (cartArr[r].product_bulk_quantity <= cart_data[r].quantity) {
                 // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
                 cartArr[r].total_price = (cartArr[r].product_bulk_price * cart_data[r].quantity);
+              } else {
+                cartArr[r].total_price = (cartArr[r].product_price * cart_data[r].quantity)
               }
             }
           }
+
         }
       }
     }
