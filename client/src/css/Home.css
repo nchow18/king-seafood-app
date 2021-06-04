@@ -136,7 +136,7 @@
   padding: 3rem;
   color: white;
   font-weight: bold;
-  font-size: 20rem;
+  font-size: 8rem;
   line-height: 1rem;
 }
 
@@ -190,7 +190,9 @@
 }
 
 @media screen and (max-width: 1556px) {
-
+  .home-banner-text {
+    font-size: 6rem;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -200,7 +202,7 @@
   }
 
   .home-banner-text {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 
   .home-button-white {
@@ -222,7 +224,7 @@
   }
 
   .home-banner-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .promo-img {
@@ -241,7 +243,7 @@
 
 @media screen and (max-width: 500px) {
   .home-banner-text {
-    font-size: 1rem;
+    font-size: 2rem;
     padding: 1rem;
   }
 
