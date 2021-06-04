@@ -138,6 +138,21 @@
   align-items: center;
 }
 
+.checkout-buttons-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-buttons-row div {
+  background-color: var(--button);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
 .checkout-details-container {
   display: flex;
   flex-direction: column;

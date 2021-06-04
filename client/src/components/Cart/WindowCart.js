@@ -227,7 +227,8 @@ if (Auth.loggedIn()) {
 
   if (error) return `...ERROR`;
 
-  console.log(currentState);
+  console.log('currentState' +currentState);
+  console.log('deleteState' + deleteState);
 
   return (
     <div className="window-cart-content">
@@ -246,7 +247,12 @@ if (Auth.loggedIn()) {
                       <>
                         <p>{product.total_price}</p>
                       </>
-                    )}
+                      )}
+                      {deleteState === true && (
+                      <>
+                        <p>{product.total_price}</p>
+                      </>
+                      )}                      
 
                     </div>
                       <div key={product._id} onClick={() => {removeProduct(product._id); updateState(false); clearState(true)}} className="mobile-cart-remove-button">REMOVE</div>

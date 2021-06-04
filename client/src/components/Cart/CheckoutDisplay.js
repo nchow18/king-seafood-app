@@ -9,6 +9,7 @@ function CheckoutDisplay(props) {
     cart=[]
   } = props
 
+  const [currentForm, setFormType] = useState(false)
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -82,22 +83,38 @@ function CheckoutDisplay(props) {
       <div className="checkout-display-content">
         <i onClick={() => {setCheckOutModal(false)}} className="fas fa-times close-button"></i>        
         <div className="checkout-details-container">
+          <div className="checkout-buttons-row">
+            <div onClick={() => {setFormType(false)}}>DELIVERY</div>
+            <div onClick={() => {setFormType(true)}}>PICK-UP</div>
+          </div>
+
           <input value={formData.first_name} name="first_name" placeholder="First Name" onChange={handleInputChange} />
           <input value={formData.last_name} name="last_name"placeholder="Last Name" onChange={handleInputChange} />
           <input value={formData.phone} name="phone" placeholder="Phone" onChange={handleInputChange} />
-          <input value={formData.street_number} name="street_number"placeholder="Street Number" onChange={handleInputChange} />
-          <input value={formData.street_name} name="street_name"placeholder="Street Name" onChange={handleInputChange} />
-          <input value={formData.state} name="state" placeholder="State" onChange={handleInputChange} />
-          <input value={formData.region} name="region" placeholder="Region" onChange={handleInputChange} />
-          <input value={formData.city} name="city" placeholder="City" onChange={handleInputChange} />
-          <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} />
-          <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date" onChange={handleInputChange} />
+          {currentForm === false && (
+            <>
+            <input value={formData.street_number} name="street_number"placeholder="Street Number" onChange={handleInputChange} />
+            <input value={formData.street_name} name="street_name"placeholder="Street Name" onChange={handleInputChange} />
+            <input value={formData.state} name="state" placeholder="State" onChange={handleInputChange} />
+            <input value={formData.region} name="region" placeholder="Region" onChange={handleInputChange} />
+            <input value={formData.city} name="city" placeholder="City" onChange={handleInputChange} />
+            <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} />
+            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date" onChange={handleInputChange} />
+            </>
+          )}
           <textarea value={formData.message} name="message" placeholder="Message" onChange={handleInputChange}></textarea>
 
         </div>
-        <div className="payment-container">
-          <div onClick={() => {sendMessage()}} className="payment-button">SUBMIT ORDER</div>
-        </div>
+        {currentForm === false && (
+          <div className="payment-container">
+            <button onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.street_number && formData.street_name && formData.state && formData.region && formData.city && formData.postal_code && formData.delivery_date)}  className="payment-button">SUBMIT ORDER</button>
+        </div>          
+        )}
+        {currentForm === true && (
+          <div className="payment-container">
+            <button onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER</button>
+        </div>          
+        )}
       </div>
     </>
   )
