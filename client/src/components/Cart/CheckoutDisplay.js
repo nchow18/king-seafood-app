@@ -59,12 +59,11 @@ function CheckoutDisplay(props) {
 
   function sendMessage() {
     window.confirm('Proceed to send message?');
-    console.log(formData.phone.length)
-    // Check for perfect 10 digit length
-    if (formData.phone.length > 9) {
-      alert('Please insert correct contact number');
-      return;
-    }
+    // // Check for perfect 10 digit length
+    // if (formData.phone.length > 9) {
+    //   alert('Please insert correct contact number');
+    //   return;
+    // }
     // Using +1 for canada
     let url =
       'whatsapp://send?text=' + message + '&phone=+' + number;
