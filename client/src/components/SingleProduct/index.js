@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
 import ProductPictureCarousel from '../Carousel/ProductPicture';
+import { UserContext } from '../../utils/GlobalState';
 import Quantity from '../Quantity';
 
 function SingleProduct(props) {
@@ -16,6 +17,8 @@ function SingleProduct(props) {
   if (Auth.getMode() === 'dark') {
     Auth.getMode();
   }
+
+  const [state, dispatch] = useContext(UserContext);
 
   return (
     <>
@@ -66,6 +69,9 @@ function SingleProduct(props) {
             <Quantity
               product={product}
             />
+            <button onClick={() => dispatch({ type: 'toggle_button' })}>
+              { state.active ? "On" : "Off" }
+            </button>
           </div>
         </div>        
     </>

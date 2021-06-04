@@ -78,8 +78,17 @@ class AuthService {
     return localStorage.setItem('user_cart_quantity', quantity);
   }
 
-  getCartQuantity() {
-    return localStorage.getItem('user_cart_quantity');
+  getGuestCartQuantity() {
+    const length = localStorage.getItem('guest_cart_quantity')
+    const total = length;
+    console.log(total);
+    return total;
+  }
+
+  getUserCartQuantity() {
+    const length = localStorage.getItem('user_cart_quantity')
+    const total = parseInt(length) + 1;
+    return total;
   }
 
   getOrders() {

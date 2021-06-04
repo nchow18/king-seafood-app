@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/WindowCart.css';
 import '../../css/MobileCart.css';
@@ -9,6 +9,8 @@ import ViewProduct from '../../components/Buttons/ViewProduct';
 import UpdateCartButton from '../../components/Buttons/UpdateCart';
 import Checkout from '../Buttons/Checkout';
 import CheckoutDisplay from '../Cart/CheckoutDisplay';
+import { UserContext } from '../../utils/GlobalState';
+import CartItem from '../Cart/CartItem';
 
 function WindowCart(props) {
 
@@ -16,6 +18,7 @@ function WindowCart(props) {
     setModal
   } = props
 
+  const [state, dispatch] = useContext(UserContext)
   const [currentState, updateState] = useState(true);
   const [deleteState, clearState] = useState(false);
   const [checkOutModal, setCheckOutModal] = useState(false);
@@ -47,6 +50,8 @@ function WindowCart(props) {
       } catch (e) {
         console.log(e)
       }
+    const user_storage = localStorage.getItem('user_cart_quantity')
+    localStorage.setItem('user_cart_quantity', (user_storage - 1))
     } else {
       console.log('removing local storage item');
       // if NOT logged in, slice from localStorage
@@ -58,6 +63,9 @@ function WindowCart(props) {
           const new_cart = JSON.parse(localStorage.getItem('new_cart'));
           guest_cart.splice(i,1);
           new_cart.splice(i,1);
+          // update localStorage guesT_cart_quantity
+          const guest_storage = localStorage.getItem('guest_cart_quantity')
+          localStorage.setItem('guest_cart_quantity', (parseInt(guest_storage) - 1))
 
           localStorage.setItem('guest_cart', JSON.stringify(guest_cart))
           localStorage.setItem('new_cart', JSON.stringify(new_cart))
@@ -217,6 +225,13 @@ if (Auth.loggedIn()) {
   }
 }
 
+
+  function activeUpdateCart() {
+    console.log('cart activated')
+    dispatch({type: 'toggle-button'})
+    console.log(state)
+  }
+
   localStorage.removeItem('new_cart');
   localStorage.setItem('new_cart', JSON.stringify(user_cart))
   const new_cart = localStorage.getItem('new_cart');
@@ -248,35 +263,35 @@ if (Auth.loggedIn()) {
           <span className="refresh-cart-button" onClick={() => {updateState(true)}}>Refresh Cart</span> 
             <div className="window-cart-items-container to-night">
               <b>Your Cart</b>
+
+              {state.active === true && (
+                <>
               {(JSON.parse(new_cart)).map((product) => (
-                <div key={product._id} className="window-cart-product-row">
-                  <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
-                  <div className="window-cart-product-details">
-                    <div className="window-cart-product-text">
-                      <b>{product.product_name}</b>
-                      {currentState === true && (
-                      <>
-                        <p>{product.total_price}</p>
-                      </>
-                      )}
-                      {deleteState === true && (
-                      <>
-                        <p>{product.total_price}</p>
-                      </>
-                      )}                      
+                  <CartItem 
+                    product={product}
+                    user_cart={user_cart}
+                    new_cart={new_cart}
+                    updateState={updateState}
+                    removeProduct={removeProduct}
+                  />
 
-                    </div>
-                      <div key={product._id} onClick={() => {removeProduct(product._id); updateState(false); clearState(true)}} className="mobile-cart-remove-button">REMOVE</div>
-                  </div>
-                    <UpdateCartButton
-                      product={product}
-                      user_cart={user_cart}
-                      updateState={updateState}
-                       />
+                ))}
+                </>
+              )}
+              {state.active === false && (
+                <>
+              {(JSON.parse(new_cart)).map((product) => (
+                  <CartItem 
+                    product={product}
+                    user_cart={user_cart}
+                    new_cart={new_cart}
+                    updateState={updateState}
+                    removeProduct={removeProduct}
+                  />
 
-                </div>
-              ))}
-
+                ))}
+                </>
+              )}                            
             </div>
             <input type="checkbox" id="window-checkout-display" />
             <div className="window-cart-checkout-container">

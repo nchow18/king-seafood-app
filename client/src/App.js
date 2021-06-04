@@ -24,6 +24,7 @@ import MainPromo from './components/Header/MainPromo';
 import WhatsApp from './components/WhatsApp/WhatsApp';
 import './css/Whatsapp.css';
 import './css/Footer.css';
+import { UserProvider } from './utils/GlobalState';
 
 const client = new ApolloClient({
     request: operation => {
@@ -98,7 +99,7 @@ function App() {
     return (
         <ApolloProvider client={client}>
           <Router>
-            <StoreProvider>
+            <UserProvider>
               <>
               <MainPromo />
               <div className="king-logo-mobile">
@@ -152,7 +153,7 @@ function App() {
         setCurrentHeaderLink={setCurrentHeaderLink} />
 
     </>
-  </StoreProvider> 
+  </UserProvider> 
 </Router>
 </ApolloProvider>
     );

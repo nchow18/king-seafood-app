@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { UPDATE_CART } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { UserContext } from '../../utils/GlobalState';
 
 function UpdateCartButton(props) {
 
@@ -10,7 +11,7 @@ function UpdateCartButton(props) {
     updateState
   } = props
 
-
+  const [state, dispatch] = useContext(UserContext);
   const [updateCart, { error }] = useMutation(UPDATE_CART);
   const [formData, setFormData] = useState({
     quantity: product.quantity,
@@ -56,7 +57,6 @@ function UpdateCartButton(props) {
     }
   }
 
-
   if (error) return `...ERROR`;
 
   return (
@@ -64,7 +64,7 @@ function UpdateCartButton(props) {
       <div className="mobile-cart-quantity">
         <div>Quantity</div>
         <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" />
-        <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id); updateState(false)}}>UPDATE</div>
+        <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id); dispatch({ type: 'toggle_button' })}}>UPDATE</div>
       </div>
     </>
   )

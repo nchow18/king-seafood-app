@@ -41,7 +41,7 @@
     padding: .5rem;
     border-radius: 15px;
     font-weight: bold;
-    z-index: 17;
+    z-index: 999;
     animation: kingLogo 1s forwards;
     animation-timing-function: cubic-bezier(.77,.24,.15,1.14);
   }
