@@ -33,12 +33,11 @@
 
   .king-logo-mobile {
     display: flex;
-    position: sticky;
-    position: -webkit-sticky;
+    position: fixed;
     color: white;
     background-color: black;
     top: 2rem;
-    left: 77vw;
+    right: 3rem;
     padding: .5rem;
     border-radius: 15px;
     font-weight: bold;
@@ -52,17 +51,7 @@
       transform: translateX(-100vw)
     }
     to {
-      transform: translateX(0vw);
+      transform: translateX(0vw)
     }
   }
-
-
-}
-
-@media screen and (max-width: 590px) {
- .king-logo-mobile {
-   position: fixed;
-   top: 3rem;
-   right: -3rem;
- }
 }
