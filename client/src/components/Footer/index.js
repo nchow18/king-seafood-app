@@ -74,7 +74,7 @@ function Footer( props) {
           <>
           <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
           <label htmlFor="window-cart">
-            <i className="fas fa-shopping-cart cart-link"><b> ({Auth.getCartQuantity()})</b></i>
+            <i className="fas fa-shopping-cart cart-link"></i>
           </label>
           </>   
         )}

@@ -111,9 +111,9 @@ function Header(props) {
                 setModal={setModal} />
             </div>
           )}
-            <button onClick={() => dispatch({ type: 'toggle_button' })}>
+            {/* <button onClick={() => dispatch({ type: 'toggle_button' })}>
               { state.active ? "On" : "Off" }
-            </button>          
+            </button>           */}
             <div className="night-mobile">
               <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-header-display"></i></div>
               <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>

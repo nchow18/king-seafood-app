@@ -44,13 +44,14 @@
     z-index: 999;
     animation: kingLogo 1s forwards;
     animation-timing-function: cubic-bezier(.77,.24,.15,1.14);
+    animation-direction: normal;
   }
 
   @keyframes kingLogo {
     from {
       transform: translateX(-100vw)
     }
-    to {
+1    to {
       transform: translateX(0vw)
     }
   }
