@@ -1,96 +1,86 @@
-.header-container {
-    background-color: white;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0rem;
-    width: 100%;
-    z-index: 15;
-    height: 6rem;
-    color: black;
+.header-items {
+  width: 100%;
+  position: relative;
+  z-index: 30;
+  left: 0rem;
 }
 
-.cart-link {
-  font-size: 1.5rem;
-  margin: 1.5rem;
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-links-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: .5rem 1rem;
+}
+
+.header-logo-display {
+  position: absolute;
+  left: 1rem;
+  background-color: black;
+  border-radius: 20px;
+  color: white;
+  padding: .5rem;
+}
+
+.king-circle-logo {
+  height: 10rem;
+  width: 10rem;
+  position: absolute;
+  left: 0rem;
+  z-index: 100;
+}
+
+.header-link {
+  background-color: black;
+  color: white;
+  margin: .5rem;
+  border-radius: 20px;
+}
+
+.header-link:hover {
+  background-color: white;
+  color: black;
+}
+
+.headerActive {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.links * {
+  padding: .5rem;
+  text-decoration: none;
 }
 
 .header-main-promo {
   background-color: black;
   position: relative;
-  width: 100%;
   color: white;
   text-align: center;
-  padding: .2rem;
+  height: 1.5rem;
   z-index: 16;
   top: 0;
   left: 0;
 }
 
-.night-mobile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.cart-link {
+  display: none;
 }
 
 .links {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.night-mode {
-    display: none;
-}
-
-.header-items {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    color: black;
-}
-
-.header-link {
-    text-decoration: none;
-    padding: .5rem;
-    margin: 1rem;
-    color: black;
-}
-
-.header-link:hover {
-    background-color: white;
-    color: black;
-}
-
-.headerActive {
-    background-color: white;
-    color: black;
-}
-
-.header-icon {
-    margin: 1rem;
-}
-
-.logo-name {
-    font-size: 2rem;
-}
-
-.header-links-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.mobile-icon {
-  font-size: 3rem;
-  
+.mobile-header-display {
+  display: none;
 }
 
 .window-cart-container {
@@ -104,7 +94,7 @@
   z-index: 100;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(0,0,0,0.95);
+  background-color: white;
   overflow-y: scroll;
   animation: singleProduct 1.3s forwards;
   animation-timing-function: cubic-bezier(.56,.07,.55,1);
@@ -121,20 +111,6 @@
   }
 }
 
-.cart-icon {
-  background-color: white;
-  padding: .5rem 1rem;
-  opacity: 1;
-  border-radius: 50%;
-  font-size: 3rem;
-  position: absolute;
-  top: 10%;
-  left: 16%;
-  box-shadow: 5px 5px 10px rgb(0,0,0,.5);
-  background-color: lightblue;
-}
-
-
 .border {
   border: .7rem solid black;
   height: 100vh;
@@ -145,140 +121,66 @@
   z-index: 35;
 }
 
-@media screen and (max-width: 1100px) {
-  .header-container {
+@media screen and (max-width: 800px) {
+  .header-links-container {
     display: none;
   }
 
-  .window-cart-container {
-    top: 0rem;
-    height: 100%;
+  .mobile-header-display {
+    display: block;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30;
   }
 
-  .header-links-container {
-      display: flex;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      flex-direction: column;
-      align-items: center;
-      z-index: 15;
-    }
+  .mobile-header-container {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .cart-link {
-      display: none;
-    }
+  .menu-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
 
-    .header-items {
-        flex-direction: column;
-    }
+  .king-title-mobile {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: .5rem;
+  }
 
-    #check:checked ~ .drop-down {
-        border: 3px solid white;
-    }
+  .mobile-header-menu {
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 4rem;
+    background-color: yellow;
+  }
 
-    .links {
-        display: none;
-        background-color: var(--light-gray);
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-        right: 0;
-        color: white;
-        z-index: 15;
-    }
-
-    .links-public {
-        display: none;
-    }
-
-    #check {
-        display: none;
-    }
-
-    .icons {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        background-color: white;
-    }
-
-    .header-link {
-        color: black;
-    }
-
-    #check:checked ~ .links {
-        display: flex;
-    }
-
-    .mobile-icon {
-        font-size: 1.3rem;
-        padding: 1rem;
-        display: flex;
-    }
-
-    .header-mobile {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }  
-    
-    .night-mode {
-        display: flex;
-    }
-
-    .night-header-display {
-        display: none;
-    }
-
-    .night-left-display {
-        position: fixed;
-        left: 1rem;
-        top: 2rem;
-    }
-
-    .night-right-display {
-        position: fixed;
-        right: 1rem;
-        top: 2rem;
-    }
-
-    .logo-name {
-        font-size: 1.5rem;
-    }
-
-
-    .mobile-header-toggle {
-        position: static;
-        right: 0;
-        height: 2.5rem;
-        color: black;
-    }
-
-    #mobile-header-check {
-        display: none;
-    }
-
-    .header-container {
-      padding-top: 2rem;
-    }
+  .mobile-header-menu span {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 4rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .header-link {
-        margin: .25rem;
-    }
 
-    .window-cart-content {
-      width: 100vw;
-    }
+  .window-cart-content {
+    width: 100vw;
+  }
 
-    .window-cart-container {
-      height: 100vh;
-      top: 0rem;
-    }
+  .window-cart-container {
+    height: 100vh;
+    top: 0rem;
+  }
 }

@@ -31,12 +31,24 @@ function Products() {
     setModal={setModal}
     />
   )}
-  	<div className="products-card-display product-content">
-    	<ProductCard
-      currentProductLink={currentProductLink}
-      products={products}
-      />
-    	</div>
+  <div className="product-page-container">
+    <div className="product-full-categories-panel">
+      <div className="categories-links">
+        <span><b>Categories</b></span>
+        {productLinks.map((category) => (
+          <span onClick={() => {setCurrentProductLink(category)}}>{category.name}</span>
+        ))}
+      </div>
+
+    </div>
+    <div className="products-card-display">
+        <ProductCard
+        currentProductLink={currentProductLink}
+        products={products}
+        />
+    </div>
+  </div>
+
   </>
   )
 }

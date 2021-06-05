@@ -55,6 +55,13 @@ function App() {
 			user: true,
 			admin: true
 		},
+    {
+			name: 'Cart',
+			href: '',
+			guest: true,
+			user: true,
+			admin: true
+		},
 		{
 			name: 'Account',
 			href: '/account',
@@ -101,19 +108,18 @@ function App() {
           <Router>
             <UserProvider>
               <>
+              <div className="page">
+                <div className="page-content">
               <MainPromo />
-              <div className="king-logo-mobile">
-                King's Seafood 18
-              </div>
 			    <nav className="header-container">
           <Header 
             headerLinks={headerLinks}
             currentHeaderLink={currentHeaderLink}
             setCurrentHeaderLink={setCurrentHeaderLink}
 					/>
-			  </nav>
+			    </nav>
 
-        <div className="page">
+
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path="/about" component={About} />
@@ -139,7 +145,7 @@ function App() {
 					  )}
             <Route component={NoMatch} />
           </Switch>
-        </div>
+
       <input type="checkbox" id="whatsapp" />
 
       <div className="whatsapp-display">
@@ -151,7 +157,8 @@ function App() {
         headerLinks={headerLinks}
         currentHeaderLink={currentHeaderLink}
         setCurrentHeaderLink={setCurrentHeaderLink} />
-
+        </div>
+    </div>
     </>
   </UserProvider> 
 </Router>

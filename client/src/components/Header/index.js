@@ -5,6 +5,8 @@ import Auth from '../../utils/auth';
 import MobileCart from '../../components/Cart/MobileCart';
 import WindowCart from '../../components/Cart/WindowCart';
 import { UserContext } from '../../utils/GlobalState';
+import MobileHeader from './MobileHeader';
+import Logo from '../../assets/images/king-logo.png';
 
 function Header(props) {
 
@@ -23,6 +25,7 @@ function Header(props) {
     Auth.lightMode(mode);
   }
 
+  
   const [state, dispatch] = useContext(UserContext);
   const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
@@ -43,7 +46,7 @@ function Header(props) {
       headerArr.push(userArr);
     }
   }
-  
+
   // prevent guest_cart_quantity to be below 0
   const guest_cart = localStorage.getItem('guest_cart_quantity');
 
@@ -53,20 +56,31 @@ function Header(props) {
 
   return (
       <div className="header-items">
-        <div className="header-mobile">
-          <div className="bold logo-name">KING'S SEAFOOD 18</div>
-          <div className="night-mode">
-            <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-right-display"></i></div>
-            <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-left-display"></i></div>
-          </div>
-        </div>
         <div className="header-links-container">
+        <span className="header-logo-display">KING'S SEAFOOD 18</span>
           <div className="links">
             {Auth.loggedIn() === false && (
               <>
-            {headerLinks.filter((link) => link.guest === true).map((link) => (
-              <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
-            ))}
+              <Link to={headerLinks[0].href} className={`header-link ${currentHeaderLink.name === headerLinks[0].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[0])}}>{headerLinks[0].name}</Link>
+              {currentHeaderLink.name !== 'Products' && (
+                <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>{headerLinks[1].name}</Link>
+              )}
+              {currentHeaderLink.name === 'Products' && (
+                <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>Categories</Link>                
+              )}
+              {state.active === true && (
+                <Link to={headerLinks[2].href} className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</Link>
+              )}
+              {state.active === false && (
+                <Link to={headerLinks[2].href} className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</Link>
+              )}              
+
+              <Link to={headerLinks[4].href} className={`header-link ${currentHeaderLink.name === headerLinks[4].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[4])}}>{headerLinks[4].name}</Link>
+
+              <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[6])}}>{headerLinks[6].name}</Link>
+
+              <Link to={headerLinks[7].href} className={`header-link ${currentHeaderLink.name === headerLinks[7].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[7].name}</Link>
+
               {state.active === true && (
                 <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getGuestCartQuantity()})</b></i>
               )}
@@ -95,31 +109,29 @@ function Header(props) {
             )}
             {Auth.loggedIn() && (
               <>
-              <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
               {state.active === true && (
                 <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getUserCartQuantity()})</b></i>
               )}
               {state.active === false && (
                 <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getUserCartQuantity()})</b></i>
-              )}              
-
+              )}                
+              <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
               </>   
             )}
-          {isModal && ( 
-            <div className="window-cart-container">
-              <WindowCart
-                setModal={setModal} />
-            </div>
-          )}
-            {/* <button onClick={() => dispatch({ type: 'toggle_button' })}>
-              { state.active ? "On" : "Off" }
-            </button>           */}
-            <div className="night-mobile">
-              <div key='night' onClick={() => {setMode('night'); Auth.getMode()}}><i className="far fa-moon header-icon night-header-display"></i></div>
-              <div key='day' onClick={() => {setMode('day'); Auth.getMode()}}><i className="far fa-sun header-icon night-header-display"></i></div>
-            </div>
-          </div>
-          </div>
+            {isModal && ( 
+              <div className="window-cart-container">
+                <WindowCart
+                  setModal={setModal} />
+              </div>
+            )}
+          </div>         
+        </div>
+        <div className="mobile-header-display">
+          <MobileHeader 
+            setModal={setModal}
+            headerLinks={headerLinks}
+            />
+        </div> 
       </div>
   )
 }
