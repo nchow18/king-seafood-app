@@ -6,8 +6,8 @@ function MainPromo() {
 
   const { loading, data } = useQuery(PROMO)
   const promo = data?.promo || {};
-  // const mainPromo = promo[0].mainPromo;
-  const mainPromo = 'test'
+  const mainPromo = promo[0].mainPromo;
+
 
   if(loading) return `...Loading`;
 
