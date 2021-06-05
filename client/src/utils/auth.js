@@ -78,13 +78,12 @@ class AuthService {
   getGuestCartQuantity() {
     const length = localStorage.getItem('guest_cart_quantity')
     const total = length;
-    console.log(total);
     return total;
   }
 
   getUserCartQuantity() {
     const length = localStorage.getItem('user_cart_quantity')
-    const total = parseInt(length) + 1;
+    const total = length;
     return total;
   }
 

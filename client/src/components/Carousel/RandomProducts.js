@@ -27,7 +27,7 @@ function ProductCarousel() {
   const [links] = useState({...products})
 
   if (data) {
-    for (var i = 0; i < Math.round(productsArr.length); i++ ) {
+    for (var i = 0; i < Math.round(productsArr.length * .1); i++ ) {
       var number = 1 + i;
 
       // get random number within the range of productsArr

@@ -6,15 +6,15 @@ function MainPromo() {
 
   const { loading, data } = useQuery(PROMO)
   const promo = data?.promo || {};
-  const mainPromo = promo[0].mainPromo;
-
 
   if(loading) return `...Loading`;
+
+  const topPromotion = promo[0].mainPromo;
 
   return (
     <>
     <div className="header-main-promo">
-      {mainPromo}
+      {topPromotion}
     </div>
 
     </>
