@@ -96,7 +96,7 @@
   align-items: center;
   background-color: white;
   overflow-y: scroll;
-  animation: singleProduct 1.3s forwards;
+  animation: singleProduct 1s forwards;
   animation-timing-function: cubic-bezier(.56,.07,.55,1);
   animation-iteration-count: 1;
   animation-direction: normal;
@@ -144,7 +144,7 @@
 
   .menu-icon {
     font-size: 2rem;
-    margin-right: 1rem;
+    margin: 0 1rem;
   }
 
   .king-title-mobile {
@@ -152,24 +152,41 @@
     color: white;
     border-radius: 20px;
     padding: .5rem;
+    text-decoration: none;
   }
 
   .mobile-header-menu {
-    width: 100%;
-    height: 95vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     position: absolute;
+    left: 0;
     top: 4rem;
-    background-color: yellow;
+    background-color: rgb(252, 86, 86);
+    animation: headerMenu 1s forwards;
+    animation-timing-function: var(--cubic);
+    animation-direction: normal;
+    padding-bottom: 10rem;
   }
 
-  .mobile-header-menu span {
+  @keyframes headerMenu {
+    from {
+      transform: translateY(-100vh);
+    }
+    to {
+      transform: translateY(0vh)
+    }
+  }
+
+  .mobile-header-links {
     font-size: 2rem;
     font-weight: bold;
     line-height: 4rem;
+    text-decoration: none;
+    color: white;
   }
 }
 

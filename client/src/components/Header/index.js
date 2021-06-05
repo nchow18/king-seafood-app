@@ -13,7 +13,9 @@ function Header(props) {
   const {
     headerLinks = [],
     currentHeaderLink,
-    setCurrentHeaderLink
+    setCurrentHeaderLink,
+    cartModal,
+    setCartModal
   } = props
 
   const logout = event => {
@@ -118,18 +120,15 @@ function Header(props) {
               <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
               </>   
             )}
-            {isModal && ( 
-              <div className="window-cart-container">
-                <WindowCart
-                  setModal={setModal} />
-              </div>
-            )}
           </div>         
         </div>
         <div className="mobile-header-display">
           <MobileHeader 
             setModal={setModal}
+            isModal={isModal}
             headerLinks={headerLinks}
+            cartModal={cartModal}
+            setCartModal={setCartModal}
             />
         </div> 
       </div>

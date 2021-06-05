@@ -13,19 +13,21 @@ function CartItem(props) {
 
   const [state, dispatch] = useContext(UserContext)
 
+  console.log(product);
+
   return (
     <>
       <div>
         <div key={product._id} className="window-cart-product-row">
-            <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
-            <div className="window-cart-product-details">
-              <div className="window-cart-product-text">
-                <b>{product.product_name}</b>
-
-                  <p>{product.total_price}</p>
-
-              </div>
+            <div className="cart-item-img-details">
+              <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
+              <div className="window-cart-product-details">
+                <div className="window-cart-product-text">
+                  <b>{product.product_name}</b>
+                  <p>{product.total_price.toFixed(2)}</p>
+                </div>
                 <div key={product._id} onClick={() => {removeProduct(product._id); dispatch({ type: 'toggle_button' })}} className="mobile-cart-remove-button">REMOVE</div>
+              </div>
             </div>
               <UpdateCartButton
                 product={product}

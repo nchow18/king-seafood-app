@@ -25,6 +25,7 @@ import WhatsApp from './components/WhatsApp/WhatsApp';
 import './css/Whatsapp.css';
 import './css/Footer.css';
 import { UserProvider } from './utils/GlobalState';
+import WindowCart from './components/Cart/WindowCart';
 
 const client = new ApolloClient({
     request: operation => {
@@ -100,6 +101,7 @@ function App() {
 	]);
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
+  const [cartModal, setCartModal] = useState(false)
 
   Auth.checkToken();
 
@@ -116,8 +118,17 @@ function App() {
             headerLinks={headerLinks}
             currentHeaderLink={currentHeaderLink}
             setCurrentHeaderLink={setCurrentHeaderLink}
+            cartModal={cartModal}
+            setCartModal={setCartModal}
 					/>
 			    </nav>
+          {cartModal && ( 
+            <div className="window-cart-container">
+              <WindowCart
+                setCartModal={setCartModal}
+                cartModal={cartModal} />
+            </div>
+          )}          
 
 
           <Switch>

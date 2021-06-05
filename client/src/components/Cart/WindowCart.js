@@ -15,7 +15,7 @@ import CartItem from '../Cart/CartItem';
 function WindowCart(props) {
 
   const {
-    setModal
+    setCartModal
   } = props
 
   const [state, dispatch] = useContext(UserContext)
@@ -225,13 +225,6 @@ if (Auth.loggedIn()) {
   }
 }
 
-
-  function activeUpdateCart() {
-    console.log('cart activated')
-    dispatch({type: 'toggle-button'})
-    console.log(state)
-  }
-
   localStorage.removeItem('new_cart');
   localStorage.setItem('new_cart', JSON.stringify(user_cart))
   const new_cart = localStorage.getItem('new_cart');
@@ -243,27 +236,17 @@ if (Auth.loggedIn()) {
     cart_price.push(cart_array_price[h].total_price)
   }
 
-  console.log(cart_price);
-
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
   Auth.getCartTotal(cart_total);
 
-  console.log(cart_total);
-
   if (error) return `...ERROR`;
-
-  console.log('currentState' +currentState);
-  console.log('deleteState' + deleteState);
 
   return (
     <div className="window-cart-content">
-      <i onClick={() => {setModal(false)}} className="fas fa-times close-button"></i>         
+      <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>         
           <div className="window-cart-column to-night">
-          <span className="total-text">Cart Total: {cart_total}</span>
-          <span className="refresh-cart-button" onClick={() => {updateState(true)}}>Refresh Cart</span> 
+          <span className="total-text">Cart Total: {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container to-night">
-              <b>Your Cart</b>
-
               {state.active === true && (
                 <>
               {(JSON.parse(new_cart)).map((product) => (
@@ -274,7 +257,6 @@ if (Auth.loggedIn()) {
                     updateState={updateState}
                     removeProduct={removeProduct}
                   />
-
                 ))}
                 </>
               )}

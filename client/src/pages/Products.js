@@ -18,18 +18,29 @@ function Products() {
 
   if (loading) return `...Loading`;
 
+  function scrollTop() {
+    window.scrollTo(0,0);
+  }
+
   return (
   <>
-  <div className="categories-container" onClick={() => {setModal(true)}}>
-    <div className="categories-button">CATEGORIES</div>
+  <div className="nav-product-buttons">
+    <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
+    {isModal ? (
+      <i className="fas fa-arrow-circle-right top-button" onClick={() => {setModal(false)}}></i>
+    ) : (
+      <i className="fas fa-plus-square top-button" onClick={() => {setModal(true)}}></i>
+    )}
+
   </div>
+
   {isModal && (
     <ProductHeader 
-    productLinks={productLinks}
-    currentProductLink={currentProductLink}
-    setCurrentProductLink={setCurrentProductLink}
-    setModal={setModal}
-    />
+      productLinks={productLinks}
+      currentProductLink={currentProductLink}
+      setCurrentProductLink={setCurrentProductLink}
+      setModal={setModal}
+      />
   )}
   <div className="product-page-container">
     <div className="product-full-categories-panel">
