@@ -28,7 +28,7 @@ const productSchema = new Schema(
     },
     product_description: {
       type: String,
-      required: true,
+      required: false,
       trim: true
     },
     product_weight: {

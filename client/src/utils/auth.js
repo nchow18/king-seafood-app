@@ -36,9 +36,6 @@ class AuthService {
 			name: 'Meat',
 		},
 		{
-			name: 'Seafood',
-		},
-		{
 			name: 'Vegetables',
 		},
 		{
@@ -51,7 +48,7 @@ class AuthService {
       name: 'Squid',
     },
     {
-      name: 'Special Items'
+      name: 'Special'
     },
     {
       name: 'Shellfish'

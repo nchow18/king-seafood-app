@@ -53,16 +53,16 @@ const typeDefs = gql`
     _id: ID
     product_name: String
     product_category: String
-    product_price: Int
+    product_price: String
     product_description: String
     product_weight: String
     product_picture: [String]
     product_nameChinese: String
     product_descriptionChinese: String
     product_status: Boolean!
-    product_sale_price: Int
+    product_sale_price: String
     product_bulk_quantity: Int
-    product_bulk_price: Int
+    product_bulk_price: String
   }
 
   type ProductPicture {
@@ -76,21 +76,21 @@ const typeDefs = gql`
   input ProductInput {
     product_name: String!
     product_category: String!
-    product_price: Int!
+    product_price: String!
     product_description: String
     product_weight: String
     product_picture: [String]
     product_nameChinese: String
     product_descriptionChinese: String
     product_status: Boolean!
-    product_sale_price: Int
+    product_sale_price: String
     product_bulk_quantity: Int
-    product_bulk_price: Int
+    product_bulk_price: String
   }
 
   type Order {
     _id: ID
-    orderTotal: Int
+    orderTotal: String
     cart: [Cart]
     paid: Boolean
     delivery_date: String
@@ -99,7 +99,7 @@ const typeDefs = gql`
   }
 
   input OrderInput {
-    orderTotal: Int
+    orderTotal: String
     cart: [CartInput]
     paid: Boolean!
     delivery_date: String!
@@ -147,7 +147,7 @@ const typeDefs = gql`
     promoPicture1: String
     promoPicture2: String
     promoPicture3: String
-    discount: Int
+    discount: String
     featuredProduct1: String
     featuredProduct2: String
     featuredProduct3: String
@@ -167,7 +167,7 @@ const typeDefs = gql`
     promoPicture1: String
     promoPicture2: String
     promoPicture3: String
-    discount: Int
+    discount: String
     featuredProduct1: String
     featuredProduct2: String
     featuredProduct3: String

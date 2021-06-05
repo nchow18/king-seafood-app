@@ -9,7 +9,7 @@ import '../../css/Products.css';
 function FeaturedCarousel(props) {
 
   const {
-    products = []
+  products = []
   } = props
 
   const [isModal, setModal] = useState(false);
@@ -22,27 +22,27 @@ function FeaturedCarousel(props) {
   const featuredProducts = products;
   
   return (
-    <>
-      <Flickity>
-      {featuredProducts.map((product) => (
-          <div key={product._id} className="promo-img-container">
-            <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="promo-img" src={product.product_picture[0]} />
-            <div key={product._id} className="promo-img-title">
-              <p>{product.product_name}</p>
-              <p>RM {product.product_price}</p>
-            </div>
-          </div>
-        ))}
-      </Flickity>
-      {isModal && (
-        <div className="random-product-display">
-          <SingleProduct
-            setModal={setModal}
-            singleProduct={currentProduct}
-            />
-        </div>
-      )}
-    </>
+  <>
+    <Flickity>
+    {featuredProducts.map((product) => (
+      <div key={product._id} className="promo-img-container">
+      <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="promo-img" src={product.product_picture[0]} />
+      <div key={product._id} className="promo-img-title">
+        <p>{product.product_name}</p>
+        <p>RM {product.product_price}</p>
+      </div>
+      </div>
+    ))}
+    </Flickity>
+    {isModal && (
+    <div className="random-product-display">
+      <SingleProduct
+      setModal={setModal}
+      singleProduct={currentProduct}
+      />
+    </div>
+    )}
+  </>
   );
 }
 

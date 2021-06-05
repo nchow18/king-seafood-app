@@ -51,7 +51,7 @@
     from {
       transform: translateX(-100vw)
     }
-1    to {
+    to {
       transform: translateX(0vw)
     }
   }
