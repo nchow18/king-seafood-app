@@ -15,6 +15,11 @@
   width: 5rem;
 }
 
+.cart-item-img-details {
+  display: flex;
+  flex-direction: row;
+}
+
 .window-cart-content {
   background-color: white;
   width: 100vw;
@@ -58,7 +63,8 @@
   text-align: center;
   color: black;
   font-weight: bold;
-  width: 10rem;
+  width: 8rem;
+  font-size: .8rem;
 }
 
 .checkout-button {

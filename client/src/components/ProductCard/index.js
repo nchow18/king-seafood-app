@@ -44,7 +44,7 @@ function ProductCard(props) {
     <div className="product-card-description">
       <div className="product-card-font">
       <span className="bold">{product.product_name} {product.product_nameChinese !== '' && (
-        <>({ product.product_nameChinese })</> )}</span>
+        <>{ product.product_nameChinese }</> )}</span>
       {product.product_sale_price > 1  && (
         <>
         <span><b>Price: </b><span className="font-strike">{product.product_price}</span></span>

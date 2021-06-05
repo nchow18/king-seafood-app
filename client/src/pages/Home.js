@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import { PROMO, PRODUCTS } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
@@ -9,10 +9,12 @@ import {Link} from 'react-router-dom';
 import AboutSection from '../components/About/About';
 import '../css/Home.css';
 import ProductCarousel from '../components/Carousel/RandomProducts'
+import SingleProduct from '../components/SingleProduct';
 
 
 function Home() {
 
+  const [isModal, setModal] = useState(false);
   const { loading, data } = useQuery(PROMO);
   const promo = data?.promo || {};
   const { data: Data } = useQuery(PRODUCTS);
@@ -62,12 +64,21 @@ function Home() {
       <div className="promo-flex-row">
       {featuredProducts.map((product) => (
         <div key={product._id} className="promo-img-container">
-        <img alt={product.product_name} className="promo-img" src={product.product_picture} />
+        <img alt={product.product_name} className="promo-img" onClick={() => {setModal(true)}} src={product.product_picture[0]} />
         <div key={product._id} onClick={() => {}} className="promo-img-title">
           <p>{product.product_name}</p>
           <p>RM {product.product_price}</p>
         </div>
+        {isModal && (
+        <div className="random-product-display">
+          <SingleProduct
+            setModal={setModal}
+            singleProduct={product}
+            />
         </div>
+        )}
+        </div>
+        
       ))}
       </div>
     </div> 

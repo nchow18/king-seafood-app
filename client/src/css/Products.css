@@ -147,10 +147,11 @@
   flex-direction: column;
   max-width: 1200px;
   position: sticky;
-  top: 5rem;
   background-color: white;
   max-height: 572px;
   width: 100%;
+  position: relative;
+  z-index: 999;
 }
 
 .single-product-img {

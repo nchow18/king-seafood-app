@@ -5,6 +5,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   padding-bottom: 3rem;
   margin-bottom: -2rem;
 }
@@ -18,7 +19,7 @@
 }
 
 .about-right-container {
-  padding: 1rem;
+  padding: 0rem 1rem;
   width: 50%;
   display: flex; 
   flex-direction: column;
@@ -27,5 +28,10 @@
 
 .about-icon {
   font-size: 2rem;
-  margin: 1rem;
+  margin: 0rem 1rem 1rem 0rem;
+}
+
+.king-map {
+  width: 30vw;
+  height: 100%;
 }

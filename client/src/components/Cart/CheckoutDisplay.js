@@ -14,12 +14,13 @@ function CheckoutDisplay(props) {
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
-    street_number: '',
-    street_name: '',
-    state: '',
-    region: '',
-    city: '',
-    postal_code: '',
+    address: '',
+    // street_number: '',
+    // street_name: '',
+    // state: '',
+    // region: '',
+    // city: '',
+    // postal_code: '',
     message: '',
     delivery_date: '',
     phone: '',
@@ -43,12 +44,12 @@ function CheckoutDisplay(props) {
     '*First Name:* '+formData.first_name+
     ',\n %0a*Last Name:* '+formData.last_name+
     ',\n %0a*Phone:* '+formData.phone+
-    ',\n %0a*Street Number:* '+formData.street_number+
-    ',\n %0a*Street Name:* '+formData.street_name+
-    ',\n %0a*State:* '+formData.state+
-    ',\n %0a*Region:* '+formData.region+
-    ',\n %0a*City:* '+formData.city+
-    ',\n %0a*Postal Code:* '+formData.postal_code+
+    ',\n %0a*Address:* '+formData.street_number+
+    // ',\n %0a*Street Name:* '+formData.street_name+
+    // ',\n %0a*State:* '+formData.state+
+    // ',\n %0a*Region:* '+formData.region+
+    // ',\n %0a*City:* '+formData.city+
+    // ',\n %0a*Postal Code:* '+formData.postal_code+
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
@@ -90,13 +91,14 @@ function CheckoutDisplay(props) {
           <input value={formData.phone} name="phone" placeholder="Phone" onChange={handleInputChange} />
           {currentForm === false && (
             <>
-            <input value={formData.street_number} name="street_number"placeholder="Street Number" onChange={handleInputChange} />
+            <input value={formData.address} name="address"placeholder="Full Address" onChange={handleInputChange} />            
+            {/* <input value={formData.street_number} name="street_number"placeholder="Street Number" onChange={handleInputChange} />
             <input value={formData.street_name} name="street_name"placeholder="Street Name" onChange={handleInputChange} />
             <input value={formData.state} name="state" placeholder="State" onChange={handleInputChange} />
             <input value={formData.region} name="region" placeholder="Region" onChange={handleInputChange} />
             <input value={formData.city} name="city" placeholder="City" onChange={handleInputChange} />
             <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} />
-            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} />
+            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} /> */}
             </>
           )}
           <textarea value={formData.message} name="message" placeholder="Message" onChange={handleInputChange}></textarea>
