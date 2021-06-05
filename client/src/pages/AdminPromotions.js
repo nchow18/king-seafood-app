@@ -46,7 +46,7 @@ function AdminPromotions() {
         variables: {
           input: {
             ...formData,
-            discount: parseInt(formData.discount)
+            discount: formData.discount
           },
           promo_id: promo_id
         }
@@ -62,7 +62,7 @@ function AdminPromotions() {
   return (
     <>
       <div className="admin-container">
-        <form onSubmit={updatePromotions} className="admin-promo-container night-bg">
+        <form className="admin-promo-container night-bg">
           <div>
             <div className="promo-column admin-input-width">
               <b>MAIN PROMO</b>
@@ -124,7 +124,7 @@ function AdminPromotions() {
               <input type="text" onChange={handleInputChange} name="featuredProduct3" value={formData.featuredProduct3} />
             </div>
           </div>
-          <button type="submit" className="order-button">UPDATE</button>
+          <button onClick={() => {updatePromotions()}} className="order-button">UPDATE</button>
         </form>
       </div>
     </>
