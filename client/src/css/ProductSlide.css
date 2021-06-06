@@ -1,0 +1,30 @@
+.product-slide-container {
+  height: 10rem;
+  max-width: 1000px;
+  width: 90%;
+  margin-top: 2rem;
+}
+
+.product-slider {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: auto;
+  height: 12rem;
+}
+
+.product-slide-img {
+  width: 15rem;
+  flex: 0 0 auto;
+}
+
+.product-slide-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
