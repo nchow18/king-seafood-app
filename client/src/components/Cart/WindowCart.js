@@ -11,6 +11,8 @@ import Checkout from '../Buttons/Checkout';
 import CheckoutDisplay from '../Cart/CheckoutDisplay';
 import { UserContext } from '../../utils/GlobalState';
 import CartItem from '../Cart/CartItem';
+import Fish from '../../assets/images/clown-fish.png';
+import ProductSlide from '../Cart/ProductsSlide';
 
 function WindowCart(props) {
 
@@ -36,7 +38,7 @@ function WindowCart(props) {
 
   const removeProduct = async (id) => {
 
-    if (Auth.loggedIn()) {
+    if (Auth.loggedIn() === true) {
       console.log('removing from USER database')
       // if LOGGED IN, remove from Database
       try {
@@ -228,7 +230,7 @@ if (Auth.loggedIn()) {
   localStorage.removeItem('new_cart');
   localStorage.setItem('new_cart', JSON.stringify(user_cart))
   const new_cart = localStorage.getItem('new_cart');
-  Auth.setCartQuantity(user_cart.length);
+  // Auth.setCartQuantity(user_cart.length);
 
   const cart_array_price = JSON.parse(new_cart);
 
@@ -239,12 +241,18 @@ if (Auth.loggedIn()) {
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
   Auth.getCartTotal(cart_total);
 
+  //check for guest_cart length
+  const guest_cart_length = localStorage.getItem('guest_cart_quantity')
+  //check for user_cart length
+  const user_cart_length = localStorage.getItem('user_cart_quantity');
+
   if (error) return `...ERROR`;
 
   return (
     <div className="window-cart-content">
-      <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>         
-          <div className="window-cart-column to-night">
+      <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>
+      {(guest_cart_length > 0 || user_cart_length > 0) ? (
+        <div className="window-cart-column to-night">
           <span className="total-text">Cart Total: {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container to-night">
               {state.active === true && (
@@ -287,11 +295,19 @@ if (Auth.loggedIn()) {
                 />
                 </div>
               )}
-            
             <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
             <div className="checkout-disclaimer">Checkout with SWIPE</div>
             </div>
+          </div>        
+        ) : (
+          <div className="empty-cart-display">
+            <div className="empty-cart-content">
+              <span>Please fill your Cart</span>
+              <img alt="fish" src={Fish} className="empty-fish" />
+              <ProductSlide />
+            </div>
           </div>
+        )}               
     </div>
   )
 }

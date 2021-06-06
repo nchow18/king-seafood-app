@@ -16,6 +16,7 @@
   display: flex; 
   flex-direction: column;
   align-items: center;
+
 }
 
 .about-right-container {
@@ -34,4 +35,20 @@
 .king-map {
   width: 30vw;
   height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-left-container {
+    text-align: center;
+  }
+
+  .king-map {
+    width: 70vw;
+    height: 50vh;
+  }
 }

@@ -1,4 +1,44 @@
 
+/* EMPTY CART DISPLAY */
+
+.empty-cart-display {
+  background-image: linear-gradient(white,blue);
+  height: 90vh;
+  width: 100%;
+}
+
+.empty-cart-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.empty-cart-content span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.empty-fish {
+  height: 10rem;
+  width: 10rem;
+  animation: fishMove 3s infinite;
+  animation-direction: normal;
+  animation-timing-function: var(--cubic);
+  animation-play-state: running;
+}
+
+@keyframes fishMove {
+  from {
+    transform: translateX(-50vw)
+  }
+  to {
+    transform: translateX(90vw);
+  }
+}
+
+
 
 .window-cart-items-container {
   display: flex;

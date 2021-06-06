@@ -7,9 +7,9 @@ function AboutSection() {
     <>
       <div className="about-container">
         <div className="about-left-container">
-          <span><b>Address</b></span>
+          <span><p><b>Address</b></p></span>
           <span>205, Jalan Perak, 11600 Jelutong, Penang Island, Penang, Malaysia</span>
-          <span><b>Operating Hours</b></span>
+          <span><p><b>Operating Hours</b></p></span>
           <span>10:00AM - 5:30PM</span>
           <span><b>Grace</b> 016-4223018</span>
           <span><b>Joey</b> 011-11264018</span>

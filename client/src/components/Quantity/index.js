@@ -45,8 +45,6 @@ function Quantity(props) {
       localStorage.setItem('guest_cart_quantity', JSON.stringify(1))
       return localStorage.setItem('guest_cart', JSON.stringify(guest_cart));
     }
-
-
     } else {
     // if logged in, save data to user cart
     try {
