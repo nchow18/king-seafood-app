@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth';
-import Flickity from 'react-flickity-component';
 import '../../css/flickity.css';
 import '../../css/RandomProducts.css';
 import SingleProduct from '../SingleProduct/index';
 import '../../css/Products.css';
+import '../../css/FeaturedProducts.css';
 
 function FeaturedCarousel(props) {
 
@@ -16,24 +15,28 @@ function FeaturedCarousel(props) {
   const [links] = useState({...products})
   const [currentProduct, setProduct] = useState(links[0])
 
+  const featuredProducts = products.filter(function (product) {
+    return product.product_featured === true;
+  })
 
-  if (products.length === 0) return `...Loading Data`;
+  if (products.length === 0) return `...Loading`;
 
-  const featuredProducts = products;
-  
   return (
   <>
-    <Flickity>
-    {featuredProducts.map((product) => (
-      <div key={product._id} className="promo-img-container">
-      <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="promo-img" src={product.product_picture[0]} />
-      <div key={product._id} className="promo-img-title">
-        <p>{product.product_name}</p>
-        <p>RM {product.product_price}</p>
+    <div className="featured-product-slider-container">
+      <div className="featured-product-slider">
+        {featuredProducts.map((product) => (
+          <div>
+            <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img" src={product.product_picture[0]} />
+            <div className="carousel-img-title">
+              <p>{product.product_name}</p>
+              <p>RM {product.product_price}</p>
+            </div>
+          </div>
+        ))}
       </div>
-      </div>
-    ))}
-    </Flickity>
+    </div>
+
     {isModal && (
     <div className="random-product-display">
       <SingleProduct

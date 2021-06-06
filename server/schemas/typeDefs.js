@@ -63,6 +63,7 @@ const typeDefs = gql`
     product_sale_price: String
     product_bulk_quantity: Int
     product_bulk_price: String
+    product_featured: Boolean
   }
 
   type ProductPicture {
@@ -86,6 +87,7 @@ const typeDefs = gql`
     product_sale_price: String
     product_bulk_quantity: Int
     product_bulk_price: String
+    product_featured: Boolean
   }
 
   type Order {

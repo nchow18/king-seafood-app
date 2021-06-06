@@ -39,10 +39,7 @@ function Home() {
   }
   }
 
-
   Auth.setGlobalDiscount(promo[0].discount);
-
-  console.log(promo[0].promo1End);
 
   return (
   location.pathname === `/` &&
@@ -60,28 +57,11 @@ function Home() {
       </div>
     </div>
       <b className="section-title featured-title">Featured Products</b>
-    <div className="promo-fullscreen">
-      <div className="promo-flex-row">
-      {featuredProducts.map((product) => (
-        <div key={product._id} className="promo-img-container">
-        <img alt={product.product_name} className="promo-img" onClick={() => {setModal(true)}} src={product.product_picture[0]} />
-        <div key={product._id} onClick={() => {}} className="promo-img-title">
-          <p>{product.product_name}</p>
-          <p>RM {product.product_price}</p>
-        </div>
-        {isModal && (
-        <div className="random-product-display">
-          <SingleProduct
-            setModal={setModal}
-            singleProduct={product}
-            />
-        </div>
-        )}
-        </div>
-        
-      ))}
+      <div className="home-section">
+        <FeaturedCarousel
+          products={products}
+        />        
       </div>
-    </div> 
     </div>
     {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
       <div className="home-section">
@@ -91,13 +71,6 @@ function Home() {
         />
       </div>
     )}
-
-    <div className="home-promo-mobile">
-      <b className="section-title">Featured Products</b>
-      <FeaturedCarousel
-        products={featuredProducts}
-      />
-    </div>
      
     <div className="home-section">
     <b className="section-title">Products you might like</b>

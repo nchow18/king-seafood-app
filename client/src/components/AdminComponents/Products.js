@@ -68,7 +68,7 @@ function AdminCategories(props) {
               </div>
               <div className="admin-input-row">
                 <label className="bold">Status: true/false</label>
-                <div className="admin-input-width">{JSON.parse(product.product_status)}</div>
+                <div className="admin-input-width">{JSON.stringify(product.product_status)}</div>
               </div>
               <div className="admin-input-row">
                 <label className="bold">Product Sale Price</label>
@@ -81,6 +81,10 @@ function AdminCategories(props) {
               <div className="admin-input-row">
                 <label className="bold">Product Bulk Price</label>
                 <div className="admin-input-width">{product.product_bulk_price}</div>
+              </div>
+              <div className="admin-input-row">
+                <label className="bold">Featured: True/False</label>
+                <div className="admin-input-width">{JSON.stringify(product.product_featured)}</div>
               </div>
               {product.product_picture.map((picture) => (
                 <div className="admin-input-row">

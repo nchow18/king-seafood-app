@@ -12,6 +12,32 @@
   display: none;
 }
 
+.display-intial {
+  display: initial;
+}
+
+.admin-category-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 6rem;
+  z-index: 15;
+  animation: rightLeft 1s forwards;
+  animation-timing-function: var(--cubic);
+  animation-direction: normal;
+  background-color: rgb(78, 78, 164);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  line-height: 1.5rem;
+}
+
 @media screen and (max-width: 650px) {
   .categories-container {
     display: flex;

@@ -66,6 +66,11 @@ const productSchema = new Schema(
       type: Number,
       required: false,
       trim: true
+    },
+    product_featured: {
+      type: Boolean,
+      required: false,
+      trim: true
     }           
   },
   {

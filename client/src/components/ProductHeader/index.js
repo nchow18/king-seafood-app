@@ -11,7 +11,7 @@ function ProductHeader(props) {
 
   return (
     <>
-      <div className="product-header-container">
+      <div className="admin-category-container">
         {productLinks.map((link) => (
           <span to={link.href} key={link.name} className='product-header-link' onClick={() => {
             setCurrentProductLink(link); setModal(false)

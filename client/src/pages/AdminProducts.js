@@ -10,21 +10,28 @@ import '../css/ProductHeader.css';
 
 function AdminProducts() {
 
+  const { loading, data } = useQuery(PRODUCTS);
+  const products = data?.products || {};
+  const featured = products.product_featured ? 'true' : 'false'
   const [isModal, setModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [formData, setProductFormData] = useState({
-  product_name: '',
-  product_category: '',
-  product_weight: '',
-  product_price: '',
-  product_picture: '',
-  product_nameChinese: '',
-  product_descriptionChinese: '',
+    product_name: '',
+    product_category: '',
+    product_weight: '',
+    product_price: '',
+    product_picture: '',
+    product_nameChinese: '',
+    product_descriptionChinese: '',
+    product_featured: '',
+    product_sale_price: '0',
+    product_bulk_quantity: '0',
+    product_bulk_price: '0',
+    product_status: 'true'
   })
 
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
-  const { loading, data } = useQuery(PRODUCTS);
-  const products = data?.products || {};
+
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
   const handleInputChange = (event) => {
@@ -42,16 +49,17 @@ function AdminProducts() {
     addProduct({ variables: { input: {
     product_name: formData.product_name,
     product_description: formData.product_description,
-    product_price: parseInt(formData.product_price),
+    product_price: formData.product_price,
     product_weight: formData.product_weight,
     product_nameChinese: formData.product_nameChinese,
     product_descriptionChinese: formData.product_descriptionChinese,
     product_picture: formData.product_picture,
     product_category: formData.product_category,
     product_status: JSON.parse(formData.product_status.toLowerCase()),
-    product_sale_price: parseInt(formData.product_sale_price),
+    product_sale_price: formData.product_sale_price,
     product_bulk_quantity: parseInt(formData.product_bulk_quantity),
-    product_bulk_price: parseInt(formData.product_bulk_price)
+    product_bulk_price: formData.product_bulk_price,
+    product_featured: JSON.parse(formData.product_featured)
     } }})
 
     alert('product added');
@@ -116,6 +124,10 @@ function AdminProducts() {
       <div className="admin-input-row">
         <label className="bold">Bulk Sale Price</label>
         <input value={formData.product_bulk_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_bulk_price' type="text"></input>
+      </div>
+      <div className="admin-input-row">
+        <label className="bold">Featured: True / False</label>
+        <input value={formData.product_featured} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_featured' type="text"></input>
       </div>
       <div className="admin-input-row">
         <label className="bold">Picture Location</label>

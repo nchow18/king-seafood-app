@@ -102,6 +102,7 @@ export const ADD_PRODUCT = gql`
         product_sale_price
         product_bulk_quantity
         product_bulk_price
+        product_featured
         }
     }
 `;
@@ -122,6 +123,7 @@ export const UPDATE_PRODUCT = gql`
         product_sale_price
         product_bulk_quantity
         product_bulk_price
+        product_featured
         }
     }
 `;
