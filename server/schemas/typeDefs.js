@@ -59,7 +59,7 @@ const typeDefs = gql`
     product_picture: [String]
     product_nameChinese: String
     product_descriptionChinese: String
-    product_status: Boolean!
+    product_status: Boolean
     product_sale_price: String
     product_bulk_quantity: Int
     product_bulk_price: String
@@ -75,9 +75,9 @@ const typeDefs = gql`
   }
 
   input ProductInput {
-    product_name: String!
-    product_category: String!
-    product_price: String!
+    product_name: String
+    product_category: String
+    product_price: String
     product_description: String
     product_weight: String
     product_picture: [String]

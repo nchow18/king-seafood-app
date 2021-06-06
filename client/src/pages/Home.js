@@ -71,7 +71,6 @@ function Home() {
         />
       </div>
     )}
-     
     <div className="home-section">
     <b className="section-title">Products you might like</b>
     <p></p>

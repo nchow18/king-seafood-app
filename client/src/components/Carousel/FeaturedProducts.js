@@ -18,6 +18,7 @@ function FeaturedCarousel(props) {
   const featuredProducts = products.filter(function (product) {
     return product.product_featured === true;
   })
+  
 
   if (products.length === 0) return `...Loading`;
 

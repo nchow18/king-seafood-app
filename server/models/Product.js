@@ -13,17 +13,17 @@ const productSchema = new Schema(
   {
     product_category: {
       type: String,
-      required: true,
+      required: false,
       trim: true
     },
     product_name: {
       type: String,
-      required: true,
+      required: false,
       trim: true
     },
     product_price: {
-      type: Number,
-      required: true,
+      type: String,
+      required: false,
       trim: true
     },
     product_description: {
@@ -49,11 +49,11 @@ const productSchema = new Schema(
     },
     product_status: {
       type: Boolean,
-      required: true,
+      required: false,
       trim: true
     },
     product_sale_price: {
-      type: Number,
+      type: String,
       required: false,
       trim: true
     },
@@ -63,7 +63,7 @@ const productSchema = new Schema(
       trim: true
     },
     product_bulk_price: {
-      type: Number,
+      type: String,
       required: false,
       trim: true
     },
