@@ -30,7 +30,8 @@
     margin-right: 0rem;
     margin: 1rem;
     border: 1px solid black;
-    height: initial;
+    height: auto;
     width: auto;
+    object-fit: cover;
   }
 }
