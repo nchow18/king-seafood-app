@@ -20,19 +20,23 @@ function MobileHeader(props) {
   return (
     <>
       <div className="mobile-header-container">
-        <Link to="/" className="king-title-mobile">KING'S SEAFOOD 18</Link>
-        <div>
           {cartModal ? (
-            <i className="fas fa-shopping-cart menu-icon" onClick={() => {setCartModal(false)}}></i>
+            <div>
+              <i className="fas fa-shopping-cart menu-icon" onClick={() => {setCartModal(false)}}></i>
+              <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
+            </div>
           ) : (
-            <i className="fas fa-shopping-cart menu-icon" onClick={() => {setCartModal(true)}}></i>
-          )}          
+            <div>
+              <i className="fas fa-shopping-cart menu-icon" onClick={() => {setCartModal(true)}}></i>
+              <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
+            </div>
+          )}  
+          <Link to="/" className="king-title-mobile">KING'S SEAFOOD 18</Link>        
           {currentMenu ? (
             <i className="fas fa-times menu-icon" onClick={() => {setMenu(false)}}></i>
           ) : (
             <i className="fas fa-bars menu-icon" onClick={() => {setMenu(true)}}></i>
           )}
-        </div>
       </div>
       {currentMenu && (
         <div className="mobile-header-menu">

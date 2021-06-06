@@ -27,7 +27,7 @@ function ProductCarousel() {
   const [links] = useState({...products})
 
   if (data) {
-    for (var i = 0; i < Math.round(productsArr.length * .1); i++ ) {
+    for (var i = 0; i < 10; i++ ) {
       var number = 1 + i;
 
       // get random number within the range of productsArr
@@ -52,17 +52,21 @@ function ProductCarousel() {
   return (
     <>
 
-      <Flickity>
-      {products.map((product) => (
-          <div key={product._id} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img-container">
-            <img alt={product.product_name} className="carousel-img" src={product.product_picture[0]} />
-            <div key={product._id} className="carousel-img-title">
-              <b>{product.product_name}</b>
-              <b>RM {product.product_price}</b>
-            </div>
-          </div>
-        ))}
-      </Flickity>
+
+      <div className="random-product-container">
+        <div className="random-product-slider">
+          {products.map((product) => (
+              <div key={product._id} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img-container">
+                <img alt={product.product_name} className="carousel-img" src={product.product_picture[0]} />
+                <div key={product._id} className="carousel-img-title">
+                  <b>{product.product_name}</b>
+                  <b>RM {product.product_price}</b>
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
+
       {isModal && (
         <div className="random-product-display">
           <SingleProduct

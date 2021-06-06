@@ -97,8 +97,8 @@ function CheckoutDisplay(props) {
             <input value={formData.state} name="state" placeholder="State" onChange={handleInputChange} />
             <input value={formData.region} name="region" placeholder="Region" onChange={handleInputChange} />
             <input value={formData.city} name="city" placeholder="City" onChange={handleInputChange} />
-            <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} />
-            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} /> */}
+            <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} /> */}
+            <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} />
             </>
           )}
           <textarea value={formData.message} name="message" placeholder="Message" onChange={handleInputChange}></textarea>
@@ -106,7 +106,7 @@ function CheckoutDisplay(props) {
         </div>
         {currentForm === false && (
           <div className="payment-container">
-            <button onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.street_number && formData.street_name && formData.state && formData.region && formData.city && formData.postal_code && formData.delivery_date)}  className="payment-button">SUBMIT ORDER</button>
+            <button onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER</button>
         </div>          
         )}
         {currentForm === true && (
