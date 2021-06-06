@@ -8,7 +8,8 @@ import { UserContext } from '../../utils/GlobalState';
 function Quantity(props) {
 
   const {
-    product=[]
+    product=[],
+    user=[]
   } = props
 
   const [state, dispatch] = useContext(UserContext)

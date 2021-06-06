@@ -56,13 +56,6 @@ function App() {
 			user: true,
 			admin: true
 		},
-    {
-			name: 'Cart',
-			href: '',
-			guest: true,
-			user: true,
-			admin: true
-		},
 		{
 			name: 'Account',
 			href: '/account',

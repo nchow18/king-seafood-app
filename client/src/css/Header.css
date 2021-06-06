@@ -29,7 +29,8 @@
 
 .header-logo-display {
   position: absolute;
-  left: 1rem;
+  left: .5rem;
+  top: 1rem;
   background-color: black;
   border-radius: 20px;
   color: white;

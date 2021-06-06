@@ -38,8 +38,6 @@
   }
 }
 
-
-
 .window-cart-items-container {
   display: flex;
   flex-direction: column;
@@ -140,10 +138,6 @@
 .checkout-disclaimer {
   text-align: center;
   padding: 1rem;
-}
-
-#window-checkout-display {
-  display: none;
 }
 
 .refresh-cart-button {

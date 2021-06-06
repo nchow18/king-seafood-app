@@ -4,16 +4,16 @@ import ProductCard from '../components/ProductCard';
 // import { useLocation } from 'react-router-dom';
 import ProductHeader from '../components/ProductHeader';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { PRODUCTS } from '../utils/queries';
+import { PRODUCTS, USER_ME } from '../utils/queries';
 
 
 function Products() {
 
+  const {data: dataR} = useQuery(USER_ME);
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
   const [isModal, setModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
-
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
   if (loading) return `...Loading`;
@@ -56,6 +56,7 @@ function Products() {
         <ProductCard
         currentProductLink={currentProductLink}
         products={products}
+        user={dataR}
         />
     </div>
   </div>

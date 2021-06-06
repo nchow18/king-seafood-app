@@ -9,7 +9,8 @@ function ProductCard(props) {
 
   const {
   products=[],
-  currentProductLink
+  currentProductLink,
+  user
   } = props
 
   const [productArr] = useState({...products})
@@ -25,6 +26,9 @@ function ProductCard(props) {
 
   const [isModal, setModal] = useState(false);
   const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
+  const featured = currentProductLink === 'featured' ? true : false;
+
+  console.log(featured);
 
   return (
   <>
@@ -33,6 +37,7 @@ function ProductCard(props) {
       <SingleProduct 
       setModal={setModal}
       singleProduct={currentSingleProduct}
+      user={user}
       />
     </div>
     )}

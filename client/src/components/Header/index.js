@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react';
 import '../../css/Header.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import MobileCart from '../../components/Cart/MobileCart';
-import WindowCart from '../../components/Cart/WindowCart';
 import { UserContext } from '../../utils/GlobalState';
 import MobileHeader from './MobileHeader';
 import Logo from '../../assets/images/king-logo.png';
+import { useQuery } from '@apollo/react-hooks';
+import { USER_ME } from '../../utils/queries';
 
 function Header(props) {
 
@@ -27,12 +27,14 @@ function Header(props) {
     Auth.lightMode(mode);
   }
 
-  
+  const { loading, data } = useQuery(USER_ME)
   const [state, dispatch] = useContext(UserContext);
   const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
   const adminArr = headerLinks.filter((link) => link.admin === true);
+  const user = data?.userMe.cart.length || 0;
+  const user_cart_length = user;
 
   const headerArr = [];
    
@@ -56,10 +58,12 @@ function Header(props) {
     localStorage.setItem('guest_cart_quantity', 0)
   }
 
+  if (loading) return `...Loading`;
+
   return (
       <div className="header-items">
         <div className="header-links-container">
-        <span className="header-logo-display">KING'S SEAFOOD 18</span>
+        <Link to="/"><span className="header-logo-display">KING'S SEAFOOD 18</span></Link>
           <div className="links">
             {Auth.loggedIn() === false && (
               <>
@@ -71,10 +75,10 @@ function Header(props) {
                 <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>Categories</Link>                
               )}
               {state.active === true && (
-                <Link to={headerLinks[2].href} className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</Link>
+                <span className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</span>
               )}
               {state.active === false && (
-                <Link to={headerLinks[2].href} className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</Link>
+                <span className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</span>
               )}              
 
               <Link to={headerLinks[4].href} className={`header-link ${currentHeaderLink.name === headerLinks[4].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[4])}}>{headerLinks[4].name}</Link>
@@ -99,6 +103,12 @@ function Header(props) {
                   <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
                 </>        
               ))}
+              {state.active === true && (
+                <span className="header-link" onClick={() => { setCartModal(true)}}>Cart ( {user_cart_length} )</span>
+              )}
+              {state.active === false && (
+                <span className="header-link" onClick={() => { setCartModal(true)}}>Cart ( {user_cart_length} )</span>
+              )}               
               </>
             )}
 
@@ -107,16 +117,16 @@ function Header(props) {
               {headerLinks.filter((link) => link.user === true).map((link) => (
                   <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
               ))}
-              </>
-            )}
-            {Auth.loggedIn() && (
-              <>
               {state.active === true && (
-                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getUserCartQuantity()})</b></i>
+                <span className="header-link" onClick={() => {setCartModal(true)}}>Cart ( {user_cart_length} )</span>
               )}
               {state.active === false && (
-                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getUserCartQuantity()})</b></i>
-              )}                
+                <span className="header-link" onClick={() => {setCartModal(true)}}>Cart ( {user_cart_length} )</span>
+              )}               
+              </>
+            )}
+            {Auth.loggedIn() === true && (
+              <>               
               <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
               </>   
             )}

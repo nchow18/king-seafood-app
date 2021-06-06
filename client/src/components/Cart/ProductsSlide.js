@@ -20,9 +20,6 @@ function ProductSlide(props) {
   }
 
   const [currentProduct, setProduct] = useState(singleProduct[0])
-  console.log(random_products);
-
-  console.log(currentProduct);
 
   return (
     <>
