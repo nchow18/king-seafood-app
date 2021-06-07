@@ -2,7 +2,7 @@
   height: 100%;
   max-width: 1000px;
   width: 90%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .product-slider {
@@ -24,7 +24,7 @@
 
 .product-slide-img {
   width: 20rem;
-  height: 30vh;
+  height: 80%;
   flex: 0 0 auto;
   margin-right: 1rem;
   object-fit: cover;
