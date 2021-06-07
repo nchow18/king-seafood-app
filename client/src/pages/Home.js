@@ -54,12 +54,12 @@ function Home() {
       <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
       </div>
     </div>
-      <div className="home-section">
-        <b className="section-title">Featured Products</b>
-        <FeaturedCarousel
-          products={products}
-        />        
-      </div>
+    <div className="home-section">
+      <b className="section-title">Featured Products</b>
+      <FeaturedCarousel
+        products={products}
+      />        
+    </div>
     </div>
     {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
       <div className="home-section">
@@ -70,9 +70,9 @@ function Home() {
       </div>
     )}
     <div className="home-section">
-    <b className="section-title">Products you might like</b>
-    <p></p>
-    <ProductCarousel />
+      <b className="section-title">Products you might like</b>
+      <p></p>
+      <ProductCarousel />
     </div>
     <AboutSection />
   </>

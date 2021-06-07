@@ -5,9 +5,6 @@
   bottom: 5rem;
   z-index: 10;
   color: green;
-}
-
-#whatsapp {
   display: none;
 }
 
@@ -26,10 +23,6 @@
 
 .whatsapp-display {
   display: none;
-}
-
-#whatsapp:checked ~ .whatsapp-display {
-  display: flex;
 }
 
 .whatsapp-display {
@@ -71,8 +64,9 @@ textarea {
   background-color: darkgreen;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   .whatsapp-icon {
     font-size: 3rem;
+    display: flex;
   }
 }

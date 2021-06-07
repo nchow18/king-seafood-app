@@ -98,6 +98,7 @@ function App() {
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[7]);
   const [cartModal, setCartModal] = useState(false)
+  const [whatsApp, setWhatsApp] = useState(false);
 
   Auth.checkToken();
 
@@ -153,13 +154,14 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
 
-      <input type="checkbox" id="whatsapp" />
+      {whatsApp && (
+        <div className="whatsapp-display">
+          <WhatsApp />
+        </div>
+      )}
 
-      <div className="whatsapp-display">
-        <WhatsApp />
-      </div>
 
-      <label htmlFor="whatsapp"><div className="whatsapp-button"><i className="fab fa-whatsapp-square whatsapp-icon"></i></div></label>
+      <i onClick={() => {setWhatsApp(true)}} className="fab fa-whatsapp-square whatsapp-icon"></i>
       <Footer 
         headerLinks={headerLinks}
         currentHeaderLink={currentHeaderLink}

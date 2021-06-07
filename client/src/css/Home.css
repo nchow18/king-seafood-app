@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .logo-container p {
@@ -34,9 +35,9 @@
 
 .close-button {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 3rem;
+  top: .25rem;
+  left: .25rem;
+  font-size: 2.5rem;
   z-index: 110;
   color: black;
 }
@@ -226,6 +227,7 @@
 
 .home-section {
   margin: 5rem 0rem;
+  max-width: 1200px;
 }
 
 @media screen and (max-width: 1556px) {

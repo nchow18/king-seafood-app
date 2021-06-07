@@ -90,7 +90,7 @@ function Products() {
       <div className="categories-links">
         <span><b>Categories</b></span>
         {productLinks.map((category) => (
-          <span className={`categories-links ${currentProductLink.name === category.name && `categoryActive`}`} onClick={() => {setCurrentProductLink(category)}}>{category.name}</span>
+        <span className={`categories-links ${currentProductLink.name === category.name && `categoryActive`}`} onClick={() => {setCurrentProductLink(category)}}>{category.name}</span>
         ))}
       </div>
 
