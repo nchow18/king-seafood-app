@@ -10,7 +10,8 @@ function SingleProduct(props) {
 
   const {
     setModal,
-    singleProduct
+    singleProduct,
+    setCategoryModal
   } = props
 
   const product = singleProduct;
@@ -24,7 +25,7 @@ function SingleProduct(props) {
   return (
     <>
       <div className="single-product-container">
-          <i onClick={() => {setModal(false)}} className="fas fa-times-circle close-button"></i>
+          <i onClick={() => {setModal(false);}} className="fas fa-times-circle close-button"></i>
             <div className="single-product-img-container">
               <ProductPictureCarousel
               product={product}

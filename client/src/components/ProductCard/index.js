@@ -33,13 +33,14 @@ function ProductCard(props) {
       setModal={setModal}
       singleProduct={currentSingleProduct}
       user={user}
+      setCategoryModal={setCategoryModal}
       />
     </div>
     )}
   {productCategory.map((product) => (
     <div key={product._id} className="product-card night-bg">
     <div className="product-card-picture-container">
-      <img onClick={() => {setSingleProduct(product); setModal(true); setCategoryModal(true)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+      <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
     </div>
     <div className="product-card-description">
       <div className="product-card-font">

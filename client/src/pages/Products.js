@@ -95,7 +95,6 @@ function Products() {
       </div>
 
     </div>
-    {isCategoryModal === false && (
       <>
         <div className="products-card-display">
           <ProductCard
@@ -109,7 +108,6 @@ function Products() {
           />
         </div>
     </>
-    )}
 
   </div>
 
