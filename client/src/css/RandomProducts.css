@@ -13,6 +13,7 @@
   overflow-y: auto;
   flex: 0 0 auto;
   display: flex;
+  scroll-snap-type: x mandatory;
 }
 
 .carousel-img {
@@ -26,4 +27,8 @@
   display: flex;
   justify-content: space-between;
   padding: .5rem 1rem;
+}
+
+.carousel-img-container {
+  scroll-snap-align: start;
 }

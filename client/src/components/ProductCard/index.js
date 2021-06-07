@@ -11,12 +11,15 @@ function ProductCard(props) {
   products=[],
   currentProductLink,
   productCategory=[],
-  user
+  user,
+  isModal,
+  setModal,
+  setCategoryModal
   } = props
 
   const [productArr] = useState({...products})
 
-  const [isModal, setModal] = useState(false);
+
   const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
   const featured = currentProductLink === 'featured' ? true : false;
 
@@ -36,7 +39,7 @@ function ProductCard(props) {
   {productCategory.map((product) => (
     <div key={product._id} className="product-card night-bg">
     <div className="product-card-picture-container">
-      <img onClick={() => {setSingleProduct(product); setModal(true)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+      <img onClick={() => {setSingleProduct(product); setModal(true); setCategoryModal(true)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
     </div>
     <div className="product-card-description">
       <div className="product-card-font">

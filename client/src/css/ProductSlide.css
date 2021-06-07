@@ -9,6 +9,7 @@
   display: flex;
   overflow-x: scroll;
   overflow-y: auto;  height: 18rem;
+  scroll-snap-type: x mandatory;
 }
 
 .product-slide-info span {
@@ -33,4 +34,8 @@
   align-items: center;
   justify-content: center;
   background-color: white;
+}
+
+.product-slide-img-container {
+  scroll-snap-align: start;
 }

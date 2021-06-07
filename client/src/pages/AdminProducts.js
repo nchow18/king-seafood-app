@@ -75,7 +75,7 @@ function AdminProducts() {
   return (
   <>
   <div className="admin-container">
-    <div className="page-title bold font-2rem">
+    <div className="page-title bold font-1rem">
       ADD NEW PRODUCT
     </div>
     <div className="admin-form-container night-bg">
@@ -137,11 +137,7 @@ function AdminProducts() {
       </form>
     </div>
     <div className="flex-start-row">
-    <div className="page-title bold font-2rem">
-      CURRENT PRODUCTS
-    </div>
-
-      <label>Sort by CATEGORY:</label>
+      <span><b>Sort by CATEGORY: </b> </span>
       {isModal && (
       <ProductHeader 
         productLinks={productLinks}

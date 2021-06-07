@@ -13,7 +13,8 @@ function Products() {
   const {data: dataR} = useQuery(USER_ME);
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
-  const [isModal, setModal] = useState(false)
+  const [isModal, setModal] = useState(false);
+  const [isCategoryModal, setCategoryModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
@@ -68,20 +69,20 @@ function Products() {
   <>
   <div className="nav-product-buttons">
     <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
-    {isModal ? (
-      <i className="fas fa-arrow-circle-right top-button" onClick={() => {setModal(false)}}></i>
+    {isCategoryModal ? (
+      <i className="fas fa-arrow-circle-right top-button" onClick={() => {setCategoryModal(false)}}></i>
     ) : (
-      <i className="fas fa-plus-square top-button" onClick={() => {setModal(true)}}></i>
+      <i className="fas fa-plus-square top-button" onClick={() => {setCategoryModal(true)}}></i>
     )}
 
   </div>
 
-  {isModal && (
+  {isCategoryModal && (
     <ProductHeader 
       productLinks={productLinks}
       currentProductLink={currentProductLink}
       setCurrentProductLink={setCurrentProductLink}
-      setModal={setModal}
+      setCategoryModal={setCategoryModal}
       />
   )}
   <div className="product-page-container">
@@ -94,14 +95,22 @@ function Products() {
       </div>
 
     </div>
-    <div className="products-card-display">
-        <ProductCard
-        currentProductLink={currentProductLink}
-        products={products}
-        user={dataR}
-        productCategory={productCategory}
-        />
-    </div>
+    {isCategoryModal === false && (
+      <>
+        <div className="products-card-display">
+          <ProductCard
+            currentProductLink={currentProductLink}
+            products={products}
+            user={dataR}
+            productCategory={productCategory}
+            isModal={isModal}
+            setModal={setModal}
+            setCategoryModal={setCategoryModal}
+          />
+        </div>
+    </>
+    )}
+
   </div>
 
   </>

@@ -30,7 +30,7 @@ function FeaturedCarousel(props) {
     <div className="featured-product-slider-container">
       <div className="featured-product-slider">
         {featuredProducts.map((product) => (
-          <div>
+          <div className="child-scroll-snap">
             <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img" src={product.product_picture[0]} />
             <div className="carousel-img-title">
               <p>{product.product_name}</p>

@@ -9,8 +9,6 @@ import {Link} from 'react-router-dom';
 import AboutSection from '../components/About/About';
 import '../css/Home.css';
 import ProductCarousel from '../components/Carousel/RandomProducts'
-import SingleProduct from '../components/SingleProduct';
-
 
 function Home() {
 
@@ -56,8 +54,8 @@ function Home() {
       <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
       </div>
     </div>
-      <b className="section-title featured-title">Featured Products</b>
       <div className="home-section">
+        <b className="section-title">Featured Products</b>
         <FeaturedCarousel
           products={products}
         />        

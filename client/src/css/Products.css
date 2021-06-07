@@ -218,6 +218,7 @@
 
   .single-product-modal-container {
     padding-top: 2rem;
+    background-color: white;
   }
 }
 
@@ -342,7 +343,7 @@
 
   .single-product-img-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
   }
 
 }
