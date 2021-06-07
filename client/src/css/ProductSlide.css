@@ -39,3 +39,11 @@
 .product-slide-img-container {
   scroll-snap-align: start;
 }
+
+.product-slide-info {
+  font-size: .8rem;
+}
+
+.font-mobile {
+  font-size: .8rem;
+}

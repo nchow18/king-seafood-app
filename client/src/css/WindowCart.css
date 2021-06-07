@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 
-.empty-cart-content span {
+.empty-cart-content {
   font-size: 1.5rem;
   font-weight: bold;
 }

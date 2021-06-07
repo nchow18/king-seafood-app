@@ -30,8 +30,8 @@ function ProductSlide(props) {
             <div className="product-slide-img-container">
               <img alt={product} src={product.product_picture[0]} className="product-slide-img" onClick={() => {setModal(true); setProduct(product)}}/>
               <div className="product-slide-info">
-                <span>{product.product_name} -</span>
-                <span> RM {product.product_price}</span>
+                <span className="font-mobile">{product.product_name} -</span>
+                <span className="font-mobile"> RM {product.product_price}</span>
               </div>
             </div>
             </>
