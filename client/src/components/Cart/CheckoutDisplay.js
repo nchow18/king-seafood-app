@@ -10,7 +10,7 @@ function CheckoutDisplay(props) {
     cart_total
   } = props
 
-  const [order, setOrder] = useState(false)
+  const [order, setOrder] = useState(true)
   const [currentForm, setFormType] = useState(false)
   const [formData, setFormData] = useState({
     first_name: '',
