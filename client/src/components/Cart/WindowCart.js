@@ -5,9 +5,6 @@ import '../../css/MobileCart.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { REMOVE_CART } from '../../utils/mutations';
 import { USER_ME, PRODUCTS } from '../../utils/queries';
-import ViewProduct from '../../components/Buttons/ViewProduct';
-import UpdateCartButton from '../../components/Buttons/UpdateCart';
-import Checkout from '../Buttons/Checkout';
 import CheckoutDisplay from '../Cart/CheckoutDisplay';
 import { UserContext } from '../../utils/GlobalState';
 import CartItem from '../Cart/CartItem';
@@ -22,7 +19,6 @@ function WindowCart(props) {
 
   const [state, dispatch] = useContext(UserContext)
   const [currentState, updateState] = useState(true);
-  const [deleteState, clearState] = useState(false);
   const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
@@ -32,9 +28,9 @@ function WindowCart(props) {
 
   const user_data = dataR?.userMe || {};
   const product_data = data?.products || {};
-  let cartArr = [];
+  const cartArr = [];
   const user_cart = cartArr;
-  const cart_price = [];
+
 
   const removeProduct = async (id) => {
 
@@ -121,25 +117,26 @@ if (Auth.loggedIn()) {
                 if (user_data.cart[i].product_id === product_data[t]._id) {
                   cartArr.push(product_data[t])
                   cartArr[i].quantity = user_data.cart[i].quantity;
-                  // IF no special discounts applied, proceed to apply GLOBAL discount
-                  if (cartArr[i].product_sale_price === 0 && cartArr[i].product_bulk_quantity === 0 ) {
-                    //IF Both special discounts DO NOT exist on the product, apply the GLOBAL discount
-                    const discount = Auth.getGlobalDiscount();
-                    cartArr[i].total_price = (1 - discount/100) * cartArr[i].product_price * cartArr[i].quantity;
-                } else {
-                  // Check if product_sale_price exists, if so, apply update
-                  if (cartArr[i].product_sale_price >= 1) {
-                    // IF product_sale_price EXISTS,  SALE PRICE * QUANTITY to total_price
-                    cartArr[i].total_price = (product_data[t].product_sale_price * user_data.cart[i].quantity);
-                  } else {
-                    // IF product_sale_price does NOT exist, apply discount for BULK quantity*price
-                    if (cartArr[i].product_bulk_quantity <= user_data.cart[i].quantity) {
-                      // IF cart quantity is GREATER than the product_bulk_quantity, discount can be applied
-                      cartArr[i].total_price = (cartArr[i].product_bulk_price * user_data.cart[i].quantity);
+                  
+                  //check for global discount
+                for (var e = 0; e < user_data.cart.length; e++) {
+                  if (Auth.getGlobalDiscount !== '0') {
+                    // If global discount is greater than 0, proceed check if bulk / special exists on the product
+                    console.log('global discount greater than 0')
+                    //check if sale price exists
+                    if (cartArr[i].product_sale_price !== '0') {
+                      //if sale price greater than 0, apply sale discount
+                      cartArr[i].total_price = JSON.parse(cartArr[i].product_sale_price) * cartArr[i].quantity;
+                    } else if (cartArr[i].product_bulk_price !== "0" && cartArr[i].product_bulk_quantity <= parseInt(cartArr[i].quantity)) {
+                      // if bulk price is greater than 0 AND bulk quantity is less than QUANTITY
+                      cartArr[i].total_price = cartArr[i].quantity * cartArr[i].product_bulk_price
                     } else {
-                      // IF cart quantity is LESS than product_bulk_quantity, apply regular price
-                      cartArr[i].total_price = (cartArr[i].product_price * user_data.cart[i].quantity)
+                      //if sale price / bulk price doesn't exist, apply global discount
+                      cartArr[i].total_price = cartArr[i].quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
                     }
+                  } else {
+                    // if gobal discount does not exist, apply regular price
+                    cartArr[i].total_price = cartArr[i].product_price * cartArr[i].quantity
                   }
                 }
               }
@@ -232,19 +229,29 @@ if (Auth.loggedIn()) {
   const new_cart = localStorage.getItem('new_cart');
   // Auth.setCartQuantity(user_cart.length);
 
-  const cart_array_price = JSON.parse(new_cart);
+  //Add to cart price
+  const cart_price = [];
 
-  for (var h = 0; h < cart_array_price.length; h++) {
-    cart_price.push(cart_array_price[h].total_price)
+  if (Auth.loggedIn()) {
+    //check for USER total price
+    for (var m = 0; m < cartArr.length; m++) {
+      cart_price.push(JSON.parse(cartArr[m].total_price))
+    }
+  } else {
+    //check for GUEST total price
+    const cart_array_price = JSON.parse(new_cart);
+
+    for (var h = 0; h < cart_array_price.length; h++) {
+      cart_price.push(cart_array_price[h].total_price)
+    }
   }
 
   const cart_total = cart_price.reduce((a,b) => a + b, 0);
-  Auth.getCartTotal(cart_total);
 
   //check for guest_cart length
   const guest_cart_length = localStorage.getItem('guest_cart_quantity')
   //check for user_cart length
-  const user_cart_length = localStorage.getItem('user_cart_quantity');
+  const user_cart_length = cartArr.length;
 
   if (error) return `...ERROR`;
 
@@ -283,7 +290,6 @@ if (Auth.loggedIn()) {
                 </>
               )}                            
             </div>
-            <input type="checkbox" id="window-checkout-display" />
             <div className="window-cart-checkout-container">
               {checkOutModal && (
                 <div className="checkout-container">

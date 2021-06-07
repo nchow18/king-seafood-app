@@ -65,7 +65,7 @@ db.once('open', async () => {
     product_picture: ['https://drive.google.com/uc?id=10eXrzaRuMlyTdCImk8pp2Vf7_tBVm8Yx'],
     product_category: 'meat',
     product_price: '30',
-    product_sale_price: 0,
+    product_sale_price: 10,
     product_bulk_price: 0,
     product_weight: '',
     product_status: true,
@@ -77,7 +77,7 @@ db.once('open', async () => {
     product_picture: ['https://drive.google.com/uc?id=1IQ6yK05haIdVjYmUMWxCvMcQQwz0xIFG'],
     product_category: 'meat',
     product_price: '8',
-    product_sale_price: 0,
+    product_sale_price: 20,
     product_bulk_price: 0,
     product_weight: '',
     product_status: true,
@@ -90,11 +90,11 @@ db.once('open', async () => {
     product_category: 'meat',
     product_price: '16',
     product_sale_price: 0,
-    product_bulk_price: 0,
+    product_bulk_price: 30,
     product_weight: '',
     product_status: true,
-    product_bulk_quantity: 0,
-    product_featured: false
+    product_bulk_quantity: 3,
+    product_featured: true
  })
   await Product.create({
     product_name: 'Chicken Nuggets Tempura 鸡肉块 1kg',
@@ -102,10 +102,10 @@ db.once('open', async () => {
     product_category: 'meat',
     product_price: '16',
     product_sale_price: 0,
-    product_bulk_price: 0,
+    product_bulk_price: 20,
     product_weight: '',
     product_status: true,
-    product_bulk_quantity: 0,
+    product_bulk_quantity: 3,
     product_featured: false
  })
   await Product.create({
@@ -113,7 +113,7 @@ db.once('open', async () => {
     product_picture: ['https://drive.google.com/uc?id=1hLWW5SL6zeP43SAAteoyc_6_nszqeayd'],
     product_category: 'meat',
     product_price: '22',
-    product_sale_price: 0,
+    product_sale_price: 30,
     product_bulk_price: 0,
     product_weight: '',
     product_status: true,
@@ -125,7 +125,7 @@ db.once('open', async () => {
     product_picture: ['https://drive.google.com/uc?id=1uOBwSGwjIzzITptZOTnwAL7xbe1_MxDZ'],
     product_category: 'meat',
     product_price: '11.5',
-    product_sale_price: 0,
+    product_sale_price: 50,
     product_bulk_price: 0,
     product_weight: '',
     product_status: true,
@@ -149,7 +149,7 @@ db.once('open', async () => {
     product_picture: ['https://drive.google.com/uc?id=1YuJmXjy8lq2PjIf4GSbnCdpYhe8b2F9r'],
     product_category: 'meat',
     product_price: '25',
-    product_sale_price: 0,
+    product_sale_price: 10,
     product_bulk_price: 0,
     product_weight: '',
     product_status: true,
@@ -190,7 +190,7 @@ db.once('open', async () => {
     product_weight: '',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Mince Meat 肉碎 (L) 600g',
@@ -262,7 +262,7 @@ db.once('open', async () => {
     product_weight: '',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Smoked Back Bacon 黑毛猪肉培根 500g',
@@ -778,7 +778,7 @@ db.once('open', async () => {
     product_weight: '',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Shrimp Paste 虾滑 150g',
@@ -994,7 +994,7 @@ db.once('open', async () => {
     product_weight: '',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Canadian Scallops 加拿大带子 (L 20/30) 500g',
@@ -1210,7 +1210,7 @@ db.once('open', async () => {
     product_weight: '',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Saba Fillet 鲭鱼 500g',
@@ -1397,11 +1397,11 @@ db.once('open', async () => {
     product_picture: ['https://drive.google.com/uc?id=11z5Qyn6wCuRPA5CfYfbVWa0qexUmNBRv'],
     product_category: '',
     product_price: '',
-    product_sale_price: null,
-    product_bulk_price: null,
+    product_sale_price: 0,
+    product_bulk_price: 0,
     product_weight: '',
-    product_status: null,
-    product_bulk_quantity: null,
+    product_status: true,
+    product_bulk_quantity: 3,
     product_featured: false
  })
   await Product.create({
@@ -1462,7 +1462,7 @@ db.once('open', async () => {
     product_weight: '',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Unagi Bundle 鳗鱼 3x200g',
@@ -1726,7 +1726,7 @@ db.once('open', async () => {
     product_weight: '1kg',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'King Crab 帝王蟹 1.4-1.6kg',
@@ -1942,7 +1942,7 @@ db.once('open', async () => {
     product_weight: '1kg',
     product_status: true,
     product_bulk_quantity: 0,
-    product_featured: false
+    product_featured: true
  })
   await Product.create({
     product_name: 'Scampi U7 大头虾 (200-300g/nos)',

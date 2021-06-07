@@ -24,7 +24,7 @@ function CartItem(props) {
               <div className="window-cart-product-details">
                 <div className="window-cart-product-text">
                   <b>{product.product_name}</b>
-                  <p>{product.total_price.toFixed(2)}</p>
+                  <p>{JSON.parse(product.total_price).toFixed(2)}</p>
                 </div>
                 <div key={product._id} onClick={() => {removeProduct(product._id); dispatch({ type: 'toggle_button' })}} className="mobile-cart-remove-button">REMOVE</div>
               </div>

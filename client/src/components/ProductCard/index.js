@@ -10,19 +10,11 @@ function ProductCard(props) {
   const {
   products=[],
   currentProductLink,
+  productCategory=[],
   user
   } = props
 
   const [productArr] = useState({...products})
-
-  var productCategory = []
-
-  if (currentProductLink.name === 'All') {
-    productCategory = products;
-  } else {
-    const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
-    productCategory = currentProduct;
-  }
 
   const [isModal, setModal] = useState(false);
   const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
@@ -79,6 +71,7 @@ function ProductCard(props) {
       <div className="quantity-section">
         <Quantity
           product={product}
+          user={user}
         />
       </div>
     </div>

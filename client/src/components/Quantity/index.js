@@ -9,7 +9,7 @@ function Quantity(props) {
 
   const {
     product=[],
-    user=[]
+    user
   } = props
 
   const [state, dispatch] = useContext(UserContext)
@@ -48,6 +48,15 @@ function Quantity(props) {
     }
     } else {
     // if logged in, save data to user cart
+    // prevent duplicate product in cart
+      for (var i = 0; i < user.userMe.cart.length; i++) {
+        if (data === user.userMe.cart[i].product_id) {
+          alert('This product exists in your cart!')
+          return false;
+        }
+      }
+
+    // if it doesn't exist in USER cart, add to user CART db
     try {
         addCart({ variables: {
         input: {

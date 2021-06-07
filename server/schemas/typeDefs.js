@@ -51,6 +51,7 @@ const typeDefs = gql`
 
   type Product {
     _id: ID
+    createdAt: String
     product_name: String
     product_category: String
     product_price: String
@@ -75,6 +76,7 @@ const typeDefs = gql`
   }
 
   input ProductInput {
+    createdAt: String
     product_name: String
     product_category: String
     product_price: String

@@ -54,7 +54,7 @@ function Header(props) {
   // prevent guest_cart_quantity to be below 0
   const guest_cart = localStorage.getItem('guest_cart_quantity');
 
-  if (guest_cart < 0) {
+  if (guest_cart <= 0) {
     localStorage.setItem('guest_cart_quantity', 0)
   }
 
@@ -75,17 +75,17 @@ function Header(props) {
                 <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>Categories</Link>                
               )}
               {state.active === true && (
-                <span className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</span>
+                <span className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>Cart ( {Auth.getGuestCartQuantity()} )</span>
               )}
               {state.active === false && (
-                <span className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>{headerLinks[2].name} ( {Auth.getGuestCartQuantity()} )</span>
+                <span className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2]); setCartModal(true)}}>Cart ( {Auth.getGuestCartQuantity()} )</span>
               )}              
 
-              <Link to={headerLinks[4].href} className={`header-link ${currentHeaderLink.name === headerLinks[4].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[4])}}>{headerLinks[4].name}</Link>
+              <Link to={headerLinks[3].href} className={`header-link ${currentHeaderLink.name === headerLinks[3].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[3])}}>{headerLinks[3].name}</Link>
 
-              <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[6])}}>{headerLinks[6].name}</Link>
+              <Link to={headerLinks[5].href} className={`header-link ${currentHeaderLink.name === headerLinks[5].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[5])}}>{headerLinks[5].name}</Link>
 
-              <Link to={headerLinks[7].href} className={`header-link ${currentHeaderLink.name === headerLinks[7].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[7].name}</Link>
+              <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[6].name}</Link>
 
               {state.active === true && (
                 <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getGuestCartQuantity()})</b></i>

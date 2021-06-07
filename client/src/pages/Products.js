@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 import ProductHeader from '../components/ProductHeader';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { PRODUCTS, USER_ME } from '../utils/queries';
+import { formDate } from '../utils/helpers';
 
 
 function Products() {
@@ -21,6 +22,47 @@ function Products() {
   function scrollTop() {
     window.scrollTo(0,0);
   }
+
+  var productCategory = []
+
+  if (currentProductLink.name === 'All') {
+    productCategory = products;
+  } else if (currentProductLink.name === 'Bundle Promotion') {
+    //filter based on Bundle Promotions
+    const currentProduct = products.filter((product) => product.product_bulk_price !== '0');
+    productCategory = currentProduct;
+  } else if (currentProductLink.name === 'Sale') {
+    // filter based on Sale Products
+    const currentProduct = products.filter((product) => product.product_sale_price !== '0');
+    productCategory = currentProduct;
+  } else if (currentProductLink.name === 'Featured') {
+    // filter based on Featured Products
+    const currentProduct = products.filter((product) => product.product_featured === true)
+    productCategory = currentProduct;
+  } else if (currentProductLink.name === 'Newest Products') {
+    //filter based on Date
+    //start with pivot point of [0] index
+    const reversed = []
+
+    for (var i = products.length; i > 0; i--) {
+      reversed.push(products[i]);
+    }
+
+    for (var t = 1; t < 11; t++) {
+      if (reversed[t] === false) {
+        return false;
+      }
+        productCategory.push(reversed[t]);
+
+
+    }
+  } else {
+    // Filter based on the remaining Products
+    const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
+    productCategory = currentProduct;
+  }
+
+  console.log(productCategory);
 
   return (
   <>
@@ -47,7 +89,7 @@ function Products() {
       <div className="categories-links">
         <span><b>Categories</b></span>
         {productLinks.map((category) => (
-          <span onClick={() => {setCurrentProductLink(category)}}>{category.name}</span>
+          <span className={`categories-links ${currentProductLink.name === category.name && `categoryActive`}`} onClick={() => {setCurrentProductLink(category)}}>{category.name}</span>
         ))}
       </div>
 
@@ -57,6 +99,7 @@ function Products() {
         currentProductLink={currentProductLink}
         products={products}
         user={dataR}
+        productCategory={productCategory}
         />
     </div>
   </div>

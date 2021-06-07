@@ -58,6 +58,12 @@ class AuthService {
     },
     {
       name: 'Featured'
+    },
+    {
+      name: 'Sale'
+    },
+    {
+      name: 'Newest Products'
     }
     ]
 

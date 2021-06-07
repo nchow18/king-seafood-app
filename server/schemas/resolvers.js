@@ -4,6 +4,7 @@ const { AuthenticationError, UserInputError, ApolloError } = require('apollo-ser
 
 const { User, Promo, Product, Order } = require('../models');
 const { signToken } = require('../utils/auth');
+const { formDate } = require('../utils/helpers');
 const mongoose = require('mongoose');
 const stripe = require('stripe')(process.env.STRIPE_KEY || process.env.STRIPE_TEST_SK);
 
@@ -122,8 +123,8 @@ const resolvers = {
         addProduct: async(parent, { input }, context) => {
 
             if (context.user.admin === true) {
-    
-                const product = await Product.create(input);
+                console.log(input);
+                const product = await Product.create(input)
     
                 return product;
             } 

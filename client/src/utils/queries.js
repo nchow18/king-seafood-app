@@ -50,6 +50,7 @@ query product($product_id: ID!) {
     product_bulk_quantity
     product_bulk_price
     product_featured
+    createdAt
   }
 }
 `;
@@ -71,6 +72,7 @@ query {
     product_bulk_quantity
     product_bulk_price
     product_featured
+    createdAt
   }
 }
 `;

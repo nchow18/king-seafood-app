@@ -1,13 +1,5 @@
 const { Schema, model } = require('mongoose');
-
-// const pictureSchema = new Schema(
-//   {
-//     product_url: {
-//       type: [String],
-//       trim: true
-//     }
-//   }
-// )
+const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema(
   {
@@ -71,6 +63,11 @@ const productSchema = new Schema(
       type: Boolean,
       required: false,
       trim: true
+    },
+    createdAt: {
+      type: Date,
+      get: timestamp => dateFormat(timestamp),
+      default: Date.now
     }           
   },
   {

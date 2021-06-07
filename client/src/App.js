@@ -91,9 +91,12 @@ function App() {
 			user: false,
 			admin: false
 		},
+    {
+      name: 'none'
+    }
 	]);
 
-	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
+	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[7]);
   const [cartModal, setCartModal] = useState(false)
 
   Auth.checkToken();
