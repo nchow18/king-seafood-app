@@ -13,7 +13,7 @@ function Products() {
   const {data: dataR} = useQuery(USER_ME);
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
-  const [isModal, setModal] = useState(false);
+
   const [isCategoryModal, setCategoryModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
@@ -102,8 +102,6 @@ function Products() {
             products={products}
             user={dataR}
             productCategory={productCategory}
-            isModal={isModal}
-            setModal={setModal}
             setCategoryModal={setCategoryModal}
           />
         </div>

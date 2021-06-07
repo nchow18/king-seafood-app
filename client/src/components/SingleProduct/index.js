@@ -11,7 +11,6 @@ function SingleProduct(props) {
   const {
     setModal,
     singleProduct,
-    setCategoryModal
   } = props
 
   const product = singleProduct;

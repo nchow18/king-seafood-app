@@ -12,14 +12,12 @@ function ProductCard(props) {
   currentProductLink,
   productCategory=[],
   user,
-  isModal,
-  setModal,
   setCategoryModal
   } = props
 
   const [productArr] = useState({...products})
 
-
+  const [isModal, setModal] = useState(false);
   const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
   const featured = currentProductLink === 'featured' ? true : false;
 
