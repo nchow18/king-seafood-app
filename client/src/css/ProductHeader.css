@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  line-height: 1.5rem;
+  line-height: 1rem;
 }
 
 @media screen and (max-width: 650px) {
@@ -64,7 +64,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    line-height: 1.5rem;
+    line-height: 1rem;
   }
 
   @keyframes rightLeft {
@@ -78,7 +78,7 @@
 
   .product-header-link {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   .product-header-link:hover {
