@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.empty-cart-slide {
+  height: 30vh;
+}
+
 .checkout-order-submitted {
   display: flex;
   flex-direction: column;
@@ -99,7 +103,7 @@
 }
 
 .window-cart-product-text {
-  line-height: .5rem;
+  line-height: .75rem;
   padding: .2rem;
   font-size: .7rem;
 }

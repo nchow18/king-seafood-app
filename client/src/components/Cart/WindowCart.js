@@ -311,9 +311,11 @@ if (Auth.loggedIn()) {
               <span>Please fill your Cart</span>
               <img alt="fish" src={Fish} className="empty-fish" />
               <span>Products you might like</span>
-              <ProductSlide
-                product_data={product_data}
-              />
+              <div className="empty-cart-slide">
+                <ProductSlide
+                  product_data={product_data}
+                />
+              </div>
             </div>
           </div>
         )}               

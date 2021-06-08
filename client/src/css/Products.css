@@ -30,9 +30,6 @@
   justify-content: flex-start;
   padding: 0 1rem;
   width: 20rem;
-  position: sticky;
-  height: 40rem;
-  position: -webkit-sticky;
   top: 4rem;
 }
 
