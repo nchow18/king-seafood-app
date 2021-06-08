@@ -41,13 +41,17 @@
   padding: .5rem .5rem;
 }
 
+.link-hover:hover {
+  background-color: rgb(232, 232, 232);
+}
+
 .categories-links b {
   font-size: 1rem;
   margin-bottom: 1rem;
 }
 
 .categoryActive {
-  background-color: lightgray;
+  background-color: rgb(191, 191, 191);
   font-weight: bold;
 }
 
