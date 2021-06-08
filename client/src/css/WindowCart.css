@@ -91,9 +91,10 @@
 }
 
 .window-cart-product-img {
-  height: 4rem;
+  height: 100%;
   width: 4rem;
   margin-right: .5rem;
+
 }
 
 .window-cart-product-details {
@@ -225,11 +226,6 @@
   flex-direction: column;
   padding: 1rem;
   width: 500px;
-}
-
-#window-checkout-display:checked ~ .window-display-container {
-  right: 0rem;
-  transition: all .7s ease-in-out;
 }
 
 .payment-button {
