@@ -28,12 +28,23 @@ function Quantity(props) {
 
   const addToCart = async (data, quantity) => {
     if (Auth.loggedIn() === false) {
-    //if NOT logged in, save to localStorage
-    if (localStorage.getItem('guest_cart')) {
-      // IF data is stored in Local Storage
-      const guest_cart = {product_id: data, quantity: parseInt(quantity)};
+    // IF data is stored in Local Storage
+
       const new_cart = JSON.parse(localStorage.getItem('guest_cart'));
+    //if NOT logged in, save to localStorage
+    if (new_cart.length > 0) {
+      // Check for duplicate
+      for (var t = 0; t < new_cart.length; t++) {
+        if (data === new_cart[t].product_id) {
+          alert('items already exists in your cart')
+          return false;
+        }
+      }      
+      const guest_cart = {product_id: data, quantity: parseInt(quantity)};
+
+      console.log(new_cart[0].product_id);
       const cart = [...new_cart, guest_cart]
+
       alert('Product added to cart');
       // store CART length as quantity
       localStorage.setItem('guest_cart_quantity', JSON.stringify(cart.length))
