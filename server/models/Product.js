@@ -21,12 +21,14 @@ const productSchema = new Schema(
     product_description: {
       type: String,
       required: false,
-      trim: true
+      trim: true,
+      default: ''
     },
     product_weight: {
       type: String,
       required: false,
-      trim: true
+      trim: true,
+      default: ''
     },
     product_picture: [String],
     product_nameChinese: {

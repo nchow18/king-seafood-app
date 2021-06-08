@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import '../css/Admin.css';
 import AdminCategories from '../components/AdminComponents/Products';
@@ -30,6 +30,19 @@ function AdminProducts() {
     product_status: 'true'
   })
 
+
+  const [status, setStatus] = useState(false)
+  const [load, setLoad] = useState(false)
+  const [edit, setEdit] = useState(true);
+
+  useEffect(() => {
+    console.log('updating componenet');
+
+    return () => {
+      console.log('cleaned up')
+    }
+  }, [status])
+
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
 
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
@@ -43,7 +56,6 @@ function AdminProducts() {
   }
 
   const addProductFormSubmit = async (e) => {
-  e.preventDefault();
 
   try {
     addProduct({ variables: { input: {
@@ -80,7 +92,7 @@ function AdminProducts() {
     </div>
     <div className="admin-form-container night-bg">
     <div className="admin-input-width" value="ID">ID</div>
-    <form className="flex-start-row" onSubmit={addProductFormSubmit}>
+    <form className="flex-start-row">
       <div className="admin-input-row">
         <label className="bold">Name</label>
         <input value={formData.product_name} onChange={handleInputChange} className="product-name admin-input-width" name='product_name' type="text"></input>
@@ -133,7 +145,7 @@ function AdminProducts() {
         <label className="bold">Picture Location</label>
         <input value={formData.product_picture} onChange={handleInputChange} className="product-picture admin-input-width" name='product_picture' type="text"></input>
       </div>
-        <button className="admin-button" type='submit'>ADD PRODUCT</button>
+        <div className="admin-button" type='submit' onClick={() => {addProductFormSubmit(); setStatus(true)}}>ADD PRODUCT</div>
       </form>
     </div>
     <div className="flex-start-row">
@@ -143,13 +155,25 @@ function AdminProducts() {
         productLinks={productLinks}
         currentProductLink={currentProductLink}
         setCurrentProductLink={setCurrentProductLink}
-        setModal={setModal}
+        setCategoryModal={setModal}
+        setEdit={setEdit}
       />
       )}
       <button onClick={() => {setModal(true)}} type="submit">SELECT</button>
+      {load ? (
+        <button onClick={() => {setLoad(false)}} type="submit">CONFIRM</button>        
+      ) : (
+        <button onClick={() => {setLoad(true)}} type="submit">CONFIRM</button>
+      )}
     </div>
     <AdminCategories
       currentCategory={currentProductLink}
+      productArr={products}
+      setStatus={setStatus}
+      currentProductLink={currentProductLink}
+      load={load}
+      setEdit={setEdit}
+      edit={edit}
      />
   </div>
 

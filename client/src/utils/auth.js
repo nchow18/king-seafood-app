@@ -45,6 +45,12 @@ class AuthService {
       name: 'Bundle Promotion',
     },
     {
+      name: 'Fish'
+    },
+    {
+      name: 'Hotpot'
+    },
+    {
       name: 'Squid',
     },
     {

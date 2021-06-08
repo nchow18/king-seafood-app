@@ -6,7 +6,8 @@ function ProductHeader(props) {
   const {
     productLinks = [],
     setCurrentProductLink,
-    setCategoryModal
+    setCategoryModal,
+    setEdit
   } = props
 
   return (
@@ -14,7 +15,7 @@ function ProductHeader(props) {
       <div className="admin-category-container">
         {productLinks.map((link) => (
           <span to={link.href} key={link.name} className='product-header-link' onClick={() => {
-            setCurrentProductLink(link); setCategoryModal(false)
+            setCurrentProductLink(link); setEdit(true); setCategoryModal(false);
           }}>{link.name}</span>
         ))}
       </div>
