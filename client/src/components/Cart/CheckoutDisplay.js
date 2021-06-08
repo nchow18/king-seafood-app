@@ -45,7 +45,7 @@ function CheckoutDisplay(props) {
     '*First Name:* '+formData.first_name+
     ',\n %0a*Last Name:* '+formData.last_name+
     ',\n %0a*Phone:* '+formData.phone+
-    ',\n %0a*Address:* '+formData.street_number+
+    ',\n %0a*Address:* '+formData.address+
     // ',\n %0a*Street Name:* '+formData.street_name+
     // ',\n %0a*State:* '+formData.state+
     // ',\n %0a*Region:* '+formData.region+
