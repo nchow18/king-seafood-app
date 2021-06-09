@@ -14,7 +14,7 @@ function Products() {
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
 
-  const [isCategoryModal, setCategoryModal] = useState(false)
+  const [categoryModal, setCategoryModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
@@ -63,13 +63,11 @@ function Products() {
     productCategory = currentProduct;
   }
 
-  console.log(productCategory);
-
   return (
   <>
   <div className="nav-product-buttons">
     <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
-    {isCategoryModal ? (
+    {categoryModal ? (
       <i className="fas fa-arrow-circle-right top-button" onClick={() => {setCategoryModal(false)}}></i>
     ) : (
       <i className="fas fa-plus-square top-button" onClick={() => {setCategoryModal(true)}}></i>
@@ -77,7 +75,7 @@ function Products() {
 
   </div>
 
-  {isCategoryModal && (
+  {categoryModal && (
     <ProductHeader 
       productLinks={productLinks}
       currentProductLink={currentProductLink}

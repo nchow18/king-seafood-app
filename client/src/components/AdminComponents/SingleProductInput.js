@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useMutation} from '@apollo/react-hooks';
 import { REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT_PICTURE } from '../../utils/mutations';
+import { UserContext } from '../../utils/GlobalState';
 
 function SingleProductInput(props) {
 
@@ -8,6 +9,7 @@ function SingleProductInput(props) {
     product
   } = props
 
+  const [state, dispatch] = useContext(UserContext)
   const [removeProduct, { error }] = useMutation(REMOVE_PRODUCT);
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
   const [addPicture] = useMutation(ADD_PRODUCT_PICTURE);
@@ -95,7 +97,6 @@ function SingleProductInput(props) {
           product_id: product._id
         }
       })
-      alert('Picture slot added');
     } catch (e) {
       console.log(e)
     }
@@ -154,7 +155,7 @@ function SingleProductInput(props) {
               <input value={formData.product_featured} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_featured' placeholder={product.product_featured.toString()} type="text"   />
             </div>
             <div className="admin-input-row">
-              <div onClick={() => {updateProductFormSubmit();}} className="admin-button">UPDATE</div>
+              <div onClick={() => {updateProductFormSubmit(); dispatch({ type: 'toggle_button' })}} className="admin-button">UPDATE</div>
               <div onClick={() => {addProductPicture()}} className="admin-button">ADD PICTURE SLOT</div>
               <div className="admin-button" onClick={() => { deleteProductFormSubmit()}}>DELETE</div>
           </div>

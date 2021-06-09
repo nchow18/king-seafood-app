@@ -174,11 +174,13 @@
   position: relative;
   z-index: 999;
   margin-top: 6.5rem;
+  scroll-snap-type: x mandatory;
 }
 
 .single-product-img {
   height: 50vh;
   object-fit: cover;
+  scroll-snap-align: start;
 }
 
 .single-product-img-container {

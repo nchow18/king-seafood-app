@@ -14,7 +14,7 @@ function AdminProducts() {
   const [state, dispatch] = useContext(UserContext)
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
-  const [isModal, setModal] = useState(false)
+  const [categoryModal, setCategoryModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [formData, setProductFormData] = useState({
     product_name: '',
@@ -168,17 +168,17 @@ function AdminProducts() {
     </div>
     <div className="flex-start-row">
       <span><b>Sort by CATEGORY: </b> </span>
-      {isModal && (
+      {categoryModal && (
       <ProductHeader 
         productLinks={productLinks}
         currentProductLink={currentProductLink}
         setCurrentProductLink={setCurrentProductLink}
-        setCategoryModal={setModal}
+        setCategoryModal={setCategoryModal}
         setEdit={setEdit}
         setSearch={setSearch}
       />
       )}
-      <button onClick={() => {setModal(true)}} type="submit">SELECT</button>
+      <button onClick={() => {setCategoryModal(true)}} type="submit">SELECT</button>
       {load ? (
         <button onClick={() => {setLoad(false)}} type="submit">CONFIRM</button>        
       ) : (
