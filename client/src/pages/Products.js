@@ -25,52 +25,73 @@ function Products() {
   }
 
   var productCategory = []
+  const homeCategory = Auth.getCategory();
+  const empty = {name: ""};
+  console.log(homeCategory);
 
-  if (currentProductLink.name === 'All') {
-    productCategory = products;
-  } else if (currentProductLink.name === 'Bundle Promotion') {
-    //filter based on Bundle Promotions
-    const currentProduct = products.filter((product) => product.product_bulk_price !== '0');
-    productCategory = currentProduct;
-  } else if (currentProductLink.name === 'Sale') {
-    // filter based on Sale Products
-    const currentProduct = products.filter((product) => product.product_sale_price !== '0');
-    productCategory = currentProduct;
-  } else if (currentProductLink.name === 'Featured') {
-    // filter based on Featured Products
-    const currentProduct = products.filter((product) => product.product_featured === true)
-    productCategory = currentProduct;
-  } else if (currentProductLink.name === 'Newest Products') {
-    //filter based on Date
-    //start with pivot point of [0] index
-    const reversed = []
-
-    for (var i = products.length; i > 0; i--) {
-      reversed.push(products[i]);
-    }
-
-    for (var t = 1; t < 11; t++) {
-      if (reversed[t] === false) {
-        return false;
-      }
-        productCategory.push(reversed[t]);
-
-
-    }
-  } else {
-    // Filter based on the remaining Products
-    const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
-    productCategory = currentProduct;
+  function clearCategoryStorage() {
+    localStorage.setItem('current_category', JSON.stringify(empty));
   }
+
+    if (currentProductLink.name === 'All' && homeCategory.name === '') {
+      productCategory = products;
+      localStorage.setItem('current_category', JSON.stringify(empty));
+    } else if (currentProductLink.name === 'Bundle Promotion' || homeCategory.name === 'Bundles') {
+      //filter based on Bundle Promotions
+      const currentProduct = products.filter((product) => product.product_bulk_price !== '0');
+      productCategory = currentProduct;
+    } else if (currentProductLink.name === 'Sale' || homeCategory.name === 'Sale') {
+      // filter based on Sale Products
+      const currentProduct = products.filter((product) => product.product_sale_price !== '0');
+      productCategory = currentProduct;
+    } else if (currentProductLink.name === 'Featured' || homeCategory.name === 'Featured') {
+      // filter based on Featured Products
+      const currentProduct = products.filter((product) => product.product_featured === true)
+      productCategory = currentProduct;
+    } else if (currentProductLink.name === 'Newest Products' || homeCategory.name === 'Newest') {
+      //filter based on Date
+      //start with pivot point of [0] index
+      const reversed = []
+
+      for (var i = products.length; i > 0; i--) {
+        reversed.push(products[i]);
+      }
+
+      for (var t = 1; t < 11; t++) {
+        if (reversed[t] === false) {
+          return false;
+        }
+          productCategory.push(reversed[t]);
+      }
+    } else {
+      // Filter based on the remaining Products
+      if ( 
+        homeCategory.name === 'Fish' || 
+        homeCategory.name === 'Squid' || 
+        homeCategory.name === 'Shellfish' ||
+        homeCategory.name === 'Fruits' || 
+        homeCategory.name === 'Meat' ||
+        homeCategory.name === 'Vegetables' ||
+        homeCategory.name === 'Hotpot' ||
+        homeCategory.name === 'Scallops' ) {
+
+        const currentProduct = products.filter((product) => product.product_category.toLowerCase() === homeCategory.name.toLowerCase());
+        productCategory = currentProduct;
+      } else {
+        const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
+        productCategory = currentProduct;
+      }
+
+    }
 
   return (
   <>
   <div className="nav-product-buttons">
     <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
     {categoryModal ? (
-      <i className="fas fa-arrow-circle-right top-button" onClick={() => {setCategoryModal(false)}}></i>
+      <i className="fas fa-arrow-circle-right top-button" onClick={() => {setCategoryModal(false); clearCategoryStorage()}}></i>
     ) : (
-      <i className="fas fa-plus-square top-button" onClick={() => {setCategoryModal(true)}}></i>
+      <i className="fas fa-plus-square top-button" onClick={() => {setCategoryModal(true); clearCategoryStorage()}}></i>
     )}
 
   </div>

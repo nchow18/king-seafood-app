@@ -27,6 +27,16 @@ class AuthService {
 
   }
 
+  setCategory(category) {
+    localStorage.setItem('current_category', JSON.stringify(category))
+    return window.location.href = "/products";
+  }
+
+  getCategory() {
+    const category = localStorage.getItem('current_category');
+    return JSON.parse(category);
+  }
+
   getCategories() {
     const categories = [
 		{

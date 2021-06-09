@@ -12,6 +12,7 @@ import Sale from '../../assets/images/category/sale.png';
 import Bundle from '../../assets/images/category/bundle.png';
 import Special from '../../assets/images/category/special.png';
 import Shellfish from '../../assets/images/category/shellfish.png';
+import Auth from '../../utils/auth';
 
 function MainProducts() {
 
@@ -70,16 +71,25 @@ function MainProducts() {
     }    
   ])
 
+  const [currentCategory, setCategory] = useState(category[0])
+
+
+  function storeCategory(product) {
+    Auth.setCategory(product);
+  }
+
+  console.log(currentCategory);
+
   return (
     <>
       <div className="main-promo-container">
         <div className="main-promo-slider">
           {category.map((product) => (
-            <div className="slider-container">
-              <div className="slider-icon-container">
+            <div className="slider-container" >
+              <div className="slider-icon-container" onClick={() => {storeCategory(product); setCategory(product); }}>
                 <img alt={product.name} src={product.img} className="slider-icon" />
               </div>
-              <span>{product.name}</span>
+              <span>{product.name.toUpperCase()}</span>
             </div>
           ))}
         </div>
