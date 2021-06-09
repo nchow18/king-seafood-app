@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import { PROMO, PRODUCTS } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
@@ -13,31 +13,40 @@ import MainProducts from '../components/Carousel/MainProducts';
 
 function Home() {
 
+  const [isPromo, setPromo] = useState(false);
   const [isModal, setModal] = useState(false);
   const { loading, data } = useQuery(PROMO);
   const promo = data?.promo || {};
   const { data: Data } = useQuery(PRODUCTS);
   const products = Data?.products || {};
   const location = useLocation();
-
   const featuredProducts = [];
+
+  useEffect(() => {
+    setTimeout(displayPromo, 4000);
+  }, [])
+
+  function displayPromo() {
+    setPromo(true);
+  }
 
   if (loading) return `...Loading`;
 
   if (data) {
-  for (var i = 0; i < products.length; i++) {
-    if (promo[0].featuredProduct1 === products[i]._id) {
-    featuredProducts.push(products[i])
+    for (var i = 0; i < products.length; i++) {
+      if (promo[0].featuredProduct1 === products[i]._id) {
+      featuredProducts.push(products[i])
+      }
+      if (promo[0].featuredProduct2 === products[i]._id) {
+      featuredProducts.push(products[i])
+      }
+      if (promo[0].featuredProduct3 === products[i]._id) {
+      featuredProducts.push(products[i])
+      }
     }
-    if (promo[0].featuredProduct2 === products[i]._id) {
-    featuredProducts.push(products[i])
-    }
-    if (promo[0].featuredProduct3 === products[i]._id) {
-    featuredProducts.push(products[i])
-    }
-  }
   }
 
+  
   Auth.setGlobalDiscount(promo[0].discount);
 
   return (
@@ -63,14 +72,17 @@ function Home() {
         />        
       </div>
     </div>
-    {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
-      <div className="home-section">
-        <b className="section-title">Current Promotions</b>
-        <PromoCarousel
-          promotions={promo}
-        />
+    {isPromo === true && (
+      <div>
+        {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
+            <PromoCarousel
+              promotions={promo}
+              setPromo={setPromo}
+            />
+        )}
       </div>
     )}
+
     <div className="home-section">
       <b className="section-title">Products you might like</b>
       <p></p>
