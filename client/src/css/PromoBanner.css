@@ -10,6 +10,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .promo-banner-slider-container {
@@ -29,23 +30,13 @@
   font-size: 3rem;
   color: white;
   position: absolute;
-  top: 8rem;
-  left: 8rem;
+  top: 2rem;
+  left: 2rem;
 }
 
-
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 800px) {
   .promo-banner-slider-container {
-    overflow-x:initial;
-    flex-direction: column;
-  }
-
-  .promo-banner {
-    margin-right: 0rem;
-    margin: 1rem;
-    border: 1px solid black;
-    height: 50vh;
-    width: auto;
-    object-fit: contain;
+    width: 80%;
+    height: 60%;
   }
 }

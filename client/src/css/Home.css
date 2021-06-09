@@ -301,7 +301,7 @@
   width: 100%;
   position: absolute;
   left: 0;
-  top: -.5rem;
+  top: 0rem;
   z-index: 20;
   background-color: white;
   display: initial;
@@ -313,7 +313,7 @@
   display: flex;
   height: 100%;
   scroll-snap-type: x mandatory;
-  padding: 0rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .slider-container {
@@ -328,7 +328,7 @@
   border-radius: 50%;
   border: 1px solid black;
   margin: 0rem .5rem;
-  height: 75%;
+  height: 100%;
   position: relative;
   z-index: 30;
 }
