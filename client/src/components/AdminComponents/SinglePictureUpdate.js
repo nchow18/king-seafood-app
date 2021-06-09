@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { REMOVE_PRODUCT_PICTURE, UPDATE_PRODUCT_PICTURE } from '../../utils/mutations';
 import { UserContext } from '../../utils/GlobalState';
@@ -11,6 +11,7 @@ function SinglePictureUpdate(props) {
     setStatus
   } = props
 
+  const [state, dispatch] = useContext(UserContext);
   const [removePicture, { error }] = useMutation(REMOVE_PRODUCT_PICTURE);
   const [updateProductPicture] = useMutation(UPDATE_PRODUCT_PICTURE);
   const [formData, setFormData] = useState({
@@ -33,7 +34,6 @@ function SinglePictureUpdate(props) {
           product_url: picture
         }
       })
-      alert('Picture Deleted');
     } catch (e) {
       console.log(e)
     }
@@ -48,7 +48,6 @@ function SinglePictureUpdate(props) {
           product_old_url: picture
         }
       })
-      alert('Picture Updated')
     } catch (e) {
       console.log(e)
     }
@@ -59,8 +58,8 @@ function SinglePictureUpdate(props) {
   return (
     <>
       <b className="bold">Picture</b>  
-      <div className="picture-update-button" onClick={() => {deletePicture(); setStatus(true)}}>DELETE</div>
-      <div className="picture-update-button" onClick={() => {updatePicture(); setStatus(true)}}>UPDATE</div>
+      <div className="picture-update-button" onClick={() => {deletePicture(); setStatus(true); dispatch({ type: 'toggle_button'})}}>DELETE</div>
+      <div className="picture-update-button" onClick={() => {updatePicture(); setStatus(true); dispatch({ type: 'toggle_ubtton'})}}>UPDATE</div>
       <input className="product-picture admin-input-width" name='picture_url' value={formData.picture_url} onChange={handleInputChange} type="text" />
     </>
   )

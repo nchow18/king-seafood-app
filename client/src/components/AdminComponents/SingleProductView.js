@@ -44,7 +44,7 @@ function SingleProductView(props) {
       </div>
       <div className="admin-input-row">
         <b className="bold">Bulk Quantity</b>
-        <div className="product-description-chinese admin-input-width"  name='product_bulk_quantity' >{product.product_bulk_quality}</div>
+        <div className="product-description-chinese admin-input-width"  name='product_bulk_quantity' >{product.product_bulk_quantity}</div>
       </div>
       <div className="admin-input-row">
         <b className="bold">Bulk Sale Price</b>
@@ -52,11 +52,11 @@ function SingleProductView(props) {
       </div>
       <div className="admin-input-row">
         <b className="bold">Product Status: true/false</b>
-        <div className="product-description-chinese admin-input-width" name='product_status'  >{product.product_status}</div>
+        <div className="product-description-chinese admin-input-width" name='product_status'  >{JSON.stringify(product.product_status)}</div>
       </div>
       <div className="admin-input-row">
         <b className="bold">Featured: true/false</b>
-        <div className="product-description-chinese admin-input-width" name='product_featured'  >{product.product_featured}</div>
+        <div className="product-description-chinese admin-input-width" name='product_featured'  >{JSON.stringify(product.product_featured)}</div>
       </div>    
     </>
   )

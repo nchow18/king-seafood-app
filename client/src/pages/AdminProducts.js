@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Auth from '../utils/auth';
 import '../css/Admin.css';
 import AdminCategories from '../components/AdminComponents/Products';
@@ -7,9 +7,11 @@ import { ADD_PRODUCT } from '../utils/mutations';
 import { PRODUCTS } from '../utils/queries';
 import ProductHeader from '../components/ProductHeader';
 import '../css/ProductHeader.css';
+import { UserContext } from '../utils/GlobalState';
 
 function AdminProducts() {
 
+  const [state, dispatch] = useContext(UserContext)
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
   const [isModal, setModal] = useState(false)
@@ -75,15 +77,13 @@ function AdminProducts() {
     }
   }
 
-
-  
   useEffect(() => {
     console.log('updating componenet');
     
     return () => {
       console.log('cleaned up')
     }
-  }, [status])
+  }, [status, state])
 
   //add search results into productArr
   const productArr = products;
@@ -94,13 +94,10 @@ function AdminProducts() {
 
     console.log('using keywords for search');
     const searchResults = products.findIndex((product) => product.product_name.toLowerCase().includes(formData.search.toLowerCase()));
-    console.log(searchResults);
     const result = products[searchResults];
 
     return Auth.setSearchProduct(JSON.stringify(result));
   }
-
-  console.log(productArr);
 
   if (loading) return `..Loading`;
   if (error) return `...ERROR`;
@@ -189,7 +186,7 @@ function AdminProducts() {
       )}
       <input className="admin-input-width" placeholder="Enter keywords" value={formData.search} onChange={handleInputChange} name="search" />
         {search ? (
-          <div onClick={() => {searchProduct(); setSearch(false)}} className="admin-button">SEARCH</div>
+          <div onClick={() => {searchProduct(); setSearch(false)}} className="admin-button">CLEAR SEARCH</div>
         ) : (
           <div onClick={() => {searchProduct(); setSearch(true)}} className="admin-button">SEARCH</div>
         )}       

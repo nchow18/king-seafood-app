@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../utils/GlobalState';
 import '../../css/Admin.css';
 import SinglePictureUpdate from '../AdminComponents/SinglePictureUpdate';
 import SingleProductInput from './SingleProductInput';
@@ -15,11 +15,12 @@ function SingleProductEdit(props) {
 
   const product = singleProduct
   const pictureArr = product.product_picture;
-
+  const [state, dispatch] = useContext(UserContext);
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
     console.log('updating picture slot');
+    setStatus(false);
   }, [status])
 
   return (
@@ -27,14 +28,14 @@ function SingleProductEdit(props) {
       <form className="admin-form-container night-bg">
         {edit ? (
           <>
-            <div className="admin-button" onClick={() => {setEdit(false)}}>EDIT PRODUCT</div>
+            <div className="admin-button" onClick={() => {setEdit(false); dispatch({ type: 'toggle_button' })}}>EDIT PRODUCT</div>
             <SingleProductView 
               product={product}
             />
           </>
         ) : (
           <>
-          <div className="admin-button" onClick={() => {setEdit(true)}}>VIEW PRODUCT</div>
+          <div className="admin-button" onClick={() => {setEdit(true); dispatch({ type: 'toggle_button' })}}>VIEW PRODUCT</div>
             <SingleProductInput 
             product={product}
           />
