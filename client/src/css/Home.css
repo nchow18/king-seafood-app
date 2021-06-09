@@ -329,6 +329,7 @@
   border: 1px solid black;
   margin: 0rem .5rem;
   height: 100%;
+  width: 4rem;
   position: relative;
   z-index: 30;
 }
@@ -339,6 +340,7 @@
 
 .slider-icon {
   height: 100%;
+  width: 100%;
 }
 }
 
