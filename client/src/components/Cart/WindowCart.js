@@ -205,7 +205,7 @@ if (Auth.loggedIn()) {
           //check product_bulk_quantity, greater than 0 AND quantity is greater than the bulk to qualify
           if (cartArr[r].product_bulk_quantity > 0 && cartArr[r].product_bulk_quantity <= cartArr[r].quantity) {
 
-            cartArr[r].total_price = (cartArr[r].product_bulk_quantity * cartArr[r].product_bulk_price);
+            cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_bulk_price);
           } else if (global_discount > 0) {
             // if quantity isn't enough, check if global discount is available to be applied
             cartArr[r].total_price = (cartArr[r].product_price * global_discount * cartArr[r].quantity);

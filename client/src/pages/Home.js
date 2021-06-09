@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import AboutSection from '../components/About/About';
 import '../css/Home.css';
 import ProductCarousel from '../components/Carousel/RandomProducts'
+import MainProducts from '../components/Carousel/MainProducts';
 
 function Home() {
 
@@ -42,24 +43,25 @@ function Home() {
   return (
   location.pathname === `/` &&
   <>
-  	  <div className="home-page">
-    <div className="home-banner-content">
-      <img alt="home-banner" src="https://wallpaperaccess.com/full/1491748.jpg" className="home-banner" />
-      <div className="logo-container">
-        <p>FRESHLY FROZEN SEAFOOD</p>
+    <div className="home-page">
+      <MainProducts />
+      <div className="home-banner-content">
+        <img alt="home-banner" src="https://wallpaperaccess.com/full/1491748.jpg" className="home-banner" />
+        <div className="logo-container">
+          <p>FRESHLY FROZEN SEAFOOD</p>
+          </div>
+        <div className="home-banner-text">
+        {/* TEXT HERE */}
+      
+        <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
         </div>
-      <div className="home-banner-text">
-      {/* TEXT HERE */}
-    
-      <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
       </div>
-    </div>
-    <div className="home-section">
-      <b className="section-title">Featured Products</b>
-      <FeaturedCarousel
-        products={products}
-      />        
-    </div>
+      <div className="home-section">
+        <b className="section-title">Featured Products</b>
+        <FeaturedCarousel
+          products={products}
+        />        
+      </div>
     </div>
     {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
       <div className="home-section">
