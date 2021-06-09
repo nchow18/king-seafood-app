@@ -123,6 +123,14 @@ class AuthService {
 
   }
 
+  setSearchProduct(product) {
+    return localStorage.setItem('product_search', product)
+  }
+
+  getSearchProduct() {
+    return localStorage.getItem('product_search');
+  }
+
   setSingleProduct(product_id) {
     return localStorage.setItem('id_product', product_id)
   }

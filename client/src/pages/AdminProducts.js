@@ -12,7 +12,6 @@ function AdminProducts() {
 
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
-  const featured = products.product_featured ? 'true' : 'false'
   const [isModal, setModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [formData, setProductFormData] = useState({
@@ -27,21 +26,16 @@ function AdminProducts() {
     product_sale_price: '0',
     product_bulk_quantity: '0',
     product_bulk_price: '0',
-    product_status: 'true'
+    product_status: 'true',
+    search: '',
   })
-
 
   const [status, setStatus] = useState(false)
   const [load, setLoad] = useState(false)
   const [edit, setEdit] = useState(true);
+  const [search, setSearch] = useState(false);
 
-  useEffect(() => {
-    console.log('updating componenet');
 
-    return () => {
-      console.log('cleaned up')
-    }
-  }, [status])
 
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
 
@@ -74,12 +68,39 @@ function AdminProducts() {
     product_featured: JSON.parse(formData.product_featured)
     } }})
 
-    alert('product added');
-  } catch (e) {
-    console.log(e);
-    alert(e);
+      alert('product added');
+    } catch (e) {
+      console.log(e);
+      alert(e);
+    }
   }
-  } 
+
+
+  
+  useEffect(() => {
+    console.log('updating componenet');
+    
+    return () => {
+      console.log('cleaned up')
+    }
+  }, [status])
+
+  //add search results into productArr
+  const productArr = products;
+  const searchLocalStorage = Auth.getSearchProduct();
+  const searchResults = JSON.parse(searchLocalStorage);
+
+  function searchProduct() {
+
+    console.log('using keywords for search');
+    const searchResults = products.findIndex((product) => product.product_name.toLowerCase().includes(formData.search.toLowerCase()));
+    console.log(searchResults);
+    const result = products[searchResults];
+
+    return Auth.setSearchProduct(JSON.stringify(result));
+  }
+
+  console.log(productArr);
 
   if (loading) return `..Loading`;
   if (error) return `...ERROR`;
@@ -157,6 +178,7 @@ function AdminProducts() {
         setCurrentProductLink={setCurrentProductLink}
         setCategoryModal={setModal}
         setEdit={setEdit}
+        setSearch={setSearch}
       />
       )}
       <button onClick={() => {setModal(true)}} type="submit">SELECT</button>
@@ -165,16 +187,37 @@ function AdminProducts() {
       ) : (
         <button onClick={() => {setLoad(true)}} type="submit">CONFIRM</button>
       )}
+      <input className="admin-input-width" placeholder="Enter keywords" value={formData.search} onChange={handleInputChange} name="search" />
+        {search ? (
+          <div onClick={() => {searchProduct(); setSearch(false)}} className="admin-button">SEARCH</div>
+        ) : (
+          <div onClick={() => {searchProduct(); setSearch(true)}} className="admin-button">SEARCH</div>
+        )}       
     </div>
-    <AdminCategories
-      currentCategory={currentProductLink}
-      productArr={products}
-      setStatus={setStatus}
-      currentProductLink={currentProductLink}
-      load={load}
-      setEdit={setEdit}
-      edit={edit}
-     />
+    {search ? (
+      <AdminCategories
+        currentCategory={currentProductLink}
+        searchResults={searchResults}
+        setStatus={setStatus}
+        currentProductLink={currentProductLink}
+        load={load}
+        setEdit={setEdit}
+        edit={edit}
+        search={search}
+    />
+    ) : (
+      <AdminCategories
+        currentCategory={currentProductLink}
+        productArr={productArr}
+        setStatus={setStatus}
+        currentProductLink={currentProductLink}
+        load={load}
+        setEdit={setEdit}
+        edit={edit}
+        search={search}
+     />      
+    )}
+
   </div>
 
   </>

@@ -11,15 +11,11 @@ function SinglePictureUpdate(props) {
     setStatus
   } = props
 
-  console.log(picture);
-
   const [removePicture, { error }] = useMutation(REMOVE_PRODUCT_PICTURE);
   const [updateProductPicture] = useMutation(UPDATE_PRODUCT_PICTURE);
   const [formData, setFormData] = useState({
     picture_url: picture
   })
-
-
 
   const handleInputChange = event => {
     const { name, value } = event.target;

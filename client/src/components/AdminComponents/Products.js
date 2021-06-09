@@ -10,20 +10,39 @@ function AdminCategories(props) {
     setStatus,
     load,
     edit,
-    setEdit
+    setEdit,
+    search,
+    searchResults=[]
   } = props
 
   var chosenArr = [];
+  const searchArr = searchResults;
 
-  if (currentCategory.name === 'All') {
-    chosenArr = productArr;
+  if (search === false) {
+    if (currentCategory.name === 'All') {
+      chosenArr = productArr;
+    } else {
+      const filteredArr = productArr.filter((product) => product.product_category.toLowerCase() === currentCategory.name.toLowerCase());
+      chosenArr = filteredArr;
+    }
   } else {
-    const filteredArr = productArr.filter((product) => product.product_category.toLowerCase() === currentCategory.name.toLowerCase());
-    chosenArr = filteredArr;
+    
   }
 
   return (
     <>
+    {search ? (
+        <div className="admin-container">
+          <SingleProductEdit 
+            setStatus={setStatus}
+            singleProduct={searchArr}
+            load={load}
+            edit={edit}
+            setEdit={setEdit}
+          />            
+        </div>    
+    ) : (
+      <>
       {chosenArr.map((product) => (
         <div className="admin-container">
           <SingleProductEdit 
@@ -35,6 +54,9 @@ function AdminCategories(props) {
           />            
         </div>
       ))} 
+      </>
+    )}
+
     </>
   )
 }
