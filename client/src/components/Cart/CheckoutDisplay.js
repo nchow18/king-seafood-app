@@ -59,7 +59,7 @@ function CheckoutDisplay(props) {
   const number = '60103893421'
 
   function sendMessage() {
-    window.confirm('Proceed to submit your order?');
+    window.confirm('Proceed to submit your order through Whatsapp?');
     // // Check for perfect 10 digit length
     // if (formData.phone.length > 9) {
     //   alert('Please insert correct contact number');
@@ -75,6 +75,18 @@ function CheckoutDisplay(props) {
       .catch(() => {
         alert('Make sure Whatsapp installed on your device');
       });   
+  }
+
+  function sendMessageOnline() {
+    window.confirm('Proceed to submit order online?')
+    let url = 'https://wa.me/' + number + '/?text=' + message;
+    Linking.openURL(url)
+    .then((data) => {
+      console.log('WhatsApp Web Opened');
+    })
+    .catch(() => {
+      alert('Error with browser');
+    })
   }
 
   return (
@@ -108,12 +120,14 @@ function CheckoutDisplay(props) {
                     </div>
                     {currentForm === false && (
             <div className="payment-container">
-              <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER</button>
+              <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
+            <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button>
                     </div>          
                     )}
                     {currentForm === true && (
             <div className="payment-container">
-              <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER</button>
+              <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
+              <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button>
                     </div>          
                     )}
           </div>        
