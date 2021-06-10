@@ -99,19 +99,19 @@
 }
 
 .promo-item {
-  animation: slide1 120s infinite;
+  animation: slide1 60s infinite;
 }
 
 .promo-item1 {
-  animation: slide2 120s infinite;
+  animation: slide2 60s infinite;
 }
 
 .promo-item2 {
-  animation: slide3 120s infinite;
+  animation: slide3 60s infinite;
 }
 
 .promo-item3 {
-  animation: slide4 120s infinite;
+  animation: slide4 60s infinite;
 }
 
 @keyframes slide1 {

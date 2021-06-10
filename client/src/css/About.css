@@ -10,6 +10,15 @@
   margin-bottom: -2rem;
 }
 
+.about-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us-small {
+  font-size: .8rem;
+}
+
 .about-left-container {
   padding: 1rem;
   width: 50%;
