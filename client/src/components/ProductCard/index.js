@@ -43,7 +43,9 @@ function ProductCard(props) {
         <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
       ) : (
         <>
-          <div className="out-stock-cover">OUT OF STOCK</div>
+          <div className="out-stock-cover mobile-out-stock">
+            <span>OUT OF STOCK</span>
+          </div>
           <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
         </>
       )}
@@ -70,11 +72,6 @@ function ProductCard(props) {
       )}
       {product.product_weight !== '' && (
         <span>{product.product_weight}</span>
-      )}
-      {product.product_status !== false ? (
-        <span>Product Available</span>
-      ) : (
-        <span>Out Of Stock</span>
       )}
       {product.product_description !== '' && (
         <>

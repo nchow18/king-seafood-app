@@ -88,7 +88,12 @@ function Quantity(props) {
     <>
       <div className="quantity-button-container">
         <span>Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} /></span>
-        <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity); dispatch({ type: 'toggle_button' }) }}>ADD TO CART</div>
+        {product.product_status ? (
+          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity); dispatch({ type: 'toggle_button' }) }}>ADD TO CART</div>
+        ) : (
+          <div className="product-button" key={product._id}>OUT OF STOCK</div>
+        )}
+
       </div>
     </>
   )
