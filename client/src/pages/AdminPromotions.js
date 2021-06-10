@@ -28,6 +28,10 @@ function AdminPromotions() {
     featuredProduct1: promo_data[0].featuredProduct1,
     featuredProduct2: promo_data[0].featuredProduct2,
     featuredProduct3: promo_data[0].featuredProduct3,
+    contact_us_1: promo_data[0].contact_us_1,
+    contact_us_2: promo_data[0].contact_us_2,
+    address: promo_data[0].address,
+    home_message: promo_data[0].home_message
   })
 
   if (loading) return `...LOADING`;
@@ -99,7 +103,7 @@ function AdminPromotions() {
             </div>
           </div>
 
-          <div className="promo-container night-bg">
+          <div className="promo-container">
             <div className="promo-column">
               <b>Promotion Picture 1</b>
               <input onChange={handleInputChange} name="promoPicture1" value={formData.promoPicture1} />
@@ -114,16 +118,30 @@ function AdminPromotions() {
             <div className="promo-column">
               <b>Featured 1 Product ID</b>
               <input onChange={handleInputChange} name="featuredProduct1" value={formData.featuredProduct1} />
-            </div>
-            <div className="promo-column">
+
               <b>Featured 2 Product ID</b>
               <input onChange={handleInputChange} name="featuredProduct2" value={formData.featuredProduct2} />
-            </div>
-            <div className="promo-column">
+
               <b>Featured 3 Product ID</b>
               <input type="text" onChange={handleInputChange} name="featuredProduct3" value={formData.featuredProduct3} />
             </div>
           </div>
+
+            <div className="promo-container">
+              <div className="promo-column">
+                <b>Contact Us #1</b>
+                <input onChange={handleInputChange} name="contact_us_1" value={formData.contact_us_1} />
+
+                <b>Contact Us #2</b>
+                <input onChange={handleInputChange} name="contact_us_2" value={formData.contact_us_2} />
+
+                <b>Address</b>
+                <input type="text" onChange={handleInputChange} name="address" value={formData.address} />
+
+                <b>Home Page Message</b>
+                <input type="text" onChange={handleInputChange} name="home_message" value={formData.home_message} />
+              </div>            
+            </div>
           <button onClick={() => {updatePromotions()}} className="order-button">UPDATE</button>
         </form>
       </div>

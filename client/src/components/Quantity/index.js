@@ -36,7 +36,7 @@ function Quantity(props) {
       // Check for duplicate
       for (var t = 0; t < new_cart.length; t++) {
         if (data === new_cart[t].product_id) {
-          alert('items already exists in your cart')
+          alert('This product exists in your cart')
           return false;
         }
       }      

@@ -1,9 +1,15 @@
 import React from 'react';
 import Auth from '../utils/auth';
+import { useQuery } from '@apollo/react-hooks';
+import { ORDERS } from '../utils/queries';
+import '../css/Orders.css';
 
 function AdminOrders() {
 
-    const orders = Auth.getOrders();
+    const {loading, data} = useQuery(ORDERS);
+    const orders = data?.orders || {};
+
+    console.log(orders);
 
     const updateDelivered = event => {
         window.confirm('DELIVERED UPDATED')
@@ -13,29 +19,29 @@ function AdminOrders() {
         Auth.setSingleOrder(orderId);
         Auth.viewSingleOrder();
     }
+
+    if (loading) return `...Loading`;
     
     return (
         <>
         {orders && (
-            <div className="flex-start-column">
+            <div className="order-page">
             {orders.map((order) => (
-                <div className="flex-start-column order-container">
-                    <div className="order-title flex-start-row">
-                        <div className="order-section">Order ID: {order._id}</div>
-                        <div className="order-section">Order Date: {order.createdAt}</div>
-                        <div className="order-section">Delivery Date: {order.deliveryDate}</div>
-                        <div className="order-section">TOTAL: {order.orderTotal}</div>
-                        {order.delivered === false && (
-                            <div onClick={updateDelivered} className="order-button">UPDATE TO DELIVERED</div>
-                        )}
-                        <div key={order._id} onClick={() => {viewSingleOrder(order._id)}} className="order-button">VIEW ORDER</div>
+                <div className="order-container">
+                  <div className="order-section">Order ID: {order._id}</div>
+                  <div className="order-section">Order Date: {order.createdAt}</div>
+                  <div className="order-section">Delivery Date: {order.deliveryDate}</div>
+                  <div className="order-section">TOTAL: {order.orderTotal}</div>
+                  {order.delivered === false && (
+                      <div onClick={updateDelivered} className="admin-button">UPDATE TO DELIVERED</div>
+                  )}
+                  <div key={order._id} onClick={() => {viewSingleOrder(order._id)}} className="order-button">VIEW ORDER</div>
 
-                        {order.delivered ? (
-                            <div className="order-section confirm font-2rem">DELIVERED</div>
-                        ) : (
-                            <div className="order-section not-confirm font-2rem">NOT DELIVERED</div>
-                        )}
-                    </div>
+                  {order.delivered ? (
+                      <div className="order-section confirm font-2rem">DELIVERED</div>
+                  ) : (
+                      <div className="order-section not-confirm font-2rem">NOT DELIVERED</div>
+                  )}
                 </div>
             ))}
         </div>

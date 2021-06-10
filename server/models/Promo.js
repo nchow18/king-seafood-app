@@ -76,6 +76,26 @@ const promoSchema = new Schema(
     featuredProduct1: String,
     featuredProduct2: String,
     featuredProduct3: String,
+    contact_us_1: {
+      type: String,
+      required: false,
+      trim: true
+    },
+    contact_us_2: {
+      type: String,
+      required: false,
+      trim: true
+    },
+    address: {
+      type: String,
+      required: false,
+      trim: true
+    },
+    home_message: {
+      type: String,
+      required: false,
+      trim: true
+    }
   },
   {
     toJSON: {

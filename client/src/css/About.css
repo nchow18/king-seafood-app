@@ -10,13 +10,25 @@
   margin-bottom: -2rem;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
 .about-column {
   display: flex;
   flex-direction: column;
+  margin-top: .5rem;
 }
 
 .about-us-small {
   font-size: .8rem;
+  margin-right: .5rem;
+}
+
+.about-title {
+  margin-top: .5rem;
 }
 
 .about-left-container {
@@ -37,8 +49,8 @@
 }
 
 .about-icon {
-  font-size: 2rem;
-  margin: 0rem 1rem 1rem 0rem;
+  font-size: 1.5rem;
+  margin: 0rem .25rem .5rem 0rem;
 }
 
 .king-map {

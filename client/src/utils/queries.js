@@ -124,6 +124,10 @@ query {
     featuredProduct1
     featuredProduct2
     featuredProduct3
+    contact_us_1
+    contact_us_2
+    address
+    home_message
   }
 }
 `;

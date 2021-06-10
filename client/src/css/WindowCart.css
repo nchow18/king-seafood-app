@@ -76,7 +76,7 @@
   box-shadow: 10px 10px 25px rgb(0,0,0,0.7);
   display: relative;
   z-index: 999;
-  padding-top: 2rem;
+  margin-top: 4rem;
   padding: 2rem;
 }
 
@@ -164,10 +164,10 @@
 
 .checkout-container {
   position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: 999;
   background-color: rgb(190, 190, 255);
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   display: flex;
@@ -190,7 +190,7 @@
   position: absolute;
   right: 2rem;
   font-size: 1rem;
-  top: 1rem;
+  top: 2rem;
   font-weight: bold;
 }
 
@@ -228,10 +228,17 @@
   width: 500px;
 }
 
+.payment-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .payment-button {
-  padding: 1rem;
+  padding: .5rem;
   background-color: black;
   color: white;
+  margin-bottom: .5rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 500px) {

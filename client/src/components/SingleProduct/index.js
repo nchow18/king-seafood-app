@@ -50,11 +50,11 @@ function SingleProduct(props) {
               {product.product_bulk_quantity >= 1 && (
                 <span><b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b></span>
               )}
-              <span><b>Description: </b>{product.product_name}</span>
-              {product.descriptionChinese !== '' && (
-                <span><b>Chinese Description: </b>{product.product_descriptionChinese}</span>
+              {product.product_description !== '' && (
+                <span><b>Description: </b>{product.product_description}</span>
               )}
-              {product.weight !== ''&& (
+
+              {product.product_weight >= 1 && (
                 <span><b>Weight: </b>{product.product_weight}</span>
               )}
               {product.product_status !== 0 ? (

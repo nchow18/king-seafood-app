@@ -117,19 +117,19 @@ function CheckoutDisplay(props) {
             )}
             <textarea value={formData.message} name="message" placeholder="Message" onChange={handleInputChange}></textarea>
             
-                    </div>
-                    {currentForm === false && (
+          </div>
+          {currentForm === false && (
             <div className="payment-container">
               <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
             <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button>
-                    </div>          
-                    )}
-                    {currentForm === true && (
+          </div>          
+          )}
+          {currentForm === true && (
             <div className="payment-container">
               <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
               <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button>
-                    </div>          
-                    )}
+          </div>          
+          )}
           </div>        
         ) : (
           <div className="checkout-display-content">

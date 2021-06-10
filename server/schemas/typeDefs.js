@@ -155,6 +155,10 @@ const typeDefs = gql`
     featuredProduct1: String
     featuredProduct2: String
     featuredProduct3: String
+    contact_us_1: String
+    contact_us_2: String
+    address: String
+    home_message: String
   }
 
   input PromoInput {
@@ -175,6 +179,10 @@ const typeDefs = gql`
     featuredProduct1: String
     featuredProduct2: String
     featuredProduct3: String
+    contact_us_1: String
+    contact_us_2: String
+    address: String
+    home_message: String
   }
 
   type Customer {

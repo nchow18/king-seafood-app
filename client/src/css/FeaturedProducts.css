@@ -28,7 +28,7 @@
 .carousel-img {
   height: 80%;
   width: 30vh;
-  object-fit: cover;
+  object-fit: fill;
   margin-left: 1rem;
 }
 

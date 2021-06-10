@@ -1,25 +1,34 @@
 import React from 'react';
 import '../../css/About.css';
-import { Link } from 'react-router-dom'
 
-function AboutSection() {
+function AboutSection(props) {
+
+  const {
+    promo
+  } = props
+
+  console.log(promo);
+
   return (
     <>
       <div className="about-container">
         <div className="about-left-container">
-          <span><b>Address</b></span>
-          <span>205, Jalan Perak, 11600 Jelutong, Penang Island, Penang, Malaysia</span>
-          <span><b>Operating Hours</b></span>
-          <span>10:00AM - 5:30PM (Closed on Sundays & Public Holidays)</span>
-          <span><b>Joey</b> 011-11264018</span>
-          <span><b>Kelvin</b> 016-484-9744</span>
-          <span><b>Social Media</b></span>
-          <div className="column">
+          <span className="about-title"><b>Address</b></span>
+          <span className="about-us-small">{promo[0].address}</span>
+          <span className="about-title"><b>Operating Hours</b></span>
+          <span className="about-us-small">10:00AM - 5:30PM (Closed on Sundays & Public Holidays)</span>
+          <span className="about-title"><b>Contact Us</b></span>
+          <span className="about-us-small">{promo[0].contact_us_1}</span>
+          <span className="about-us-small">{promo[0].contact_us_2}</span>
+          <span className="about-title"><b>Follow Us</b></span>
+          <div className="row">
               <div className="row">
                 <a href="https://www.facebook.com/kingsseafood18/"><i className="fab fa-facebook about-icon"></i></a>
+                <span className="about-us-small">@kingsseafood18</span>
               </div>
-              <div>
+              <div className="row">
                 <a href="https://instagram.com/kingsseafood18?utm_medium=copy_link"><i className="fab fa-instagram about-icon"></i></a>
+                <span className="about-us-small">@kingsseafood18</span>
               </div>
           </div>
         </div>        
