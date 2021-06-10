@@ -31,7 +31,8 @@ function AdminPromotions() {
     contact_us_1: promo_data[0].contact_us_1,
     contact_us_2: promo_data[0].contact_us_2,
     address: promo_data[0].address,
-    home_message: promo_data[0].home_message
+    home_message: promo_data[0].home_message,
+    main_banner: promo_data[0].main_banner,
   })
 
   if (loading) return `...LOADING`;
@@ -137,6 +138,9 @@ function AdminPromotions() {
 
                 <b>Address</b>
                 <input type="text" onChange={handleInputChange} name="address" value={formData.address} />
+
+                <b>Home Page Picture Banner</b>
+                <input type="text" onChange={handleInputChange} name="main_banner" value={formData.main_banner} />
 
                 <b>Home Page Message</b>
                 <input type="text" onChange={handleInputChange} name="home_message" value={formData.home_message} />

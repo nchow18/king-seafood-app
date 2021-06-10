@@ -128,6 +128,7 @@ query {
     contact_us_2
     address
     home_message
+    main_banner
   }
 }
 `;

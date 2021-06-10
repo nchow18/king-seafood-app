@@ -206,6 +206,7 @@ export const UPDATE_PROMO = gql`
         contact_us_2
         address
         home_message
+        main_banner
         }
     }
 `;

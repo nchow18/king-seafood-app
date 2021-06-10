@@ -159,6 +159,7 @@ const typeDefs = gql`
     contact_us_2: String
     address: String
     home_message: String
+    main_banner: String
   }
 
   input PromoInput {
@@ -183,6 +184,7 @@ const typeDefs = gql`
     contact_us_2: String
     address: String
     home_message: String
+    main_banner: String
   }
 
   type Customer {

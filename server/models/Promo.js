@@ -95,6 +95,11 @@ const promoSchema = new Schema(
       type: String,
       required: false,
       trim: true
+    },
+    main_banner: {
+      type: String,
+      required: false,
+      trim: true
     }
   },
   {

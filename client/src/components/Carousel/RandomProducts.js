@@ -34,9 +34,7 @@ function ProductCarousel() {
       var randomNumber = Math.round(Math.random() * productsArr.length);
       randomNumbers.push(randomNumber);
 
-      var verify = randomNumbers.filter(function (number) {
-        return number === i;
-      })
+      var verify = randomNumbers.filter((random) => random === i);
 
       if (verify.length === 0) {
         randomProducts.push(productsArr[i])

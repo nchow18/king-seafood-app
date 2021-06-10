@@ -56,7 +56,7 @@ function Home() {
     <div className="home-page">
       <MainProducts />
       <div className="home-banner-content">
-        <img alt="home-banner" src="https://wallpaperaccess.com/full/1491748.jpg" className="home-banner" />
+        <img alt="home-banner" src={promo[0].main_banner} className="home-banner" />
         <div className="logo-container">
           <p>{promo[0].home_message}</p>
           </div>
