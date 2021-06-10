@@ -160,8 +160,12 @@ function App() {
         </div>
       )}
 
+      {whatsApp ? (
+        <i onClick={() => {setWhatsApp(false)}} className="fab fa-whatsapp-square whatsapp-icon"></i>
+      ) : (
+        <i onClick={() => {setWhatsApp(true)}} className="fab fa-whatsapp-square whatsapp-icon"></i>
+      )}
 
-      <i onClick={() => {setWhatsApp(true)}} className="fab fa-whatsapp-square whatsapp-icon"></i>
       <Footer 
         headerLinks={headerLinks}
         currentHeaderLink={currentHeaderLink}

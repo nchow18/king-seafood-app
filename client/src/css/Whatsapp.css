@@ -22,14 +22,10 @@
 }
 
 .whatsapp-display {
-  display: none;
-}
-
-.whatsapp-display {
   position: fixed;
   bottom: 20rem;
   width: 100%;
-  display: none;
+  display: flex;
   justify-content: center;
 }
 

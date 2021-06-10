@@ -294,7 +294,7 @@
     line-height: 1.5rem;
     position: absolute;
     left: 0;
-    top: 4rem;
+    top: 6rem;
     background-color: rgb(252, 86, 86);
     animation: headerMenu 1s forwards;
     animation-timing-function: var(--cubic);
