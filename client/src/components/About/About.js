@@ -8,12 +8,12 @@ function AboutSection() {
       <div className="about-container">
         <div className="about-left-container">
           <span><b>Address</b></span>
-          <span className="about-left-container">205, Jalan Perak, 11600 Jelutong, Penang Island, Penang, Malaysia</span>
+          <span>205, Jalan Perak, 11600 Jelutong, Penang Island, Penang, Malaysia</span>
           <span><b>Operating Hours</b></span>
-          <span className="about-left-container">10:00AM - 5:30PM (Closed on Sundays & Public Holidays)</span>
+          <span>10:00AM - 5:30PM (Closed on Sundays & Public Holidays)</span>
           <span><b>Joey</b> 011-11264018</span>
           <span><b>Kelvin</b> 016-484-9744</span>
-          <span className="about-left-container"><b>Social Media</b></span>
+          <span><b>Social Media</b></span>
           <div className="column">
               <div className="row">
                 <a href="https://www.facebook.com/kingsseafood18/"><i className="fab fa-facebook about-icon"></i></a>
