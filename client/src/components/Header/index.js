@@ -7,6 +7,7 @@ import MobileHeader from './MobileHeader';
 import Logo from '../../assets/images/king-logo.png';
 import { useQuery } from '@apollo/react-hooks';
 import { USER_ME } from '../../utils/queries';
+import Lobster from '../../assets/images/lobster-logo3.png';
 
 
 function Header(props) {
@@ -23,10 +24,6 @@ function Header(props) {
     event.preventDefault();
     Auth.logout();
   };
-
-  function setMode(mode) {
-    Auth.lightMode(mode);
-  }
 
   const { loading, data } = useQuery(USER_ME)
   const [state, dispatch] = useContext(UserContext);

@@ -80,7 +80,6 @@ function Products() {
         const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
         productCategory = currentProduct;
       }
-
     }
 
   return (

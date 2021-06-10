@@ -122,7 +122,6 @@
 }
 
 .king-logo {
-  height: 19rem;
   animation: kingMain 1s forwards;
   animation-timing-function: var(--cubic);
 }
@@ -147,6 +146,7 @@
   position: relative;
   align-items: center;
   margin-bottom: 0rem;
+  margin-top: 2rem;
 }
 
 .promo-fullscreen {

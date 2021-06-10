@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import Lobster from '../../assets/images/lobster-logo2.png';
+import Lobster from '../../assets/images/lobster-logo3.png';
 import Cart from '../../assets/images/cart.png';
 
 function MobileHeader(props) {
@@ -34,11 +34,11 @@ function MobileHeader(props) {
             </div>
           )}  
           <Link to="/" className="king-title-mobile">
-            <span className="bold">KING'S SEAFOOD 18</span>
+            {/* <span className="bold">KING'S SEAFOOD 18</span> */}
             <div>
-              <span>ORDER</span>
+              {/* <span>ORDER</span> */}
               <img alt="lobster" src={Lobster} className="lobster-logo" />
-              <span>FRESH</span>
+              {/* <span>FRESH</span> */}
             </div>
 
           </Link>        

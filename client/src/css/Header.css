@@ -16,7 +16,7 @@
 
 .header-container {
   position: sticky;
-  top: 0;
+  top: 1rem;
   z-index: 100;
 }
 
@@ -73,14 +73,111 @@
 
 .header-main-promo {
   background-color: black;
-  position: relative;
+  position: fixed;
   color: white;
   text-align: center;
   height: 1.5rem;
-  z-index: 16;
-  top: 0;
-  left: 0;
+  z-index: 999;
+  top: 0rem;
+  max-width: 1200px;
+  width: 100%;
 }
+
+.header-promo-slide {
+  width: 100%;
+}
+
+.promo-setup {
+  height: 100%;
+  left: -0rem;
+  opacity: 0;
+  animation-timing-function: var(--cubic);
+  animation-direction: normal;
+  position: absolute;
+  background-color: black;
+  color: white;
+}
+
+.promo-item {
+  animation: slide1 120s infinite;
+}
+
+.promo-item1 {
+  animation: slide2 120s infinite;
+}
+
+.promo-item2 {
+  animation: slide3 120s infinite;
+}
+
+.promo-item3 {
+  animation: slide4 120s infinite;
+}
+
+@keyframes slide1 {
+  0% {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+  26% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide2 {
+  24%{
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide3 {
+  49% {
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+  76% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide4 {
+  74% {
+    opacity: 0;
+  }
+  75% {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+}
+
+
+
 
 .cart-link {
   display: none;
@@ -183,8 +280,8 @@
 
   .lobster-logo {
     display: initial;
-    height: 2rem;
-    width: 2rem;
+    height: 5rem;
+    width: 7rem;
     margin: 0 .25rem;
   }
 
