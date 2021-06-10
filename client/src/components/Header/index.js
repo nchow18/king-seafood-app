@@ -8,6 +8,7 @@ import Logo from '../../assets/images/king-logo.png';
 import { useQuery } from '@apollo/react-hooks';
 import { USER_ME } from '../../utils/queries';
 
+
 function Header(props) {
 
   const {
@@ -63,7 +64,11 @@ function Header(props) {
   return (
       <div className="header-items">
         <div className="header-links-container">
-        <Link to="/"><span className="header-logo-display">KING'S SEAFOOD 18</span></Link>
+        <Link to="/">
+              <div className="header-logo-display">
+                <span>KING'S SEAFOOD 18</span>
+              </div>
+          </Link>
           <div className="links">
             {Auth.loggedIn() === false && (
               <>

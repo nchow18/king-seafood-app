@@ -24,6 +24,8 @@ function Home() {
 
   useEffect(() => {
     setTimeout(displayPromo, 4000);
+    const empty = {name: ""};
+    localStorage.setItem('current_category', JSON.stringify(empty))
   }, [])
 
   function displayPromo() {
@@ -45,7 +47,6 @@ function Home() {
       }
     }
   }
-
   
   Auth.setGlobalDiscount(promo[0].discount);
 
@@ -65,12 +66,7 @@ function Home() {
         <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
         </div>
       </div>
-      <div className="home-section">
-        <b className="section-title">Featured Products</b>
-        <FeaturedCarousel
-          products={products}
-        />        
-      </div>
+
     </div>
     {isPromo === true && (
       <div>
@@ -82,7 +78,12 @@ function Home() {
         )}
       </div>
     )}
-
+    <div className="home-section">
+        <b className="section-title">Featured Products</b>
+        <FeaturedCarousel
+          products={products}
+        />        
+      </div>
     <div className="home-section">
       <b className="section-title">Products you might like</b>
       <p></p>

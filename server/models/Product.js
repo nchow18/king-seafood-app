@@ -44,27 +44,32 @@ const productSchema = new Schema(
     product_status: {
       type: Boolean,
       required: false,
-      trim: true
+      trim: true,
+      default: true
     },
     product_sale_price: {
       type: String,
       required: false,
-      trim: true
+      trim: true,
+      defaut: '0'
     },
     product_bulk_quantity: {
       type: Number,
       required: false,
-      trim: true
+      trim: true,
+      default: 0
     },
     product_bulk_price: {
       type: String,
       required: false,
-      trim: true
+      trim: true,
+      default: 0
     },
     product_featured: {
       type: Boolean,
       required: false,
-      trim: true
+      trim: true,
+      default: false
     },
     createdAt: {
       type: Date,

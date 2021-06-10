@@ -146,7 +146,7 @@
   flex-direction: column;
   position: relative;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 0rem;
 }
 
 .promo-fullscreen {
@@ -230,7 +230,7 @@
 }
 
 .home-section {
-  margin: 5rem 0rem;
+  margin: 2rem 0rem;
   max-width: 1200px;
 }
 
@@ -252,10 +252,10 @@
 
   .home-button-white {
     padding: 1.5rem;
-    width: 18rem;
+    width: 13rem;
     text-align: center;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 

@@ -27,7 +27,6 @@ function Products() {
   var productCategory = []
   const homeCategory = Auth.getCategory();
   const empty = {name: ""};
-  console.log(homeCategory);
 
   function clearCategoryStorage() {
     localStorage.setItem('current_category', JSON.stringify(empty));
@@ -42,7 +41,7 @@ function Products() {
       productCategory = currentProduct;
     } else if (currentProductLink.name === 'Sale' || homeCategory.name === 'Sale') {
       // filter based on Sale Products
-      const currentProduct = products.filter((product) => product.product_sale_price !== '0');
+      const currentProduct = products.filter((product) =>  product.product_sale_price !== '0');
       productCategory = currentProduct;
     } else if (currentProductLink.name === 'Featured' || homeCategory.name === 'Featured') {
       // filter based on Featured Products

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import Lobster from '../../assets/images/lobster-logo2.png';
+import Cart from '../../assets/images/cart.png';
 
 function MobileHeader(props) {
 
@@ -22,16 +24,24 @@ function MobileHeader(props) {
       <div className="mobile-header-container">
           {cartModal ? (
             <div>
-              <i className="fas fa-shopping-cart menu-icon" onClick={() => {setCartModal(false)}}></i>
+              <img alt="cart" src={Cart} className="cart-icon" onClick={() => {setCartModal(false)}} />
               <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
             </div>
           ) : (
             <div>
-              <i className="fas fa-shopping-cart menu-icon" onClick={() => {setCartModal(true)}}></i>
+              <img alt="cart" src={Cart} className="cart-icon" onClick={() => {setCartModal(true)}} />
               <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
             </div>
           )}  
-          <Link to="/" className="king-title-mobile">KING'S SEAFOOD 18</Link>        
+          <Link to="/" className="king-title-mobile">
+            <span className="bold">KING'S SEAFOOD 18</span>
+            <div>
+              <span>ORDER</span>
+              <img alt="lobster" src={Lobster} className="lobster-logo" />
+              <span>FRESH</span>
+            </div>
+
+          </Link>        
           {currentMenu ? (
             <i className="fas fa-times menu-icon" onClick={() => {setMenu(false)}}></i>
           ) : (
