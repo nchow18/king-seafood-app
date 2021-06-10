@@ -7,8 +7,6 @@ function AboutSection(props) {
     promo
   } = props
 
-  console.log(promo);
-
   return (
     <>
       <div className="about-container">

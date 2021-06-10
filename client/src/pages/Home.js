@@ -10,8 +10,72 @@ import AboutSection from '../components/About/About';
 import '../css/Home.css';
 import ProductCarousel from '../components/Carousel/RandomProducts'
 import MainProducts from '../components/Carousel/MainProducts';
+import SectionCategory from '../components/Home/SectionCategory';
+import Fish from '../assets/images/category/fish.png';
+import Fruit from '../assets/images/category/fruits.png';
+import Meat from '../assets/images/category/meat.png';
+import New from '../assets/images/category/new.png';
+import Scallop from '../assets/images/category/scallop.png';
+import Squid from '../assets/images/category/squid.png';
+import Hotpot from '../assets/images/category/hotpot.png';
+import Featured from '../assets/images/category/top-rated.png';
+import Vegetable from '../assets/images/category/vegetable.png';
+import Sale from '../assets/images/category/sale.png';
+import Special from '../assets/images/category/special.png';
+import Shellfish from '../assets/images/category/shellfish.png';
 
 function Home() {
+
+  const [category] = useState([
+    {
+			name: 'Sale',
+      img: Sale
+		},
+    {
+      name: 'Fish',
+      img: Fish
+    },
+    {
+      name: 'Scallops',
+      img: Scallop
+    },
+    {
+      name: 'Shellfish',
+      img: Shellfish
+    },
+    {
+      name: 'Squid',
+      img: Squid
+    },
+    {
+      name: 'Meat',
+      img: Meat
+    },
+    {
+      name: 'Special',
+      img: Special
+    },
+    {
+      name: 'Hotpot',
+      img: Hotpot
+    },
+    {
+      name: 'Fruits',
+      img: Fruit
+    },
+    {
+      name: 'Vegetables',
+      img: Vegetable
+    },   
+		{
+			name: 'Newest',
+      img: New
+		},
+		{
+			name: 'Featured',
+      img: Featured
+		},
+  ])
 
   const [isPromo, setPromo] = useState(false);
   const [isModal, setModal] = useState(false);
@@ -47,6 +111,8 @@ function Home() {
       }
     }
   }
+
+
   
   Auth.setGlobalDiscount(promo[0].discount);
 
@@ -54,7 +120,8 @@ function Home() {
   location.pathname === `/` &&
   <>
     <div className="home-page">
-      <MainProducts />
+      <MainProducts
+        category={category} />
       <div className="home-banner-content">
         <img alt="home-banner" src={promo[0].main_banner} className="home-banner" />
         <div className="logo-container">
@@ -83,7 +150,12 @@ function Home() {
         <FeaturedCarousel
           products={products}
         />        
-      </div>
+    </div>
+    <div className="home-section">
+        <b className="section-title">Categories</b>
+        <SectionCategory
+        />        
+    </div>
     <div className="home-section">
       <b className="section-title">Products you might like</b>
       <p></p>

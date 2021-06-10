@@ -76,7 +76,7 @@
   position: fixed;
   color: white;
   text-align: center;
-  height: 1.5rem;
+  height: 1.75rem;
   z-index: 999;
   top: 0rem;
   max-width: 1200px;
@@ -88,7 +88,7 @@
 }
 
 .promo-setup {
-  height: 100%;
+  height: 90%;
   left: -0rem;
   opacity: 0;
   animation-timing-function: var(--cubic);
@@ -334,6 +334,6 @@
 
   .header-main-promo {
     font-size: .8rem;
-    height: 1.5rem;
+    height: 1.75rem;
   }
 }
