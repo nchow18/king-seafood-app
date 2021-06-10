@@ -40,23 +40,27 @@ db.once('open', async () => {
   await Promo.deleteMany();
   await Promo.create(
     {
-      promoMsg1: '',
+      promoMsg1: 'EAT HEALTHY',
       promo1Start: '',
       promo1End: '',
-      promoMsg2: '',
+      promoMsg2: 'FRESHLY FROZEN',
       promo2Start: '',
       promo2End: '',
-      promoMsg3: '',
+      promoMsg3: 'HIGH QUALITY SEAFOOD',
       promo3Start: '',
       promo3End: '',
-      mainPromo: 'FREE DELIVER WITH ORDERS OVER 150 AND FREE GIFT',
-      promoPicture1: '',
+      mainPromo: 'FREE DELIVERY WITH ORDERS OVER RM100***',
+      promoPicture1: 'https://scontent.fykz1-2.fna.fbcdn.net/v/t1.6435-9/197445732_348894963297467_8143547024888840424_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=973b4a&_nc_ohc=bGttqPiKq1oAX-1IsCn&_nc_ht=scontent.fykz1-2.fna&oh=59f80555ad1d65c1262cc947651eb7fb&oe=60E74121',
       promoPicture2: '',
       promoPicture3: '',
-      discount: 11,
+      discount: '6.66',
       featuredProduct1: '',
       featuredProduct2: '',
       featuredProduct3: '',
+      contact_us_1: 'Joey 011-11264018',
+      contact_us_2: 'Kelvin 016-4849744',
+      address: '205, Jalan Perak, 11600 Jelutong, Penang, Malaysia',
+      home_message: 'FRESHLY FROZEN SEAFOOD'
     }
   )
 

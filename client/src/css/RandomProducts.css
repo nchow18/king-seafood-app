@@ -16,19 +16,6 @@
   scroll-snap-type: x mandatory;
 }
 
-.carousel-img {
-  height: 20rem;
-  width: 30rem;
-  object-fit: cover;
-  margin-left: 1rem;
-}
-
-.carousel-img-title {
-  display: flex;
-  justify-content: space-between;
-  padding: .5rem 1rem;
-}
-
 .carousel-img-container {
   scroll-snap-align: start;
 }

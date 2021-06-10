@@ -50,7 +50,7 @@ function SingleProduct(props) {
               {product.product_bulk_quantity >= 1 && (
                 <span><b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b></span>
               )}
-              {product.product_description !== '' && (
+              {product.product_description !== '0' && (
                 <span><b>Description: </b>{product.product_description}</span>
               )}
 

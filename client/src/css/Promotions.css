@@ -16,16 +16,20 @@
 }
 
 .promo-page-img {
-  height: 60vh;
-  width: 40vw;
+  height: 80vh;
+  width: 50vw;
   object-fit: fill;
   border: 1rem solid black;
   box-shadow: 10px 10px 25px rgb(0,0,0,0.8);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .promo-page-img {
-    height: 80%;
-    width: 90%;
+    width: 100%;
+  }
+
+  .promo-page-container {
+    width: 95vw;
+
   }
 }

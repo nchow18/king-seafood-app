@@ -22,7 +22,7 @@ const productSchema = new Schema(
       type: String,
       required: false,
       trim: true,
-      default: ''
+      default: '0'
     },
     product_weight: {
       type: String,
@@ -63,7 +63,7 @@ const productSchema = new Schema(
       type: String,
       required: false,
       trim: true,
-      default: 0
+      default: '0'
     },
     product_featured: {
       type: Boolean,
