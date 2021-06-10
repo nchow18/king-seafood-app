@@ -49,15 +49,11 @@ function AdminCategories(props) {
       }
     } else {
       const filteredArr = productArr.filter((product) => product.product_category.toLowerCase() === currentCategory.name.toLowerCase());
-      console.log(filteredArr);
       chosenArr = filteredArr;
     }
   } else {
     
   }
-
-  console.log(currentCategory);
-  console.log(chosenArr);
 
   return (
     <>

@@ -38,7 +38,15 @@ function ProductCard(props) {
   {productCategory.map((product) => (
     <div key={product._id} className="product-card night-bg">
     <div className="product-card-picture-container">
-      <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+
+      {product.product_status ? (
+        <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+      ) : (
+        <>
+          <div className="out-stock-cover">OUT OF STOCK</div>
+          <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+        </>
+      )}
     </div>
     <div className="product-card-description">
       <div className="product-card-font">
@@ -63,10 +71,15 @@ function ProductCard(props) {
       {product.product_weight !== '' && (
         <span>{product.product_weight}</span>
       )}
-      {product.product_description !== 0 ? (
+      {product.product_status !== false ? (
         <span>Product Available</span>
       ) : (
         <span>Out Of Stock</span>
+      )}
+      {product.product_description !== '' && (
+        <>
+          <b>Description:</b><span className="blue-font">{product.product_description}</span>
+        </>
       )}
       </div>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { PROMO } from '../../utils/queries';
 import '../../css/Header.css';
@@ -6,11 +6,7 @@ import '../../css/Header.css';
 function MainPromo() {
 
   const { loading, data } = useQuery(PROMO)
-  const promo = data?.promo || {};
-
-  if (promo.length === false) {
-    return false;
-  }
+  const promo = data?.promo || [{mainPromo: '', promoMsg1: '', promoMsg2: '', promoMsg3: ''}];
 
   const topPromotion = promo[0].mainPromo;
   const promoMsg1 = promo[0].promoMsg1;
@@ -18,7 +14,6 @@ function MainPromo() {
   const promoMsg3 = promo[0].promoMsg3;
 
   if (loading) return `...Loading`;
-
   return (
     <>
     <div className="header-main-promo">
