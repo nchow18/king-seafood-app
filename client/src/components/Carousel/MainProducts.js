@@ -5,11 +5,10 @@ import Meat from '../../assets/images/category/meat.png';
 import New from '../../assets/images/category/new.png';
 import Scallop from '../../assets/images/category/scallop.png';
 import Squid from '../../assets/images/category/squid.png';
-import Hotpot from '../../assets/images/category/steam.png';
+import Hotpot from '../../assets/images/category/hotpot.png';
 import Featured from '../../assets/images/category/top-rated.png';
 import Vegetable from '../../assets/images/category/vegetable.png';
 import Sale from '../../assets/images/category/sale.png';
-import Bundle from '../../assets/images/category/bundle.png';
 import Special from '../../assets/images/category/special.png';
 import Shellfish from '../../assets/images/category/shellfish.png';
 import Auth from '../../utils/auth';
@@ -29,10 +28,6 @@ function MainProducts() {
 			name: 'Featured',
       img: Featured
 		},
-    {
-      name: 'Bundles',
-      img: Bundle
-    },
     {
       name: 'Special',
       img: Special

@@ -14,7 +14,7 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
   overflow-x: hidden;
   margin-left: 3rem;
 }
@@ -326,9 +326,7 @@
 }
 
 .slider-icon-container {
-  padding: .85rem;
-  border-radius: 50%;
-  border: 1px solid black;
+  padding: 0rem;
   margin: 0rem .5rem;
   height: 100%;
   width: 4rem;
