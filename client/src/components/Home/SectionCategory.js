@@ -8,6 +8,7 @@ import Hotpot from '../../assets/images/products/hotpot.jpeg';
 import Fruit from '../../assets/images/products/fruit.jpeg';
 import Vegetable from '../../assets/images/products/vegetable.jpeg';
 import '../../css/Home.css';
+import Auth from '../../utils/auth';
 
 function SectionCategory(props) {
 
@@ -45,6 +46,10 @@ function SectionCategory(props) {
       img: Vegetable
     },   
   ])
+
+  function storeCategory(product) {
+    Auth.setCategory(product);
+  }
   
   console.log(category)
 
@@ -52,7 +57,7 @@ function SectionCategory(props) {
     <>
       <div className="category-container">
         {category.map((product) => (
-          <div className="category-img-container">
+          <div className="category-img-container" onClick={() => {storeCategory(product)}}>
             <img alt={product.name} src={product.img} className="category-img" />
             <div className="category-img-label">
               <span>{product.name.toUpperCase()}</span>

@@ -23,6 +23,7 @@ import Vegetable from '../assets/images/category/vegetable.png';
 import Sale from '../assets/images/category/sale.png';
 import Special from '../assets/images/category/special.png';
 import Shellfish from '../assets/images/category/shellfish.png';
+import SaleSpecial from '../components/Home/SaleSpecial';
 
 function Home() {
 
@@ -146,12 +147,17 @@ function Home() {
       </div>
     )}
     <div className="home-section">
+        <SaleSpecial
+          products={products}
+        />        
+    </div>    
+    <div className="home-section">
         <b className="section-title">Featured Products</b>
         <FeaturedCarousel
           products={products}
         />        
     </div>
-    <div className="home-section">
+    <div className="home-section category-section">
         <b className="section-title">Categories</b>
         <SectionCategory
         />        

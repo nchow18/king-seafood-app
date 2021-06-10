@@ -16,8 +16,10 @@
 
 .header-container {
   position: sticky;
-  top: 1rem;
+  top: 1.75rem;
   z-index: 100;
+  background-color: white;
+  padding-bottom: .5rem;
 }
 
 .header-links-container {
@@ -26,43 +28,32 @@
   align-items: center;
   justify-content: flex-end;
   padding: .5rem 1rem;
+  position: relative;
 }
 
-.header-logo-display {
+.header-logo {
   position: absolute;
-  left: .5rem;
-  top: 1rem;
-  background-color: black;
-  border-radius: 20px;
-  color: white;
-  padding: .5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.king-circle-logo {
-  height: 10rem;
-  width: 10rem;
-  position: absolute;
-  left: 0rem;
+  left: 1rem;
   z-index: 100;
+  top: .75rem;
+  height: 3rem;
+  width: auto;
 }
 
 .header-link {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   margin: .5rem;
-  border-radius: 20px;
 }
 
 .header-link:hover {
-  background-color: white;
-  color: black;
+  background-color: rgb(164, 164, 164);
+  color: white;
 }
 
 .headerActive {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   border: 1px solid black;
 }
 

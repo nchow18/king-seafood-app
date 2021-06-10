@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { UserContext } from '../../utils/GlobalState';
 import MobileHeader from './MobileHeader';
-import Logo from '../../assets/images/king-logo.png';
+import Logo from '../../assets/images/king-logo.jpg';
 import { useQuery } from '@apollo/react-hooks';
 import { USER_ME } from '../../utils/queries';
 import Lobster from '../../assets/images/lobster-logo3.png';
@@ -62,9 +62,7 @@ function Header(props) {
       <div className="header-items">
         <div className="header-links-container">
         <Link to="/">
-              <div className="header-logo-display">
-                <span>KING'S SEAFOOD 18</span>
-              </div>
+            <img alt="kinglogo" src={Logo} className="header-logo"/>
           </Link>
           <div className="links">
             {Auth.loggedIn() === false && (
