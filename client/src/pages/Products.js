@@ -37,8 +37,8 @@ function Products() {
       localStorage.setItem('current_category', JSON.stringify(empty));
     } else if (currentProductLink.name === 'Sale' || homeCategory.name === 'Sale') {
       // filter based on Sale Products
-      const currentSale = products.filter((product) => product.product_sale_price !== '0')
-      const currentBundle = products.filter((product) =>  product.product_bundle_price !== '0');
+      const currentSale = products.filter((product) => product.product_sale_price > 0)
+      const currentBundle = products.filter((product) =>  product.product_bulk_price > 0);
       productCategory = [...currentBundle,...currentSale];
     } else if (currentProductLink.name === 'Featured' || homeCategory.name === 'Featured') {
       // filter based on Featured Products

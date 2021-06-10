@@ -43,44 +43,38 @@ class AuthService {
 			name: 'All',
 		},
 		{
-			name: 'Meat',
+			name: 'Fish',
+		},
+    {
+      name: 'Scallops',
+    },
+		{
+			name: 'Shellfish',
 		},
 		{
-			name: 'Vegetables',
-		},
-		{
-			name: 'Fruits',
+			name: 'Squid',
 		},
     {
-      name: 'Bundle Promotion',
-    },
-    {
-      name: 'Fish'
-    },
-    {
-      name: 'Hotpot'
-    },
-    {
-      name: 'Squid',
+      name: 'Meat'
     },
     {
       name: 'Special'
     },
     {
-      name: 'Shellfish'
+      name: 'Vegetables',
     },
     {
-      name: 'Scallops'
+      name: 'Fruits'
     },
     {
-      name: 'Featured'
+      name: 'Hotpot'
     },
     {
       name: 'Sale'
     },
     {
       name: 'Newest Products'
-    }
+    },
     ]
 
     return categories;
@@ -113,7 +107,7 @@ class AuthService {
   }
 
   getOrders() {
-    
+
   }
 
   getUser() {

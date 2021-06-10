@@ -16,18 +16,30 @@ import Auth from '../../utils/auth';
 function MainProducts() {
 
   const [category] = useState([
-		{
+    {
 			name: 'Sale',
       img: Sale
 		},
-		{
-			name: 'Newest',
-      img: New
-		},
-		{
-			name: 'Featured',
-      img: Featured
-		},
+    {
+      name: 'Fish',
+      img: Fish
+    },
+    {
+      name: 'Scallops',
+      img: Scallop
+    },
+    {
+      name: 'Shellfish',
+      img: Shellfish
+    },
+    {
+      name: 'Squid',
+      img: Squid
+    },
+    {
+      name: 'Meat',
+      img: Meat
+    },
     {
       name: 'Special',
       img: Special
@@ -37,33 +49,21 @@ function MainProducts() {
       img: Hotpot
     },
     {
-      name: 'Squid',
-      img: Squid
-    },
-    {
-      name: 'Fish',
-      img: Fish
-    },
-    {
-      name: 'Shellfish',
-      img: Shellfish
-    },
-    {
-      name: 'Scallops',
-      img: Scallop
-    },
-    {
       name: 'Fruits',
       img: Fruit
     },
     {
-      name: 'Meat',
-      img: Meat
-    },
-    {
       name: 'Vegetables',
       img: Vegetable
-    }    
+    },   
+		{
+			name: 'Newest',
+      img: New
+		},
+		{
+			name: 'Featured',
+      img: Featured
+		},
   ])
 
   const [currentCategory, setCategory] = useState(category[0])

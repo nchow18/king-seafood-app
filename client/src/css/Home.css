@@ -195,7 +195,7 @@
 
 @keyframes kingMain {
   from {
-    transform: translateX(-50vw)
+    transform: translateX(50vw)
   }
   to {
     transform: translateX(0vw)
@@ -345,9 +345,21 @@
 }
 
 @media screen and (max-width: 500px) {
+  .home-banner-content {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
   .home-banner-text {
     font-size: 2rem;
     padding: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .king-logo {
@@ -360,7 +372,9 @@
     font-size: 1.5rem;
     width: 12rem;
     text-align: center;
+    animation: initial;
   }
+
   .promo-img {
     height: 20rem;
   }
@@ -371,9 +385,13 @@
 
   .logo-container {
     margin-left: 1rem;
+    position: absolute;
+    bottom: 3rem;
   }
 
   .logo-container p {
     font-size: 1.5rem;
+    animation: initial;
   }
+  
 }
