@@ -19,7 +19,7 @@ function WhatsApp() {
   }
 
   const message = formData.name + " || " + formData.phone + " || " + formData.message;
-  const number = '6472986836'
+  const number = '60103893421'
 
   
   function sendMessage() {
@@ -33,7 +33,7 @@ function WhatsApp() {
     // Using 91 for India
     // You can change 91 with your country code
     let url =
-      'whatsapp://send?text=' + message + '&phone=+1' + number;
+      'whatsapp://send?text=' + message + '&phone=+' + number;
     Linking.openURL(url)
       .then((data) => {
         console.log('WhatsApp Opened');
