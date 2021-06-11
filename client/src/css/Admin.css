@@ -1,11 +1,30 @@
+/* ADMIN VIEWS */
 
+.admin-views-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.admin-views-container div {
+  padding: 1rem;
+  border: 1px solid black;
+  margin: .25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-views-container span:nth-child(1) {
+  background-color: yellow;
+  width: 10rem;
+  font-weight: bold;
+}
 
 .confirm {
     background-color: green;
     font-weight: bold;
     padding: 0rem .5rem;
 }
-
 
 .admin-header-link {
   text-decoration: none;

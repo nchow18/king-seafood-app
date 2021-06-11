@@ -65,6 +65,7 @@ const typeDefs = gql`
     product_bulk_quantity: Int
     product_bulk_price: String
     product_featured: Boolean
+    product_views: Int
   }
 
   type ProductPicture {
@@ -90,6 +91,7 @@ const typeDefs = gql`
     product_bulk_quantity: Int
     product_bulk_price: String
     product_featured: Boolean
+    product_views: Int
   }
 
   type Order {
@@ -258,6 +260,7 @@ const typeDefs = gql`
     addProduct(input: ProductInput!): Product
     removeProductPicture(product_id: String!, product_url: String): Product
     addProductPicture(product_url: String, product_id: String!): Product
+    addProductView(product_id: String): Product
     updateProductPicture(product_url: String, product_id: String!, product_old_url: String!): Product
     updateProduct(input: ProductInput!, product_id: ID!): Product
     removeProduct(product_id: ID!): Product
@@ -269,6 +272,7 @@ const typeDefs = gql`
     updatePromo(input: PromoInput, promo_id: ID!): Promo
     updateUserAccount(input: UserInput, user_id: ID!): User
     updateUserAddress(input: AddressInput, user_id: ID!): User
+
 
   }
 

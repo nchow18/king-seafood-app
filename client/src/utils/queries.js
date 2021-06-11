@@ -51,6 +51,7 @@ query product($product_id: ID!) {
     product_bulk_price
     product_featured
     createdAt
+    product_views
   }
 }
 `;
@@ -73,6 +74,7 @@ query {
     product_bulk_price
     product_featured
     createdAt
+    product_views
   }
 }
 `;

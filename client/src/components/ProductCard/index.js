@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
-
+import { useMutation } from '@apollo/react-hooks'
+import { ADD_VIEWS } from '../../utils/mutations';
 import SingleProduct from '../SingleProduct/';
 import Quantity from '../Quantity';
 
@@ -9,7 +10,6 @@ function ProductCard(props) {
 
   const {
   products=[],
-  currentProductLink,
   productCategory=[],
   user,
   setCategoryModal
@@ -19,9 +19,22 @@ function ProductCard(props) {
 
   const [isModal, setModal] = useState(false);
   const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
-  const featured = currentProductLink === 'featured' ? true : false;
+  const [setView, { error }] = useMutation(ADD_VIEWS);
 
-  console.log(featured);
+  function addView(product_id) {
+
+    try {
+      setView({
+        variables: {
+        product_id: product_id
+        }
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  if (error) return `...ERROR`;
 
   return (
   <>
@@ -36,20 +49,19 @@ function ProductCard(props) {
     </div>
     )}
   {productCategory.map((product) => (
-    <div key={product._id} className="product-card night-bg">
-    <div className="product-card-picture-container">
-
-      {product.product_status ? (
-        <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
-      ) : (
-        <>
-          <div className="out-stock-cover mobile-out-stock">
-            <span>OUT OF STOCK</span>
-          </div>
-          <img onClick={() => {setSingleProduct(product); setModal(true);}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
-        </>
-      )}
-    </div>
+    <div key={product._id} className="product-card">
+      <div>
+        {product.product_status ? (
+          <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+        ) : (
+          <>
+            <div className="out-stock-cover mobile-out-stock">
+              <span>OUT OF STOCK</span>
+            </div>
+            <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
+          </>
+        )}
+      </div>
     <div className="product-card-description">
       <div className="product-card-font">
       <span className="bold">{product.product_name} {product.product_nameChinese !== '' && (
@@ -80,12 +92,12 @@ function ProductCard(props) {
       )}
       </div>
 
-      <div className="quantity-section">
+      {/* <div className="quantity-section">
         <Quantity
           product={product}
           user={user}
         />
-      </div>
+      </div> */}
     </div>
     </div>
   ))}

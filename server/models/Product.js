@@ -71,6 +71,12 @@ const productSchema = new Schema(
       trim: true,
       default: false
     },
+    product_views: {
+      type: Number,
+      required: false,
+      trim: true,
+      default: 0
+    },
     createdAt: {
       type: Date,
       get: timestamp => dateFormat(timestamp),

@@ -123,12 +123,20 @@ const resolvers = {
         addProduct: async(parent, { input }, context) => {
 
             if (context.user.admin === true) {
-                console.log(input);
                 const product = await Product.create(input)
     
                 return product;
             } 
             throw new AuthenticationError('Not Admin');
+        },
+        addProductView: async(parent, { product_id }, context) => {
+          const productView = await Product.findByIdAndUpdate(product_id)
+
+          return await Product.findByIdAndUpdate(
+            product_id,
+            {product_views: productView.product_views + 1 },
+            { new: true }
+          )
         },
         addProductPicture: async(parent, { product_url, product_id }, context) => {
           if (context.user.admin === true) {

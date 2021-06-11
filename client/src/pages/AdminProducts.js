@@ -4,18 +4,16 @@ import '../css/Admin.css';
 import AdminCategories from '../components/AdminComponents/Products';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_PRODUCT } from '../utils/mutations';
-import { PRODUCTS } from '../utils/queries';
 import ProductHeader from '../components/ProductHeader';
 import '../css/ProductHeader.css';
 import { UserContext } from '../utils/GlobalState';
 
-function AdminProducts() {
+function AdminProducts(props) {
 
-  const [state, dispatch] = useContext(UserContext)
-  const { loading, data } = useQuery(PRODUCTS);
-  const products = data?.products || {};
-  const [categoryModal, setCategoryModal] = useState(false)
-  const [productLinks] = useState(Auth.getCategories())
+  const {
+    products=[]
+  } = props
+
   const [formData, setProductFormData] = useState({
     product_name: '',
     product_category: '',
@@ -32,15 +30,14 @@ function AdminProducts() {
     search: '',
   })
 
+  const [state, dispatch] = useContext(UserContext)
+  const [categoryModal, setCategoryModal] = useState(false)
+  const [productLinks] = useState(Auth.getCategories())
   const [status, setStatus] = useState(false)
   const [load, setLoad] = useState(false)
   const [edit, setEdit] = useState(true);
   const [search, setSearch] = useState(false);
-
-
-
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
-
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
   const handleInputChange = (event) => {
@@ -53,28 +50,28 @@ function AdminProducts() {
 
   const addProductFormSubmit = async (e) => {
 
-  try {
-    addProduct({ variables: { input: {
-    product_name: formData.product_name,
-    product_description: formData.product_description,
-    product_price: formData.product_price,
-    product_weight: formData.product_weight,
-    product_nameChinese: formData.product_nameChinese,
-    product_descriptionChinese: formData.product_descriptionChinese,
-    product_picture: formData.product_picture,
-    product_category: formData.product_category,
-    product_status: JSON.parse(formData.product_status.toLowerCase()),
-    product_sale_price: formData.product_sale_price,
-    product_bulk_quantity: parseInt(formData.product_bulk_quantity),
-    product_bulk_price: formData.product_bulk_price,
-    product_featured: JSON.parse(formData.product_featured)
-    } }})
+    try {
+      addProduct({ variables: { input: {
+      product_name: formData.product_name,
+      product_description: formData.product_description,
+      product_price: formData.product_price,
+      product_weight: formData.product_weight,
+      product_nameChinese: formData.product_nameChinese,
+      product_descriptionChinese: formData.product_descriptionChinese,
+      product_picture: formData.product_picture,
+      product_category: formData.product_category,
+      product_status: JSON.parse(formData.product_status.toLowerCase()),
+      product_sale_price: formData.product_sale_price,
+      product_bulk_quantity: parseInt(formData.product_bulk_quantity),
+      product_bulk_price: formData.product_bulk_price,
+      product_featured: JSON.parse(formData.product_featured)
+      } }})
 
-      alert('product added');
-    } catch (e) {
-      console.log(e);
-      alert(e);
-    }
+        alert('product added');
+      } catch (e) {
+        console.log(e);
+        alert(e);
+      }
   }
 
   useEffect(() => {
@@ -99,7 +96,6 @@ function AdminProducts() {
     return Auth.setSearchProduct(JSON.stringify(result));
   }
 
-  if (loading) return `..Loading`;
   if (error) return `...ERROR`;
 
   return (

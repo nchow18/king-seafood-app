@@ -18,6 +18,7 @@ import gql from 'graphql-tag';
 //15 ADD_PRODUCT_PICTURE
 //16 REMOVE_ORDER
 //17 UPDATE_PRODUCT_PICTURE
+//18 ADD_VIEWS
 
 export const LOGIN = gql`
     mutation login($email: String!, $password:String!) {
@@ -271,6 +272,16 @@ export const UPDATE_PRODUCT_PICTURE = gql`
       _id
       product_name
       product_picture
+    }
+  }
+`;
+
+export const ADD_VIEWS = gql`
+  mutation addProductView ($product_id:String) {
+    addProductView(product_id: $product_id) {
+      _id
+      product_name
+      product_views
     }
   }
 `;
