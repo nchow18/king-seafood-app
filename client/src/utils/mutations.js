@@ -94,7 +94,10 @@ export const ADD_PRODUCT = gql`
         product_name
         product_category
         product_price
-        product_description
+        product_description1
+        product_description2
+        product_description3
+        product_description4
         product_weight
         product_picture
         product_nameChinese
@@ -115,7 +118,10 @@ export const UPDATE_PRODUCT = gql`
         product_name
         product_category
         product_price
-        product_description
+        product_description1
+        product_description2
+        product_description3
+        product_description4
         product_weight
         product_picture
         product_nameChinese

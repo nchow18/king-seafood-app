@@ -40,7 +40,10 @@ query product($product_id: ID!) {
     product_name
     product_category
     product_price
-    product_description
+    product_description1
+    product_description2
+    product_description3
+    product_description4
     product_weight
     product_picture
     product_nameChinese
@@ -63,7 +66,10 @@ query {
     product_name
     product_category
     product_price
-    product_description
+    product_description1
+    product_description2
+    product_description3
+    product_description4
     product_weight
     product_picture
     product_nameChinese

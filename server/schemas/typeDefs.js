@@ -55,7 +55,10 @@ const typeDefs = gql`
     product_name: String
     product_category: String
     product_price: String
-    product_description: String
+    product_description1: String
+    product_description2: String
+    product_description3: String
+    product_description4: String
     product_weight: String
     product_picture: [String]
     product_nameChinese: String
@@ -81,7 +84,10 @@ const typeDefs = gql`
     product_name: String
     product_category: String
     product_price: String
-    product_description: String
+    product_description1: String
+    product_description2: String
+    product_description3: String
+    product_description4: String
     product_weight: String
     product_picture: [String]
     product_nameChinese: String

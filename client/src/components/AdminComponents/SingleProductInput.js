@@ -17,7 +17,10 @@ function SingleProductInput(props) {
 
   const [formData, setFormData] = useState({
     product_name: product.product_name,
-    product_description: product.product_description,
+    product_description1: product.product_description1,
+    product_description2: product.product_description2,
+    product_description3: product.product_description3,
+    product_description4: product.product_description4,
     product_category: product.product_category,
     product_weight: product.product_weight,
     product_price: product.product_price,
@@ -46,7 +49,10 @@ function SingleProductInput(props) {
         product_id: product._id, 
         input: {
           product_name: formData.product_name,
-          product_description: formData.product_description,
+          product_description1: formData.product_description1,
+          product_description2: formData.product_description2,
+          product_description3: formData.product_description3,
+          product_description4: formData.product_description4,
           product_price: formData.product_price,
           product_weight: formData.product_weight,
           product_nameChinese: formData.product_nameChinese,
@@ -119,8 +125,20 @@ function SingleProductInput(props) {
               <input value={formData.product_price} onChange={handleInputChange} className="product-price admin-input-width" name='product_price' placeholder={product.product_price} type="text"   />
             </div>
             <div className="admin-input-row">
+              <b className="bold">Description1</b>
+              <input value={formData.product_description1} onChange={handleInputChange} className="product-description admin-input-width" name='product_description1' placeholder={product.product_description1} type="text"   />
+            </div>
+            <div className="admin-input-row">
+              <b className="bold">Description2</b>
+              <input value={formData.product_description2} onChange={handleInputChange} className="product-description admin-input-width" name='product_description2' placeholder={product.product_description2} type="text"   />
+            </div>
+            <div className="admin-input-row">
+              <b className="bold">Description3</b>
+              <input value={formData.product_description3} onChange={handleInputChange} className="product-description admin-input-width" name='product_description3' placeholder={product.product_description3} type="text"   />
+            </div>
+            <div className="admin-input-row">
               <b className="bold">Description</b>
-              <input value={formData.product_description} onChange={handleInputChange} className="product-description admin-input-width" name='product_description' placeholder={product.product_description} type="text"   />
+              <input value={formData.product_description4} onChange={handleInputChange} className="product-description admin-input-width" name='product_description4' placeholder={product.product_description4} type="text"   />
             </div>
             <div className="admin-input-row">
               <b className="bold">Weight</b>

@@ -19,8 +19,6 @@ function SingleProduct(props) {
     Auth.getMode();
   }
 
-  const [state, dispatch] = useContext(UserContext);
-
   return (
     <>
       <div className="single-product-container">
@@ -50,9 +48,24 @@ function SingleProduct(props) {
               {product.product_bulk_quantity >= 1 && (
                 <span><b className="font-red">Bundle Deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</b></span>
               )}
-              {product.product_description !== '0' && (
-                <span><b>Description: </b>{product.product_description}</span>
+              {product.product_description1 !== '0' && (
+                <>
+                <span><b>Description:</b></span>
+                {product.product_description1 !== '0' && (
+                  <span>{product.product_description1}</span>
+                )}   
+                {product.product_description2 !== '0' && (
+                  <span>{product.product_description2}</span>
+                )} 
+                {product.product_description3 !== '0' && (
+                  <span>{product.product_description3}</span>
+                )} 
+                {product.product_description4 !== '0' && (
+                  <span>{product.product_description4}</span>
+                )}                                                              
+                </>
               )}
+
 
               {product.product_weight >= 1 && (
                 <span><b>Weight: </b>{product.product_weight}</span>

@@ -34,6 +34,8 @@ function ProductCard(props) {
     }
   }
 
+  console.log(productCategory);
+
   if (error) return `...ERROR`;
 
   return (
@@ -41,10 +43,10 @@ function ProductCard(props) {
     {isModal && (
     <div className="single-product-modal-container">
       <SingleProduct 
-      setModal={setModal}
-      singleProduct={currentSingleProduct}
-      user={user}
-      setCategoryModal={setCategoryModal}
+        setModal={setModal}
+        singleProduct={currentSingleProduct}
+        user={user}
+        setCategoryModal={setCategoryModal}
       />
     </div>
     )}
@@ -85,9 +87,9 @@ function ProductCard(props) {
       {product.product_weight !== '' && (
         <span>{product.product_weight}</span>
       )}
-      {product.product_description !== '0' && (
+      {product.product_description1 !== '0' && (
         <>
-          <b>Description:</b><span className="blue-font">{product.product_description}</span>
+          <b>Description:</b><span className="blue-font">{product.product_description1}</span>
         </>
       )}
       </div>

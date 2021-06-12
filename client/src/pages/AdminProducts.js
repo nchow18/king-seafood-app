@@ -17,6 +17,10 @@ function AdminProducts(props) {
   const [formData, setProductFormData] = useState({
     product_name: '',
     product_category: '',
+    product_description1: '',
+    product_description2: '',
+    product_description3: '',
+    product_description4: '',
     product_weight: '',
     product_price: '',
     product_picture: '',
@@ -53,7 +57,10 @@ function AdminProducts(props) {
     try {
       addProduct({ variables: { input: {
       product_name: formData.product_name,
-      product_description: formData.product_description,
+      product_description1: formData.product_description1,
+      product_description2: formData.product_description2,
+      product_description3: formData.product_description3,
+      product_description4: formData.product_description4,
       product_price: formData.product_price,
       product_weight: formData.product_weight,
       product_nameChinese: formData.product_nameChinese,
@@ -120,8 +127,20 @@ function AdminProducts(props) {
         <input value={formData.product_price} onChange={handleInputChange} className="product-price admin-input-width" name='product_price' type="text"></input>
       </div>
       <div className="admin-input-row">
-        <label className="bold">Description</label>
-        <input value={formData.product_description} onChange={handleInputChange} className="product-description admin-input-width" name='product_description' type="text"></input>
+        <label className="bold">Description1</label>
+        <input value={formData.product_description1} onChange={handleInputChange} className="product-description admin-input-width" name='product_description1' type="text"></input>
+      </div>
+      <div className="admin-input-row">
+        <label className="bold">Description2</label>
+        <input value={formData.product_description2} onChange={handleInputChange} className="product-description admin-input-width" name='product_description2' type="text"></input>
+      </div>
+      <div className="admin-input-row">
+        <label className="bold">Description3</label>
+        <input value={formData.product_description3} onChange={handleInputChange} className="product-description admin-input-width" name='product_description3' type="text"></input>
+      </div>
+      <div className="admin-input-row">
+        <label className="bold">Description4</label>
+        <input value={formData.product_description4} onChange={handleInputChange} className="product-description admin-input-width" name='product_description4' type="text"></input>
       </div>
       <div className="admin-input-row">
         <label className="bold">Weight</label>

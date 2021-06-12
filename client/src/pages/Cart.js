@@ -75,7 +75,7 @@ function Cart() {
                   <div className="cart-details">
                     <span><b>Order Details</b></span>
                     <span>{cart.product_name}</span>
-                    <span>{cart.product_description}</span>
+                    <span>{cart.product_description1}</span>
                   </div>
                   <div className="cart-details">
                     <div className="">

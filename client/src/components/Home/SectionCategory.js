@@ -51,8 +51,6 @@ function SectionCategory(props) {
     Auth.setCategory(product);
   }
   
-  console.log(category)
-
   return (
     <>
       <div className="category-container">

@@ -24,7 +24,19 @@ function SingleProductView(props) {
       </div>
       <div className="admin-input-row">
         <b className="bold">Description</b>
-        <div className="product-description admin-input-width" name='product_description'  >{product.product_description}</div>
+        <div className="product-description admin-input-width" name='product_description1'  >{product.product_description1}</div>
+      </div>
+      <div className="admin-input-row">
+        <b className="bold">Description</b>
+        <div className="product-description admin-input-width" name='product_description2'  >{product.product_description2}</div>
+      </div>
+      <div className="admin-input-row">
+        <b className="bold">Description</b>
+        <div className="product-description admin-input-width" name='product_description3'  >{product.product_description3}</div>
+      </div>
+      <div className="admin-input-row">
+        <b className="bold">Description</b>
+        <div className="product-description admin-input-width" name='product_description4'  >{product.product_description4}</div>
       </div>
       <div className="admin-input-row">
         <b className="bold">Weight</b>

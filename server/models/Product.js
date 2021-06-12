@@ -18,9 +18,26 @@ const productSchema = new Schema(
       required: false,
       trim: true
     },
-    product_description: {
+    product_description1: {
       type: String,
       required: false,
+      trim: true,
+      default: '0'
+    },
+    product_description2: {
+      type: String,
+      required: false,
+      trim: true,
+      default: '0'
+    },
+    product_description3: {
+      type: String,
+      required: false,
+      default: '0'
+    },
+    product_description4: {
+      type: String,
+      requied: false,
       trim: true,
       default: '0'
     },

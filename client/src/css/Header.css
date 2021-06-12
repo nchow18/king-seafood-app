@@ -76,12 +76,13 @@
 
 .header-promo-slide {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .promo-setup {
   height: 90%;
-  left: -0rem;
-  opacity: 0;
+  opacity: 1;
   animation-timing-function: var(--cubic);
   animation-direction: normal;
   position: absolute;

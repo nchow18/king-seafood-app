@@ -60,7 +60,8 @@ db.once('open', async () => {
       contact_us_1: 'Joey 011-11264018',
       contact_us_2: 'Kelvin 016-4849744',
       address: '205, Jalan Perak, 11600 Jelutong, Penang, Malaysia',
-      home_message: 'FRESHLY FROZEN SEAFOOD'
+      home_message: 'FRESHLY FROZEN SEAFOOD',
+      main_banner: 'https://wallpaperaccess.com/full/1491748.jpg'
     }
   )
 
