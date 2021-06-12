@@ -12,7 +12,7 @@ function UpdateCartButton(props) {
     user_cart=[]
   } = props
 
-  const [dispatch] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
   const [updateCart, { error }] = useMutation(UPDATE_CART);
   const [formData, setFormData] = useState({
     quantity: product.product_quantity,
@@ -53,7 +53,7 @@ function UpdateCartButton(props) {
       //find index of matching local_cart.product_id and id
       for (var i = 0; i <  local_cart.length; i++) {
         if (local_cart[i].product_id === id) {
-          local_cart[i].quantity = parseInt(formData.quantity);
+          local_cart[i].quantity = formData.quantity;
 
           // remove and save new updated 'guest_cart' from localStorage
           localStorage.removeItem('guest_cart');

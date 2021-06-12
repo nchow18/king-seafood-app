@@ -62,7 +62,7 @@
 }
 
 .main-promo-container {
-  height: 7rem;
+  height: 10rem;
   width: 100%;
   position: absolute;
   left: 0;
@@ -81,7 +81,7 @@
   scroll-snap-type: x mandatory;
   padding: 1rem 1rem;
   width: 100%;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .slider-container {
@@ -94,8 +94,8 @@
 .slider-icon-container {
   padding: 0rem;
   margin: 0rem .5rem;
-  height: 4rem;
-  width: 4rem;
+  height: 8rem;
+  width: 8rem;
   position: relative;
   z-index: 10;
 }
