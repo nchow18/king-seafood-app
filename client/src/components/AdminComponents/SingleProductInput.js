@@ -9,8 +9,8 @@ function SingleProductInput(props) {
     product
   } = props
 
-  const [state, dispatch] = useContext(UserContext)
-  const [removeProduct, { error }] = useMutation(REMOVE_PRODUCT);
+  const [dispatch] = useContext(UserContext)
+  const [removeProduct] = useMutation(REMOVE_PRODUCT);
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
   const [addPicture] = useMutation(ADD_PRODUCT_PICTURE);
 
@@ -107,7 +107,6 @@ function SingleProductInput(props) {
       console.log(e)
     }
   }
-
 
   return (
     <>

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth';
-import Flickity from 'react-flickity-component';
 import '../../css/flickity.css';
 import PromoCard from '../FullCard/PromoCard';
 import '../../css/PromoBanner.css';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth';
 import '../../css/Products.css';
 import { useMutation } from '@apollo/react-hooks'
 import { ADD_VIEWS } from '../../utils/mutations';

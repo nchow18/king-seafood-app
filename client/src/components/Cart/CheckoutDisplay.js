@@ -39,7 +39,7 @@ function CheckoutDisplay(props) {
   var cart_message = '';
 
   for (var i = 0; i < cart.length; i++) {
-    cart_message += "\n %0a ===== Item:"+[i+1]+"====="+"\n %0a *Item:* "+cart[i].product_name+", *Quantity:* "+cart[i].quantity+", *Price:* "+cart[i].total_price+" ";
+    cart_message += "\n %0a ===== Item:"+[i+1]+"=====\n %0a *Item:* "+cart[i].product_name+", *Quantity:* "+cart[i].quantity+", *Price:* "+cart[i].total_price+" ";
   }
 
   const info = 

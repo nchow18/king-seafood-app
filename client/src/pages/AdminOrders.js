@@ -6,7 +6,7 @@ import '../css/Orders.css';
 
 function AdminOrders() {
 
-    const [removeOrder, { error }] = useMutation(REMOVE_ORDER)
+    const [removeOrder] = useMutation(REMOVE_ORDER)
     const [details, viewDetails] = useState(false);
     const {loading, data} = useQuery(ORDERS);
     const orders = data?.orders || {};

@@ -5,6 +5,7 @@ db.once('open', async () => {
   console.log('opened');
   
   await User.deleteMany();
+  await Order.deleteMany();
   await Product.deleteMany();
 
   await User.create(

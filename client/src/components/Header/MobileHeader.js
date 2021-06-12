@@ -7,8 +7,6 @@ import Cart from '../../assets/images/cart.png';
 function MobileHeader(props) {
 
   const {
-    setModal,
-    isModal,
     headerLinks=[],
     cartModal,
     setCartModal

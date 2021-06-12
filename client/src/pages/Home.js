@@ -79,7 +79,6 @@ function Home() {
   ])
 
   const [isPromo, setPromo] = useState(false);
-  const [isModal, setModal] = useState(false);
   const { loading, data } = useQuery(PROMO);
   const promo = data?.promo || {};
   const { data: Data } = useQuery(PRODUCTS);
@@ -92,10 +91,6 @@ function Home() {
     const empty = {name: ""};
     localStorage.setItem('current_category', JSON.stringify(empty))
   }, [])
-
-  function displayPromo() {
-    setPromo(true);
-  }
 
   if (loading) return `...Loading`;
 

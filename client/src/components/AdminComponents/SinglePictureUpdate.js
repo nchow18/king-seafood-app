@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { REMOVE_PRODUCT_PICTURE, UPDATE_PRODUCT_PICTURE } from '../../utils/mutations';
 import { UserContext } from '../../utils/GlobalState';
@@ -11,7 +11,7 @@ function SinglePictureUpdate(props) {
     setStatus
   } = props
 
-  const [state, dispatch] = useContext(UserContext);
+  const [dispatch] = useContext(UserContext);
   const [removePicture, { error }] = useMutation(REMOVE_PRODUCT_PICTURE);
   const [updateProductPicture] = useMutation(UPDATE_PRODUCT_PICTURE);
   const [formData, setFormData] = useState({

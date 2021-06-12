@@ -12,7 +12,7 @@ function UpdateCartButton(props) {
     user_cart=[]
   } = props
 
-  const [state, dispatch] = useContext(UserContext);
+  const [dispatch] = useContext(UserContext);
   const [updateCart, { error }] = useMutation(UPDATE_CART);
   const [formData, setFormData] = useState({
     quantity: product.product_quantity,

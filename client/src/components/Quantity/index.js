@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_CART } from '../../utils/mutations';
 import { USER_ME } from '../../utils/queries';
+import { UserContext } from '../../utils/GlobalState';
 
 function Quantity(props) {
 
@@ -11,6 +12,7 @@ function Quantity(props) {
     product=[],
   } = props
 
+  const [state, dispatch] = useContext(UserContext);
   const {loading, data} = useQuery(USER_ME)
   const [addCart, {error}] = useMutation(ADD_CART)
   const [formData, setFormData] = useState({
@@ -26,14 +28,16 @@ function Quantity(props) {
   }
 
   const userData = data?.userMe || {};
+  const new_cart = JSON.parse(localStorage.getItem('guest_cart'));
+  const guestCartQuantity = JSON.parse(localStorage.getItem('guest_cart_quantity'))
 
   const addToCart = async (data, quantity) => {
     if (Auth.loggedIn() === false) {
     // IF data is stored in Local Storage
 
-      const new_cart = JSON.parse(localStorage.getItem('guest_cart'));
+
     //if NOT logged in, save to localStorage
-    if (new_cart.length > 0) {
+    if (guestCartQuantity >= 1) {
       // Check for duplicate
       for (var t = 0; t < new_cart.length; t++) {
         if (data === new_cart[t].product_id) {
@@ -90,7 +94,7 @@ function Quantity(props) {
       <div className="quantity-button-container">
         <span>Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} /></span>
         {product.product_status ? (
-          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity)}}>ADD TO CART</div>
+          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity); dispatch({ type: 'toggle_button' })}}>ADD TO CART</div>
         ) : (
           <div className="product-button" key={product._id}>OUT OF STOCK</div>
         )}

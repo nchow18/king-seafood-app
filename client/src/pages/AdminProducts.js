@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Auth from '../utils/auth';
 import '../css/Admin.css';
 import AdminCategories from '../components/AdminComponents/Products';
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { ADD_PRODUCT } from '../utils/mutations';
 import ProductHeader from '../components/ProductHeader';
 import '../css/ProductHeader.css';

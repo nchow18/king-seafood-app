@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/WindowCart.css';
 import '../../css/MobileCart.css';
@@ -6,7 +6,6 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { REMOVE_CART } from '../../utils/mutations';
 import { USER_ME, PRODUCTS } from '../../utils/queries';
 import CheckoutDisplay from '../Cart/CheckoutDisplay';
-import { UserContext } from '../../utils/GlobalState';
 import CartItem from '../Cart/CartItem';
 import Fish from '../../assets/images/clown-fish.png';
 import ProductSlide from '../Cart/ProductsSlide';
@@ -17,7 +16,6 @@ function WindowCart(props) {
     setCartModal
   } = props
 
-  const [state, dispatch] = useContext(UserContext)
   const [currentState, updateState] = useState(true);
   const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
@@ -91,9 +89,11 @@ if (Auth.loggedIn()) {
       if (user_data.cart.length === 0 && user_data === false) {
         } else {
             for (var i = 0; i < user_data.cart.length; i++) {
+
+              let index = i;
         
               var checkExisting = product_data.filter(function (item) {
-                return item._id === user_data.cart[i].product_id;
+                return item._id === user_data.cart[index].product_id;
               })
         
               if (checkExisting.length === 0) {
@@ -168,12 +168,14 @@ if (Auth.loggedIn()) {
       const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
 
       for (var r = 0; r < cart_data.length; r++) {
-        var checkExisting = product_data.filter(function (item) {
-          return item._id === cart_data.[r].product_id;
+
+        let index = r;
+        const checkExisting = product_data.filter(function (item) {
+          return item._id === cart_data.[index].product_id;
         })
 
         // checks if items in local storage CART still exists
-        if(checkExisting.length === 0) {
+        if (checkExisting.length === 0) {
           //if it does not exist, splice product at index (r)
           cart_data.splice(r, 1);
         } else {
@@ -236,7 +238,6 @@ if (Auth.loggedIn()) {
   localStorage.removeItem('new_cart');
   localStorage.setItem('new_cart', JSON.stringify(user_cart))
   const new_cart = localStorage.getItem('new_cart');
-  // Auth.setCartQuantity(user_cart.length);
 
   //Add to cart price
   const cart_price = [];

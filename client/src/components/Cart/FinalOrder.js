@@ -14,7 +14,6 @@ function FinalOrder(props) {
   const [addOrder, { error }] = useMutation(ADD_ORDER);
 
   useEffect(() => {
-    console.log('order submitted to admin side')
     try {
       addOrder({
         variables: {
@@ -31,7 +30,7 @@ function FinalOrder(props) {
       console.log(e)
     }
 
-  }, [order])
+  },[order])
 
   if (error) return `...ERROR`;
 

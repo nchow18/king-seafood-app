@@ -7,8 +7,6 @@ import MobileHeader from './MobileHeader';
 import Logo from '../../assets/images/king-logo.jpg';
 import { useQuery } from '@apollo/react-hooks';
 import { USER_ME } from '../../utils/queries';
-import Lobster from '../../assets/images/lobster-logo3.png';
-
 
 function Header(props) {
 
@@ -26,7 +24,7 @@ function Header(props) {
   };
 
   const { loading, data } = useQuery(USER_ME)
-  const [state, dispatch] = useContext(UserContext);
+  const [state] = useContext(UserContext);
   const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
@@ -37,14 +35,14 @@ function Header(props) {
   const headerArr = [];
    
   if (!Auth.loggedIn()) {
-      console.log('guest account')
+    //GUEST ACCOUNT
       headerArr.push(publicArr);
     } else {
     if(Auth.getProfileType() === 'admin') {
-      console.log('admin account');
+    //ADMIN ACCOUNT
       headerArr.push(adminArr)
     } else {
-      console.log('user account');
+    //USER ACCOUNT
       headerArr.push(userArr);
     }
   }
@@ -88,10 +86,10 @@ function Header(props) {
               <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[6].name}</Link>
 
               {state.active === true && (
-                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getGuestCartQuantity()})</b></i>
+                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({guest_cart})</b></i>
               )}
               {state.active === false && (
-                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({Auth.getGuestCartQuantity()})</b></i>
+                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({guest_cart})</b></i>
               )}              
               </>
             )}

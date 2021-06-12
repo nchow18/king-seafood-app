@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth';
-import Flickity from 'react-flickity-component';
 import '../../css/flickity.css';
 import { useQuery } from '@apollo/react-hooks';
 import { PRODUCTS } from '../../utils/queries';
@@ -14,12 +12,6 @@ function ProductCarousel() {
   const [isModal, setModal] = useState(false);
   const productsArr = data?.products || {};
 
-
-  function viewProduct(id) {
-    Auth.setSingleProduct(id);
-    Auth.viewSingleProduct();
-  }
-
   const randomProducts = [];
   const products = randomProducts;
   const randomNumbers = [];
@@ -28,13 +20,14 @@ function ProductCarousel() {
 
   if (data) {
     for (var i = 0; i < 10; i++ ) {
-      var number = 1 + i;
 
       // get random number within the range of productsArr
       var randomNumber = Math.round(Math.random() * productsArr.length);
       randomNumbers.push(randomNumber);
 
-      var verify = randomNumbers.filter((random) => random === i);
+      let index = i;
+
+      var verify = randomNumbers.filter((random) => random === index);
 
       if (verify.length === 0) {
         randomProducts.push(productsArr[i])

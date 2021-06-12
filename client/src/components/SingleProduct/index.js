@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
 import ProductPictureCarousel from '../Carousel/ProductPicture';
-import { UserContext } from '../../utils/GlobalState';
 import Quantity from '../Quantity';
 import '../../css/Home.css';
 
