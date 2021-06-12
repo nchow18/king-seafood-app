@@ -8,7 +8,8 @@ function CartItem(props) {
     product,
     user_cart=[],
     updateState,
-    removeProduct
+    removeProduct,
+    updateMainCart
   } = props
 
   const [state, dispatch] = useContext(UserContext)
@@ -31,6 +32,7 @@ function CartItem(props) {
                 product={product}
                 user_cart={user_cart}
                 updateState={updateState}
+                updateMainCart={updateMainCart}
                 />
           </div>
       </div>    

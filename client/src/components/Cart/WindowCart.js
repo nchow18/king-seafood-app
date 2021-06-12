@@ -23,20 +23,25 @@ function WindowCart(props) {
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
-
-  if (loading) return `...Loading`;
-
   const user_data = dataR?.userMe || {};
   const product_data = data?.products || {};
   const cartArr = [];
   const user_cart = cartArr;
 
+  const [currentCart, updateMainCart] = useState(cartArr)
+
+  useEffect(() => {
+    console.log('Update Cart');
+  },[currentCart] )
 
   const removeProduct = async (id) => {
 
     if (Auth.loggedIn() === true) {
-      console.log('removing from USER database')
+
       // if LOGGED IN, remove from Database
+      const index = cartArr.findIndex((item) => item._id === id)
+      cartArr.splice(index, 1);
+      updateMainCart([...cartArr])
       try {
         removeCart({
           variables: {
@@ -51,7 +56,6 @@ function WindowCart(props) {
     const user_storage = localStorage.getItem('user_cart_quantity')
     localStorage.setItem('user_cart_quantity', (user_storage - 1))
     } else {
-      console.log('removing local storage item');
       // if NOT logged in, slice from localStorage
       // use array to sort guest_cart to find matching product_id
       for (var i = 0; i < user_cart.length; i++) {
@@ -83,21 +87,16 @@ if (local_cart === null) {
 
 if (Auth.loggedIn()) {
   // IF logged in, get data from USER Database
-  console.log('getting data from USER cart data from database')
     if (user_data.cart) {
       if (user_data.cart.length === 0 && user_data === false) {
-        console.log('there are no items in your cart')
         } else {
-            console.log('there are items in your cart')
             for (var i = 0; i < user_data.cart.length; i++) {
-              console.log('starting checking')
         
               var checkExisting = product_data.filter(function (item) {
                 return item._id === user_data.cart[i].product_id;
               })
         
               if (checkExisting.length === 0) {
-                console.log('items in your cart have non-existing products');
                 console.log(user_data.cart[i].product_id)
                 try {
                   removeCart({
@@ -105,18 +104,17 @@ if (Auth.loggedIn()) {
                       product_id: user_data.cart[i].product_id
                     }
                   })
-                  console.log('removed from cart');
                 } catch (e) {
                   console.log(e)
                 }
-              } else {
-                console.log('your cart products still exist in the database');
               }
 
               for (var t = 0; t < product_data.length; t++) {
                 if (user_data.cart[i].product_id === product_data[t]._id) {
                   cartArr.push(product_data[t])
-                  cartArr[i].quantity = user_data.cart[i].quantity;
+                  cartArr[i].product_quantity = user_data.cart[i].quantity;
+
+                  console.log(cartArr);
                   
                   //check for global discount
                 for (var e = 0; e < user_data.cart.length; e++) {
@@ -126,17 +124,33 @@ if (Auth.loggedIn()) {
                     //check if sale price exists
                     if (cartArr[i].product_sale_price !== '0') {
                       //if sale price greater than 0, apply sale discount
-                      cartArr[i].total_price = JSON.parse(cartArr[i].product_sale_price) * cartArr[i].quantity;
+                      if (cartArr[i].new_quantity > 0) {
+                        cartArr[i].total_price = JSON.parse(cartArr[i].product_sale_price) * cartArr[i].new_quantity;                        
+                      } else {
+                        cartArr[i].total_price = JSON.parse(cartArr[i].product_sale_price) * cartArr[i].product_quantity;
+                      }
                     } else if (cartArr[i].product_bulk_price !== "0" && cartArr[i].product_bulk_quantity <= parseInt(cartArr[i].quantity)) {
                       // if bulk price is greater than 0 AND bulk quantity is less than QUANTITY
-                      cartArr[i].total_price = cartArr[i].quantity * cartArr[i].product_bulk_price
+                      if (cartArr[i].new_quantity >0) {
+                        cartArr[i].total_price = cartArr[i].new_quantity * cartArr[i].product_bulk_price
+                      } else {
+                        cartArr[i].total_price = cartArr[i].product_quantity * cartArr[i].product_bulk_price
+                      }
                     } else {
                       //if sale price / bulk price doesn't exist, apply global discount
-                      cartArr[i].total_price = cartArr[i].quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
+                      if (cartArr[i].new_quantity>0) {
+                        cartArr[i].total_price = cartArr[i].new_quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
+                      } else {
+                        cartArr[i].total_price = cartArr[i].product_quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
+                      }
                     }
                   } else {
                     // if gobal discount does not exist, apply regular price
-                    cartArr[i].total_price = cartArr[i].product_price * cartArr[i].quantity
+                      if (cartArr[i].new_quantity>0) {
+                        cartArr[i].total_price = cartArr[i].product_price * cartArr[i].new_quantity
+                      } else {
+                        cartArr[i].total_price = cartArr[i].product_price * cartArr[i].product_quantity
+                      }
                   }
                 }
               }
@@ -145,12 +159,11 @@ if (Auth.loggedIn()) {
         }
       }
     } else {
-
+      // IF NOT logged in
       const cart_length = JSON.parse(localStorage.getItem('guest_cart'));
 
     //Proceed if there are items in localStorage guest cart
     if (cart_length.length >= 1) {
-      console.log('getting cart data from localStorage')
       // IF NOT logged in, get data from localStorage 'guest_cart'
       const cart_data = JSON.parse(localStorage.getItem('guest_cart'));
 
@@ -161,11 +174,9 @@ if (Auth.loggedIn()) {
 
         // checks if items in local storage CART still exists
         if(checkExisting.length === 0) {
-          console.log('items in your cart have non-existing products');
           //if it does not exist, splice product at index (r)
           cart_data.splice(r, 1);
         } else {
-          console.log('your cart products still exist in the database');
         }
 
         //check for duplicates and remove from cart_data
@@ -173,7 +184,6 @@ if (Auth.loggedIn()) {
           for (var p = 1; p < cart_data.length; p++) {
             if (cart_data[r].product_id === cart_data[p].product_id && r !== p) {
               cart_data.splice(p, 1);
-              console.log('duplicate at ' + p + ' index removed');
             }
           }
           // remove old local storage guest_cart
@@ -181,7 +191,6 @@ if (Auth.loggedIn()) {
           // update new local storage guest_cart
           localStorage.setItem('guest_cart', JSON.stringify(cart_data));
         }
-        console.log('no duplicates found');
         //push all product_id into cartArr
 
         for (var q = 0; q < product_data.length; q++) {
@@ -189,7 +198,7 @@ if (Auth.loggedIn()) {
             //pushing product into cartArr
             cartArr.push(product_data[q])
             //add quantity KEY into cartArr[r]
-            cartArr[r].quantity = cart_data[r].quantity;
+            cartArr[r].product_quantity = cart_data[r].quantity;
           }
         }
 
@@ -200,23 +209,23 @@ if (Auth.loggedIn()) {
           //if discount exists, check if bulk and sale price exists before proceeding
           //Check product_sale_price
           if (cartArr[r].product_sale_price > 0) {
-            cartArr[r].total_price = (cartArr[r].product_sale_price * cartArr[r].quantity);
+            cartArr[r].total_price = (cartArr[r].product_sale_price * cartArr[r].product_quantity);
           } else
           //check product_bulk_quantity, greater than 0 AND quantity is greater than the bulk to qualify
-          if (cartArr[r].product_bulk_quantity > 0 && cartArr[r].product_bulk_quantity <= cartArr[r].quantity) {
+          if (cartArr[r].product_bulk_quantity > 0 && cartArr[r].product_bulk_quantity <= cartArr[r].product_quantity) {
 
-            cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_bulk_price);
+            cartArr[r].total_price = (cartArr[r].product_quantity * cartArr[r].product_bulk_price);
           } else if (global_discount > 0) {
             // if quantity isn't enough, check if global discount is available to be applied
-            cartArr[r].total_price = (cartArr[r].product_price * global_discount * cartArr[r].quantity);
+            cartArr[r].total_price = (cartArr[r].product_price * global_discount * cartArr[r].product_quantity);
           } else {
             // if global discount doesn't exist, proceed with regular price
-            cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_price);
+            cartArr[r].total_price = (cartArr[r].product_quantity * cartArr[r].product_price);
           }
 
         } else {
           // Use regular price, since no discounts exist
-          cartArr[r].total_price = (cartArr[r].quantity * cartArr[r].product_price);
+          cartArr[r].total_price = (cartArr[r].product_quantity * cartArr[r].product_price);
         }
     }
   } else {
@@ -254,6 +263,7 @@ if (Auth.loggedIn()) {
   const user_cart_length = cartArr.length;
 
   if (error) return `...ERROR`;
+  if (loading) return `...Loading`;
 
   return (
     <div className="window-cart-content">
@@ -262,8 +272,6 @@ if (Auth.loggedIn()) {
         <div className="window-cart-column to-night">
           <span className="total-text">Cart Total: {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container to-night">
-              {state.active === true && (
-                <>
               {(JSON.parse(new_cart)).map((product) => (
                   <CartItem 
                     product={product}
@@ -271,24 +279,10 @@ if (Auth.loggedIn()) {
                     new_cart={new_cart}
                     updateState={updateState}
                     removeProduct={removeProduct}
-                  />
-                ))}
-                </>
-              )}
-              {state.active === false && (
-                <>
-              {(JSON.parse(new_cart)).map((product) => (
-                  <CartItem 
-                    product={product}
-                    user_cart={user_cart}
-                    new_cart={new_cart}
-                    updateState={updateState}
-                    removeProduct={removeProduct}
+                    updateMainCart={updateMainCart}
                   />
 
-                ))}
-                </>
-              )}                            
+                ))}                         
             </div>
             <div className="window-cart-checkout-container">
               {checkOutModal && (

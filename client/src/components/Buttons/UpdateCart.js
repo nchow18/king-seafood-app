@@ -8,13 +8,14 @@ function UpdateCartButton(props) {
 
   const {
     product = [],
-    updateState
+    updateMainCart,
+    user_cart=[]
   } = props
 
   const [state, dispatch] = useContext(UserContext);
   const [updateCart, { error }] = useMutation(UPDATE_CART);
   const [formData, setFormData] = useState({
-    quantity: product.quantity,
+    quantity: product.product_quantity,
   })
 
   const handleInputChange = event => {
@@ -29,7 +30,12 @@ function UpdateCartButton(props) {
 
     if (Auth.loggedIn()) {
       const quantity = formData.quantity;
-    
+      const index = user_cart.findIndex((item) => item._id === id)
+      var newCart = []
+      newCart = [...user_cart]
+      newCart[index].new_quantity = parseInt(formData.quantity);
+      updateMainCart([...newCart])
+
       try {
         updateCart({
           variables: {
