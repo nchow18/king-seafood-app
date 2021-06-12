@@ -168,9 +168,6 @@
   }
 }
 
-
-
-
 .cart-link {
   display: none;
 }
@@ -192,7 +189,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 100;
+  z-index: 999;
   flex-direction: column;
   align-items: center;
   background-color: white;

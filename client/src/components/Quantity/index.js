@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_CART } from '../../utils/mutations';
+import { USER_ME } from '../../utils/queries';
 
 function Quantity(props) {
 
   const {
     product=[],
-    user
   } = props
 
+  const {loading, data} = useQuery(USER_ME)
   const [addCart, {error}] = useMutation(ADD_CART)
   const [formData, setFormData] = useState({
     quantity: 1,
@@ -23,6 +24,8 @@ function Quantity(props) {
       [name]: value
     })
   }
+
+  const userData = data?.userMe || {};
 
   const addToCart = async (data, quantity) => {
     if (Auth.loggedIn() === false) {
@@ -39,8 +42,6 @@ function Quantity(props) {
         }
       }      
       const guest_cart = {product_id: data, quantity: parseInt(quantity)};
-
-      console.log(new_cart[0].product_id);
       const cart = [...new_cart, guest_cart]
 
       alert('Product added to cart');
@@ -58,15 +59,14 @@ function Quantity(props) {
     } else {
     // if logged in, save data to user cart
     // prevent duplicate product in cart
-    if (user) {
-      for (var i = 0; i < user.userMe.cart.length; i++) {
-        if (data === user.userMe.cart[i].product_id) {
-          alert('This product exists in your cart!')
+    if (userData) {
+      for (var i = 0; i < userData.cart.length; i++) {
+        if (userData.cart[i].product_id === data) {
+          alert('This product exists in your cart');
           return false;
         }
       }
     }
-
     // if it doesn't exist in USER cart, add to user CART db
     try {
         addCart({ variables: {
@@ -83,6 +83,7 @@ function Quantity(props) {
     }
 
   if (error) return '...ERROR';
+  if (loading) return '...LOADING';
 
   return (
     <>

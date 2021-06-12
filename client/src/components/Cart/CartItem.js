@@ -12,9 +12,7 @@ function CartItem(props) {
   } = props
 
   const [state, dispatch] = useContext(UserContext)
-
-  console.log(product);
-
+  
   return (
     <>
       <div>

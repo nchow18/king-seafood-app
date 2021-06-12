@@ -78,23 +78,12 @@ const resolvers = {
                 const product_id = input[0].product_id;
                 const user = await User.findById(context.user._id)
 
-                var duplicate = '';
-
-                for (var i = 0; i < user.cart.length; i++ ) {
-                    if (product_id === user.cart[i].product_id) {
-                        duplicate = 'exists';
-                    }
-                }
-
-                if (duplicate !== 'exists') {
                     return await User.findByIdAndUpdate(
                         { _id: context.user._id },
                         {$addToSet: { cart: input[0] }},
                         { new: true }
                     )
                 }
-                throw new AuthenticationError('Item exists in cart');
-            }
         throw new AuthenticationError('Not Logged in');
         },
         removeCart: async(parent, { product_id }, context) => {

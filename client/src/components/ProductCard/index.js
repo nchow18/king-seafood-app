@@ -34,8 +34,6 @@ function ProductCard(props) {
     }
   }
 
-  console.log(productCategory);
-
   if (error) return `...ERROR`;
 
   return (
