@@ -166,7 +166,6 @@ db.once('open', async () => {
     "product_name": "Salmon Steak 三文鱼排 ±250g/pc*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196149354_351071813079782_9010462509506879711_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeF4BXvf9HJke_QhM9FAtj9WrVQ6F3dXnsWtVDoXd1eexd4DiKCM8kpUREblezyWPQUQeAWoluIXLzbtmNDsfKhC&_nc_ohc=VM9SI42Ne6QAX84G3yM&_nc_ht=scontent.fpen1-1.fna&oh=a7a0e618de2e59697f8717a4a41f0321&oe=60E70F53",
-       ""
     ],
     "product_category": "fish",
     "product_price": "9.50",
@@ -185,7 +184,6 @@ db.once('open', async () => {
     "product_name": "Salmon Steak 三文鱼排 1kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196149354_351071813079782_9010462509506879711_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeF4BXvf9HJke_QhM9FAtj9WrVQ6F3dXnsWtVDoXd1eexd4DiKCM8kpUREblezyWPQUQeAWoluIXLzbtmNDsfKhC&_nc_ohc=VM9SI42Ne6QAX84G3yM&_nc_ht=scontent.fpen1-1.fna&oh=a7a0e618de2e59697f8717a4a41f0321&oe=60E70F53",
-       ""
     ],
     "product_category": "fish",
     "product_price": "38.00",
@@ -204,7 +202,6 @@ db.once('open', async () => {
     "product_name": "Salmon Fillet 三文鱼片 ±180g/pc *",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/186535822_351071586413138_6315946759269770153_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGw-bv4jSK3-COeYOy8MQUSCbJA0n10ZHEJskDSfXRkcVDlvnaKMRbTlKWfjouW2O9K5loePSP8D-pJxrlED_t-&_nc_ohc=F2RCJjAA7GwAX8gxoA2&_nc_ht=scontent.fpen1-1.fna&oh=d2fc336c0f1ff87765d28a18f2661c48&oe=60E8DA54",
-       ""
     ],
     "product_category": "fish",
     "product_price": "9.90",
@@ -223,7 +220,6 @@ db.once('open', async () => {
     "product_name": "Salmon Fillet 三文鱼片 1kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/186535822_351071586413138_6315946759269770153_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGw-bv4jSK3-COeYOy8MQUSCbJA0n10ZHEJskDSfXRkcVDlvnaKMRbTlKWfjouW2O9K5loePSP8D-pJxrlED_t-&_nc_ohc=F2RCJjAA7GwAX8gxoA2&_nc_ht=scontent.fpen1-1.fna&oh=d2fc336c0f1ff87765d28a18f2661c48&oe=60E8DA54",
-       ""
     ],
     "product_category": "fish",
     "product_price": "55.00",
@@ -242,7 +238,6 @@ db.once('open', async () => {
     "product_name": "Salmon Fillet (uncut) 三文鱼片 (大) ±2kg/pc*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195559216_351071666413130_4857907233372508911_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHzmFKf019aDmEjhQLLwizYkCmgMcjcRMuQKaAxyNxEy8oeYBmdBe0ZXvHZtDmOMiBzyvx8tNE_wcFKDi1uBUc3&_nc_ohc=VlMRe9rTeEIAX95xViI&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=40a9df4d94fd87d0b496fa4189f37ef8&oe=60E67F7A",
-       ""
     ],
     "product_category": "fish",
     "product_price": "106.00",
@@ -280,7 +275,6 @@ db.once('open', async () => {
     "product_name": "Halibut Fillet 大比目鱼片 ±150g/pc*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195428531_351071249746505_7525456860742762962_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGBX0V8W7sWM805lxSZprYZT1msz1aK2hZPWazPVoraFmV--GyHlViOlNz1gLEBAzEIywwCFNrYKfxKZDjA7KQ-&_nc_ohc=doMb9vK_H_gAX_y2YJ5&_nc_ht=scontent.fpen1-1.fna&oh=8d6226b575a08fd3ebb62417db9cf4f4&oe=60E65508",
-       ""
     ],
     "product_category": "fish",
     "product_price": "8.25",
@@ -299,7 +293,6 @@ db.once('open', async () => {
     "product_name": "Halibut Fillet 大比目鱼片 1kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195428531_351071249746505_7525456860742762962_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGBX0V8W7sWM805lxSZprYZT1msz1aK2hZPWazPVoraFmV--GyHlViOlNz1gLEBAzEIywwCFNrYKfxKZDjA7KQ-&_nc_ohc=doMb9vK_H_gAX_y2YJ5&_nc_ht=scontent.fpen1-1.fna&oh=8d6226b575a08fd3ebb62417db9cf4f4&oe=60E65508",
-       ""
     ],
     "product_category": "fish",
     "product_price": "55.00",
@@ -318,7 +311,6 @@ db.once('open', async () => {
     "product_name": "Halibut Steak 大比目鱼排 ±200g/pc*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194676438_351071306413166_1401439354566473118_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeH-E7d_oeYyoFqaGjtIUo3Jd9nl0is4Rpt32eXSKzhGm35wmo8hh0LH9ZGXzA64nwru5Upbu11MOBgvv3K8u5wk&_nc_ohc=i15Nyrm41xMAX8_PNjZ&_nc_ht=scontent.fpen1-1.fna&oh=8f67de2af1d2b21576204dc93dea912f&oe=60E75EBB",
-       ""
     ],
     "product_category": "fish",
     "product_price": "11.00",
@@ -337,7 +329,6 @@ db.once('open', async () => {
     "product_name": "Halibut Steak 大比目鱼排 454g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194676438_351071306413166_1401439354566473118_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeH-E7d_oeYyoFqaGjtIUo3Jd9nl0is4Rpt32eXSKzhGm35wmo8hh0LH9ZGXzA64nwru5Upbu11MOBgvv3K8u5wk&_nc_ohc=i15Nyrm41xMAX8_PNjZ&_nc_ht=scontent.fpen1-1.fna&oh=8f67de2af1d2b21576204dc93dea912f&oe=60E75EBB",
-       ""
     ],
     "product_category": "fish",
     "product_price": "20.00",
@@ -356,7 +347,6 @@ db.once('open', async () => {
     "product_name": "Tuna Fillet 鲔鱼 ±500g/pc*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196716236_351072209746409_1494951169419413604_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEwURWuNsqkbUHK18vTKbnJ15aEijGvC0rXloSKMa8LSvoqz4uKjiZEi28ybe3Hs0v7sV_Xr9QLrkCokSlUOpYP&_nc_ohc=T8FqEEy2CSIAX_Tn37Y&_nc_ht=scontent.fpen1-1.fna&oh=9ccd5b489fb4747260995b2490864106&oe=60E7ED66",
-       ""
     ],
     "product_category": "fish",
     "product_price": "30.00",
@@ -375,7 +365,6 @@ db.once('open', async () => {
     "product_name": "Cod Fish 鳕鱼 ±200g/pc*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197838565_351071149746515_2830150501129178607_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGz0Fx8tlaEQ3ieD0XyZPr8hpiz3BYv9zCGmLPcFi_3MDk_y_Ch227WjA2qENwa9Eef-6BvIM6u7h7-hE-esM5g&_nc_ohc=XCNhK9n6UlAAX_PBGah&_nc_ht=scontent.fpen1-1.fna&oh=4fab61d3dad646c3f50509eef9ea659c&oe=60E8BE0C",
-       ""
     ],
     "product_category": "fish",
     "product_price": "25.60",
@@ -394,7 +383,6 @@ db.once('open', async () => {
     "product_name": "Cod Fish 鳕鱼 1kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197838565_351071149746515_2830150501129178607_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGz0Fx8tlaEQ3ieD0XyZPr8hpiz3BYv9zCGmLPcFi_3MDk_y_Ch227WjA2qENwa9Eef-6BvIM6u7h7-hE-esM5g&_nc_ohc=XCNhK9n6UlAAX_PBGah&_nc_ht=scontent.fpen1-1.fna&oh=4fab61d3dad646c3f50509eef9ea659c&oe=60E8BE0C",
-       ""
     ],
     "product_category": "fish",
     "product_price": "148.00",
@@ -413,7 +401,6 @@ db.once('open', async () => {
     "product_name": "Patin Slice 巴丁鱼片 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193234127_351071356413161_205101714968686139_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeG0Jngo6GEKdlgc-kCT_PrY23ObRdMtfKPbc5tF0y18o6qukc7lsFeVKHwmAnMlP2OyGxAeiGQnFGauZbFu6ngB&_nc_ohc=72aYMpQLJvUAX-Fw91-&_nc_ht=scontent.fpen1-1.fna&oh=be57c245302751757be8b9076024d23e&oe=60E765EE",
-       ""
     ],
     "product_category": "fish",
     "product_price": "10.00",
@@ -432,7 +419,6 @@ db.once('open', async () => {
     "product_name": "Saba Fillet 鲭鱼 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194297772_351071516413145_3063372136075442652_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHEIN9cjaEdY5I_ek1c9oC-PbTfdUbh2CM9tN91RuHYIx9kxQJmxH1Z66P7XppbD-NtProy3bKM0WUgBH0QcFY4&_nc_ohc=yGUcm07dQ_wAX80L1-K&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=8646c7a0fdb69fba8ef6824fdb2e3466&oe=60E58C6D",
-       ""
     ],
     "product_category": "fish",
     "product_price": "20.00",
@@ -451,7 +437,6 @@ db.once('open', async () => {
     "product_name": "Shime Saba (Vinegered Mackerel)  腌制醋鲭鱼 ",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/189633983_351071869746443_7484423645471420098_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeH2aeAxaD05h6ARSIhf-i10Qd3Fua_p2yNB3cW5r-nbIw2Ahbb1_rCdh2JHfUamWCq-qJyJmRq-MideQOj5MD7H&_nc_ohc=7z1O28Rze8YAX8HaoGl&_nc_ht=scontent.fpen1-1.fna&oh=1b50d74a4ad036f401b8390488b76358&oe=60E80AAD",
-       ""
     ],
     "product_category": "fish",
     "product_price": "6.00",
@@ -470,7 +455,6 @@ db.once('open', async () => {
     "product_name": "Teriyaki Saba 照烧鲭鱼 180g ",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193582963_351072106413086_625451659956148774_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeH_VhLroj_uLBonqacyF-7HTI-Xo7qGc9BMj5ejuoZz0D52U7oiRM5kytkBoFQt1HPqmcraRy9havD_MwLV_q8r&_nc_ohc=MqMZlMJCHj4AX_Hatul&_nc_ht=scontent.fpen1-1.fna&oh=369afc1f9d4341999eae3e7df508ec56&oe=60E77273",
-       ""
     ],
     "product_category": "fish",
     "product_price": "13.00",
@@ -489,7 +473,6 @@ db.once('open', async () => {
     "product_name": "Shishamo 多春鱼",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191318649_351071916413105_969898558283327007_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHNMYLwQMfFN4A5TvDR0To6S22xwv5iGtdLbbHC_mIa1x71qlkVOSMvUfomWJ5FqaYD0hkAOnc1_NJuDd1GwmNt&_nc_ohc=CF_-jmSHLqUAX890ak1&_nc_oc=AQm98n4CRFaZs7a3VG490Pn0FZqT6CvV3WzT59izGJe59hFB9EYwkAYEik7mSE5rPKE&_nc_ht=scontent.fpen1-1.fna&oh=c9263c87cc78cd405ef05c3e7d3b4243&oe=60E59B8E",
-       ""
     ],
     "product_category": "fish",
     "product_price": "12.00",
@@ -508,7 +491,6 @@ db.once('open', async () => {
     "product_name": "Siakap Fillet 石甲鱼 400-500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191773129_351071993079764_5920321344301208595_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFqcELUc2oljTuU-cRDOsFRtZ-vly3BjaS1n6-XLcGNpLU7KXqm9dCQCfysyoswQlDcXPOocQNS1okiMMOpzOJ5&_nc_ohc=e36SDrzxF64AX_QFNFe&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=5615fd413b997a8a76d7cba11a052b66&oe=60E70596",
-       ""
     ],
     "product_category": "fish",
     "product_price": "15.00",
@@ -527,7 +509,6 @@ db.once('open', async () => {
     "product_name": "Tilapia (Premium Quality) 顶级金凤鱼片 200-250g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195203150_351072149746415_5560002413493645791_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHGMyLwb2oWNNak6KGHr5Jan2--yumQnWGfb77K6ZCdYf0ghcsxxGsPxgQ6kjJ9G82op5GbH4hmU6vfJ6mknmZ_&_nc_ohc=Y0QOzG-Rl1UAX-pLNB9&_nc_ht=scontent.fpen1-1.fna&oh=e839d0894c4a8609c03b748c413fe35c&oe=60E73E99",
-       ""
     ],
     "product_category": "fish",
     "product_price": "8.00",
@@ -546,7 +527,6 @@ db.once('open', async () => {
     "product_name": "Unagi 鳗鱼 200g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193589841_351786513008312_7943200438729324050_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFgU9BXk5AXnPpBxP1NbYdErXbcKvMpVn6tdtwq8ylWfseBUlaHq6lxkjF0jG_qA16bsjX2yk_gCIIGyvkGvTP9&_nc_ohc=o7NaTCGSXR8AX9p9i59&_nc_ht=scontent.fpen1-1.fna&oh=d85a440304e2c02d1735afa515e2c04d&oe=60C7D73D",
-       ""
     ],
     "product_category": "fish",
     "product_price": "20.00",
@@ -565,7 +545,6 @@ db.once('open', async () => {
     "product_name": "Unagi 鳗鱼 310g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190456652_351072373079726_4646794498255856324_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEGagI6z2qANGtf-RtAEdGhTi3ZEwhsfG9OLdkTCGx8b4D3Q6spURneCQt9YXDZRGat15poECsu_TOk0lHLhHNg&_nc_ohc=XhcdrfdfJbMAX-fk2l0&_nc_ht=scontent.fpen1-1.fna&oh=52ee61b394f3f1a009702028b9d9ebc7&oe=60E749E1",
-       ""
     ],
     "product_category": "fish",
     "product_price": "30.00",
@@ -584,7 +563,6 @@ db.once('open', async () => {
     "product_name": "Unagi 鳗鱼 380g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190913266_351072489746381_2576253266111199976_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeF707dr8QH8UydE0s9J0zQ1tPPWoKwwsO6089agrDCw7qVfbrNirYaWLJEpMYP5h6uvfpN5g3TUBVTnuIifuIpu&_nc_ohc=gkGBGhmCFIgAX9bJC8c&_nc_ht=scontent.fpen1-1.fna&oh=0ab7df4c8815c09e06f27051a0d2d14f&oe=60E5DA43",
-       ""
     ],
     "product_category": "fish",
     "product_price": "35.00",
@@ -603,7 +581,6 @@ db.once('open', async () => {
     "product_name": "Breaded Scallops 180g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/198194935_350464083140555_6601519836267550888_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFWATKzZXdphqbGqOdPJsQWemWIY6nXsXN6ZYhjqdexcytCuPikyVGFcrGb-CP2f9uDLhoYx-GeUC8ShVBSqPUP&_nc_ohc=AAfmLGxi_qAAX_1oIc_&_nc_ht=scontent.fpen1-1.fna&oh=cbe97ddfcfa7b031d98f69a65c2bebda&oe=60C8499C",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "8.00",
@@ -622,7 +599,6 @@ db.once('open', async () => {
     "product_name": "Scallop Sliders 培根带子 260g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192554414_350464483140515_5039305984047353777_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEx83NMocq389TdoWwwxeOQcG7c_ewip25wbtz97CKnbtFz7E2ok-VgJeiCyf4zSEeM3GQudGKBc_gQ9K4BV6D5&_nc_ohc=DUtUMd72kvAAX_ISlHT&_nc_ht=scontent.fpen1-1.fna&oh=5cc7b7bc70aeac8b132d1a0be6b817c0&oe=60E56517",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "30.00",
@@ -641,7 +617,6 @@ db.once('open', async () => {
     "product_name": "Canadian Scallops XL 10/20 加拿大带子 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/120660906_204903877696577_3256118392630256897_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeGIPrHyLF5cN1_x6uOYaTx0Oy4CGXm3Roo7LgIZebdGinmXT7HySSOhUxU-WcQDm9M3J4lVG0VHrFcJEPmr1eeV&_nc_ohc=bQSofW1gEcIAX8Hl9Wu&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=0e23862dd3ab2e5f04b3a62063c93004&oe=60E8805D",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "35.00",
@@ -660,7 +635,6 @@ db.once('open', async () => {
     "product_name": "Canadian Scallops L 20/30 加拿大带子  500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195371603_350453339808296_4960360066392309673_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFeBDWcWBeYcA1hxcZhP9qdYeSSpiuPPnFh5JKmK48-cSQ6hwtM1GceANnDUVrGSsEz-Qv58-bcFAk_VRZCOKVf&_nc_ohc=GY0MhRGQU68AX9Aq4HE&_nc_ht=scontent.fpen1-1.fna&oh=5482506ebc51f5c3e9752bd04d1556e9&oe=60E4356D",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "32.50",
@@ -679,7 +653,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops XL 10/20 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197445733_350458653141098_6098772650827994650_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEkxuSQCBU3j_R5Q19w8opGehM9MxUjsgV6Ez0zFSOyBalr8g9FxQFwKjNBuNReYr-G5rZek8elPZJiaUTDfrXU&_nc_ohc=sQSFvHc1Fi8AX-rt3kU&_nc_ht=scontent.fpen1-1.fna&oh=91fc771226bec56515bc4862829642a6&oe=60E596C2",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "70.00",
@@ -698,7 +671,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops L 20/30 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195764995_350456129808017_4925622981200279088_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEft2-c2PnDkxiKVg6TqUsxy5pJqZtVOVrLmkmpm1U5Wn8k6bfYeA0OPTPP3KOqYPQII5Eo8id5i9TPSiIS6JjI&_nc_ohc=HWuA6lufWloAX9f3hQj&_nc_ht=scontent.fpen1-1.fna&oh=7a3959365d7f60437bc016548338b321&oe=60E5DBCA",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "65.00",
@@ -717,7 +689,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops M 30/40 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195265546_350456673141296_238482158305807610_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGlsNU9C8THtNCLqluzQ6FZLQuUZu2M4lYtC5Rm7YziVkDbrtCteJ0P1xaAAv-MqNxtYibTtPgX9-L10xqvcYan&_nc_ohc=xIYjqbxq0eMAX-59vrY&_nc_ht=scontent.fpen1-1.fna&oh=0e1c1df6312d940193b1015bbd00d798&oe=60E56D2B",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "60.00",
@@ -736,7 +707,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 40/50 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/188809475_350458239807806_4632231994231110621_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGbcYAOvrkgsPOYKPzeusJOhyZi97GN8pKHJmL3sY3ykhX0hpWD5U38LjCo5ezNKFIwzJ1gcScu0816LX49qetu&_nc_ohc=qsN3CB2relAAX8jkVLk&_nc_oc=AQmEWs5-rEMZ3De91HZarYPXFHUoBwn3XYmYiqb6xOC8VhLBWD2R7R0FQ1SvOraFnDA&_nc_ht=scontent.fpen1-1.fna&oh=6764460b79aa0e46d2c85ccd1a11617a&oe=60E743C2",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "55.00",
@@ -755,7 +725,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 60/80 北海道带子 1kg",
     "product_picture": [
        "https://drive.google.com/uc?id=1yskHg_9_OQ92N_OupwuKdeAqHm7FQb8p",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "45.00",
@@ -774,7 +743,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 80/100 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/188427978_350458446474452_4718371310959613678_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEqRnjSd_-4zzJIEbWPEl6zLzHYCXF-zlIvMdgJcX7OUvk42hVeSCcTsjEKnyohv8sSTmu8Cr6cfgtU3aUnFUt3&_nc_ohc=mjnjsYc-5hMAX-v3X6h&_nc_ht=scontent.fpen1-1.fna&oh=0fcb56a5b4196e2f4a831e3393fe524a&oe=60E7EFC1",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "40.00",
@@ -812,7 +780,6 @@ db.once('open', async () => {
     "product_name": "Half Shell Scallop (Pink) M 半壳带子 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197706543_350455489808081_2040378463962824191_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEvn94AsWPs7hjVoEQzk-lfJmBx9l2HeTImYHH2XYd5MigNa3Ab0yKIGI7Kv8VeAOf_O0gnqxVoqt19G261hElt&_nc_ohc=W3AvFt7hfS0AX8v61hn&_nc_ht=scontent.fpen1-1.fna&oh=fde0e85a8ea5fabdb084aea9ec030d7e&oe=60E688D4",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "20.00",
@@ -831,7 +798,6 @@ db.once('open', async () => {
     "product_name": "Half Shell Scallop (Pink) S 半壳带子 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197706543_350455489808081_2040378463962824191_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEvn94AsWPs7hjVoEQzk-lfJmBx9l2HeTImYHH2XYd5MigNa3Ab0yKIGI7Kv8VeAOf_O0gnqxVoqt19G261hElt&_nc_ohc=W3AvFt7hfS0AX8v61hn&_nc_ht=scontent.fpen1-1.fna&oh=fde0e85a8ea5fabdb084aea9ec030d7e&oe=60E688D4",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "17.50",
@@ -850,7 +816,6 @@ db.once('open', async () => {
     "product_name": "Japanese Hotate Scallop L 60/80 日本扇贝 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192790990_350457766474520_3686901305558168356_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGNe77kpappAfGlLHtTbO-IcyhhwEovQYlzKGHASi9BidbZegGdua7SLnrlGQNu8TT2LcmvCc8g6dESc1WdSRVv&_nc_ohc=OeMiCy6JuyMAX9qZ_nU&_nc_ht=scontent.fpen1-1.fna&oh=1f296e592be889216f39cd8a544df073&oe=60E75296",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "40.00",
@@ -869,7 +834,6 @@ db.once('open', async () => {
     "product_name": "Japanese Hotate Scallop S 100/150 日本扇贝 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190418832_350458006474496_6300654089960382982_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGs6bUjvUzQIhRxcAM6fRfUpSNE1vhE6ZKlI0TW-ETpkg_YQEvtzSJarZxrVKkUvBzB9NzvTp-usFyzhzdWxY2B&_nc_ohc=YPGjSgESgvkAX9TfzQJ&_nc_ht=scontent.fpen1-1.fna&oh=2687e47a0613f378c0d73fb8a2d66e9f&oe=60E7CC28",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "35.00",
@@ -888,7 +852,6 @@ db.once('open', async () => {
     "product_name": "White Prawn 明虾 L 20/30",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/189702061_351050736415223_4748689353427547860_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEXqdJkxz0ch34dKSv7c3hGQISrCHUmL-BAhKsIdSYv4JWy342nnITDbOAoXKBAnieKfzhQN-fNFlMXOn5RU__d&_nc_ohc=TrWSxAiPN9YAX9StlnG&_nc_ht=scontent.fpen1-1.fna&oh=eef72ee4bd4843d4af26bdec6e39837a&oe=60C7BB1D",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "45.00",
@@ -907,7 +870,6 @@ db.once('open', async () => {
     "product_name": "White Prawn 明虾 M 30/40",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/188933543_351050829748547_4260365347816082316_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeE_iNSB9b0p4kzxNb-BUF_b9cQkfmJY_Br1xCR-Ylj8GsqudVLcDcjNHtwKNYSBBxMw3wY8KM241LBxZTbKzGBu&_nc_ohc=wPkbt1LTM0wAX_tgOVk&_nc_oc=AQlED7uJbwo1gWwY44TiNRm-bcnN5c9Np2HxXVn9sgse8UhewJk0UqQ4Ttlys-2cgaU&_nc_ht=scontent.fpen1-1.fna&oh=2dd402595279af5fa0c8375a17dac093&oe=60C77D0E",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "40.00",
@@ -926,7 +888,6 @@ db.once('open', async () => {
     "product_name": "Prawn Meat 虾肉 L",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197389773_351050136415283_616308098684425959_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHH0O5qYjLUcfY3m8xguqN3rzEeIK4IAG2vMR4grggAbX_P_g4WVT2zqeryKqRYUCTdsgYNqT4TReZXNSQLoqOL&_nc_ohc=sWQpwEIJwA8AX-TEKNJ&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=e1af9b84a9f0d1ab0b941d09cac36d54&oe=60C7F8F0",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "40.00",
@@ -945,7 +906,6 @@ db.once('open', async () => {
     "product_name": "Prawn Meat 虾肉 M",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193299559_351050189748611_6235443951314655788_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHVkudzem1BkYf_DdWQJW_hEnNU49dSC9wSc1Tj11IL3IaZuImRT6IcU3AXEhF36I5j7cNIi4i09_FqfvfxtRmT&_nc_ohc=g2wl-c16o2MAX-TY35Z&_nc_ht=scontent.fpen1-1.fna&oh=b4b6e98d6af5ffaa8cb971f1592b602a&oe=60C761B7",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "38.00",
@@ -964,7 +924,6 @@ db.once('open', async () => {
     "product_name": "Prawn Meat 虾肉 S",
     "product_picture": [
        "https://drive.google.com/uc?id=105tBNyJra_SCaj0ZwKcoTyLnzl7k2_hs",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "35.00",
@@ -983,7 +942,6 @@ db.once('open', async () => {
     "product_name": "Prawn Meat 虾肉 XS",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/198243036_351050316415265_924187865597179377_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeG-AbHj1qqYUbwj2mLXd5CWUHl9NSW1NzZQeX01JbU3Noy8L3fCXX1oQ1fF89cQ-vYJWK2MzgXtus5lRe0OfCmK&_nc_ohc=cMJeH0x8cCgAX-T-x8K&_nc_ht=scontent.fpen1-1.fna&oh=517937719b0d8fae4eefe48e9b8d1da4&oe=60C7B761",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "28.00",
@@ -1002,7 +960,6 @@ db.once('open', async () => {
     "product_name": "Ebi Tempura 香脆面包虾 (8pcs/pkt)",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194343232_351062769747353_9181383216930929334_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeG_FYpaT7n8lgLw-54l1z5ZC9auB-59Z7IL1q4H7n1nslal_c_pbcOn3ZMchr1viFMk8V2m3MfYNDLC7r_2kmEZ&_nc_ohc=WWIgKvU5A2cAX8AbqEX&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=fe6a0b0b645e9918cd6d1389c75460bc&oe=60E88E39",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "10.00",
@@ -1059,7 +1016,6 @@ db.once('open', async () => {
     "product_name": "Scampi U7 大头虾 ±250g/nos*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/120433131_203832137803751_6658063535697639128_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeFx-ls9dOb3nukuNonXhToy0T2LPrnvKIXRPYs-ue8ohSplGJQNqROiY743FCeuY-M3Uf-Aw9BQVSaKs7_6c4Nn&_nc_ohc=Act787pjN84AX8jfOn7&_nc_ht=scontent.fpen1-1.fna&oh=6f8af1f85b248b2f3e638047af53e72f&oe=60C82E88",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "17.50",
@@ -1116,7 +1072,6 @@ db.once('open', async () => {
     "product_name": "Mala Crayfish Tailmeat  麻辣虾尾 300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193035722_351048133082150_7155778806710905810_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGJ5Tn_VirIPoPNbIne_-9nmhL8lWAghyGaEvyVYCCHIVcL3toN4rPlCTTbYLeOWFZyFJvvEiYkwHglnCYtqIAU&_nc_ohc=h9uzK0Wb1BsAX9uBT0F&_nc_ht=scontent.fpen1-1.fna&oh=ca880d2c848e710071f5bdb0be8a8082&oe=60C897A8",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "30.00",
@@ -1192,7 +1147,6 @@ db.once('open', async () => {
     "product_name": "Clam (Lala) 啦啦 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194198701_351047309748899_5478759911609152347_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEfZZ-mw4GUD9grfucAozzRFv9UthQuiBoW_1S2FC6IGkpLpMfNv62i4CVKZlU94SLP1fB9l9yLK8pJwCgjEFBi&_nc_ohc=r8MH4rEpODkAX_LeKP9&_nc_ht=scontent.fpen1-1.fna&oh=99169cc7852dd40eee1c759af50a786b&oe=60C8BC0D",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "8.00",
@@ -1211,7 +1165,6 @@ db.once('open', async () => {
     "product_name": "Spicy Clam with Shell 啦啦(辣味) 400g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195405058_351050636415233_5009099980278309945_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHbdPIGN8K2lSiyFcKcQYmA16j5LD_cy8HXqPksP9zLwWPy0qtrbDxw0doS6HusCkOSkw5eEVlSDffXEOPCw7JL&_nc_ohc=zrTAZMWo1-IAX_RXqES&_nc_ht=scontent.fpen1-1.fna&oh=4940a251ce382db37e6fe9ddba2e90fa&oe=60C7B715",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "10.00",
@@ -1230,7 +1183,6 @@ db.once('open', async () => {
     "product_name": "Premium Black Mussels 贻贝 907g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196688005_351050386415258_682812508731454713_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHpAUSLRtVH_DJvbDakP1whKY3lZOq_O-UpjeVk6r875dZW6sQNuJz1WQpCvo7HVj7JZHqhmPDp_9xzkjWtQyLf&_nc_ohc=2YZ9f0XpJo0AX9YwiJg&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=4a95bc6a94c26d31d8fdf3edc2e632d1&oe=60C725F0",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "20.00",
@@ -1439,7 +1391,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 400-600g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/92461507_149645393222426_5765892676033445888_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeGnDlkxMOwShO3QSmNags8rLzvsrR4EsfovO-ytHgSx-rqd4UWZ5waVuIS-0maHUw5y85J4CWZ93kPRi7CUfCNg&_nc_ohc=g_T97KWWyzEAX8ujGGF&_nc_ht=scontent.fpen1-1.fna&oh=74aab0e874664a2d8a48ab87bab553d3&oe=60C7669B",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "50.00",
@@ -1458,7 +1409,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 600-800g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/92461507_149645393222426_5765892676033445888_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeGnDlkxMOwShO3QSmNags8rLzvsrR4EsfovO-ytHgSx-rqd4UWZ5waVuIS-0maHUw5y85J4CWZ93kPRi7CUfCNg&_nc_ohc=g_T97KWWyzEAX8ujGGF&_nc_ht=scontent.fpen1-1.fna&oh=74aab0e874664a2d8a48ab87bab553d3&oe=60C7669B",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "80.00",
@@ -1477,7 +1427,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 800-1000g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191330318_351048733082090_825173601682198201_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHshzXiu1PQGIWfgvydys1ZcK8Vyfg1hmhwrxXJ-DWGaOebkOScMmYnXGztA_L_XdDuoDSK1-R7SmL2q273Zn5l&_nc_ohc=CbRgx4_mpu4AX8Ed8Im&_nc_ht=scontent.fpen1-1.fna&oh=28045905bb060aaf40e335c1959e7806&oe=60E87394",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "100.00",
@@ -1496,7 +1445,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 1-1.2kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191330318_351048733082090_825173601682198201_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHshzXiu1PQGIWfgvydys1ZcK8Vyfg1hmhwrxXJ-DWGaOebkOScMmYnXGztA_L_XdDuoDSK1-R7SmL2q273Zn5l&_nc_ohc=CbRgx4_mpu4AX8Ed8Im&_nc_ht=scontent.fpen1-1.fna&oh=28045905bb060aaf40e335c1959e7806&oe=60E87394",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "129.60",
@@ -1515,7 +1463,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 1.2-1.4kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194338106_351048826415414_2065483713606912214_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEYwyT6HhopmIdegmy-JCPjJc_S6YysomElz9LpjKyiYThVBofYwZ02pObh1FM1YaWbJlZKFphq9LmMA2tahZg4&_nc_ohc=2Y1SbcUa5pgAX-d1mPf&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=d587c2f13e9d01a960b430b095f21db7&oe=60E6E640",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "151.20",
@@ -1534,7 +1481,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 1.4-1.6kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194338106_351048826415414_2065483713606912214_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEYwyT6HhopmIdegmy-JCPjJc_S6YysomElz9LpjKyiYThVBofYwZ02pObh1FM1YaWbJlZKFphq9LmMA2tahZg4&_nc_ohc=2Y1SbcUa5pgAX-d1mPf&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=d587c2f13e9d01a960b430b095f21db7&oe=60E6E640",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "172.80",
@@ -1553,7 +1499,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 1.6-1.8kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/92471381_149645479889084_3369617189077254144_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeGx1p8VzdjChMZt7dD2EPBr1Os4-nmt6s3U6zj6ea3qzTxJPxpgj_HfLj-pebXhNtAUG3rAMcHBwNLnsHLdW3Wu&_nc_ohc=_ZnMFiJiJ4EAX-f2RJ-&_nc_ht=scontent.fpen1-1.fna&oh=e3b1d111ce01c84bb1c834d06e914b19&oe=60C74515",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "194.40",
@@ -1572,7 +1517,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 1.8-2kg*",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/92471381_149645479889084_3369617189077254144_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeGx1p8VzdjChMZt7dD2EPBr1Os4-nmt6s3U6zj6ea3qzTxJPxpgj_HfLj-pebXhNtAUG3rAMcHBwNLnsHLdW3Wu&_nc_ohc=_ZnMFiJiJ4EAX-f2RJ-&_nc_ht=scontent.fpen1-1.fna&oh=e3b1d111ce01c84bb1c834d06e914b19&oe=60C74515",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "216.00",
@@ -1591,7 +1535,6 @@ db.once('open', async () => {
     "product_name": "King Crab 帝王蟹 2kg up*",
     "product_picture": [
        "https://drive.google.com/uc?id=1SlhUSa3d8TIObrx_6Hcu4qZyFMBgde85",
-       ""
     ],
     "product_category": "shellfish",
     "product_price": "237.60",
@@ -1610,7 +1553,6 @@ db.once('open', async () => {
     "product_name": "Baby Octopus 小章鱼",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191071032_351044713082492_2214447414035592443_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGoorf2JJ6_REsWGc42MNBPXQBPwV12bK1dAE_BXXZsrSaSv_xxL9pByWEsAEKvIokJFATsjjaXO3La7iEVbUn7&_nc_ohc=4laUv3Je6T4AX8_rzDs&_nc_ht=scontent.fpen1-1.fna&oh=99dfcf778e7d573f65668dc05d3a61da&oe=60E8FE67",
-       ""
     ],
     "product_category": "squid",
     "product_price": "10.00",
@@ -1705,7 +1647,6 @@ db.once('open', async () => {
     "product_name": "Flower Squid 花枝 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/198531214_351045183082445_2159582179355360589_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeE6TKVOig5-twB6hwVDP8o1M9u55NncDc8z27nk2dwNzzs62dBT90LEr9P_d3RgdL3fma_kD7Rytnd36PYX9Xuv&_nc_ohc=wVOJNgzDqdcAX8WVBhV&_nc_ht=scontent.fpen1-1.fna&oh=dc525c97253593af8e1ebd773f0f9a6d&oe=60E5B667",
-       ""
     ],
     "product_category": "squid",
     "product_price": "18.00",
@@ -1724,7 +1665,6 @@ db.once('open', async () => {
     "product_name": "Spicy Squid 香辣大鱿鱼 400g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191271299_351045253082438_4500946301445449903_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHXuMYDDDlxjimJp_mJsr5Rs0aXfjRLH3mzRpd-NEsfec1eUfBTriXvT8nLtXQRUQfxXFEgMygDCLr0fu8T3Vxj&_nc_ohc=pfGlp6fNtesAX8iEtDf&_nc_ht=scontent.fpen1-1.fna&oh=c3fba78a3524a64341c86f5216d4ca6e&oe=60E5ED58",
-       ""
     ],
     "product_category": "squid",
     "product_price": "17.00",
@@ -1762,7 +1702,6 @@ db.once('open', async () => {
     "product_name": "Australian Beef Slice 牛肉片 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190658937_350111449842485_8926236924913473181_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHjxtp14E2YLSsxfsZK2GEI--EgkzxYpg374SCTPFimDRnKtzw9vb7zVICi82ICtvZprvZW4CL_cqV0E6KFr7Pr&_nc_ohc=pUiIX2KjfAQAX9igJCV&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=7b8714d60ba6df7231aea5ce1f9a7d4a&oe=60E61E24",
-       ""
     ],
     "product_category": "meat",
     "product_price": "30.00",
@@ -1781,7 +1720,6 @@ db.once('open', async () => {
     "product_name": "Breaded Chicken Chop 200g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191544889_350113103175653_3898560478220140497_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEpqUlc9qkJTTYeESZrK0G1P5RPKZBtuuY_lE8pkG265hg_w-aTOQYDFtqIukiW_rHRyDJ_sEzGQTSxnPPzTrip&_nc_ohc=dqUyc4O85zYAX98K1_F&_nc_ht=scontent.fpen1-1.fna&oh=7d7a903ce42f779ae436a38d88e811f4&oe=60E616B2",
-       ""
     ],
     "product_category": "meat",
     "product_price": "8.00",
@@ -1800,7 +1738,6 @@ db.once('open', async () => {
     "product_name": "Chicken Burger Patty 汉堡肉片 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197880978_350113573175606_1669728070526845612_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGBwi3S8uJD_90Hq8pLH4KNkkWLIALEz1eSRYsgAsTPV6RgKm3rgWdUjAZz809VoV2kiPmNA5Kp31oEcqgxuqS9&_nc_ohc=4hczFF-Nm54AX_11vHl&_nc_ht=scontent.fpen1-1.fna&oh=62cde1caeeed68ef1e3d283ebb29cce9&oe=60E86EB7",
-       ""
     ],
     "product_category": "meat",
     "product_price": "16.00",
@@ -1819,7 +1756,6 @@ db.once('open', async () => {
     "product_name": "Chicken Nuggets Tempura 鸡肉块 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191500331_350113823175581_5142590766354440506_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeE4BG3Giv2fSfqLOaaCnIT2bIQjBckTlKdshCMFyROUp1AQy4qMUTO8GWoNc-oNMK1D1OLJ1pM6VGtIK4UaRmh9&_nc_ohc=coUY6e2gFjgAX-pUtzU&_nc_ht=scontent.fpen1-1.fna&oh=ba0f62b7f28cea7a303e599d402d7079&oe=60E742FF",
-       ""
     ],
     "product_category": "meat",
     "product_price": "16.00",
@@ -1838,7 +1774,6 @@ db.once('open', async () => {
     "product_name": "Crispy Popcorn Chicken 香酥鸡米花 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194723784_350114426508854_3247163929326884149_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeH6_gIVlZYq5T0BF_Lx51_kiB2GYb_TKTKIHYZhv9MpMtCykMBbfjrgQ5UBtVGw1iJHH8KP167UorTdzIpOQS0f&_nc_ohc=MsyW4FZXcPgAX9z4MZ6&_nc_ht=scontent.fpen1-1.fna&oh=622161d8c7dfeea425202856791b3dd1&oe=60E6A2CA",
-       ""
     ],
     "product_category": "meat",
     "product_price": "22.00",
@@ -1857,7 +1792,6 @@ db.once('open', async () => {
     "product_name": "Miami Butcher Chicken Ham (Sliced) 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191148821_350115806508716_8641107834118857534_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFdKp2d0mTpb3t7GSxzAKeqkEO5LeD5WDKQQ7kt4PlYMk2K4YrKpMrD3KBZVoW89NZnj_y1_5WzvbhOldU7oLw9&_nc_ohc=_VYtxEDKjI8AX_ZU98k&_nc_ht=scontent.fpen1-1.fna&oh=d524428bdfdf0d8f8f9128bcad433e96&oe=60E4FDC5",
-       ""
     ],
     "product_category": "meat",
     "product_price": "25.00",
@@ -1876,7 +1810,6 @@ db.once('open', async () => {
     "product_name": "Miami Butcher Chicken Sausage Breakfast 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191489874_350116223175341_5969198030378600426_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEG9jjHMQdj1zQi5Cr1_h4BD2Go7e6wpBoPYajt7rCkGqy9IMibIXBkzx8zTQqRwO9vasN5iEgIktiMhxWPasRQ&_nc_ohc=Zzz9qPAEeeYAX_dYMSa&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=5449ca0c55249d7f6a2bde5b67fde637&oe=60E7D9EF",
-       ""
     ],
     "product_category": "meat",
     "product_price": "25.00",
@@ -1895,7 +1828,6 @@ db.once('open', async () => {
     "product_name": "Miami Butcher Chicken Sausage Jumbo 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193876395_350116559841974_9028624105598445066_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEJy76JV9KfzCsVeY6z6w2U1dqYOPv3lrjV2pg4-_eWuDW-8yaquErUSuTmDzvfqXWQNLBQMICmQqVhEF_lATL7&_nc_ohc=I8JEt0qt4kIAX8bpcpc&_nc_ht=scontent.fpen1-1.fna&oh=20b56fa404a2bcdb1d69c10bc1d3e463&oe=60E53BF4",
-       ""
     ],
     "product_category": "meat",
     "product_price": "28.00",
@@ -1914,7 +1846,6 @@ db.once('open', async () => {
     "product_name": "Miami Butcher Turkey Bacon (Sliced) 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192265122_350116919841938_5266068064058363636_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEXoDwRtKcVlcRIeqPRq-lYdiUEA38jMqV2JQQDfyMypcr3pqhENFpDEpsHrnbAZBCTZJIMtnRNlu7BwTbRjfL8&_nc_ohc=7jRv7UiRdekAX-vaWfk&_nc_ht=scontent.fpen1-1.fna&oh=bd93cf25736ee9ad364448f208db0cfb&oe=60E5BCF3",
-       ""
     ],
     "product_category": "meat",
     "product_price": "28.00",
@@ -1933,7 +1864,6 @@ db.once('open', async () => {
     "product_name": "Smoked Duck Breast 烟熏鸭胸肉 200-300g",
     "product_picture": [
        "https://scontent.fkul2-4.fna.fbcdn.net/v/t1.6435-9/193195033_352426462944317_2468080961198807599_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeF8zWpahm-Xg09mA3SdoN2ve3o7lgXx9md7ejuWBfH2Z_SQh5bI7EPtH-VXLcoX9T4&_nc_ohc=X3LW4gL1O9UAX_rmquG&_nc_ht=scontent.fkul2-4.fna&oh=fcdff83edde67f36c097b9c336adb372&oe=60C86814",
-       ""
     ],
     "product_category": "meat",
     "product_price": "13.00",
@@ -1952,7 +1882,6 @@ db.once('open', async () => {
     "product_name": "Black Pepper Duck Breast Meat 黑胡椒鸭胸肉 200-300g",
     "product_picture": [
        "https://scontent.fkul2-2.fna.fbcdn.net/v/t1.6435-9/197970461_352426456277651_5507484214199588537_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeHwpENvBX6Sts2_-hjsF0Kv_KOV4pkBFl_8o5XimQEWX5rMJB_KWA2RK5a9SFUxEAA&_nc_ohc=OHC6BhYSqT8AX_sEIFp&_nc_ht=scontent.fkul2-2.fna&oh=9dd94d9f284ae7d90912de48c643a567&oe=60C9C1C1",
-       ""
     ],
     "product_category": "meat",
     "product_price": "13.00",
@@ -1971,7 +1900,6 @@ db.once('open', async () => {
     "product_name": "Smoked Back Bacon 黑毛猪肉培根 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192688581_350119356508361_8994041880986106617_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEs8RD63CDPiCcIcnEDxzmm4Eh2Ve0YTT7gSHZV7RhNPhBvkXMuj5UpswQC1XOoQj6TW4w2IGvVrUTK0MTx8BK-&_nc_ohc=NR00PTS0x2MAX_tG-jp&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=4d4d6adbe6568ed5acf8c6fd4f880618&oe=60E45D08",
-       ""
     ],
     "product_category": "meat",
     "product_price": "30.00",
@@ -1990,7 +1918,6 @@ db.once('open', async () => {
     "product_name": "Smoked Streaky Bacon 烟熏五花肉 250g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193778636_350119649841665_4595051628959253451_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeH2jrSFVT0RUN_tkonc16IvrQ3Uv5kZbp-tDdS_mRlun7xpdGMO6k7KXRaK6SONl2K8ktJ_cbKoM7RW8H6N0on2&_nc_ohc=IoYLsgpYCHUAX9SFg_x&_nc_oc=AQmM4A5ipePmy9bbQn3PGcK-KhBJEpQ4uOB5w9X02OFcVtJ5sZHSQuuDhTo996FLTdo&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=a03b00c52b0736092a8f813150f107ee&oe=60E6BCC6",
-       ""
     ],
     "product_category": "meat",
     "product_price": "14.00",
@@ -2009,7 +1936,6 @@ db.once('open', async () => {
     "product_name": "Scallop Sliders 培根带子 260g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192554414_350464483140515_5039305984047353777_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEx83NMocq389TdoWwwxeOQcG7c_ewip25wbtz97CKnbtFz7E2ok-VgJeiCyf4zSEeM3GQudGKBc_gQ9K4BV6D5&_nc_ohc=DUtUMd72kvAAX_ISlHT&_nc_ht=scontent.fpen1-1.fna&oh=5cc7b7bc70aeac8b132d1a0be6b817c0&oe=60E56517",
-       ""
     ],
     "product_category": "meat",
     "product_price": "30.00",
@@ -2028,7 +1954,6 @@ db.once('open', async () => {
     "product_name": "Meatballs 猪肉丸 400g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194279041_350115353175428_6482498869646075171_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGUCeqH8JbumqoXGZocnKaMkuvRESrnrq-S69ERKueur37yFD2CdmW7RPHbM_2qQTlFB8xWZinCXTwSa3yiKGSj&_nc_ohc=cfkKLN4bhiMAX9GMUjM&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=a0d88f4620257c5d314e6bea6717f96d&oe=60E4D122",
-       ""
     ],
     "product_category": "meat",
     "product_price": "11.50",
@@ -2047,7 +1972,6 @@ db.once('open', async () => {
     "product_name": "Mince Meat 猪肉碎 (S) 300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196326359_350586326461664_2383021349842560433_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGoDvUrPht1XuObcDRy2TvxfOKOTifwA2R84o5OJ_ADZBbo8PqGq_rgwr22wdaMx9m9cqa0qZbcjvRdXRp5eYbw&_nc_ohc=jKYnvYUMMrcAX82b9QP&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=152cc686a4474d5058b83c29d89a77a8&oe=60E8D7A0",
-       ""
     ],
     "product_category": "meat",
     "product_price": "8.00",
@@ -2066,7 +1990,6 @@ db.once('open', async () => {
     "product_name": "Mince Meat 猪肉碎 (L) 600g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196562907_350586543128309_6373567735512673697_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFVgppumuGl_YFwRKKPaC1Z0SVo8EfmoK_RJWjwR-agr5cIFLT2bPNWSSRICAo01hYCCyjXYDa8adFReWMIzTDg&_nc_ohc=xr_sTfm0DgYAX_kTL7G&_nc_ht=scontent.fpen1-1.fna&oh=9531b19138189f9aeda6de84c552019d&oe=60E6374E",
-       ""
     ],
     "product_category": "meat",
     "product_price": "15.00",
@@ -2085,7 +2008,6 @@ db.once('open', async () => {
     "product_name": "Shabu Shabu Pork 猪肉片 300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190854247_350118983175065_552017914745868720_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFkmTNgHZCeC3BEIRjdIgARmsS-lsc5tamaxL6Wxzm1qcmgnEUMzdj6Bst2GTUXhxqwYKL1FpwufSPXTfQxrwjj&_nc_ohc=xTa3qtg_UqEAX8DlHTC&_nc_ht=scontent.fpen1-1.fna&oh=be922702506a01f89af1979f8bf9cbc3&oe=60E7C190",
-       ""
     ],
     "product_category": "meat",
     "product_price": "13.00",
@@ -2104,7 +2026,6 @@ db.once('open', async () => {
     "product_name": "Shabu Shabu Pork Belly 五花肉片 300g",
     "product_picture": [
        "https://drive.google.com/uc?id=1WPQPr16OavHoDPzMX00ejqmTkAOvLT-S",
-       ""
     ],
     "product_category": "meat",
     "product_price": "13.00",
@@ -2142,7 +2063,6 @@ db.once('open', async () => {
     "product_name": "Cheddar Cheese Sausages 芝士香肠 400g",
     "product_picture": [
        "https://images.unsplash.com/photo-1585325701165-351af916e581?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2F1c2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
-       ""
     ],
     "product_category": "meat",
     "product_price": "22.00",
@@ -2161,7 +2081,6 @@ db.once('open', async () => {
     "product_name": "Mild Italian Sausages 意大利香肠 400g",
     "product_picture": [
        "https://images.unsplash.com/photo-1585325701165-351af916e581?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2F1c2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
-       ""
     ],
     "product_category": "meat",
     "product_price": "20.00",
@@ -2180,7 +2099,6 @@ db.once('open', async () => {
     "product_name": "Pork & Herbs Sausages 400g",
     "product_picture": [
        "https://images.unsplash.com/photo-1585325701165-351af916e581?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2F1c2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
-       ""
     ],
     "product_category": "meat",
     "product_price": "20.00",
@@ -2199,7 +2117,6 @@ db.once('open', async () => {
     "product_name": "Habanero Chilli Sausages 辣香肠 400g",
     "product_picture": [
        "https://images.unsplash.com/photo-1585325701165-351af916e581?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2F1c2FnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
-       ""
     ],
     "product_category": "meat",
     "product_price": "20.00",
@@ -2256,7 +2173,6 @@ db.once('open', async () => {
     "product_name": "Pork Tendon 猪脚筋 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190564054_350118769841753_6482061885988169107_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHexqS-_nUqbF5H2GAekIgku6n0J30Ycl-7qfQnfRhyX3Umv-kFxSZZzArnuZ9dQErDVoD9oAJHX_JIt4gmT-24&_nc_ohc=hsiD0l3iiaAAX-GHAVy&_nc_oc=AQlyDvwWsiHIAQF3fJ8p8en32dJQKqXq0ilQMV5hNfiC6c2WscF4L5aMie9906C2hjU&_nc_ht=scontent.fpen1-1.fna&oh=79e763402681b3989fc8190a708272e4&oe=60E69DC5",
-       ""
     ],
     "product_category": "meat",
     "product_price": "25.00",
@@ -2275,7 +2191,6 @@ db.once('open', async () => {
     "product_name": "Lobak 卤肉",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194192945_350115003175463_2086421557144560937_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeE1ZPWLrO_Cy560uq3zGlpZLKaTdfGtpE0sppN18a2kTerruG6VFaYutrzG2O4xnBTD9V-vDkRfx57SZZGXmNkK&_nc_ohc=MYyCnhkLslgAX-TlZX5&_nc_ht=scontent.fpen1-1.fna&oh=8f7a5f6051f2a1c55f764d92cf425abf&oe=60E54F0C",
-       ""
     ],
     "product_category": "meat",
     "product_price": "16.00",
@@ -2313,7 +2228,6 @@ db.once('open', async () => {
     "product_name": "Caviar 鱼子酱 100g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191271284_351062466414050_3362630400894338195_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGNVTGklRMTA6g4c1cTJ00dEoJxQcFpmy0SgnFBwWmbLa11650PuFLwO1J4_RszzviYtG8wOnbuD80raBzVUqMc&_nc_ohc=48YUa_bKjKMAX9PpJFa&_nc_ht=scontent.fpen1-1.fna&oh=b4744c8d2b16bdb0cea0c6d760f41a5b&oe=60E7D9F7",
-       ""
     ],
     "product_category": "special",
     "product_price": "32.00",
@@ -2332,7 +2246,6 @@ db.once('open', async () => {
     "product_name": "Ebiko Orange 虾卵 500g",
     "product_picture": [
        "https://drive.google.com/uc?id=1HI1w7Pc5rqULK04WpE7yGInAzjyp0k4s",
-       ""
     ],
     "product_category": "special",
     "product_price": "45.00",
@@ -2351,7 +2264,6 @@ db.once('open', async () => {
     "product_name": "Tobiko Orange 鱼卵 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196089025_351063703080593_3845758042203440549_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGFSpPd_kfQwqieztNWfeRPxtumUMH9y0LG26ZQwf3LQg71FPEiaoKM4J0QQsoRSKXHZyEpK6Z4y2W3BfLfYjL9&_nc_ohc=a3YT52ObIHIAX9KoRcX&_nc_oc=AQmYuS6i_r-LEIGkexTfJzgwy8QKwDz8gb_7ELr-nT4tZc33qIlVp4tD30aJa2ku-fg&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=ed7d1e1d0d79f6ce321a72e5835a4ef4&oe=60E85AB3",
-       ""
     ],
     "product_category": "special",
     "product_price": "45.00",
@@ -2370,7 +2282,6 @@ db.once('open', async () => {
     "product_name": "Ebiko Orange 虾卵 50g",
     "product_picture": [
        "https://drive.google.com/uc?id=1i33YYWDdUJXPpahhSTS97zjAxNli8Xkl",
-       ""
     ],
     "product_category": "special",
     "product_price": "10.00",
@@ -2389,7 +2300,6 @@ db.once('open', async () => {
     "product_name": "Tobiko Orange 鱼卵 50g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195703591_351063633080600_49113457804765209_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEyl2fgEM4kXRn-BqjvUxkFxS9PF0mccLzFL08XSZxwvNO1j7lFitZ0YGjY4iA1u5HvMrmIiYzstwHAqpRw1oJZ&_nc_ohc=gzU34m3dCukAX9xge1p&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=888eecfc0492bf9916f43ccd014749ac&oe=60E5E915",
-       ""
     ],
     "product_category": "special",
     "product_price": "10.00",
@@ -2446,7 +2356,6 @@ db.once('open', async () => {
     "product_name": "Chuka Wakame 日式凉拌海带 450g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193209469_351062679747362_5323419278381169681_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGgcd8HOPqCNnSbJMf6xoGIg2lmZr1tE9iDaWZmvW0T2CtErX5MyBcJ4MWdDZQqwHDWxOUsgCkVQVYcSWZoL7TU&_nc_ohc=R2k3dNuu5C8AX_4VIBt&_nc_oc=AQm5rcJShjEkbopn8gtVCGftZolN0FQhXC0cT6vNDsfvsgcNqz7AxCm9m85Bbu8glZI&_nc_ht=scontent.fpen1-1.fna&oh=4491813d4c38f53edcc9c70b8cf8f0f1&oe=60E73274",
-       ""
     ],
     "product_category": "special",
     "product_price": "12.50",
@@ -2465,7 +2374,6 @@ db.once('open', async () => {
     "product_name": "Ebi Tempura 香脆面包虾 (8pcs/pkt)",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194343232_351062769747353_9181383216930929334_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeG_FYpaT7n8lgLw-54l1z5ZC9auB-59Z7IL1q4H7n1nslal_c_pbcOn3ZMchr1viFMk8V2m3MfYNDLC7r_2kmEZ&_nc_ohc=WWIgKvU5A2cAX8AbqEX&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=fe6a0b0b645e9918cd6d1389c75460bc&oe=60E88E39",
-       ""
     ],
     "product_category": "special",
     "product_price": "10.00",
@@ -2503,7 +2411,6 @@ db.once('open', async () => {
     "product_name": "Breaded Scallops 180g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/198194935_350464083140555_6601519836267550888_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFWATKzZXdphqbGqOdPJsQWemWIY6nXsXN6ZYhjqdexcytCuPikyVGFcrGb-CP2f9uDLhoYx-GeUC8ShVBSqPUP&_nc_ohc=AAfmLGxi_qAAX_1oIc_&_nc_ht=scontent.fpen1-1.fna&oh=cbe97ddfcfa7b031d98f69a65c2bebda&oe=60C8499C",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "8.00",
@@ -2579,7 +2486,6 @@ db.once('open', async () => {
     "product_name": "Abalone Can 罐头鲍鱼 425g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193203609_351062296414067_1809917074877514919_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGMStYU6-MNjLQZv5wVU80Vvwz4BVIEcYC_DPgFUgRxgIktIeGf7ucg_R3y1rZUByN-9pH26lNQFtzIDCNpydgV&_nc_ohc=kCorf6E9BckAX8uDFaA&_nc_oc=AQn3Lb0gaKrXSK1j6f339c0e2k5S4ndXmRLkN4zC3LCRr6lRxNAM7Vcf26bTdTacd3w&_nc_ht=scontent.fpen1-1.fna&oh=182f6a7dbf4cdaf6183b7ab736622cf7&oe=60E5BDEA",
-       ""
     ],
     "product_category": "special",
     "product_price": "35.00",
@@ -2617,7 +2523,6 @@ db.once('open', async () => {
     "product_name": "Fo Tiao Qiang 佛跳墙 200g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/120480439_203532251167073_2453982789102000431_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeEQYHBHblkIgir2_70udsmucKId9gGpWcBwoh32AalZwM8Og8ZA5LES0xz-7jm8a6NfTpBKOb2oqC9ywZtt-3LQ&_nc_ohc=aQ-bxATQrN8AX8sfRPU&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=754ea9a5e5b81fc0fc5b65c053622493&oe=60E71C05",
-       ""
     ],
     "product_category": "special",
     "product_price": "28.00",
@@ -2636,7 +2541,6 @@ db.once('open', async () => {
     "product_name": "Fo Tiao Qiang 佛跳墙 200g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193499533_351063116413985_1960973298120322394_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGVxPqfFW1JTf2vAIWOqTCrDDb2E5MCVQoMNvYTkwJVCvpIheletoDtcTVpxjzGjrBU0_FIRJjGjDdH6bq4bBRD&_nc_ohc=XH5N6mEwwTUAX_g4TGM&_nc_ht=scontent.fpen1-1.fna&oh=790e8068f2f143760e1e7c673979f22a&oe=60E6420C",
-       ""
     ],
     "product_category": "special",
     "product_price": "28.00",
@@ -2655,7 +2559,6 @@ db.once('open', async () => {
     "product_name": "Fo Tiao Qiang 佛跳墙 200g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/120260479_203532241167074_2237398443656954445_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeEUMkHEIiUipIjW5wZK5ZblyQ4OxuNa8HTJDg7G41rwdAAFQumJXohGceZGqW6v1VU_S5PrDMw20GfTBWFLiHKN&_nc_ohc=UxKbTdSa6zcAX80uXkS&_nc_ht=scontent.fpen1-1.fna&oh=01cf5ce7cc4c2e3e19e70c0439f55048&oe=60E63D10",
-       ""
     ],
     "product_category": "special",
     "product_price": "28.00",
@@ -2674,7 +2577,6 @@ db.once('open', async () => {
     "product_name": "Imitation Shark Fin 碗仔翅 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197406737_351063219747308_3277515025129579644_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGH_GZzpRTUX--TAPyCyj6wUzWEhuE1aAJTNYSG4TVoAlX7hh8vtx-mE1TcNX2KoNTDxbXxRxo56LGWq_V87bwQ&_nc_ohc=8xc_0twQbxgAX8etFOW&_nc_ht=scontent.fpen1-1.fna&oh=c3a455684a54a7699122dca91907c219&oe=60E556B6",
-       ""
     ],
     "product_category": "special",
     "product_price": "10.00",
@@ -2693,7 +2595,6 @@ db.once('open', async () => {
     "product_name": "Shark Fin (Real) 鲍翅 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197295289_351063579747272_5483856083342027693_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGG5jhRpzTCq8-VYHWLHdVXcrvS6X4mx95yu9LpfibH3rsmYWPMWZmA-gy4VKmwx0R_lbzwFfHPokm9itEGrI4E&_nc_ohc=FfH4Eq7CmPAAX-kuY7-&_nc_ht=scontent.fpen1-1.fna&oh=d6a2194badf9bc516d29e40cca6de16f&oe=60E6F126",
-       ""
     ],
     "product_category": "special",
     "product_price": "53.00",
@@ -2769,7 +2670,6 @@ db.once('open', async () => {
     "product_name": "Abalone Slice 鲍鱼片 300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191580840_350449813141982_1378521124509031483_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGOobuv6COyaPmufdfN61tR-sPgDY8PXyX6w-ANjw9fJatp-wrZ4EiCm71-FIbGdnSELb-4A6FwGQ_TzbQmr8vT&_nc_ohc=5eEPHmWnZ68AX89dDgz&_nc_ht=scontent.fpen1-1.fna&oh=22d41450fb2e930ee11f6458cc2b9889&oe=60E6D4F5",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "8.50",
@@ -2788,7 +2688,6 @@ db.once('open', async () => {
     "product_name": "Japan King Crab Filament Stick 日本帝王蟹柳 250g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197313455_350456899807940_8275208282428195421_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHOy0HmTsSfYNgYwHTeFG8tXXrkH4Rnt7pdeuQfhGe3ugTw03llB6ehRqdH9BNPo1_GelbR4k0GYJP8wF5tDjBj&_nc_ohc=ClAoOWqdt80AX8h1rMS&_nc_ht=scontent.fpen1-1.fna&oh=f3edef39dc3d483c9ac572f6c62785b2&oe=60E64B75",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "10.00",
@@ -2864,7 +2763,6 @@ db.once('open', async () => {
     "product_name": "Cheese Tofu 芝士豆腐 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191399032_350454016474895_5547014324292634154_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGwn_I7ju_avWQxZeaDg_WwtCgYfyw6T9O0KBh_LDpP03LDNMicGiWZL-l3xIFx1iaRTSzLdVfkYKvUUH2OPr08&_nc_ohc=_fgfwC4DHZcAX8sAaqT&_nc_ht=scontent.fpen1-1.fna&oh=53239a5cab3bf02f55636ba54c7755f7&oe=60E6AE90",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "9.00",
@@ -2883,7 +2781,6 @@ db.once('open', async () => {
     "product_name": "Seafood Tofu 海鲜豆腐 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193643376_350460536474243_3156854881684070819_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGBZRb3HoE4arHtvectNalwnT__8ZichrWdP__xmJyGte1vBWb2AmqUVgv04hBG8c0N8A6gbk0XH5DQmFICCor0&_nc_ohc=sSlHtyx-SXMAX_KIOLB&_nc_ht=scontent.fpen1-1.fna&oh=f5a34384a6a79647d42fcce87c859501&oe=60E815DE",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "10.00",
@@ -2902,7 +2799,6 @@ db.once('open', async () => {
     "product_name": "Australian Beef Slice 牛肉片 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190658937_350111449842485_8926236924913473181_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHjxtp14E2YLSsxfsZK2GEI--EgkzxYpg374SCTPFimDRnKtzw9vb7zVICi82ICtvZprvZW4CL_cqV0E6KFr7Pr&_nc_ohc=pUiIX2KjfAQAX9igJCV&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=7b8714d60ba6df7231aea5ce1f9a7d4a&oe=60E61E24",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "30.00",
@@ -2921,7 +2817,6 @@ db.once('open', async () => {
     "product_name": "Meatballs 猪肉丸 400g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/194279041_350115353175428_6482498869646075171_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGUCeqH8JbumqoXGZocnKaMkuvRESrnrq-S69ERKueur37yFD2CdmW7RPHbM_2qQTlFB8xWZinCXTwSa3yiKGSj&_nc_ohc=sBiFnA2mxRoAX88VoKQ&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=82593e02cbc7e0724e07c4c9cc76155f&oe=60E8C5A2",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "11.50",
@@ -2940,7 +2835,6 @@ db.once('open', async () => {
     "product_name": "Mince Meat 猪肉碎 (S) 300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196326359_350586326461664_2383021349842560433_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGoDvUrPht1XuObcDRy2TvxfOKOTifwA2R84o5OJ_ADZBbo8PqGq_rgwr22wdaMx9m9cqa0qZbcjvRdXRp5eYbw&_nc_ohc=jKYnvYUMMrcAX82b9QP&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=152cc686a4474d5058b83c29d89a77a8&oe=60E8D7A0",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "8.00",
@@ -2959,7 +2853,6 @@ db.once('open', async () => {
     "product_name": "Mince Meat 猪肉碎 (L) 600g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196562907_350586543128309_6373567735512673697_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFVgppumuGl_YFwRKKPaC1Z0SVo8EfmoK_RJWjwR-agr5cIFLT2bPNWSSRICAo01hYCCyjXYDa8adFReWMIzTDg&_nc_ohc=xr_sTfm0DgYAX_kTL7G&_nc_ht=scontent.fpen1-1.fna&oh=9531b19138189f9aeda6de84c552019d&oe=60E6374E",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "15.00",
@@ -2978,7 +2871,6 @@ db.once('open', async () => {
     "product_name": "Shabu Shabu Pork 猪肉片 300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190854247_350118983175065_552017914745868720_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFkmTNgHZCeC3BEIRjdIgARmsS-lsc5tamaxL6Wxzm1qcmgnEUMzdj6Bst2GTUXhxqwYKL1FpwufSPXTfQxrwjj&_nc_ohc=xTa3qtg_UqEAX8DlHTC&_nc_ht=scontent.fpen1-1.fna&oh=be922702506a01f89af1979f8bf9cbc3&oe=60E7C190",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "13.00",
@@ -2997,7 +2889,6 @@ db.once('open', async () => {
     "product_name": "Shabu Shabu Pork Belly 五花肉片 300g",
     "product_picture": [
        "https://drive.google.com/uc?id=1f63GPUplBjSAYa5kWTZGrF0cNw6PC1d8",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "13.00",
@@ -3035,7 +2926,6 @@ db.once('open', async () => {
     "product_name": "Smoked Duck Breast 烟熏鸭胸肉 200-300g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/95503790_155681235952175_5062971825789599744_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeEU581NygXr4PDlf4PXnrA9wGTcH-ISEKDAZNwf4hIQoDUQnm80ez_eRAzGp-3w1YW0v0QDt6TFnxWOIlrr5Yqs&_nc_ohc=Jo6kw0vfA3sAX_oCQKY&_nc_ht=scontent.fpen1-1.fna&oh=d256e4143b58a9ffb0435f46c305564d&oe=60E8DE01",
-       ""
     ],
     "product_category": "meat",
     "product_price": "13.00",
@@ -3054,7 +2944,6 @@ db.once('open', async () => {
     "product_name": "Flower Squid 花枝 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/198531214_351045183082445_2159582179355360589_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeE6TKVOig5-twB6hwVDP8o1M9u55NncDc8z27nk2dwNzzs62dBT90LEr9P_d3RgdL3fma_kD7Rytnd36PYX9Xuv&_nc_ohc=wVOJNgzDqdcAX8WVBhV&_nc_ht=scontent.fpen1-1.fna&oh=dc525c97253593af8e1ebd773f0f9a6d&oe=60E5B667",
-       ""
     ],
     "product_category": "hotpot",
     "product_price": "18.00",
@@ -3149,7 +3038,6 @@ db.once('open', async () => {
     "product_name": "Canadian Scallops XL 10/20 加拿大带子 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/120660906_204903877696577_3256118392630256897_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeGIPrHyLF5cN1_x6uOYaTx0Oy4CGXm3Roo7LgIZebdGinmXT7HySSOhUxU-WcQDm9M3J4lVG0VHrFcJEPmr1eeV&_nc_ohc=bQSofW1gEcIAX8Hl9Wu&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=0e23862dd3ab2e5f04b3a62063c93004&oe=60E8805D",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "35.00",
@@ -3168,7 +3056,6 @@ db.once('open', async () => {
     "product_name": "Canadian Scallops L 20/30 加拿大带子  500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195371603_350453339808296_4960360066392309673_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFeBDWcWBeYcA1hxcZhP9qdYeSSpiuPPnFh5JKmK48-cSQ6hwtM1GceANnDUVrGSsEz-Qv58-bcFAk_VRZCOKVf&_nc_ohc=GY0MhRGQU68AX9Aq4HE&_nc_ht=scontent.fpen1-1.fna&oh=5482506ebc51f5c3e9752bd04d1556e9&oe=60E4356D",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "32.50",
@@ -3187,7 +3074,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops XL 10/20 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197445733_350458653141098_6098772650827994650_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEkxuSQCBU3j_R5Q19w8opGehM9MxUjsgV6Ez0zFSOyBalr8g9FxQFwKjNBuNReYr-G5rZek8elPZJiaUTDfrXU&_nc_ohc=sQSFvHc1Fi8AX-rt3kU&_nc_ht=scontent.fpen1-1.fna&oh=91fc771226bec56515bc4862829642a6&oe=60E596C2",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "70.00",
@@ -3206,7 +3092,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops L 20/30 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195764995_350456129808017_4925622981200279088_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEft2-c2PnDkxiKVg6TqUsxy5pJqZtVOVrLmkmpm1U5Wn8k6bfYeA0OPTPP3KOqYPQII5Eo8id5i9TPSiIS6JjI&_nc_ohc=HWuA6lufWloAX9f3hQj&_nc_ht=scontent.fpen1-1.fna&oh=7a3959365d7f60437bc016548338b321&oe=60E5DBCA",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "65.00",
@@ -3225,7 +3110,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops M 30/40 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195265546_350456673141296_238482158305807610_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGlsNU9C8THtNCLqluzQ6FZLQuUZu2M4lYtC5Rm7YziVkDbrtCteJ0P1xaAAv-MqNxtYibTtPgX9-L10xqvcYan&_nc_ohc=xIYjqbxq0eMAX-59vrY&_nc_ht=scontent.fpen1-1.fna&oh=0e1c1df6312d940193b1015bbd00d798&oe=60E56D2B",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "60.00",
@@ -3244,7 +3128,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 40/50 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/188809475_350458239807806_4632231994231110621_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGbcYAOvrkgsPOYKPzeusJOhyZi97GN8pKHJmL3sY3ykhX0hpWD5U38LjCo5ezNKFIwzJ1gcScu0816LX49qetu&_nc_ohc=qsN3CB2relAAX8jkVLk&_nc_oc=AQmEWs5-rEMZ3De91HZarYPXFHUoBwn3XYmYiqb6xOC8VhLBWD2R7R0FQ1SvOraFnDA&_nc_ht=scontent.fpen1-1.fna&oh=6764460b79aa0e46d2c85ccd1a11617a&oe=60E743C2",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "55.00",
@@ -3263,7 +3146,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 60/80 北海道带子 1kg",
     "product_picture": [
        "https://drive.google.com/uc?id=1yskHg_9_OQ92N_OupwuKdeAqHm7FQb8p",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "45.00",
@@ -3282,7 +3164,6 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 80/100 北海道带子 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/188427978_350458446474452_4718371310959613678_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEqRnjSd_-4zzJIEbWPEl6zLzHYCXF-zlIvMdgJcX7OUvk42hVeSCcTsjEKnyohv8sSTmu8Cr6cfgtU3aUnFUt3&_nc_ohc=mjnjsYc-5hMAX-v3X6h&_nc_ht=scontent.fpen1-1.fna&oh=0fcb56a5b4196e2f4a831e3393fe524a&oe=60E7EFC1",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "40.00",
@@ -3320,7 +3201,6 @@ db.once('open', async () => {
     "product_name": "Half Shell Scallop (Pink) M 半壳带子 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197706543_350455489808081_2040378463962824191_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEvn94AsWPs7hjVoEQzk-lfJmBx9l2HeTImYHH2XYd5MigNa3Ab0yKIGI7Kv8VeAOf_O0gnqxVoqt19G261hElt&_nc_ohc=W3AvFt7hfS0AX8v61hn&_nc_ht=scontent.fpen1-1.fna&oh=fde0e85a8ea5fabdb084aea9ec030d7e&oe=60E688D4",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "20.00",
@@ -3339,7 +3219,6 @@ db.once('open', async () => {
     "product_name": "Half Shell Scallop (Pink) S 半壳带子 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197706543_350455489808081_2040378463962824191_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEvn94AsWPs7hjVoEQzk-lfJmBx9l2HeTImYHH2XYd5MigNa3Ab0yKIGI7Kv8VeAOf_O0gnqxVoqt19G261hElt&_nc_ohc=W3AvFt7hfS0AX8v61hn&_nc_ht=scontent.fpen1-1.fna&oh=fde0e85a8ea5fabdb084aea9ec030d7e&oe=60E688D4",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "17.50",
@@ -3358,7 +3237,6 @@ db.once('open', async () => {
     "product_name": "Japanese Hotate Scallop L 60/80 日本扇贝 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192790990_350457766474520_3686901305558168356_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGNe77kpappAfGlLHtTbO-IcyhhwEovQYlzKGHASi9BidbZegGdua7SLnrlGQNu8TT2LcmvCc8g6dESc1WdSRVv&_nc_ohc=OeMiCy6JuyMAX9qZ_nU&_nc_ht=scontent.fpen1-1.fna&oh=1f296e592be889216f39cd8a544df073&oe=60E75296",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "40.00",
@@ -3377,7 +3255,6 @@ db.once('open', async () => {
     "product_name": "Japanese Hotate Scallop S 100/150 日本扇贝 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/190418832_350458006474496_6300654089960382982_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGs6bUjvUzQIhRxcAM6fRfUpSNE1vhE6ZKlI0TW-ETpkg_YQEvtzSJarZxrVKkUvBzB9NzvTp-usFyzhzdWxY2B&_nc_ohc=YPGjSgESgvkAX9TfzQJ&_nc_ht=scontent.fpen1-1.fna&oh=2687e47a0613f378c0d73fb8a2d66e9f&oe=60E7CC28",
-       ""
     ],
     "product_category": "scallops",
     "product_price": "35.00",
@@ -3396,7 +3273,6 @@ db.once('open', async () => {
     "product_name": "Frozen Blueberries 冷冻蓝莓 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196345199_351080083078955_3843237524445869528_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHxzfKFxD62Xz2FCw9cv7Ysj0LDW4In3rmPQsNbgifeuQh3y-MkLwOV69upfHeQ-HX-ZcR6T9IWHkZt1CYdA2N3&_nc_ohc=DPV3q5X9t1YAX8H1wt0&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=ca30dd769decd41c40cb446de9d2df55&oe=60C76558",
-       ""
     ],
     "product_category": "fruits",
     "product_price": "14.00",
@@ -3415,7 +3291,6 @@ db.once('open', async () => {
     "product_name": "Frozen Mixed Berries 冷冻混莓 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195198811_351080133078950_78848613000191074_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHsbd6xHESVuoF9FcLmdhTUTs6x6FbBGetOzrHoVsEZ66E3Bbk9zdGjleoD5B39jg99hf8vkTwUPLRBuGsKiwtb&_nc_ohc=qFpXoG3C9Q4AX-T_VpJ&_nc_ht=scontent.fpen1-1.fna&oh=18582f685906e96c9deadaed0e67b426&oe=60C8BE62",
-       ""
     ],
     "product_category": "fruits",
     "product_price": "14.00",
@@ -3434,7 +3309,6 @@ db.once('open', async () => {
     "product_name": "Frozen Mixed Fruits 冷冻水果 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/193523500_351080173078946_2128156975883892770_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFLDvMX4nzm_B5O5VZgMip5QGZHvzE_WnFAZke_MT9acVXQEfXtoUSo7x2nQ02QguTtcnloPfTRHsQwdqfI8EgG&_nc_ohc=RZcVBGz14ywAX9XeQhy&_nc_ht=scontent.fpen1-1.fna&oh=35dd736761f6870c698ed63996017d1d&oe=60C70F87",
-       ""
     ],
     "product_category": "fruits",
     "product_price": "14.00",
@@ -3453,7 +3327,6 @@ db.once('open', async () => {
     "product_name": "Frozen Rasberries 冷冻山莓 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195067814_351080213078942_765224242900973717_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHK7_khfSkMXCuui148w02n3aVpwRO2K4zdpWnBE7YrjN9nqvtB8xYUm3HqxLHiB0kj6mWSfY0wmLTHyiKMSyRr&_nc_ohc=F06GqZ72TIMAX9GxeQ-&_nc_ht=scontent.fpen1-1.fna&oh=e9abcb7b7e801ddeac4a6e63e576eb59&oe=60C751AF",
-       ""
     ],
     "product_category": "fruits",
     "product_price": "14.00",
@@ -3472,7 +3345,6 @@ db.once('open', async () => {
     "product_name": "Frozen Strawberries 冷冻草莓 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/197854277_351080263078937_999076185500882528_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHUNECKrOrYewoa7oykE-zgLBi1GXmi_NksGLUZeaL82RG7L3k9V_uUG-XlALIJQU1_C-Mspg4WFm7gHATBUE3g&_nc_ohc=Qcgzs08mMWYAX-3hBS8&_nc_ht=scontent.fpen1-1.fna&oh=1578893c857a08465de97e8a73cfd910&oe=60C883FC",
-       ""
     ],
     "product_category": "fruits",
     "product_price": "14.00",
@@ -3491,7 +3363,6 @@ db.once('open', async () => {
     "product_name": "Edamame 日本毛豆 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/195405185_351078896412407_6811213531544285339_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHKMHONYs1A6kMFMXinjExS7w-EOTG_hE7vD4Q5Mb-EToDCm3CC_SdhWYidA2QJ1iTH58_revAdzVPNysYnZiCi&_nc_ohc=9mGINZHDxUcAX8vuT_V&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=546069ce72698f29864745fb31269412&oe=60C865BA",
-       ""
     ],
     "product_category": "vegetables",
     "product_price": "8.00",
@@ -3510,7 +3381,6 @@ db.once('open', async () => {
     "product_name": "Edamame (peeled) 去壳毛豆 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/192744371_351078963079067_5872988065889879839_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeF7EeYFq9zJDvXpXB7OTtGMUn53EPJkZEJSfncQ8mRkQiTcNhgC6eq8PFejJGIgRyUBGsriTxQDpXvLksThPiIF&_nc_ohc=aSjrc4AEZoYAX9mZu0l&_nc_ht=scontent.fpen1-1.fna&oh=6363add62548251d0ade2094d3d8e516&oe=60C75EC7",
-       ""
     ],
     "product_category": "vegetables",
     "product_price": "9.00",
@@ -3529,7 +3399,6 @@ db.once('open', async () => {
     "product_name": "Sweet Corn 甜玉米 500g",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191816872_351079123079051_3584187809796342573_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeEPlucT3XgzAtlkYvwmfLv5nE22Wwn7lDmcTbZbCfuUOTPeFWK0aEIbTO40dEH07UeV2NUuCEjLekRvU3bUFMWO&_nc_ohc=49F0kF84AV0AX_rYscW&_nc_ht=scontent.fpen1-1.fna&oh=5edeb36a61f0b0d7982655238e1e898e&oe=60C7A020",
-       ""
     ],
     "product_category": "vegetables",
     "product_price": "8.00",
@@ -3548,7 +3417,6 @@ db.once('open', async () => {
     "product_name": "French Fries (Crinkle Cut) 薯条 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191153951_351079043079059_7913147476038309189_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeGYIa5pGeO-dCDkDGqu0vYx_mzi7317MLv-bOLvfXswuxRy75eqy8LX1nMQmdrLiso7hLObCGi3PVmS2Dftexee&_nc_ohc=ZqWmDhFRxGIAX-u3V-V&tn=zcE_vrI3f0IbyDLc&_nc_ht=scontent.fpen1-1.fna&oh=dacb45c7b214e5b6210f635ca724e03b&oe=60C81389",
-       ""
     ],
     "product_category": "vegetables",
     "product_price": "10.00",
@@ -3567,7 +3435,6 @@ db.once('open', async () => {
     "product_name": "French Fries (Shoestring) 薯条 1kg",
     "product_picture": [
        "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/196562911_351079099745720_2804824788142887674_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHnn3jkwibvaoBYWQqXoTIdtFirRE-aEAa0WKtET5oQBrAwGmqg1JP2WvVsU39eKqcwmG1oCO3N3O2JhxAqo60Z&_nc_ohc=QkLMqTnwRwYAX-sYaJq&_nc_ht=scontent.fpen1-1.fna&oh=563482e66d9899fdec8b8b3ebe284017&oe=60C81BE9",
-       ""
     ],
     "product_category": "vegetables",
     "product_price": "10.00",
