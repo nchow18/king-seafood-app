@@ -116,8 +116,6 @@ if (Auth.loggedIn()) {
                   cartArr.push(product_data[t])
                   cartArr[i].product_quantity = user_data.cart[i].quantity;
 
-                  console.log(cartArr);
-                  
                   //check for global discount
                 for (var e = 0; e < user_data.cart.length; e++) {
                   if (Auth.getGlobalDiscount !== '0') {
@@ -173,7 +171,7 @@ if (Auth.loggedIn()) {
 
         let index = r;
         const checkExisting = product_data.filter(function (item) {
-          return item._id === cart_data.[index].product_id;
+          return item._id === cart_data[index].product_id;
         })
 
         // checks if items in local storage CART still exists
@@ -206,7 +204,7 @@ if (Auth.loggedIn()) {
           }
         }
 
-        const global_discount = (1 - parseInt(Auth.getGlobalDiscount()) / 100);
+        const global_discount = (1 - JSON.parse(Auth.getGlobalDiscount()) / 100);
         //Start Discount Check
         if (global_discount > 0) {
           console.log('|||||||||||||||||||||||| ADDING PRICES ||||||||||||||||||||||||||')
@@ -267,8 +265,6 @@ if (Auth.loggedIn()) {
 
   if (error) return `...ERROR`;
   if (loading) return `...Loading`;
-
-  console.log(state.active);
 
   return (
     <div className="window-cart-content">

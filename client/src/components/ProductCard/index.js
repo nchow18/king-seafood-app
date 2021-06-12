@@ -72,7 +72,7 @@ function ProductCard(props) {
       )}
       {product.product_sale_price <= 0 && (
         <>
-        <span><b>Price: </b>{product.product_price}</span>
+        <span><b>Price: RM </b>{product.product_price}</span>
         </>
       )}
       {product.product_sale_price >= 1 && (

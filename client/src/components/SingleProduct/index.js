@@ -29,9 +29,6 @@ function SingleProduct(props) {
             </div>
             <div className="single-product-details">
               <span><b>Name: </b>{product.product_name}</span>
-              {product.product_nameChinese !== '' && (
-                <span><b>Chinese Name: </b>{product.product_nameChinese}</span>
-              )}
               {product.product_sale_price === 0 ? (
                 <>
                 <span><b>Price: RM </b><span className="font-strike">{product.product_price}</span></span>
@@ -65,11 +62,10 @@ function SingleProduct(props) {
                 </>
               )}
 
-
               {product.product_weight >= 1 && (
                 <span><b>Weight: </b>{product.product_weight}</span>
               )}
-              {product.product_status !== 0 ? (
+              {product.product_status ? (
                 <>
                   <span><b>Availability: </b>In Stock</span>
                 </>
