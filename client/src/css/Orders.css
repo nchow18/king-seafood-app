@@ -14,7 +14,7 @@
   margin: 1rem;
 }
 
-.order-container div:nth-child(5) {
+.order-container span:nth-child(8) {
   background-color: yellow;
 }
 

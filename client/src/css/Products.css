@@ -221,7 +221,7 @@
 }
 
 .single-product-img {
-  height: 40vh;
+  height: auto;
   object-fit: cover;
   scroll-snap-align: start;
   margin: 0 .5rem;
@@ -229,13 +229,11 @@
 
 .single-product-img-container {
   position: relative;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
-
 
 .product-content {
   margin: 2rem;
@@ -243,7 +241,7 @@
 }
 
 .single-product-details {
-  height: 100%;
+  height: auto;
   padding: 2rem;
   display: flex;
   flex-direction: column;
