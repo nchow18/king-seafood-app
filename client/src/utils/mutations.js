@@ -140,12 +140,16 @@ export const REMOVE_PRODUCT = gql`
 export const ADD_ORDER = gql`
     mutation addOrder($input:OrderInput!) {
         addOrder(input:$input) {
+        cart
         orderTotal
         delivery_date
         paid
         createdAt
         delivery_status
         _id
+        name
+        phone
+        address
         }
     }
 `;
@@ -154,13 +158,13 @@ export const UPDATE_ORDER = gql`
     mutation updateOrder($input:OrderUpdate, $order_id: ID!) {
         updateOrder(input:$input, order_id:$order_id) {
         _id
-        cart {
-            product_id
-            quantity
-        }
+        cart
         paid
         delivery_date
         delivery_status
+        name
+        phone
+        address
         }
     }
 `;
@@ -172,10 +176,7 @@ export const UPDATE_ORDER_STATUS = gql`
         delivery_date
         delivery_status
         orderTotal
-        cart {
-            product_id
-            quantity
-        }
+        cart
         paid
         createdAt
         }

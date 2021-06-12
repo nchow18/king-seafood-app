@@ -92,12 +92,12 @@ function ProductCard(props) {
       )}
       </div>
 
-      {/* <div className="quantity-section">
+      <div className="display-none">
         <Quantity
           product={product}
           user={user}
         />
-      </div> */}
+      </div>
     </div>
     </div>
   ))}

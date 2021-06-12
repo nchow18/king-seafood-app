@@ -88,6 +88,10 @@ query {
     delivery_date
     delivery_status
     createdAt
+    cart
+    name
+    phone
+    address
   }
 }
 `;
@@ -101,6 +105,10 @@ query {
     delivery_date
     delivery_status
     createdAt
+    cart
+    name
+    phone
+    address
   }
 }
 `;

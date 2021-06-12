@@ -188,48 +188,16 @@ const resolvers = {
             }
         },
         addOrder: async (parent, { input }, context) => {
-
-            if (context.user) {
-            const user_data = await User.findById(context.user._id);
-            const user_cart = user_data.cart;
-            const productArr = await Product.find({});
-            
-            var cart_total = [];
-            var cart_array = [];
-
-            for (var i = 0; i < user_cart.length; i++) {
-
-                const cart_price = productArr.filter(product => product._id = user_cart[i].product_id)
-                const price = cart_price[0].product_price;
-                const quantity = user_cart[i].quantity;
-
-                cart_total.push(price * quantity);
-            }
-
-            //add the total of the cart, product_price * quantity
-            const order_total = cart_total.reduce((a,b) => a + b, 0);
-
-                return await Order.create(
-                    { paid: input.paid, delivery_date: input.delivery_date, orderTotal: order_total }
-                )
-            }
-            throw new AuthenticationError('Not logged in');
+          console.log(input);
+            return await Order.create(
+                {...input}
+            )
         },
         updateOrder: async(parent, { input, order_id }, context) => {
-  
-            if (context.user) {
-                const user_id = context.user._id;
-                const user_data = await User.findById(user_id);
-                const cart_data = user_data.cart;
-                var cart_array = [];
-
-                for (var i = 0; i < cart_data.length; i++) {
-                    cart_array.push(cart_data[i])
-                }
-
+            if (context.user.admin === true) {
                 return await Order.findByIdAndUpdate(
                     order_id,
-                    {$push: { cart: cart_array }},
+                    {...input},
                     { new: true }
                 )
             }

@@ -97,27 +97,33 @@ const typeDefs = gql`
   type Order {
     _id: ID
     orderTotal: String
-    cart: [Cart]
+    cart: [String]
     paid: Boolean
     delivery_date: String
     delivery_status: Boolean
     createdAt: String
+    name: String
+    phone: String
+    address: String
   }
 
   input OrderInput {
     orderTotal: String
-    cart: [CartInput]
-    paid: Boolean!
-    delivery_date: String!
+    cart: [String]
+    paid: Boolean
+    delivery_date: String
     delivery_status: Boolean
+    name: String
+    phone: String
+    address: String
   }
 
   input OrderUpdate {
-    cart: [CartInput]
+    cart: [String]
   }
 
   input OrderStatus {
-    delivery_status: Boolean!
+    delivery_status: Boolean
   }
 
   type Address {
@@ -264,7 +270,7 @@ const typeDefs = gql`
     updateProductPicture(product_url: String, product_id: String!, product_old_url: String!): Product
     updateProduct(input: ProductInput!, product_id: ID!): Product
     removeProduct(product_id: ID!): Product
-    addOrder(input: OrderInput!): Order
+    addOrder(input: OrderInput): Order
     updateOrder(input: OrderUpdate, order_id: ID!): Order
     removeOrder(order_id: String!): Order
     updateOrderStatus(input: OrderStatus, order_id: ID!): Order
@@ -272,8 +278,6 @@ const typeDefs = gql`
     updatePromo(input: PromoInput, promo_id: ID!): Promo
     updateUserAccount(input: UserInput, user_id: ID!): User
     updateUserAddress(input: AddressInput, user_id: ID!): User
-
-
   }
 
 `;

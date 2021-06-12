@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/WindowCart.css';
 import { Linking } from 'react-native-web';
+import FinalOrder from './FinalOrder';
 
 function CheckoutDisplay(props) {
 
@@ -122,20 +123,26 @@ function CheckoutDisplay(props) {
             <div className="payment-container">
               <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
             <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button>
-          </div>          
+            <div onClick={() => {setOrder(false)}}>SUBMIT</div> 
+          </div>
+         
           )}
           {currentForm === true && (
             <div className="payment-container">
               <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
               <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button>
+              <div onClick={() => {setOrder(false)}}>SUBMIT</div> 
           </div>          
           )}
           </div>        
         ) : (
           <div className="checkout-display-content">
-            <div className="checkout-order-submitted">
-              <span>ORDER SUBMITTED VIA WHATSAPP</span>
-            </div>
+            <FinalOrder 
+              cart={cart}
+              cart_total={cart_total}
+              order={order}
+              formData={formData}
+            />
           </div>
         )}
 

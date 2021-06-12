@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/Products.css';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_CART } from '../../utils/mutations';
-import { UserContext } from '../../utils/GlobalState';
 
 function Quantity(props) {
 
@@ -12,7 +11,6 @@ function Quantity(props) {
     user
   } = props
 
-  const [state, dispatch] = useContext(UserContext)
   const [addCart, {error}] = useMutation(ADD_CART)
   const [formData, setFormData] = useState({
     quantity: 1,
@@ -60,12 +58,14 @@ function Quantity(props) {
     } else {
     // if logged in, save data to user cart
     // prevent duplicate product in cart
+    if (user) {
       for (var i = 0; i < user.userMe.cart.length; i++) {
         if (data === user.userMe.cart[i].product_id) {
           alert('This product exists in your cart!')
           return false;
         }
       }
+    }
 
     // if it doesn't exist in USER cart, add to user CART db
     try {
@@ -89,7 +89,7 @@ function Quantity(props) {
       <div className="quantity-button-container">
         <span>Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} /></span>
         {product.product_status ? (
-          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity); dispatch({ type: 'toggle_button' }) }}>ADD TO CART</div>
+          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity)}}>ADD TO CART</div>
         ) : (
           <div className="product-button" key={product._id}>OUT OF STOCK</div>
         )}

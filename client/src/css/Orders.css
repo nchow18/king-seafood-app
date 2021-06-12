@@ -13,3 +13,41 @@
   padding: 1rem;
   margin: 1rem;
 }
+
+.order-container div:nth-child(5) {
+  background-color: yellow;
+}
+
+/* ADMIN ORDERS */
+
+.order-view-button {
+  background-color: orange;
+  width: 12rem;
+  padding: .5rem;
+  text-align: center;
+  margin: .5rem;
+}
+
+.order-cart-details-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(186, 185, 185);
+}
+
+.order-cart-details-container div {
+  display: grid;
+  grid-template-columns: 50% 15% 15%;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+
+@media screen and (max-width: 650px) {
+  .order-container {
+    width: 100%;
+    margin: .5rem;
+    font-size: .8rem;
+  }
+}

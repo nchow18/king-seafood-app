@@ -1,25 +1,24 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const orderCartSchema = new Schema(
-    {
-        product_id: String,
-        quantity: Number
-    }
-)
 
 const orderSchema = new Schema(
     {
-        orderTotal: Number,
+        orderTotal: {
+          type: String,
+          required: false,
+          trim: true
+        },
         cart: [String],
         delivery_status: {
             type: Boolean,
-            required: true,
+            required: false,
             default: false
         },
         delivery_date: {
             type: String,
-            required: true,
+            required: false,
+            default: '',
         },
         createdAt: {
             type: Date,
@@ -28,9 +27,24 @@ const orderSchema = new Schema(
         },
         paid: {
             type: Boolean,
-            required: true
+            required: false,
+            default: false
         },
-        cart: [orderCartSchema],
+        name: {
+          type: String,
+          required: false,
+          trim: true
+        },
+        phone: {
+          type: String,
+          required: false,
+          trim: true
+        },
+        address: {
+          type: String,
+          required: false,
+          trim: true
+        }
     },
     {
         toJSON: {
