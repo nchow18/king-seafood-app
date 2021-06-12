@@ -84,7 +84,7 @@ function ProductCard(props) {
       {product.product_weight !== '' && (
         <span>{product.product_weight}</span>
       )}
-      {product.product_description1 !== '0' && (
+      {product.product_description1 !== '' && (
         <>
           <b>Description:</b><span className="blue-font">{product.product_description1}</span>
         </>

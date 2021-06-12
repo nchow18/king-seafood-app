@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Auth from '../../utils/auth';
 import '../../css/WindowCart.css';
 import '../../css/MobileCart.css';
@@ -9,6 +9,7 @@ import CheckoutDisplay from '../Cart/CheckoutDisplay';
 import CartItem from '../Cart/CartItem';
 import Fish from '../../assets/images/clown-fish.png';
 import ProductSlide from '../Cart/ProductsSlide';
+import { UserContext } from '../../utils/GlobalState';
 
 function WindowCart(props) {
 
@@ -16,6 +17,7 @@ function WindowCart(props) {
     setCartModal
   } = props
 
+  const [state, dispatch] = useContext(UserContext);
   const [currentState, updateState] = useState(true);
   const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
@@ -266,6 +268,8 @@ if (Auth.loggedIn()) {
   if (error) return `...ERROR`;
   if (loading) return `...Loading`;
 
+  console.log(state.active);
+
   return (
     <div className="window-cart-content">
       <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>
@@ -273,7 +277,9 @@ if (Auth.loggedIn()) {
         <div className="window-cart-column to-night">
           <span className="total-text">Cart Total: {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container to-night">
-              {(JSON.parse(new_cart)).map((product) => (
+              {state.active ? (
+                <>
+                {(JSON.parse(new_cart)).map((product) => (
                   <CartItem 
                     product={product}
                     user_cart={user_cart}
@@ -282,8 +288,23 @@ if (Auth.loggedIn()) {
                     removeProduct={removeProduct}
                     updateMainCart={updateMainCart}
                   />
-
-                ))}                         
+                ))}  
+                </>               
+              ) : (
+                <>
+                {(JSON.parse(new_cart)).map((product) => (
+                  <CartItem 
+                    product={product}
+                    user_cart={user_cart}
+                    new_cart={new_cart}
+                    updateState={updateState}
+                    removeProduct={removeProduct}
+                    updateMainCart={updateMainCart}
+                  />
+                ))}
+                </>                 
+              )}
+                        
             </div>
             <div className="window-cart-checkout-container">
               {checkOutModal && (

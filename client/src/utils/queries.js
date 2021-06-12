@@ -55,6 +55,7 @@ query product($product_id: ID!) {
     product_featured
     createdAt
     product_views
+    inventory_id
   }
 }
 `;
@@ -81,6 +82,7 @@ query {
     product_featured
     createdAt
     product_views
+    inventory_id
   }
 }
 `;

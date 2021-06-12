@@ -50,16 +50,16 @@ function SingleProduct(props) {
               {product.product_description1 !== '0' && (
                 <>
                 <span><b>Description:</b></span>
-                {product.product_description1 !== '0' && (
+                {product.product_description1 !== '' && (
                   <span>● {product.product_description1}</span>
                 )}   
-                {product.product_description2 !== '0' && (
+                {product.product_description2 !== '' && (
                   <span>● {product.product_description2}</span>
                 )} 
-                {product.product_description3 !== '0' && (
+                {product.product_description3 !== '' && (
                   <span>● {product.product_description3}</span>
                 )} 
-                {product.product_description4 !== '0' && (
+                {product.product_description4 !== '' && (
                   <span>● {product.product_description4}</span>
                 )}                                                              
                 </>

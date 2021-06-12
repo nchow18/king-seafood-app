@@ -24,7 +24,7 @@ function Header(props) {
   };
 
   const { loading, data } = useQuery(USER_ME)
-  const [state] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
   const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
