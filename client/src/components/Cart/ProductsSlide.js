@@ -10,15 +10,16 @@ function ProductSlide(props) {
 
   const [singleProduct] = useState([...product_data])
   const [isModal, setModal] = useState(false);
-  const random_products = [];
+  var newList = []
 
-  if (product_data) {
-    for (var i = 0; i < 10; i++) {
-      const randomNumber = Math.round(Math.random() * product_data.length);
-      random_products.push(product_data[randomNumber])
+  for (var i = 0; i < product_data.length; i++) {
+    if (product_data[i].product_views > 0) {
+      newList.push(product_data[i])
     }
   }
 
+  const mostViewed = newList.sort((a,b) => b.product_views - a.product_views)
+  const random_products = mostViewed;
   const [currentProduct, setProduct] = useState(singleProduct[0])
 
   return (

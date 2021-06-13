@@ -10,6 +10,7 @@ import CartItem from '../Cart/CartItem';
 import Fish from '../../assets/images/clown-fish.png';
 import ProductSlide from '../Cart/ProductsSlide';
 import { UserContext } from '../../utils/GlobalState';
+import MoreInfo from './MoreInfo';
 
 function WindowCart(props) {
 
@@ -271,7 +272,7 @@ if (Auth.loggedIn()) {
       <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>
       {(guest_cart_length > 0 || user_cart_length > 0) ? (
         <div className="window-cart-column to-night">
-          <span className="total-text">Cart Total: {cart_total.toFixed(2)}</span> 
+          <span className="total-text">Cart Total: RM {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container to-night">
               {state.active ? (
                 <>
@@ -314,7 +315,9 @@ if (Auth.loggedIn()) {
                 </div>
               )}
             <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
-            <div className="checkout-disclaimer">Checkout with SWIPE</div>
+            <div className="more-info-container">
+              <MoreInfo />
+            </div>
             </div>
           </div>        
         ) : (
@@ -322,7 +325,7 @@ if (Auth.loggedIn()) {
             <div className="empty-cart-content">
               <span>Please fill your Cart</span>
               <img alt="fish" src={Fish} className="empty-fish" />
-              <span>Products you might like</span>
+              <span>Popular Products</span>
               <div className="empty-cart-slide">
                 <ProductSlide
                   product_data={product_data}

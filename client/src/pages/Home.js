@@ -158,7 +158,7 @@ function Home() {
         />        
     </div>
     <div className="home-section">
-      <b className="section-title">Products you might like</b>
+      <b className="section-title">Popular Products</b>
       <p></p>
       <ProductCarousel />
     </div>

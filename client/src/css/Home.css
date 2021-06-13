@@ -69,7 +69,7 @@
   top: -1rem;
   z-index: 20;
   background-color: white;
-  display: flex;
+  display: none;
   justify-content: center;
 }
 

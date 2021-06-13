@@ -53,7 +53,6 @@ function UpdateCartButton(props) {
             product_id: product._id,
           }
         })
-        alert('Cart Quantity Updated')
       } catch (e) {
         console.log(e);
       }

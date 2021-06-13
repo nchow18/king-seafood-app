@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../css/flickity.css';
 import { useQuery } from '@apollo/react-hooks';
 import { PRODUCTS } from '../../utils/queries';
@@ -12,29 +12,18 @@ function ProductCarousel() {
   const [isModal, setModal] = useState(false);
   const productsArr = data?.products || {};
 
-  const randomProducts = [];
-  const products = randomProducts;
-  const randomNumbers = [];
+  var newList = []
 
-  const [links] = useState({...products})
-
-  if (data) {
-    for (var i = 0; i < 10; i++ ) {
-
-      // get random number within the range of productsArr
-      var randomNumber = Math.round(Math.random() * productsArr.length);
-      randomNumbers.push(randomNumber);
-
-      let index = i;
-
-      var verify = randomNumbers.filter((random) => random === index);
-
-      if (verify.length === 0) {
-        randomProducts.push(productsArr[i])
-      }
-
-      }
+  for (var i = 0; i < productsArr.length; i++) {
+    if (productsArr[i].product_views > 0) {
+      newList.push(productsArr[i])
     }
+  }
+
+  const mostViewed = newList.sort((a,b) => b.product_views - a.product_views)
+
+  const products = mostViewed;
+  const [links] = useState({...products})
 
   const [currentProduct, setProduct] = useState(links[0])
 
@@ -42,8 +31,6 @@ function ProductCarousel() {
 
   return (
     <>
-
-
       <div className="random-product-container">
         <div className="random-product-slider">
           {products.map((product) => (
