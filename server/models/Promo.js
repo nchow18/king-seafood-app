@@ -100,7 +100,11 @@ const promoSchema = new Schema(
       type: String,
       required: false,
       trim: true
-    }
+    },
+    delivery_fee1: String,
+    delivery_fee2: String,
+    delivery_fee3: String,
+    notice_message: String
   },
   {
     toJSON: {

@@ -217,6 +217,10 @@ export const UPDATE_PROMO = gql`
         address
         home_message
         main_banner
+        delivery_fee1
+        delivery_fee2
+        delivery_fee3
+        notice_message
         }
     }
 `;

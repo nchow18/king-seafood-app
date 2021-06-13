@@ -176,6 +176,10 @@ const typeDefs = gql`
     address: String
     home_message: String
     main_banner: String
+    delivery_fee1: String,
+    delivery_fee2: String,
+    delivery_fee3: String,
+    notice_message: String
   }
 
   input PromoInput {
@@ -201,6 +205,10 @@ const typeDefs = gql`
     address: String
     home_message: String
     main_banner: String
+    delivery_fee1: String,
+    delivery_fee2: String,
+    delivery_fee3: String,
+    notice_message: String
   }
 
   type Customer {

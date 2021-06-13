@@ -1,6 +1,6 @@
 import React from 'react';
-import Sale from '../../assets/images/sale-platter.jpeg'
-import Caviar from '../../assets/images/special-caviar.jpeg';
+import Sale from '../../assets/images/products/sale.jpeg'
+import Special from '../../assets/images/products/special.jpeg';
 import Auth from '../../utils/auth';
 
 function SaleSpecial(props) {
@@ -17,7 +17,7 @@ function SaleSpecial(props) {
           <span>SALE</span>
         </div>
         <div onClick={() => {storeCategory({name: 'Special'})}}>
-          <img alt="caviar" src={Caviar} />
+          <img alt="caviar" src={Special} />
           <span>SPECIAL PRODUCTS</span>
         </div>
       </div>

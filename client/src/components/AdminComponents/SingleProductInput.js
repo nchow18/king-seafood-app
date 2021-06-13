@@ -31,7 +31,8 @@ function SingleProductInput(props) {
     product_sale_price: product.product_sale_price,
     product_bulk_quantity: product.product_bulk_quantity,
     product_bulk_price: product.product_bulk_price,
-    product_featured: product.product_featured
+    product_featured: product.product_featured,
+    inventory_id: product.inventory_id
   })
 
   const handleInputChange = (event) => {
@@ -63,7 +64,8 @@ function SingleProductInput(props) {
           product_sale_price: formData.product_sale_price,
           product_bulk_quantity: parseInt(formData.product_bulk_quantity),
           product_bulk_price: formData.product_bulk_price,
-          product_featured: JSON.parse(formData.product_featured)
+          product_featured: JSON.parse(formData.product_featured),
+          inventory_id: formData.inventory_id
         },
        }})
 
@@ -111,6 +113,10 @@ function SingleProductInput(props) {
   return (
     <>
           <div className="product-id bold" value={product._id}>{product._id}</div>
+            <div className="admin-input-row">
+              <b className="bold">Inventory ID</b>
+              <input onChange={handleInputChange} name='inventory_id' className="product-name admin-input-width" type="text" value={formData.inventory_id} />
+            </div>          
             <div className="admin-input-row">
               <b className="bold">Name</b>
               <input onChange={handleInputChange} name='product_name' className="product-name admin-input-width" type="text" value={formData.product_name} />

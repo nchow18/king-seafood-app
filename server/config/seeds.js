@@ -62,7 +62,11 @@ db.once('open', async () => {
       contact_us_2: 'Kelvin 016-4849744',
       address: '205, Jalan Perak, 11600 Jelutong, Penang, Malaysia',
       home_message: 'FRESHLY FROZEN SEAFOOD',
-      main_banner: 'https://wallpaperaccess.com/full/1491748.jpg'
+      main_banner: 'https://wallpaperaccess.com/full/1491748.jpg',
+      delivery_fee1: 'FREE DELIVERY for orders *RM100* and above for Penang area (RM5 delivery fee for orders less than RM100)',
+      delivery_fee2: 'Outstation delivery fee RM40',
+      delivery_fee3: 'Pickup location: 205, Jalan Perak, 11600 Jelutong',
+      notice_message: 'For any troubles during checkout, please contact Grace 016-4223018'
     }
   )
 

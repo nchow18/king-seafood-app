@@ -36,7 +36,7 @@ function Products() {
     localStorage.setItem('current_category', JSON.stringify(empty))
   }
 
-  if (currentProductLink.name === 'All' && homeCategory.name === '') {
+  if (currentProductLink.name === 'All' || homeCategory.name === '') {
     productCategory = products;
     localStorage.setItem('current_category', JSON.stringify(empty));
   } else if (currentProductLink.name === 'Sale' || homeCategory.name === 'Sale') {

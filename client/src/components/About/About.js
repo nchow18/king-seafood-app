@@ -21,11 +21,11 @@ function AboutSection(props) {
           <span className="about-title"><b>Follow Us</b></span>
           <div className="row">
               <div className="row">
-                <a href="https://www.facebook.com/kingsseafood18/"><i className="fab fa-facebook about-icon"></i></a>
+                <div onClick={() => {window.open("https://www.facebook.com/kingsseafood18/")}}><i className="fab fa-facebook about-icon"></i></div>
                 <span className="about-us-small">@kingsseafood18</span>
               </div>
               <div className="row">
-                <a href="https://instagram.com/kingsseafood18?utm_medium=copy_link"><i className="fab fa-instagram about-icon"></i></a>
+                <div onClick={() => {window.open("https://instagram.com/kingsseafood18?utm_medium=copy_link")}}><i className="fab fa-instagram about-icon"></i></div>
                 <span className="about-us-small">@kingsseafood18</span>
               </div>
           </div>

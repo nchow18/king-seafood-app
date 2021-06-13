@@ -76,7 +76,7 @@ function Quantity(props) {
         addCart({ variables: {
         input: {
           product_id: data,
-          quantity: 1,
+          quantity: parseInt(quantity),
         }
         }})
         alert('Added to cart');

@@ -150,17 +150,13 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
 
-      {whatsApp && (
+      {/* {whatsApp && (
         <div className="whatsapp-display">
           <WhatsApp />
         </div>
-      )}
+      )} */}
 
-      {whatsApp ? (
-        <i onClick={() => {setWhatsApp(false)}} className="fab fa-whatsapp-square whatsapp-icon"></i>
-      ) : (
-        <i onClick={() => {setWhatsApp(true)}} className="fab fa-whatsapp-square whatsapp-icon"></i>
-      )}
+      <i onClick={() => {window.open("https://wa.me/60103893421")}} className="fab fa-whatsapp-square whatsapp-icon"></i>
 
       <Footer 
         headerLinks={headerLinks}

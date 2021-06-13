@@ -1,6 +1,14 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { PROMO } from '../../utils/queries';
 
 function MoreInfo() {
+
+  const {loading, data} = useQuery(PROMO);
+  const promo = data?.promo || {};
+
+  if (loading) return `...LOADING`;
+
   return (
     <div className="more-info-content">
       <div>
@@ -25,12 +33,13 @@ function MoreInfo() {
 
     <div>
       <b>DELIVERY FEE</b>
-      <span>● FREE DELIVERY for orders *RM100* and above for Penang area (RM5 delivery fee for orders less than RM100)</span>
-      <span>● Outstation delivery fee RM40</span>
+      <span>● {promo[0].delivery_fee1}</span>
+      <span>● {promo[0].delivery_fee2}</span>
+      <span>● {promo[0].delivery_fee3}</span>
     </div>
     <div>
       <b>NOTICE</b>
-      <span>For any troubles during checkout, please contact Grace 016-4223018</span>
+      <span>{promo[0].notice_message}</span>
     </div>
 
     </div>

@@ -108,6 +108,13 @@ function Home() {
     }
   }
 
+  if (localStorage.getItem('new_cart') === null) {
+    localStorage.setItem('new_cart', JSON.stringify([]));
+  }
+
+  if (localStorage.getItem('guest_cart') === null) {
+    localStorage.setItem('guest_cart', JSON.stringify([]))
+  }
 
   
   Auth.setGlobalDiscount(promo[0].discount);

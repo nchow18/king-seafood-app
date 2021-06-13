@@ -41,7 +41,6 @@ function WhatsApp() {
       .catch(() => {
         alert('Make sure Whatsapp installed on your device');
       });
-
   }
 
   return (
