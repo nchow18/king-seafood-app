@@ -24,6 +24,10 @@
   font-weight: bold;
 }
 
+.checkout-cart-details > span {
+  font-size: 1rem;
+}
+
 .window-cart-checkout-container {
   height: 100%;
 }
@@ -41,7 +45,7 @@
 
 .more-info-content div:nth-child(1) {
   display: grid;
-  grid-template-columns: 8rem auto;
+  grid-template-columns: 4rem auto;
 }
 
 .more-info-content div:nth-child(2) {

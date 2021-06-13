@@ -124,7 +124,7 @@ function CheckoutDisplay(props) {
                 <span><b>Price: RM </b>{cart.total_price.toFixed(2)}</span>
               </div>
             ))}
-            <span><b>Your Total: RM </b>{cart_total.toFixed(2)}</span>
+            <h1><b>Your Total: RM </b>{cart_total.toFixed(2)}</h1>
           </div>
           </div>        
         ) : (
