@@ -17,12 +17,6 @@ function CheckoutDisplay(props) {
     first_name: '',
     last_name: '',
     address: '',
-    // street_number: '',
-    // street_name: '',
-    // state: '',
-    // region: '',
-    // city: '',
-    // postal_code: '',
     message: '',
     delivery_date: '',
     phone: '',
@@ -47,11 +41,6 @@ function CheckoutDisplay(props) {
     ',\n %0a*Last Name:* '+formData.last_name+
     ',\n %0a*Phone:* '+formData.phone+
     ',\n %0a*Address:* '+formData.address+
-    // ',\n %0a*Street Name:* '+formData.street_name+
-    // ',\n %0a*State:* '+formData.state+
-    // ',\n %0a*Region:* '+formData.region+
-    // ',\n %0a*City:* '+formData.city+
-    // ',\n %0a*Postal Code:* '+formData.postal_code+
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
@@ -107,12 +96,6 @@ function CheckoutDisplay(props) {
             {currentForm === false && (
               <>
               <input value={formData.address} name="address"placeholder="Full Address" onChange={handleInputChange} />
-              {/* <input value={formData.street_number} name="street_number"placeholder="Street Number" onChange={handleInputChange} />
-              <input value={formData.street_name} name="street_name"placeholder="Street Name" onChange={handleInputChange} />
-              <input value={formData.state} name="state" placeholder="State" onChange={handleInputChange} />
-              <input value={formData.region} name="region" placeholder="Region" onChange={handleInputChange} />
-              <input value={formData.city} name="city" placeholder="City" onChange={handleInputChange} />
-              <input value={formData.postal_code} name="postal_code" placeholder="Postal Code" onChange={handleInputChange} /> */}
               <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} />
               </>
             )}
@@ -123,7 +106,6 @@ function CheckoutDisplay(props) {
             <div className="payment-container">
               <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
             <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button>
-            {/* <div onClick={() => {setOrder(false)}}>SUBMIT</div>  */}
           </div>
          
           )}
@@ -131,9 +113,19 @@ function CheckoutDisplay(props) {
             <div className="payment-container">
               <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
               <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button>
-              {/* <div onClick={() => {setOrder(false)}}>SUBMIT</div>  */}
           </div>          
           )}
+          <div className="checkout-cart-details">
+            <h1>Your Order Details:</h1>
+            {cart.map((cart) => (
+              <div>
+                <b>{cart.product_name}</b>
+                <span><b>Qty: </b>{cart.product_quantity}</span>
+                <span><b>Price: RM </b>{cart.total_price.toFixed(2)}</span>
+              </div>
+            ))}
+            <span><b>Your Total: RM </b>{cart_total.toFixed(2)}</span>
+          </div>
           </div>        
         ) : (
           <div className="checkout-display-content">

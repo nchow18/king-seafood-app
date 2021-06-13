@@ -269,9 +269,12 @@ if (Auth.loggedIn()) {
 
   return (
     <div className="window-cart-content">
+
       <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>
       {(guest_cart_length > 0 || user_cart_length > 0) ? (
         <div className="window-cart-column to-night">
+          {checkOutModal === false && (
+          <>          
           <span className="total-text">Cart Total: RM {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container to-night">
               {state.active ? (
@@ -304,7 +307,19 @@ if (Auth.loggedIn()) {
                         
             </div>
             <div className="window-cart-checkout-container">
-              {checkOutModal && (
+              <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
+              <div className="more-info-container">
+                <MoreInfo />
+              </div>
+              <div className="empty-cart-slide">
+                <ProductSlide
+                  product_data={product_data}
+                />
+              </div>            
+            </div>
+            </>
+          )}
+            {checkOutModal && (
                 <div className="checkout-container">
                   <CheckoutDisplay
                     setCheckOutModal={setCheckOutModal} 
@@ -313,19 +328,17 @@ if (Auth.loggedIn()) {
                     cart_total={cart_total}
                 />
                 </div>
-              )}
-            <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
-            <div className="more-info-container">
-              <MoreInfo />
-            </div>
-            </div>
+              )}            
           </div>        
         ) : (
           <div className="empty-cart-display">
             <div className="empty-cart-content">
-              <span>Please fill your Cart</span>
+              <h1>Please fill your Cart</h1>
               <img alt="fish" src={Fish} className="empty-fish" />
-              <span>Popular Products</span>
+              <div className="more-info-container">
+                <MoreInfo />
+              </div>
+              <h1>Popular Products</h1>
               <div className="empty-cart-slide">
                 <ProductSlide
                   product_data={product_data}
