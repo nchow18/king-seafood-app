@@ -32,8 +32,9 @@
 
 .category-container {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: auto auto auto;
   flex-wrap: wrap;
+  grid-gap: 2rem;
 }
 
 .category-img {
@@ -45,14 +46,29 @@
 .category-img-container {
   display: flex;
   flex-direction: column;
-  margin: 0 1rem;
+  margin: 0 0rem;
+  position: relative;
+}
+
+.category-img-container:hover {
+  box-shadow: 10px 10px 25px rgb(0,0,0,0.8);
+}
+
+.category-img:hover ~ .category-img-label span {
+  background-color: black;
+  color: white;
+}
+
+.category-img:hover {
+  opacity: .8;
+  filter: blur(2px);
 }
 
 .category-img-label {
-  position: relative;
-  bottom: 4rem;
+  position: absolute;
+  bottom: 3rem;
   text-align: center;
-
+  width: 100%;
 }
 
 .category-img-label span {
