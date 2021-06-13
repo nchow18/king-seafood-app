@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { UPDATE_CART } from '../../utils/mutations';
 import Auth from '../../utils/auth';
@@ -12,35 +12,45 @@ function UpdateCartButton(props) {
     user_cart=[]
   } = props
 
+  const [count, setCount] = useState(product.product_quantity)
   const [state, dispatch] = useContext(UserContext);
   const [updateCart, { error }] = useMutation(UPDATE_CART);
-  const [formData, setFormData] = useState({
-    quantity: product.product_quantity,
-  })
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    })
+  function decreaseCount() {
+    if (count >= 2) {
+      setCount((count) => count - 1);
+    }
   }
 
-  const updateUserCart = async (id) => {
+  function increaseCount() {
+      setCount((count) => count + 1);
+  }
 
-    if (Auth.loggedIn()) {
-      const quantity = formData.quantity;
-      const index = user_cart.findIndex((item) => item._id === id)
+  useEffect(() => {
+    console.log(`you clicked ${count} times`)
+
+    addQuantity(product._id);
+
+    dispatch({ type: 'toggle_button'})
+    console.log(state)
+    return () => {
+      console.log('clean up')
+    }
+  }, [count])
+
+  function addQuantity(id) {
+    if (Auth.loggedIn() === true) {
+      const index = user_cart.findIndex((item) => item._id === product._id)
       var newCart = []
       newCart = [...user_cart]
-      newCart[index].new_quantity = parseInt(formData.quantity);
+      newCart[index].new_quantity = count;
       updateMainCart([...newCart])
 
       try {
         updateCart({
           variables: {
-            quantity: parseInt(quantity),
-            product_id: id,
+            quantity: count,
+            product_id: product._id,
           }
         })
         alert('Cart Quantity Updated')
@@ -52,8 +62,8 @@ function UpdateCartButton(props) {
       const local_cart = JSON.parse(localStorage.getItem('guest_cart'))
       //find index of matching local_cart.product_id and id
       for (var i = 0; i <  local_cart.length; i++) {
-        if (local_cart[i].product_id === id) {
-          local_cart[i].quantity = formData.quantity;
+        if (local_cart[i].product_id === product._id) {
+          local_cart[i].quantity = count;
 
           // remove and save new updated 'guest_cart' from localStorage
           localStorage.removeItem('guest_cart');
@@ -69,8 +79,12 @@ function UpdateCartButton(props) {
     <>
       <div className="mobile-cart-quantity">
         <div>Quantity</div>
-        <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" />
-        <div className="mobile-cart-update" key={product._id} onClick={() => {updateUserCart(product._id); dispatch({ type: 'toggle_button' })}}>UPDATE</div>
+        <div className="quantity-counter">
+          <div onClick={() => {decreaseCount()}}><i class="fas fa-minus"></i></div>
+          <div>{count}</div>
+          <div onClick={() => {increaseCount()}}><i class="fas fa-plus"></i></div>
+        </div>
+        {/* <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" /> */}
       </div>
     </>
   )
