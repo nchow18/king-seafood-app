@@ -5,8 +5,8 @@ import Shellfish from '../../assets/images/products/shellfish.jpeg';
 import Squid from '../../assets/images/products/squid.jpeg';
 import Meat from '../../assets/images/products/meat.jpeg';
 import Hotpot from '../../assets/images/products/hotpot.jpeg';
-import Fruit from '../../assets/images/products/fruit.jpeg';
-import Vegetable from '../../assets/images/products/vegetable.jpeg';
+import Fruit from '../../assets/images/products/fruits.jpeg';
+import Vegetable from '../../assets/images/products/vegetables.jpeg';
 import '../../css/Home.css';
 import Auth from '../../utils/auth';
 
