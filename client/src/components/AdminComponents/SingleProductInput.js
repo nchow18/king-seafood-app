@@ -9,7 +9,7 @@ function SingleProductInput(props) {
     product
   } = props
 
-  const [dispatch] = useContext(UserContext)
+  const [state, dispatch] = useContext(UserContext)
   const [removeProduct] = useMutation(REMOVE_PRODUCT);
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
   const [addPicture] = useMutation(ADD_PRODUCT_PICTURE);
@@ -32,7 +32,8 @@ function SingleProductInput(props) {
     product_bulk_quantity: product.product_bulk_quantity,
     product_bulk_price: product.product_bulk_price,
     product_featured: product.product_featured,
-    inventory_id: product.inventory_id
+    inventory_id: product.inventory_id,
+    product_new: product.product_new
   })
 
   const handleInputChange = (event) => {
@@ -65,7 +66,8 @@ function SingleProductInput(props) {
           product_bulk_quantity: parseInt(formData.product_bulk_quantity),
           product_bulk_price: formData.product_bulk_price,
           product_featured: JSON.parse(formData.product_featured),
-          inventory_id: formData.inventory_id
+          inventory_id: formData.inventory_id,
+          product_new: JSON.parse(formData.product_new)
         },
        }})
 
@@ -172,6 +174,10 @@ function SingleProductInput(props) {
             <div className="admin-input-row">
               <b className="bold">Product Status: true/false</b>
               <input value={formData.product_status} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_status' placeholder={product.product_status.toString()} type="text"   />
+            </div>
+            <div className="admin-input-row">
+              <b className="bold">New Product: true/false</b>
+              <input value={formData.product_new} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_new' placeholder={product.product_new.toString()} type="text"   />
             </div>
             <div className="admin-input-row">
               <b className="bold">Featured: true/false</b>

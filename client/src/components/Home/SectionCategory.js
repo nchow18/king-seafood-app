@@ -8,9 +8,15 @@ import Hotpot from '../../assets/images/products/hotpot.jpeg';
 import Fruit from '../../assets/images/products/fruits.jpeg';
 import Vegetable from '../../assets/images/products/vegetables.jpeg';
 import '../../css/Home.css';
-import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 
 function SectionCategory(props) {
+
+  const {
+    currentProductLink,
+    setCurrentProductLink,
+    productLinks=[]
+  } = props
 
   const [category] = useState([
     {
@@ -47,20 +53,24 @@ function SectionCategory(props) {
     },   
   ])
 
-  function storeCategory(product) {
-    Auth.setCategory(product);
+  function setCategory(name) {
+    for (var i = 0; i < productLinks.length; i++) {
+      if (name === productLinks[i].name) {
+        setCurrentProductLink(productLinks[i])
+      }
+    }
   }
   
   return (
     <>
       <div className="category-container">
         {category.map((product) => (
-          <div className="category-img-container" onClick={() => {storeCategory(product)}}>
+          <Link to="/products" className="category-img-container" onClick={() => {setCategory(product.name)}}>
             <img alt={product.name} src={product.img} className="category-img" />
             <div className="category-img-label">
               <span>{product.name.toUpperCase()}</span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>

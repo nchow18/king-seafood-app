@@ -95,6 +95,8 @@ function App() {
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[7]);
   const [cartModal, setCartModal] = useState(false)
   const [whatsApp, setWhatsApp] = useState(false);
+  const [productLinks] = useState(Auth.getCategories())
+  const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
   Auth.checkToken();
 
@@ -125,16 +127,34 @@ function App() {
 
 
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/products" component={Products} />
-					  <Route exact path="/promotions" component={Promotions} />
-					  <Route exact path="/order/:id" component={SingleOrder} />
-					  {!Auth.loggedIn() && (
-						<>
-							<Route exact path="/signup" component={SignUp} />
-							<Route exact path="/signin" component={SignIn} />
-						</>
+            <Route 
+              exact path='/' 
+              render={() => <Home 
+              currentProductLink={currentProductLink} 
+              setCurrentProductLink={setCurrentProductLink} 
+              productLinks={productLinks} />}
+              />
+            <Route 
+              exact path="/about" 
+              component={About} />
+            <Route 
+              exact path="/products" 
+              render={() => <Products 
+              currentProductLink={currentProductLink} 
+              setCurrentProductLink={setCurrentProductLink} 
+              productLinks={productLinks} />}
+              />
+					  <Route 
+              exact path="/promotions" 
+              component={Promotions} />
+					  <Route 
+              exact path="/order/:id" 
+              component={SingleOrder} />
+              {!Auth.loggedIn() && (
+              <>
+                <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/signin" component={SignIn} />
+              </>
 					  )}
 
 					  {Auth.getAdmin() === true && (

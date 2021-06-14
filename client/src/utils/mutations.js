@@ -108,6 +108,7 @@ export const ADD_PRODUCT = gql`
         product_bulk_price
         product_featured
         inventory_id
+        product_new
         }
     }
 `;
@@ -133,6 +134,7 @@ export const UPDATE_PRODUCT = gql`
         product_bulk_price
         product_featured
         inventory_id
+        product_new
         }
     }
 `;

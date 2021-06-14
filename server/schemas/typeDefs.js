@@ -70,6 +70,7 @@ const typeDefs = gql`
     product_featured: Boolean
     product_views: Int
     inventory_id: String
+    product_new: Boolean
   }
 
   type ProductPicture {
@@ -100,6 +101,7 @@ const typeDefs = gql`
     product_featured: Boolean
     product_views: Int
     inventory_id: String
+    product_new: Boolean
   }
 
   type Order {

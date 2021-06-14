@@ -33,6 +33,7 @@ function AdminProducts(props) {
     product_status: 'true',
     search: '',
     inventory_id:'',
+    product_new: '',
   })
 
   const [state, dispatch] = useContext(UserContext)
@@ -73,7 +74,8 @@ function AdminProducts(props) {
       product_bulk_quantity: parseInt(formData.product_bulk_quantity),
       product_bulk_price: formData.product_bulk_price,
       product_featured: JSON.parse(formData.product_featured),
-      inventory_id: formData.inventory_id
+      inventory_id: formData.inventory_id,
+      product_new: formData.product_new
       } }})
 
         alert('product added');
@@ -116,8 +118,10 @@ function AdminProducts(props) {
     <div className="admin-form-container night-bg">
     <div className="admin-input-width" value="ID">ID</div>
     <form className="flex-start-row">
+      <div className="admin-input-row">
         <label className="bold">Inventory ID</label>
         <input value={formData.inventory_id} onChange={handleInputChange} className="product-name admin-input-width" name='inventory_id' type="text"></input>      
+      </div>
       <div className="admin-input-row">
         <label className="bold">Name</label>
         <input value={formData.product_name} onChange={handleInputChange} className="product-name admin-input-width" name='product_name' type="text"></input>
@@ -177,6 +181,10 @@ function AdminProducts(props) {
       <div className="admin-input-row">
         <label className="bold">Featured: True / False</label>
         <input value={formData.product_featured} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_featured' type="text"></input>
+      </div>
+      <div className="admin-input-row">
+        <label className="bold">New Product: True / False</label>
+        <input value={formData.product_new} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_new' type="text"></input>
       </div>
       <div className="admin-input-row">
         <label className="bold">Picture Location</label>

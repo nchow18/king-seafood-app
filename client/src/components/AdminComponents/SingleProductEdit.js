@@ -15,7 +15,7 @@ function SingleProductEdit(props) {
 
   const product = singleProduct
   const pictureArr = product.product_picture;
-  const [dispatch] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
   const [status, setStatus] = useState(false);
 
   useEffect(() => {

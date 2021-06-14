@@ -25,7 +25,13 @@ import Special from '../assets/images/category/special.png';
 import Shellfish from '../assets/images/category/shellfish.png';
 import SaleSpecial from '../components/Home/SaleSpecial';
 
-function Home() {
+function Home(props) {
+
+  const {
+    currentProductLink,
+    setCurrentProductLink,
+    productLinks=[]
+  } = props
 
   const [category] = useState([
     {
@@ -124,7 +130,10 @@ function Home() {
   <>
     <div className="home-page">
       <MainProducts
-        category={category} />
+        category={category}
+        currentProductLink={currentProductLink}
+        setCurrentProductLink={setCurrentProductLink}
+        productLinks={productLinks}/>
       <div className="home-banner-content">
         <img alt="home-banner" src={promo[0].main_banner} className="home-banner" />
         <div className="logo-container">
@@ -162,6 +171,9 @@ function Home() {
     <div className="home-section category-section">
         <b className="section-title">Categories</b>
         <SectionCategory
+          currentProductLink={currentProductLink}
+          setCurrentProductLink={setCurrentProductLink}
+          productLinks={productLinks}
         />        
     </div>
     <div className="home-section">

@@ -99,6 +99,12 @@ const productSchema = new Schema(
       trim: true,
       default: 0
     },
+    product_new: {
+      type: Boolean,
+      required: false,
+      trim: true,
+      default: false
+    },
     createdAt: {
       type: Date,
       get: timestamp => dateFormat(timestamp),

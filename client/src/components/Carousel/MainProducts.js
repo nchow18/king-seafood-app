@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 
 function MainProducts(props) {
 
   const {
-    category=[]
+    category=[],
+    productLinks=[],
+    setCurrentProductLink,
   } = props
 
   const [currentCategory, setCategory] = useState(category[0])
 
-
-  function storeCategory(product) {
-    Auth.setCategory(product);
+  function storeCategory(name) {
+    for (var i = 0; i < productLinks.length; i++) {
+      if (name === productLinks[i].name) {
+        setCurrentProductLink(productLinks[i])
+      }
+    }
   }
-
-  console.log(currentCategory);
 
   return (
     <>
@@ -22,9 +25,9 @@ function MainProducts(props) {
         <div className="main-promo-slider">
           {category.map((product) => (
             <div className="slider-container" >
-              <div className="slider-icon-container" onClick={() => {storeCategory(product); setCategory(product); }}>
+              <Link to="/products" className="slider-icon-container" onClick={() => {storeCategory(product.name); setCategory(product); }}>
                 <img alt={product.name} src={product.img} className="slider-icon" />
-              </div>
+              </Link>
               <span>{product.name.toUpperCase()}</span>
             </div>
           ))}
