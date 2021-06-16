@@ -7,7 +7,7 @@
  --light-blue: rgb(194, 194, 252);
  --button: rgb(211, 211, 88);
  --light-gray: rgb(191, 191, 191);
- --cubc: cubic-bezier(.77,.24,.15,1.14);
+ --cubic: cubic-bezier(.77,.24,.15,1.14);
 }
 
 input {

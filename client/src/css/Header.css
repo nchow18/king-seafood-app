@@ -32,13 +32,25 @@
   position: relative;
 }
 
-.header-logo {
+.header-links-container div:nth-child(1) {
+  display: flex;
   position: absolute;
   left: 1rem;
   z-index: 100;
-  top: .75rem;
-  height: 3rem;
+  top: .5rem;
+  height: 4rem;
   width: auto;
+  align-items: center;
+}
+
+.header-links-container div:nth-child(1) span {
+  font-family: copperplate, "Copperplate Gothic Light";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header-logo {
+  height: 100%;
 }
 
 .header-link {
