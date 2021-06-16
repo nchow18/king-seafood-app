@@ -49,17 +49,15 @@ function ProductCard(props) {
     )}
   {productCategory.map((product) => (
     <div key={product._id} className="product-card">
-      <div>
-        {product.product_status ? (
-          <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
-        ) : (
+      {product.product_status === false && (
           <>
-            <div className="out-stock-cover mobile-out-stock">
-              <span>OUT OF STOCK</span>
-            </div>
-            <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
-          </>
-        )}
+          <div className="out-stock-cover mobile-out-stock">
+            <span>OUT OF STOCK</span>
+          </div>
+        </>
+      )}
+      <div>
+          <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={product.product_picture[0]} className="product-card-picture"/>
       </div>
     <div className="product-card-description">
       <div className="product-card-font">
