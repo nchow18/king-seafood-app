@@ -78,6 +78,35 @@
   font-size: 3rem;
 }
 
+.category-button {
+  transform: rotate(270deg);
+  position: absolute;
+  bottom: -6rem;
+  background-color: black;
+  color: white;
+  padding: .5rem;
+  text-align: center;
+  letter-spacing: 3px;
+  animation: glowButton 7s infinite;
+}
+
+@keyframes glowButton {
+  0% {
+    background-color: black;
+    color: white;
+  }
+  50% {
+    background-color: white;
+    color: black;
+  }
+  100% {
+    background-color: black;
+    color: white;
+  }
+}
+
+
+
 .product-page-container {
   display: flex;
   flex-direction: row;

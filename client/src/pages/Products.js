@@ -67,9 +67,9 @@ function Products(props) {
   <div className="nav-product-buttons">
     <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
     {categoryModal ? (
-      <i className="fas fa-arrow-circle-right top-button" onClick={() => {setCategoryModal(false); }}></i>
+      <span className="category-button" onClick={() => {setCategoryModal(false); }}>Category</span>
     ) : (
-      <i className="fas fa-plus-square top-button" onClick={() => {setCategoryModal(true); }}></i>
+      <span className="category-button" onClick={() => {setCategoryModal(true); }}>Category</span>
     )}
 
   </div>
