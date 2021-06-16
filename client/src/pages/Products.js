@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import ProductCard from '../components/ProductCard';
 // import { useLocation } from 'react-router-dom';
@@ -20,9 +20,14 @@ function Products(props) {
   const { loading, data } = useQuery(PRODUCTS);
   const products = data?.products || {};
 
-  const [categoryModal, setCategoryModal] = useState(false)
+  const [categoryModal, setCategoryModal] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0,0);
+    return () => {
 
+    }
+  })
 
   if (loading) return `...Loading`;
 

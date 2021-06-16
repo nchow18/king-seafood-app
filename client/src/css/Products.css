@@ -42,7 +42,7 @@
   flex-direction: column;
   align-content: space-between;
   justify-content: space-between;
-  height: 7rem;
+  height: 8rem;
   position: relative;
   grid-row: 2;
 }

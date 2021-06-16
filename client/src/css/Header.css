@@ -20,6 +20,7 @@
   z-index: 100;
   background-color: white;
   padding-bottom: .5rem;
+  width: 100%;
 }
 
 .header-links-container {
