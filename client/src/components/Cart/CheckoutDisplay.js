@@ -117,7 +117,12 @@ function CheckoutDisplay(props) {
             {cart.map((cart) => (
               <div>
                 <b>{cart.product_name}</b>
-                <span><b>Qty: </b>{cart.new_quantity}</span>
+                {cart.new_quantity ? (
+                  <span><b>Qty: </b>{cart.new_quantity}</span>
+                ) : (
+                  <span><b>Qty: </b>{cart.product_quantity}</span>
+                )}
+
                 <span><b>Price: RM </b>{cart.total_price.toFixed(2)}</span>
               </div>
             ))}
