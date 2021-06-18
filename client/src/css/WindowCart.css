@@ -3,6 +3,7 @@
 .past-orders-section {
   margin-top: 5rem;
   font-size: .8rem;
+  padding: 1rem;
 }
 
 .past-orders-container {
@@ -32,7 +33,7 @@
 }
 
 .past-orders-item > div:nth-child(2n) {
-  background-color: rgb(254, 254, 212);
+  background-color: rgb(255, 255, 148);
 }
 
 /* CHECKOUT CART DETAILS */
