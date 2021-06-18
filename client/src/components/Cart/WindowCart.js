@@ -273,7 +273,7 @@ if (Auth.loggedIn()) {
 
   return (
     <div className="window-cart-content">
-      <Link to="/cart/pastorders">Past Orders</Link>
+      <Link to="/cart/pastorders" className="past-orders-button">Past Orders</Link>
       {(guest_cart_length > 0 || user_cart_length > 0) ? (
         <div className="window-cart-column">      
           <span className="total-text">Cart Total: RM {cart_total.toFixed(2)}</span> 
