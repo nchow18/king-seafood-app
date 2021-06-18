@@ -34,17 +34,23 @@ const typeDefs = gql`
     address: [AddressInput]
     phone: String
     cart: [String]
+    pastOrders: [String]
+  }
+
+  input UserOrders {
+    pastOrders: [String]
   }
 
   input UserAccountInput {
     first_name: String
     last_name: String
-    email: String!
+    email: String
     password: String
     admin: Boolean
     address: [AddressInput]
     phone: String
     cart: [String]
+    pastOrders: [String]
     stripe_customer_id: String
     stripe_setup_intent: String
   }
@@ -296,6 +302,7 @@ const typeDefs = gql`
     updatePromo(input: PromoInput, promo_id: ID!): Promo
     updateUserAccount(input: UserInput, user_id: ID!): User
     updateUserAddress(input: AddressInput, user_id: ID!): User
+    addUserOrder(input: UserOrders): User
   }
 
 `;

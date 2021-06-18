@@ -1,3 +1,36 @@
+/* PAST ORDERS */
+
+.past-orders-container {
+  background-color: lightgrey;
+  height: auto;
+  width: 100%;
+  padding: 1rem;
+  margin: 4rem 0;
+  font-size: .8rem;
+}
+
+.past-orders-section > div > div {
+  margin: 1rem 0;
+  border: 1px solid rgb(0,0,0,0.3);
+  padding: 1rem;
+}
+
+.past-orders-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid black;
+}
+
+.past-orders-item div {
+  display: grid;
+  grid-template-columns: 70% 15% 15%;
+  width: 100%;
+}
+
+.past-orders-item > div:nth-child(2n) {
+  background-color: rgb(254, 254, 212);
+}
+
 /* CHECKOUT CART DETAILS */
 
 .checkout-cart-details {
@@ -39,7 +72,7 @@
   height: auto;
   width: 100%;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 4rem 0;
   font-size: .8rem;
 }
 
@@ -184,10 +217,10 @@
 .window-cart-content {
   background-color: white;
   width: 100vw;
+  max-width: 1200px;
   box-shadow: 10px 10px 25px rgb(0,0,0,0.7);
-  display: relative;
-  z-index: 999;
-  margin-top: 4rem;
+  z-index: 30;
+  margin: 5rem 0;
   padding: 2rem;
 }
 
@@ -234,6 +267,9 @@
   text-align: center;
   font-weight: bold;
   padding: .5rem;
+  width: 15rem;
+  text-decoration: none;
+  margin-top: 1rem;
 }
 
 .mobile-cart-update {
@@ -250,13 +286,6 @@
   background-color: white;
   border: 1rem solid black;
   transition: all .7s ease-in-out;
-}
-
-.checkout-button {
-  background-color: var(--button);
-  text-align: center;
-  padding: 1rem;
-  color: black;
 }
 
 .checkout-button:hover {
@@ -281,7 +310,7 @@
   position: fixed;
   width: 100%;
   z-index: 999;
-  background-color: rgb(190, 190, 255);
+  background-color: white;
   height: 100%;
   top: 0;
   left: 0;
@@ -301,20 +330,23 @@
   }
 }
 
+.window-cart-column {
+  position: relative;
+}
+
 .total-text {
-  position: absolute;
-  right: 2rem;
+  right: 0rem;
   font-size: 1rem;
-  top: 2rem;
+  top: -1.5rem;
   font-weight: bold;
+  position: absolute;
 }
 
 .checkout-display-content {
-  position: fixed;
+  position: relative;
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: rgb(190, 190, 255);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -344,6 +376,13 @@
   width: 500px;
 }
 
+.checkout-details-container input, textarea {
+  margin: .25rem 0;
+  border-radius: 5px;
+  padding: .5rem;
+  border: 1px solid black;
+}
+
 .payment-container {
   display: flex;
   flex-direction: column;
@@ -355,6 +394,7 @@
   color: white;
   margin-bottom: .5rem;
   width: 100%;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 500px) {

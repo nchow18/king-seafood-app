@@ -122,6 +122,10 @@ function Home(props) {
     localStorage.setItem('guest_cart', JSON.stringify([]))
   }
 
+  if (localStorage.getItem('previous_orders') === null) {
+    localStorage.setItem('previous_orders', JSON.stringify('empty'))
+  }
+
   
   Auth.setGlobalDiscount(promo[0].discount);
 

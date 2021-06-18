@@ -27,7 +27,7 @@ function Products(props) {
     return () => {
 
     }
-  })
+  }, [categoryModal])
 
   if (loading) return `...Loading`;
 

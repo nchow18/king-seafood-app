@@ -55,6 +55,15 @@ const resolvers = {
 
             return { token, user };
         },
+        addUserOrder: async(parent, {input}, context) => {
+          if(context.user) {
+            console.log(input.pastOrders);
+            return await User.findByIdAndUpdate(
+              context.user._id,
+              {$push: { pastOrders: (input.pastOrders)}}
+            )
+          }
+        },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email })
 

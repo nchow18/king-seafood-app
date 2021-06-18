@@ -21,15 +21,15 @@ function MobileHeader(props) {
     <>
       <div className="mobile-header-container">
           {cartModal ? (
-            <div>
+            <Link to="/cart">
               <img alt="cart" src={Cart} className="cart-icon" onClick={() => {setCartModal(false)}} />
               <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
-            </div>
+            </Link>
           ) : (
-            <div>
+            <Link to="/cart">
               <img alt="cart" src={Cart} className="cart-icon" onClick={() => {setCartModal(true)}} />
               <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
-            </div>
+            </Link>
           )}  
           <Link to="/" className="king-title-mobile">
             {/* <span className="bold">KING'S SEAFOOD 18</span> */}

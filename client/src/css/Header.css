@@ -232,6 +232,20 @@
   z-index: 35;
 }
 
+@media screen and (max-widtH: 1000px) {
+  .header-links-container div:nth-child(1)
+ span {
+  font-size: 1.5rem;
+ }
+}
+
+@media screen and (max-widtH: 920px) {
+  .header-links-container div:nth-child(1)
+ span {
+  font-size: 1rem;
+ }
+}
+
 @media screen and (max-width: 800px) {
   .header-links-container {
     display: none;

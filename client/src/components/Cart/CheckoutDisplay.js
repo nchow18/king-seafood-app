@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import '../../css/WindowCart.css';
 import { Linking } from 'react-native-web';
 import FinalOrder from './FinalOrder';
+import { Link } from 'react-router-dom';
 
 function CheckoutDisplay(props) {
 
-  const {
-    setCheckOutModal,
-    cart=[],
-    cart_total
-  } = props
+  // const {
+  //   setCheckOutModal,
+  //   cart=[],
+  //   cart_total
+  // } = props
+
+  const cart = JSON.parse(localStorage.getItem('new_cart'));
+  const cart_total = JSON.parse(localStorage.getItem('cart_total'));
+
+  console.log(cart);
+  console.log(cart_total);
 
   const [order, setOrder] = useState(true)
   const [currentForm, setFormType] = useState(false)
@@ -44,7 +51,7 @@ function CheckoutDisplay(props) {
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
-  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' + cart_total.toFixed(2);
+  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' + cart_total;
 
   const number = '60103893421'
 
@@ -56,34 +63,37 @@ function CheckoutDisplay(props) {
     //   return;
     // }
     // Using +1 for canada
-    let url =
-      'whatsapp://send?text=' + message + '&phone=+' + number;
-    Linking.openURL(url)
-      .then((data) => {
-        console.log('WhatsApp Opened');
-      })
-      .catch(() => {
-        alert('Make sure Whatsapp installed on your device');
-      });   
+
+
+
+
+    // let url =
+    //   'whatsapp://send?text=' + message + '&phone=+' + number;
+    // Linking.openURL(url)
+    //   .then((data) => {
+    //     console.log('WhatsApp Opened');
+    //   })
+    //   .catch(() => {
+    //     alert('Make sure Whatsapp installed on your device');
+    //   });   
   }
 
-  function sendMessageOnline() {
-    window.confirm('Proceed to submit order online?')
-    let url = 'https://wa.me/' + number + '/?text=' + message;
-    Linking.openURL(url)
-    .then((data) => {
-      console.log('WhatsApp Web Opened');
-    })
-    .catch(() => {
-      alert('Error with browser');
-    })
-  }
+  // function sendMessageOnline() {
+  //   window.confirm('Proceed to submit order online?')
+  //   let url = 'https://wa.me/' + number + '/?text=' + message;
+  //   Linking.openURL(url)
+  //   .then((data) => {
+  //     console.log('WhatsApp Web Opened');
+  //   })
+  //   .catch(() => {
+  //     alert('Error with browser');
+  //   })
+  // }
+
+  localStorage.setItem('checkout_user_data', JSON.stringify(formData))
 
   return (
     <>
-
-        <i onClick={() => {setCheckOutModal(false)}} className="fas fa-times close-button"></i> 
-        {order ? (
           <div className="checkout-display-content">
             <div className="checkout-details-container">
             <div className="checkout-buttons-row">
@@ -104,15 +114,15 @@ function CheckoutDisplay(props) {
           </div>
           {currentForm === false && (
             <div className="payment-container">
-              <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
-            <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button>
+              <Link to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</Link>
+            {/* <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button> */}
           </div>
          
           )}
           {currentForm === true && (
             <div className="payment-container">
-              <button onClick={() => {sendMessage(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</button>
-              <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button>
+              <Link to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</Link>
+              {/* <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button> */}
           </div>          
           )}
           <div className="checkout-cart-details">
@@ -124,22 +134,9 @@ function CheckoutDisplay(props) {
                 <span><b>Price: RM </b>{cart.total_price.toFixed(2)}</span>
               </div>
             ))}
-            <h1><b>Your Total: RM </b>{cart_total.toFixed(2)}</h1>
+            <h1><b>Your Total: RM </b>{cart_total}</h1>
           </div>
           </div>        
-        ) : (
-          <div className="checkout-display-content">
-            <FinalOrder 
-              cart={cart}
-              cart_total={cart_total}
-              order={order}
-              formData={formData}
-            />
-          </div>
-        )}
-
-
-
     </>
   )
 }

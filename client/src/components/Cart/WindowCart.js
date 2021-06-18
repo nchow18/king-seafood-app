@@ -11,6 +11,8 @@ import Fish from '../../assets/images/clown-fish.png';
 import ProductSlide from '../Cart/ProductsSlide';
 import { UserContext } from '../../utils/GlobalState';
 import MoreInfo from './MoreInfo';
+import { Link } from 'react-router-dom';
+import PastOrders from './PastOrders';
 
 function WindowCart(props) {
 
@@ -20,7 +22,6 @@ function WindowCart(props) {
 
   const [state, dispatch] = useContext(UserContext);
   const [currentState, updateState] = useState(true);
-  const [checkOutModal, setCheckOutModal] = useState(false);
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
@@ -264,19 +265,17 @@ if (Auth.loggedIn()) {
   //check for user_cart length
   const user_cart_length = cartArr.length;
 
+  localStorage.setItem('cart_total', JSON.stringify(cart_total.toFixed(2)))
+
   if (error) return `...ERROR`;
   if (loading) return `...Loading`;
 
   return (
     <div className="window-cart-content">
-
-      <i onClick={() => {setCartModal(false)}} className="fas fa-times menu-icon"></i>
       {(guest_cart_length > 0 || user_cart_length > 0) ? (
-        <div className="window-cart-column to-night">
-          {checkOutModal === false && (
-          <>          
+        <div className="window-cart-column">      
           <span className="total-text">Cart Total: RM {cart_total.toFixed(2)}</span> 
-            <div className="window-cart-items-container to-night">
+            <div className="window-cart-items-container">
               {state.active ? (
                 <>
                 {(JSON.parse(new_cart)).map((product) => (
@@ -307,7 +306,7 @@ if (Auth.loggedIn()) {
                         
             </div>
             <div className="window-cart-checkout-container">
-              <div onClick={() => {setCheckOutModal(true)}} className="checkout-button">CHECKOUT</div>
+              <Link to="/cart/checkout" className="checkout-button">CHECKOUT</Link>
               <div className="more-info-container">
                 <MoreInfo />
               </div>
@@ -316,19 +315,7 @@ if (Auth.loggedIn()) {
                   product_data={product_data}
                 />
               </div>            
-            </div>
-            </>
-          )}
-            {checkOutModal && (
-                <div className="checkout-container">
-                  <CheckoutDisplay
-                    setCheckOutModal={setCheckOutModal} 
-                    cart={user_cart}
-                    local_cart={local_cart}
-                    cart_total={cart_total}
-                />
-                </div>
-              )}            
+            </div>     
           </div>        
         ) : (
           <div className="empty-cart-display">
@@ -344,6 +331,11 @@ if (Auth.loggedIn()) {
                   product_data={product_data}
                 />
               </div>
+
+              <div className="past-orders-container">
+              <h3>Your Past Orders</h3>
+                <PastOrders />
+              </div>              
             </div>
           </div>
         )}               

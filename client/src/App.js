@@ -22,6 +22,9 @@ import './css/Whatsapp.css';
 import './css/Footer.css';
 import { UserProvider } from './utils/GlobalState';
 import WindowCart from './components/Cart/WindowCart';
+import CheckoutDisplay from './components/Cart/CheckoutDisplay';
+import FinalOrder from './components/Cart/FinalOrder';
+import Ordered from './components/Cart/Ordered';
 
 const client = new ApolloClient({
     request: operation => {
@@ -117,15 +120,7 @@ function App() {
             setCartModal={setCartModal}
 					/>
 			    </nav>
-          {cartModal && ( 
-            <div className="window-cart-container">
-              <WindowCart
-                setCartModal={setCartModal}
-                cartModal={cartModal} />
-            </div>
-          )}          
-
-
+      
           <Switch>
             <Route 
               exact path='/' 
@@ -144,6 +139,18 @@ function App() {
               setCurrentProductLink={setCurrentProductLink} 
               productLinks={productLinks} />}
               />
+            <Route
+              exact path="/cart"
+              render={() => <WindowCart />} />
+            <Route
+              exact path="/cart/checkout"
+              render={() => <CheckoutDisplay />} />              
+            <Route
+              exact path="/cart/finalorder"
+              render={() => <FinalOrder />} />  
+            <Route
+              exact path="/cart/ordered"
+              render={() => <Ordered/>} />                
 					  <Route 
               exact path="/promotions" 
               component={Promotions} />
