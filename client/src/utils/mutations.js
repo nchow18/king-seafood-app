@@ -19,6 +19,8 @@ import gql from 'graphql-tag';
 //16 REMOVE_ORDER
 //17 UPDATE_PRODUCT_PICTURE
 //18 ADD_VIEWS
+//19 ADD_USER_ORDER
+//20 CLEAR_CART
 
 export const LOGIN = gql`
     mutation login($email: String!, $password:String!) {
@@ -297,6 +299,31 @@ export const ADD_VIEWS = gql`
       _id
       product_name
       product_views
+    }
+  }
+`;
+
+export const ADD_USER_ORDER = gql`
+  mutation addUserOrder($input: UserOrders) {
+    addUserOrder(input: $input) {
+      first_name
+      last_name
+      email
+      phone
+      pastOrders
+      _id
+    }
+  }
+`;
+
+export const CLEAR_CART = gql`
+  mutation clearCart($user_id: String) {
+    clearCart(user_id: $user_id) {
+      _id
+      cart {
+        product_id
+        quantity
+      }
     }
   }
 `;

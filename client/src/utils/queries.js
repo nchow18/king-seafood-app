@@ -172,6 +172,7 @@ query {userMe {
     street_name
     street_number
   }
+  pastOrders
 }
 }
 `;

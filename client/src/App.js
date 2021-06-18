@@ -25,6 +25,7 @@ import WindowCart from './components/Cart/WindowCart';
 import CheckoutDisplay from './components/Cart/CheckoutDisplay';
 import FinalOrder from './components/Cart/FinalOrder';
 import Ordered from './components/Cart/Ordered';
+import PastOrders from './components/Cart/PastOrders';
 
 const client = new ApolloClient({
     request: operation => {
@@ -150,7 +151,10 @@ function App() {
               render={() => <FinalOrder />} />  
             <Route
               exact path="/cart/ordered"
-              render={() => <Ordered/>} />                
+              render={() => <Ordered/>} />     
+            <Route
+              exact path="/cart/pastorders"
+              render={() => <PastOrders/>} />                           
 					  <Route 
               exact path="/promotions" 
               component={Promotions} />

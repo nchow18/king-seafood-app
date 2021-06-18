@@ -57,7 +57,6 @@ const resolvers = {
         },
         addUserOrder: async(parent, {input}, context) => {
           if(context.user) {
-            console.log(input.pastOrders);
             return await User.findByIdAndUpdate(
               context.user._id,
               {$push: { pastOrders: (input.pastOrders)}}
@@ -94,6 +93,14 @@ const resolvers = {
                     )
                 }
         throw new AuthenticationError('Not Logged in');
+        },
+        clearCart: async(parent, { user_id }, context) => {
+          if(context.user) {
+            return await User.findByIdAndUpdate(
+              context.user._id,
+              {$set: { cart: [] }}
+            )
+          }
         },
         removeCart: async(parent, { product_id }, context) => {
 

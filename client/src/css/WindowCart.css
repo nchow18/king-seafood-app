@@ -1,11 +1,15 @@
 /* PAST ORDERS */
 
+.past-orders-section {
+  margin-top: 5rem;
+  font-size: .8rem;
+}
+
 .past-orders-container {
-  background-color: lightgrey;
   height: auto;
   width: 100%;
   padding: 1rem;
-  margin: 4rem 0;
+  margin: 7rem 0;
   font-size: .8rem;
 }
 

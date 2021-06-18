@@ -303,6 +303,7 @@ const typeDefs = gql`
     updateUserAccount(input: UserInput, user_id: ID!): User
     updateUserAddress(input: AddressInput, user_id: ID!): User
     addUserOrder(input: UserOrders): User
+    clearCart(user_id: String): User
   }
 
 `;

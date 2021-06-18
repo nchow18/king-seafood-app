@@ -22,12 +22,18 @@ function Products(props) {
 
   const [categoryModal, setCategoryModal] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0,0);
-    return () => {
+  // useEffect(() => {
+  //   window.scrollTo(0,0);
+  //   return () => {
 
-    }
-  }, [categoryModal])
+  //   }
+  // }, [categoryModal])
+
+  if (categoryModal) {
+    window.scrollTo(0,0);
+  } else {
+    window.scrollTo(0,0);
+  }
 
   if (loading) return `...Loading`;
 

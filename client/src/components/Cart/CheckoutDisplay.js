@@ -3,6 +3,9 @@ import '../../css/WindowCart.css';
 import { Linking } from 'react-native-web';
 import FinalOrder from './FinalOrder';
 import { Link } from 'react-router-dom';
+import { USER_ME } from '../../utils/queries';
+import { useQuery } from '@apollo/react-hooks';
+import Auth from '../../utils/auth';
 
 function CheckoutDisplay(props) {
 
@@ -14,19 +17,17 @@ function CheckoutDisplay(props) {
 
   const cart = JSON.parse(localStorage.getItem('new_cart'));
   const cart_total = JSON.parse(localStorage.getItem('cart_total'));
-
-  console.log(cart);
-  console.log(cart_total);
-
+  const { loading, data } = useQuery(USER_ME)
+  const user_data = data?.userMe || {};
   const [order, setOrder] = useState(true)
   const [currentForm, setFormType] = useState(false)
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
+    first_name: user_data.first_name,
+    last_name: user_data.last_name,
     address: '',
     message: '',
     delivery_date: '',
-    phone: '',
+    phone: user_data.phone,
   })
 
   const handleInputChange = async (event) => {
@@ -78,18 +79,6 @@ function CheckoutDisplay(props) {
     //   });   
   }
 
-  // function sendMessageOnline() {
-  //   window.confirm('Proceed to submit order online?')
-  //   let url = 'https://wa.me/' + number + '/?text=' + message;
-  //   Linking.openURL(url)
-  //   .then((data) => {
-  //     console.log('WhatsApp Web Opened');
-  //   })
-  //   .catch(() => {
-  //     alert('Error with browser');
-  //   })
-  // }
-
   localStorage.setItem('checkout_user_data', JSON.stringify(formData))
 
   return (
@@ -115,14 +104,12 @@ function CheckoutDisplay(props) {
           {currentForm === false && (
             <div className="payment-container">
               <Link to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</Link>
-            {/* <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER ONLINE</button> */}
           </div>
          
           )}
           {currentForm === true && (
             <div className="payment-container">
               <Link to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</Link>
-              {/* <button onClick={() => {sendMessageOnline(); setOrder(false)}} disabled={!(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER ONLINE</button> */}
           </div>          
           )}
           <div className="checkout-cart-details">
@@ -130,7 +117,7 @@ function CheckoutDisplay(props) {
             {cart.map((cart) => (
               <div>
                 <b>{cart.product_name}</b>
-                <span><b>Qty: </b>{cart.product_quantity}</span>
+                <span><b>Qty: </b>{cart.new_quantity}</span>
                 <span><b>Price: RM </b>{cart.total_price.toFixed(2)}</span>
               </div>
             ))}

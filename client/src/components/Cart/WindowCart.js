@@ -26,15 +26,16 @@ function WindowCart(props) {
   const {data: dataR} = useQuery(USER_ME);
   const {loading, data} = useQuery(PRODUCTS);
   const user_data = dataR?.userMe || {};
-  const product_data = data?.products || {};
+  const product_arr = data?.products || {};
   const cartArr = [];
   const user_cart = cartArr;
+  const product_data = []
+  
+  for (var i = 0; i < product_arr.length; i++) {
+    product_data.push(product_arr[i])
+  }
 
   const [currentCart, updateMainCart] = useState(cartArr)
-
-  useEffect(() => {
-    console.log('Update Cart');
-  },[currentCart] )
 
   const removeProduct = async (id) => {
 
@@ -272,6 +273,7 @@ if (Auth.loggedIn()) {
 
   return (
     <div className="window-cart-content">
+      <Link to="/cart/pastorders">Past Orders</Link>
       {(guest_cart_length > 0 || user_cart_length > 0) ? (
         <div className="window-cart-column">      
           <span className="total-text">Cart Total: RM {cart_total.toFixed(2)}</span> 
@@ -333,7 +335,6 @@ if (Auth.loggedIn()) {
               </div>
 
               <div className="past-orders-container">
-              <h3>Your Past Orders</h3>
                 <PastOrders />
               </div>              
             </div>
