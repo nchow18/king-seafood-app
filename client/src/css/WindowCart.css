@@ -68,6 +68,7 @@
 
 .window-cart-checkout-container {
   height: 100%;
+  margin-top: 2rem;
 }
 
 /* MORE INFO CONTAINER */
@@ -350,6 +351,7 @@
 
 .window-cart-column {
   position: relative;
+  padding-top: 2rem;
 }
 
 .total-text {
