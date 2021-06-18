@@ -33,7 +33,7 @@ function CheckoutDisplay(props) {
   var cart_message = '';
 
   for (var i = 0; i < cart.length; i++) {
-    cart_message += "\n %0a ===== Item:"+[i+1]+"=====\n %0a *Item:* "+cart[i].product_name+", *Quantity:* "+cart[i].product_quantity+", *Price:* "+cart[i].total_price+" ";
+    cart_message += "\n %0a ===== Item:"+[i+1]+"=====\n %0a *Item:* "+cart[i].product_name+", *Quantity:* "+cart[i].product_quantity+", *Price:* "+cart[i].total_price.toFixed(2)+" ";
   }
 
   const info = 
@@ -44,7 +44,7 @@ function CheckoutDisplay(props) {
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
-  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' +cart_total;
+  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' + cart_total.toFixed(2);
 
   const number = '60103893421'
 

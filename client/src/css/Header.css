@@ -254,6 +254,7 @@
     justify-content: space-between;
     align-content: center;
     align-items: center;
+    width: 100%;
   }
 
   .menu-icon {
@@ -337,5 +338,6 @@
   .header-main-promo {
     font-size: .8rem;
     height: 1.75rem;
+    width: 100%;
   }
 }

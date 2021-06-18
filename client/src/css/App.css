@@ -10,6 +10,10 @@
  --cubic: cubic-bezier(.77,.24,.15,1.14);
 }
 
+* {
+  
+}
+
 input {
   border: 1px solid black;
 }

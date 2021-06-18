@@ -261,7 +261,7 @@ class AuthService {
     localStorage.setItem('id_token', idToken);
 
     if (this.loggedIn() === false) {
-      window.location.assign('/home');
+      window.location.assign('/');
     } else if (this.getProfileType() === 'user') {
       window.location.assign('/home');
     } else if (this.getProfileType() === 'admin') {
