@@ -22,13 +22,23 @@ function CheckoutDisplay(props) {
   const [order, setOrder] = useState(true)
   const [currentForm, setFormType] = useState(false)
   const [formData, setFormData] = useState({
-    first_name: user_data.first_name,
-    last_name: user_data.last_name,
+    first_name: '',
+    last_name: '',
     address: '',
     message: '',
     delivery_date: '',
-    phone: user_data.phone,
+    phone: '',
   })
+
+  if (Auth.loggedIn() === true) {
+    //iF LOGGED IN, use USER data
+    formData.first_name = user_data.first_name;
+    formData.last_name = user_data.last_name;
+    formData.phone = user_data.phone;
+  } else {
+    //IF GUEST, use localstorage data
+
+  }
 
   const today = new Date();
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
@@ -74,15 +84,15 @@ function CheckoutDisplay(props) {
 
 
 
-      // let url =
-      //   'whatsapp://send?text=' + message + '&phone=+' + number;
-      // Linking.openURL(url)
-      //   .then((data) => {
-      //     console.log('WhatsApp Opened');
-      //   })
-      //   .catch(() => {
-      //     alert('Make sure Whatsapp installed on your device');
-      //   });  
+      let url =
+        'whatsapp://send?text=' + message + '&phone=+' + number;
+      Linking.openURL(url)
+        .then((data) => {
+          console.log('WhatsApp Opened');
+        })
+        .catch(() => {
+          alert('Make sure Whatsapp installed on your device');
+        });  
 
       window.location.href = '/cart/finalorder'
     }
@@ -119,7 +129,8 @@ function CheckoutDisplay(props) {
           )}
           {currentForm === true && (
             <div className="payment-container">
-              <div to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div>
+              {/* <div to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div> */}
+              <div to="/cart/finalorder" onClick={() => {}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div>
           </div>          
           )}
           <div className="checkout-cart-details">
