@@ -18,11 +18,16 @@ function FinalOrder(props) {
   const [addOrder, { error }] = useMutation(ADD_ORDER);
   const [updateUser] = useMutation(ADD_USER_ORDER);
 
+  const today = new Date();
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
+  const currentDate = today.toLocaleDateString("en-US", options);
+
   useEffect(() => {
 
     const previousOrder = [{
       cart_total: cart_total,
-      cart: cart
+      cart: cart,
+      date: currentDate
     }]
   
     if (Auth.loggedIn() === true) {

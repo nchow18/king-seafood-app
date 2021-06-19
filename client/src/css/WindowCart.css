@@ -42,7 +42,8 @@
   background-color: lightgrey;
   padding: 1rem;
   margin-top: 1rem;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .checkout-cart-details > div {
@@ -364,14 +365,12 @@
 
 .checkout-display-content {
   position: relative;
-  z-index: 100;
+  z-index: 30;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
 }
 
 .checkout-buttons-row {
@@ -397,7 +396,8 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .checkout-details-container input, textarea {
@@ -439,7 +439,7 @@
   }
 
   .checkout-details-container {
-    width: 95%;
+    width: 100%;
   }
 
   .cart-item-img-details {

@@ -27,6 +27,7 @@ function PastOrders() {
           <div>
             {userCartArr.reverse().map((item, index) => (
               <div>
+                <span><b>Date Ordered: </b>{item.date}</span>
                 <div className="past-orders-item">
                   {item.cart.map((cart, index) => (
                     <div>
@@ -52,6 +53,7 @@ function PastOrders() {
           <div>
             {pastOrders.reverse().map((item, index) => (
               <div>
+                <span><b>Date Ordered: </b>{item.date}</span>                
                 <div className="past-orders-item">
                   {item.cart.map((cart, index) => (
                     <div>

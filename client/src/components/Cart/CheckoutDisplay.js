@@ -30,6 +30,10 @@ function CheckoutDisplay(props) {
     phone: user_data.phone,
   })
 
+  const today = new Date();
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
+  const currentDate = today.toLocaleDateString("en-US", options);
+
   const handleInputChange = async (event) => {
     const { name, value} = event.target;
     setFormData({
@@ -57,26 +61,32 @@ function CheckoutDisplay(props) {
   const number = '60103893421'
 
   function sendMessage() {
-    window.confirm('Proceed to submit your order through Whatsapp?');
-    // // Check for perfect 10 digit length
-    // if (formData.phone.length > 9) {
-    //   alert('Please insert correct contact number');
-    //   return;
-    // }
-    // Using +1 for canada
+    const confirm = window.confirm('Proceed to submit your order through Whatsapp?');
+
+    if (confirm) {
+      // // Check for perfect 10 digit length
+      // if (formData.phone.length > 9) {
+      //   alert('Please insert correct contact number');
+      //   return;
+      // }
+      // Using +1 for canada
 
 
 
 
-    // let url =
-    //   'whatsapp://send?text=' + message + '&phone=+' + number;
-    // Linking.openURL(url)
-    //   .then((data) => {
-    //     console.log('WhatsApp Opened');
-    //   })
-    //   .catch(() => {
-    //     alert('Make sure Whatsapp installed on your device');
-    //   });   
+      // let url =
+      //   'whatsapp://send?text=' + message + '&phone=+' + number;
+      // Linking.openURL(url)
+      //   .then((data) => {
+      //     console.log('WhatsApp Opened');
+      //   })
+      //   .catch(() => {
+      //     alert('Make sure Whatsapp installed on your device');
+      //   });  
+
+      window.location.href = '/cart/finalorder'
+    }
+ 
   }
 
   localStorage.setItem('checkout_user_data', JSON.stringify(formData))
@@ -103,17 +113,17 @@ function CheckoutDisplay(props) {
           </div>
           {currentForm === false && (
             <div className="payment-container">
-              <Link to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</Link>
+              <div to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div>
           </div>
          
           )}
           {currentForm === true && (
             <div className="payment-container">
-              <Link to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</Link>
+              <div to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={(formData.first_name && formData.last_name)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div>
           </div>          
           )}
           <div className="checkout-cart-details">
-            <h1>Your Order Details:</h1>
+            <h1>Your Order Details: {currentDate}</h1>
             {cart.map((cart) => (
               <div>
                 <b>{cart.product_name}</b>
