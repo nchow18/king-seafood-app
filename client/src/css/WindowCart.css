@@ -389,6 +389,10 @@
   font-weight: bold;
 }
 
+.checkout-buttons-row div:hover {
+  background-color: rgb(255, 180, 42);
+}
+
 .checkout-details-container {
   display: flex;
   flex-direction: column;
@@ -410,11 +414,16 @@
 
 .payment-button {
   padding: .5rem;
-  background-color: black;
-  color: white;
+  background-color: var(--button);
+  color: black;
+  font-weight: bold;
   margin-bottom: .5rem;
   width: 100%;
   text-decoration: none;
+}
+
+.payment-button:hover {
+  background-color: rgb(255, 180, 42);
 }
 
 @media screen and (max-width: 500px) {
