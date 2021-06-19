@@ -60,7 +60,6 @@
 
 .checkout-cart-details > h1 {
   font-size: 1rem;
-  font-weight: bold;
 }
 
 .checkout-cart-details > span {
@@ -371,6 +370,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.delivery-date {
+  font-size: .8rem;
+  background-color: lightblue;
+  text-align: center;
+  width: 100%;
 }
 
 .checkout-buttons-row {

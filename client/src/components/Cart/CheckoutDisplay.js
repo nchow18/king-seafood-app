@@ -15,6 +15,28 @@ function CheckoutDisplay(props) {
   //   cart_total
   // } = props
 
+  var firstName = '';
+  var lastName = '';
+  var address = '';
+  var phone = '';
+
+  if (Auth.loggedIn() === true) {
+    //iF LOGGED IN, use USER data
+    firstName= user_data.first_name;
+    lastName = user_data.last_name;
+    phone = user_data.phone;
+  } else {
+    //IF GUEST, use localstorage data
+    if (localStorage.getItem('checkout_user_data') !== null) {
+      const user_details = JSON.parse(localStorage.getItem('checkout_user_data'));
+      console.log(user_details);
+      firstName = user_details.first_name;
+      lastName = user_details.last_name;
+      address = user_details.address;
+      phone = user_details.phone;
+    }
+  }
+
   const cart = JSON.parse(localStorage.getItem('new_cart'));
   const cart_total = JSON.parse(localStorage.getItem('cart_total'));
   const { loading, data } = useQuery(USER_ME)
@@ -22,23 +44,15 @@ function CheckoutDisplay(props) {
   const [order, setOrder] = useState(true)
   const [currentForm, setFormType] = useState(false)
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    address: '',
+    first_name: firstName,
+    last_name: lastName,
+    address: address,
     message: '',
     delivery_date: '',
-    phone: '',
+    phone: phone,
   })
 
-  if (Auth.loggedIn() === true) {
-    //iF LOGGED IN, use USER data
-    formData.first_name = user_data.first_name;
-    formData.last_name = user_data.last_name;
-    formData.phone = user_data.phone;
-  } else {
-    //IF GUEST, use localstorage data
 
-  }
 
   const today = new Date();
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
@@ -95,11 +109,12 @@ function CheckoutDisplay(props) {
         });  
 
       window.location.href = '/cart/finalorder'
+      localStorage.setItem('checkout_user_data', JSON.stringify(formData))
     }
  
   }
 
-  localStorage.setItem('checkout_user_data', JSON.stringify(formData))
+  console.log(formData);
 
   return (
     <>
@@ -115,7 +130,8 @@ function CheckoutDisplay(props) {
             {currentForm === false && (
               <>
               <input value={formData.address} name="address"placeholder="Full Address" onChange={handleInputChange} />
-              <input value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} />
+              <input type="date" value={formData.delivery_date} name="delivery_date" placeholder="Delivery Date (except Sundays and Public Holidays)" onChange={handleInputChange} />
+              <span className="delivery-date">Delivery Date (except Sundays and Public Holidays)</span>
               </>
             )}
             <textarea value={formData.message} name="message" placeholder="Message" onChange={handleInputChange}></textarea>
@@ -134,7 +150,7 @@ function CheckoutDisplay(props) {
           </div>          
           )}
           <div className="checkout-cart-details">
-            <h1>Your Order Details: {currentDate}</h1>
+            <h1><b>Your Order Details:</b> {currentDate}</h1>
             {cart.map((cart) => (
               <div>
                 <b>{cart.product_name}</b>
