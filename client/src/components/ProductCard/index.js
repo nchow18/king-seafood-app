@@ -11,7 +11,8 @@ function ProductCard(props) {
   products=[],
   productCategory=[],
   user,
-  setCategoryModal
+  setCategoryModal,
+  setCartCount
   } = props
 
   const [productArr] = useState({...products})
@@ -44,6 +45,7 @@ function ProductCard(props) {
         singleProduct={currentSingleProduct}
         user={user}
         setCategoryModal={setCategoryModal}
+        setCartCount={setCartCount}
       />
     </div>
     )}

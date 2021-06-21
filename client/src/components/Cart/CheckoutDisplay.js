@@ -15,6 +15,9 @@ function CheckoutDisplay(props) {
   //   cart_total
   // } = props
 
+  const { loading, data } = useQuery(USER_ME)
+  const user_data = data?.userMe || {};
+
   var firstName = '';
   var lastName = '';
   var address = '';
@@ -39,8 +42,7 @@ function CheckoutDisplay(props) {
 
   const cart = JSON.parse(localStorage.getItem('new_cart'));
   const cart_total = JSON.parse(localStorage.getItem('cart_total'));
-  const { loading, data } = useQuery(USER_ME)
-  const user_data = data?.userMe || {};
+
   const [order, setOrder] = useState(true)
   const [currentForm, setFormType] = useState(false)
   const [formData, setFormData] = useState({

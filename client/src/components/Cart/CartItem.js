@@ -9,7 +9,8 @@ function CartItem(props) {
     user_cart=[],
     updateState,
     removeProduct,
-    updateMainCart
+    updateMainCart,
+    setNewCount
   } = props
 
   const [state, dispatch] = useContext(UserContext)
@@ -33,6 +34,7 @@ function CartItem(props) {
                 user_cart={user_cart}
                 updateState={updateState}
                 updateMainCart={updateMainCart}
+                setNewCount={setNewCount}
                 />
           </div>
       </div>    

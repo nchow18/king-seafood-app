@@ -10,6 +10,7 @@ function SingleProduct(props) {
   const {
     setModal,
     singleProduct,
+    setCartCount
   } = props
 
   const product = singleProduct;
@@ -76,6 +77,7 @@ function SingleProduct(props) {
               )}
               <Quantity
                 product={product}
+                setCartCount={setCartCount}
               />
             </div>
         </div>        

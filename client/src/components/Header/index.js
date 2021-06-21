@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import '../../css/Header.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import { UserContext } from '../../utils/GlobalState';
 import MobileHeader from './MobileHeader';
 import Logo from '../../assets/images/king-net-logo.png';
 import { useQuery } from '@apollo/react-hooks';
@@ -15,7 +14,9 @@ function Header(props) {
     currentHeaderLink,
     setCurrentHeaderLink,
     cartModal,
-    setCartModal
+    setCartModal,
+    setCartCount,
+    cartCount
   } = props
 
   const logout = event => {
@@ -24,7 +25,6 @@ function Header(props) {
   };
 
   const { loading, data } = useQuery(USER_ME)
-  const [state, dispatch] = useContext(UserContext);
   const [isModal, setModal] = useState(false);
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
@@ -75,12 +75,7 @@ function Header(props) {
               {currentHeaderLink.name === 'Products' && (
                 <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>Categories</Link>                
               )}
-              {state.active === true && (
-                <Link to="/cart" className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2])}}>Cart ( {Auth.getGuestCartQuantity()} )</Link>
-              )}
-              {state.active === false && (
-                <Link to="/cart" className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2])}}>Cart ( {Auth.getGuestCartQuantity()} )</Link>
-              )}              
+              <Link to="/cart" className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2])}}>Cart ( {cartCount} )</Link>           
 
               <Link to={headerLinks[3].href} className={`header-link ${currentHeaderLink.name === headerLinks[3].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[3])}}>{headerLinks[3].name}</Link>
 
@@ -88,12 +83,8 @@ function Header(props) {
 
               <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[6].name}</Link>
 
-              {state.active === true && (
-                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({guest_cart})</b></i>
-              )}
-              {state.active === false && (
-                <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({guest_cart})</b></i>
-              )}              
+              <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({cartCount})</b></i>
+            
               </>
             )}
             {Auth.getAdmin() === true && (
@@ -104,12 +95,7 @@ function Header(props) {
                   <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
                 </>        
               ))}
-              {state.active === true && (
                 <Link to="/cart" className="header-link" onClick={() => { setCartModal(true)}}>Cart ( {user_cart_length} )</Link>
-              )}
-              {state.active === false && (
-                <Link to="/cart" className="header-link" onClick={() => { setCartModal(true)}}>Cart ( {user_cart_length} )</Link>
-              )}               
               </>
             )}
 
@@ -118,12 +104,8 @@ function Header(props) {
               {headerLinks.filter((link) => link.user === true).map((link) => (
                   <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
               ))}
-              {state.active === true && (
                 <Link to="/cart" className="header-link" >Cart ( {user_cart_length} )</Link>
-              )}
-              {state.active === false && (
-                <Link to="/cart" className="header-link" >Cart ( {user_cart_length} )</Link>
-              )}               
+
               </>
             )}
             {Auth.loggedIn() === true && (

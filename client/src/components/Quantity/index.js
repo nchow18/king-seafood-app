@@ -10,6 +10,7 @@ function Quantity(props) {
 
   const {
     product=[],
+    setCartCount
   } = props
 
   const [state, dispatch] = useContext(UserContext);
@@ -94,7 +95,7 @@ function Quantity(props) {
       <div className="quantity-button-container">
         <span>Quantity: <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} /></span>
         {product.product_status ? (
-          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity); dispatch({ type: 'toggle_button' })}}>ADD TO CART</div>
+          <div className="product-button" key={product._id} onClick={() => { addToCart(product._id, formData.quantity); setCartCount(count => count + 1)}}>ADD TO CART</div>
         ) : (
           <div className="product-button" key={product._id}>OUT OF STOCK</div>
         )}

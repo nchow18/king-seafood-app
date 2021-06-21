@@ -98,9 +98,9 @@ function App() {
 
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[7]);
   const [cartModal, setCartModal] = useState(false)
-  const [whatsApp, setWhatsApp] = useState(false);
   const [productLinks] = useState(Auth.getCategories())
   const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
+  const [cartCount, setCartCount] = useState(0);
 
   Auth.checkToken();
 
@@ -119,6 +119,8 @@ function App() {
             setCurrentHeaderLink={setCurrentHeaderLink}
             cartModal={cartModal}
             setCartModal={setCartModal}
+            cartCount={cartCount}
+            setCartCount={setCartCount}
 					/>
 			    </nav>
       
@@ -138,11 +140,14 @@ function App() {
               render={() => <Products 
               currentProductLink={currentProductLink} 
               setCurrentProductLink={setCurrentProductLink} 
-              productLinks={productLinks} />}
+              productLinks={productLinks}
+              cartCount={cartCount}
+              setCartCount={setCartCount} />}
               />
             <Route
               exact path="/cart"
-              render={() => <WindowCart />} />
+              render={() => <WindowCart
+                setCartCount={setCartCount} />} />
             <Route
               exact path="/cart/checkout"
               render={() => <CheckoutDisplay />} />              

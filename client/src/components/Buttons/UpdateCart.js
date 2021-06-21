@@ -9,7 +9,8 @@ function UpdateCartButton(props) {
   const {
     product = [],
     updateMainCart,
-    user_cart=[]
+    user_cart=[],
+    setNewCount
   } = props
 
   const [count, setCount] = useState(product.product_quantity)
@@ -32,9 +33,7 @@ function UpdateCartButton(props) {
     addQuantity(product._id);
 
     dispatch({ type: 'toggle_button'})
-    console.log(state)
     return () => {
-      console.log('clean up')
     }
   }, [count])
 
@@ -79,9 +78,9 @@ function UpdateCartButton(props) {
       <div className="mobile-cart-quantity">
         <div>Quantity</div>
         <div className="quantity-counter">
-          <div onClick={() => {decreaseCount()}}><i class="fas fa-minus"></i></div>
+          <div onClick={() => {decreaseCount(); setNewCount(true)}}><i class="fas fa-minus"></i></div>
           <div>{count}</div>
-          <div onClick={() => {increaseCount()}}><i class="fas fa-plus"></i></div>
+          <div onClick={() => {increaseCount(); setNewCount(true)}}><i class="fas fa-plus"></i></div>
         </div>
         {/* <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" /> */}
       </div>

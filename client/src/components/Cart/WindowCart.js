@@ -17,7 +17,8 @@ import PastOrders from './PastOrders';
 function WindowCart(props) {
 
   const {
-    setCartModal
+    setCartModal,
+    setCartCount
   } = props
 
   const [state, dispatch] = useContext(UserContext);
@@ -30,6 +31,7 @@ function WindowCart(props) {
   const cartArr = [];
   const user_cart = cartArr;
   const product_data = []
+  const [newCount, setNewCount] = useState(false);
   
   for (var i = 0; i < product_arr.length; i++) {
     product_data.push(product_arr[i])
@@ -59,6 +61,8 @@ function WindowCart(props) {
     const user_storage = localStorage.getItem('user_cart_quantity')
     localStorage.setItem('user_cart_quantity', (user_storage - 1))
     } else {
+      //update cartCount
+      setCartCount(count => count - 1)
       // if NOT logged in, slice from localStorage
       // use array to sort guest_cart to find matching product_id
       for (var i = 0; i < user_cart.length; i++) {
@@ -127,21 +131,50 @@ if (Auth.loggedIn()) {
                     //check if sale price exists
                     if (cartArr[i].product_sale_price !== '0') {
                       //if sale price greater than 0, apply sale discount
-                      if (cartArr[i].new_quantity > 0) {
+                      if (newCount === true) {
+                        console.log('applying sale discount to new quantity')
                         cartArr[i].total_price = JSON.parse(cartArr[i].product_sale_price) * cartArr[i].new_quantity;                        
                       } else {
+                        console.log('applying sale discount to original quantity')
                         cartArr[i].total_price = JSON.parse(cartArr[i].product_sale_price) * cartArr[i].product_quantity;
                       }
-                    } else if (cartArr[i].product_bulk_price !== "0" && cartArr[i].product_bulk_quantity <= parseInt(cartArr[i].quantity)) {
-                      // if bulk price is greater than 0 AND bulk quantity is less than QUANTITY
-                      if (cartArr[i].new_quantity >0) {
-                        cartArr[i].total_price = cartArr[i].new_quantity * cartArr[i].product_bulk_price
-                      } else {
-                        cartArr[i].total_price = cartArr[i].product_quantity * cartArr[i].product_bulk_price
-                      }
+                    } else if (cartArr[i].product_bulk_price !== '0') {
+                        // if bulk price is greater than 0 AND bulk quantity is less than QUANTITY
+                        console.log('bulk quantity applied')
+  
+                        if (newCount === true) {
+                          console.log('new quantity changed')
+
+                          if (parseInt(cartArr[i].new_quantity) >= cartArr[i].product_bulk_quantity) {
+                            console.log('applying new quantity price, new quantity greater than bulk quantity')
+                            cartArr[i].total_price = cartArr[i].new_quantity * cartArr[i].product_bulk_price;
+                          } else if (Auth.getGlobalDiscount !== '0') {
+                            console.log('new quantity less than bulk quantity, applying Global Discount')
+                             //IF new quantity is not equal or greater than product-bulk-quantity, check for global discount
+                            cartArr[i].total_price = cartArr[i].new_quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
+                          } else {
+                            console.log('new quantity does not have any discounts')
+                            cartArr[i].total_price = cartArr[i].product_price * cartArr[i].new_quantity
+                          }
+                        } else {
+                          // IF quantity was not changed, use original product quantity
+                          if (parseInt(cartArr[i].product_quantity) >= cartArr[i].product_bulk_quantity) {
+                            console.log('applying original quantity')
+                            cartArr[i].total_price = cartArr[i].product_quantity * cartArr[i].product_bulk_price
+                          } else if (Auth.getGlobalDiscount !== '0') {
+                            console.log('original quantity less than bulk quantity, applying Global Discount')
+                             //IF new quantity is not equal or greater than product-bulk-quantity, check for global discount
+                            cartArr[i].total_price = cartArr[i].product_quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
+                          } else {
+                            console.log('original quantity does not have any discounts')
+                            cartArr[i].total_price = cartArr[i].product_price * cartArr[i].product_quantity
+                          }
+
+                        }
                     } else {
                       //if sale price / bulk price doesn't exist, apply global discount
-                      if (cartArr[i].new_quantity>0) {
+                      if (newCount === true) {
+                        console.log('Applying Global Discount, no sale price / bulk price exist')
                         cartArr[i].total_price = cartArr[i].new_quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
                       } else {
                         cartArr[i].total_price = cartArr[i].product_quantity * (cartArr[i].product_price * (1 - (Auth.getGlobalDiscount()/100)));
@@ -149,7 +182,8 @@ if (Auth.loggedIn()) {
                     }
                   } else {
                     // if gobal discount does not exist, apply regular price
-                      if (cartArr[i].new_quantity>0) {
+                    console.log('no discounts, applying original price')
+                      if (newCount === true) {
                         cartArr[i].total_price = cartArr[i].product_price * cartArr[i].new_quantity
                       } else {
                         cartArr[i].total_price = cartArr[i].product_price * cartArr[i].product_quantity
@@ -278,8 +312,7 @@ if (Auth.loggedIn()) {
         <div className="window-cart-column">      
           <span className="total-text">Cart Total: RM {cart_total.toFixed(2)}</span> 
             <div className="window-cart-items-container">
-              {state.active ? (
-                <>
+
                 {(JSON.parse(new_cart)).map((product) => (
                   <CartItem 
                     product={product}
@@ -288,24 +321,9 @@ if (Auth.loggedIn()) {
                     updateState={updateState}
                     removeProduct={removeProduct}
                     updateMainCart={updateMainCart}
+                    setNewCount={setNewCount}
                   />
-                ))}  
-                </>               
-              ) : (
-                <>
-                {(JSON.parse(new_cart)).map((product) => (
-                  <CartItem 
-                    product={product}
-                    user_cart={user_cart}
-                    new_cart={new_cart}
-                    updateState={updateState}
-                    removeProduct={removeProduct}
-                    updateMainCart={updateMainCart}
-                  />
-                ))}
-                </>                 
-              )}
-                        
+                ))}      
             </div>
             <div className="window-cart-checkout-container">
               <Link to="/cart/checkout" className="checkout-button">CHECKOUT</Link>

@@ -14,6 +14,7 @@ function Products(props) {
     productLinks=[],
     currentProductLink,
     setCurrentProductLink,
+    setCartCount
   } = props
 
   const {data: dataR} = useQuery(USER_ME);
@@ -111,6 +112,7 @@ function Products(props) {
             user={dataR}
             productCategory={productCategory}
             setCategoryModal={setCategoryModal}
+            setCartCount={setCartCount}
           />
         </div>
     </>
