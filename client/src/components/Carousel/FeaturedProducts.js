@@ -31,7 +31,7 @@ function FeaturedCarousel(props) {
       <div className="random-product-slider">
         {featuredProducts.map((product) => (
           <div className="carousel-img-container">
-            <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img" src={product.product_picture[0]} />
+            <img alt={product.product_name} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img" src={process.env.PUBLIC_URL + `/images/products/${product.product_picture[0]}.JPEG`} />
             <div className="carousel-img-title">
               <span><b>{product.product_name}</b></span>
               <span><b>RM {product.product_price}</b></span>

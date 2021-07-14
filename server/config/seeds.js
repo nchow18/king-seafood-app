@@ -51,7 +51,7 @@ db.once('open', async () => {
       promo3Start: '',
       promo3End: '',
       mainPromo: 'FREE DELIVERY WITH ORDERS OVER RM100***',
-      promoPicture1: 'https://scontent.fykz1-2.fna.fbcdn.net/v/t1.6435-9/197445732_348894963297467_8143547024888840424_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=973b4a&_nc_ohc=bGttqPiKq1oAX-1IsCn&_nc_ht=scontent.fykz1-2.fna&oh=59f80555ad1d65c1262cc947651eb7fb&oe=60E74121',
+      promoPicture1: 'promo1',
       promoPicture2: '',
       promoPicture3: '',
       discount: '6.66',
@@ -62,7 +62,7 @@ db.once('open', async () => {
       contact_us_2: 'Kelvin 016-4849744',
       address: '205, Jalan Perak, 11600 Jelutong, Penang, Malaysia',
       home_message: 'FRESHLY FROZEN SEAFOOD',
-      main_banner: 'https://wallpaperaccess.com/full/1491748.jpg',
+      main_banner: 'banner.JPEG',
       delivery_fee1: 'FREE DELIVERY for orders *RM100* and above for Penang area (RM5 delivery fee for orders less than RM100)',
       delivery_fee2: 'Outstation delivery fee RM40',
       delivery_fee3: 'Pickup location: 205, Jalan Perak, 11600 Jelutong',
@@ -74,8 +74,8 @@ db.once('open', async () => {
     "inventory_id": 100,
     "product_name": "Breaded Cod Fish 300g",
     "product_picture": [
-       "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191239262_351071069746523_2360270957051020535_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeFSFobgCE1milKB2GXqjUgLBsLUrPjNdWAGwtSs-M11YGu3LOvsDhnGHiPf0dssXNb-9APV5aJWirSN7xEEcjq7&_nc_ohc=yT8OmQvqtUkAX8wwAea&_nc_ht=scontent.fpen1-1.fna&oh=5fffb325761ef5a74acd6893a1bd3a17&oe=60E80C25",
-       "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/136055824_254077209445910_2350272215745903236_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=a26aad&_nc_eui2=AeFt0vMuU-L3XC4cTw2rLeSvhOpFV9x6B8aE6kVX3HoHxhGDNN3gkTKuzU-QO1Tef_8nSIFL4GsPKyQRNjZSh_Sd&_nc_ohc=O8VdMDbOAtMAX8dmuk3&_nc_ht=scontent.fpen1-1.fna&oh=8b0938d52f17dc09a336c8d2646f470d&oe=60E70A59"
+       "100-1",
+       "100-2"
     ],
     "product_category": "fish",
     "product_price": "12.00",
@@ -93,8 +93,8 @@ db.once('open', async () => {
     "inventory_id": 101,
     "product_name": "Cod Fillet (Miso) 鳕鱼片(味增) 454g",
     "product_picture": [
-       "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191092664_351071116413185_6137915817143085349_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeHzj6NoR98SO1fcV_t6l2oRDj03uXm6yRYOPTe5ebrJFgBgs3WGkPwn04tHX47MIU89f7gOjn03uNcsPfpFtOcc&_nc_ohc=64l67kDPJGYAX_0h7kb&_nc_ht=scontent.fpen1-1.fna&oh=7320c965828cf9c0600f3ba1bfe6a8f7&oe=60E64A23",
-       "https://drive.google.com/uc?id=195BDpI6NiyVXyClAN4_WpsG3pwx5Hrs0"
+       "101-1",
+       "101-2"
     ],
     "product_category": "fish",
     "product_price": "40.00",
@@ -112,8 +112,8 @@ db.once('open', async () => {
     "inventory_id": 102,
     "product_name": "Halibut Fillet (Miso) 比目鱼片 (味增) 454g",
     "product_picture": [
-       "https://drive.google.com/uc?id=1xQgaxGS49q46fqOVvl8MwBjUAFpEAyUE",
-       "https://drive.google.com/uc?id=1NSDTiBoAsAjvLy1D1q8_CALbTLO3L_Fm"
+       "102-1",
+       "102-2"
     ],
     "product_category": "fish",
     "product_price": "25.00",
@@ -131,8 +131,8 @@ db.once('open', async () => {
     "inventory_id": 103,
     "product_name": "Red Snapper Fillet (Miso) 红鱼片 (味增) 454g",
     "product_picture": [
-       "https://scontent.fpen1-1.fna.fbcdn.net/v/t1.6435-9/191951467_351071453079818_6032703078978057481_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=0debeb&_nc_eui2=AeF5qVM_AoPdqf0bORTF2tlPtDOsyN6XF7e0M6zI3pcXt9iT52nTl2IA3Fv7u8iSllO7Bh-sy7dqiHSHSvzfyFRO&_nc_ohc=JAkRy6xkoIgAX_AxpW7&_nc_ht=scontent.fpen1-1.fna&oh=f18f10c7dfb422727f3e4b768d3d15fa&oe=60E58DF5",
-       "https://drive.google.com/uc?id=1MVBV--lIfNIdVeUoiIGq7KO_DxijUYlY"
+       "103-1",
+       "103-2"
     ],
     "product_category": "fish",
     "product_price": "20.00",

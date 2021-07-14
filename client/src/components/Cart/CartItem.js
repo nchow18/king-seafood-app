@@ -20,7 +20,7 @@ function CartItem(props) {
       <div>
         <div key={product._id} className="window-cart-product-row">
             <div className="cart-item-img-details">
-              <img className="window-cart-product-img" alt={product.product_name} src={product.product_picture[0]} />
+              <img className="window-cart-product-img" alt={product.product_name} src={process.env.PUBLIC_URL + `/images/products/${product.product_picture[0]}.JPEG`} />
               <div className="window-cart-product-details">
                 <div className="window-cart-product-text">
                   <b>{product.product_name}</b>

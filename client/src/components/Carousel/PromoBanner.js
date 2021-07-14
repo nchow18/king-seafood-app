@@ -27,7 +27,7 @@ function PromoCarousel(props) {
         <div className="promo-banner-slider-container">
           <i className="far fa-times-circle promo-close-icon" onClick={() => {setPromo(false)}}></i>
           {!promotions[0].promoPicture1 === false && (
-            <img alt="pic1" onClick={() => {setUrl(link[0]); setModal(true)}} src={promotions[0].promoPicture1} className="promo-banner" />
+            <img alt="pic1" onClick={() => {setUrl(link[0]); setModal(true)}} src={process.env.PUBLIC_URL + `/images/promotions/${promotions[0].promoPicture1}.JPEG`} className="promo-banner" />
           )}
           {!promotions[0].promoPicture2 === false && (
             <img alt="pic2" onClick={() => {setUrl(link[1]); setModal(true)}} src={promotions[0].promoPicture2} className="promo-banner" />

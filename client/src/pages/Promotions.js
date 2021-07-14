@@ -16,7 +16,7 @@ function Promotions() {
         <>
     	    <div className="promo-page-content">
             <div className="promo-page-container">
-              <img alt="promo" src={promo[0].promoPicture1} className="promo-page-img"/>
+              <img alt="promo" src={process.env.PUBLIC_URL + `/images/promotions/${promo[0].promoPicture1}.JPEG`} className="promo-page-img"/>
             </div>
 
           </div>

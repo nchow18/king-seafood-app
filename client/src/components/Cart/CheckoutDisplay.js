@@ -54,8 +54,6 @@ function CheckoutDisplay(props) {
     phone: phone,
   })
 
-
-
   const today = new Date();
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
   const currentDate = today.toLocaleDateString("en-US", options);
