@@ -139,7 +139,7 @@ function Home(props) {
         setCurrentProductLink={setCurrentProductLink}
         productLinks={productLinks}/>
       <div className="home-banner-content">
-        <img alt="home-banner" src={process.env.PUBLIC_URL + `/images/banner/${promo[0].main_banner}`} className="home-banner" />
+        <img alt="home-banner" src={`http://media.kingsseafood18.com/media/banner/${promo[0].main_banner}.jpg`} className="home-banner" />
         <div className="logo-container">
           <p>{promo[0].home_message}</p>
           </div>

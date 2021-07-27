@@ -26,7 +26,7 @@ function MainProducts(props) {
           {category.map((product) => (
             <div className="slider-container" >
               <Link to="/products" className="slider-icon-container" onClick={() => {storeCategory(product.name); setCategory(product); }}>
-                <img alt={product.name} src={process.env.PUBLIC_URL + `/images/products/${product.img}.JPEG`} className="slider-icon" />
+                <img alt={product.name} src={product.img} className="slider-icon" />
               </Link>
               <span>{product.name.toUpperCase()}</span>
             </div>

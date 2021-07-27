@@ -61,7 +61,7 @@ function ProductCard(props) {
         </>
       )}
       <div>
-          <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={process.env.PUBLIC_URL + `/images/products/${product.product_picture[0]}.JPEG`} className="product-card-picture"/>
+          <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={`http://media.kingsseafood18.com/media/products/${product.product_picture[0]}.jpg`} className="product-card-picture"/>
       </div>
     <div className="product-card-description">
       <div className="product-card-font">
