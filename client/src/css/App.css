@@ -60,7 +60,8 @@ body {
 }
 
 .page-content {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .flex-middle-column {

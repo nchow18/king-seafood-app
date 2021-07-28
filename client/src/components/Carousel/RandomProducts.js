@@ -35,7 +35,7 @@ function ProductCarousel() {
         <div className="random-product-slider">
           {products.map((product) => (
               <div key={product._id} onClick={() => {setModal(true); setProduct(product)}} className="carousel-img-container">
-                <img alt={product.product_name} className="carousel-img" src={process.env.PUBLIC_URL + `/images/products/${product.product_picture[0]}.JPEG`} />
+                <img alt={product.product_name} className="carousel-img" src={`http://media.kingsseafood18.com/media/products/${product.product_picture[0]}.jpg`} />
                 <div key={product._id} className="carousel-img-title">
                   <b>{product.product_name}</b>
                   <b>RM {product.product_price}</b>
