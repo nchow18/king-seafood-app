@@ -352,6 +352,6 @@
   .header-main-promo {
     font-size: .8rem;
     height: 1.75rem;
-    width: 100%;
+    width: 100vw;
   }
 }
