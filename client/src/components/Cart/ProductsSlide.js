@@ -12,7 +12,7 @@ function ProductSlide(props) {
   const [isModal, setModal] = useState(false);
   var newList = []
 
-  for (var i = 0; i < product_data.length; i++) {
+  for (var i = 0; i < 10; i++) {
     if (product_data[i].product_views > 0) {
       newList.push(product_data[i])
     }
