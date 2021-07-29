@@ -58,15 +58,16 @@ function AdminCategories(props) {
   return (
     <>
     {search ? (
-        <div className="admin-container">
-          <SingleProductEdit 
-            setStatus={setStatus}
-            singleProduct={searchArr}
-            load={load}
-            edit={edit}
-            setEdit={setEdit}
-          />            
-        </div>    
+      <div className="admin-container">
+        <SingleProductEdit 
+          setStatus={setStatus}
+          singleProduct={searchArr}
+          load={load}
+          edit={edit}
+          setEdit={setEdit}
+          productArr={productArr}
+        />            
+      </div>    
     ) : (
       <>
       {chosenArr.map((product) => (
@@ -77,6 +78,7 @@ function AdminCategories(props) {
             load={load}
             edit={edit}
             setEdit={setEdit}
+            productArr={productArr}
           />            
         </div>
       ))} 

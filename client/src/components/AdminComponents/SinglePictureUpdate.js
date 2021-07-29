@@ -8,7 +8,10 @@ function SinglePictureUpdate(props) {
   const {
     picture,
     product_id,
-    setStatus
+    deletePictureArr,
+    updatePictureArr,
+    productArr,
+    updatePictureState
   } = props
 
   const [dispatch] = useContext(UserContext);
@@ -58,8 +61,10 @@ function SinglePictureUpdate(props) {
   return (
     <>
       <b className="bold">Picture</b>  
-      <div className="picture-update-button" onClick={() => {deletePicture(); setStatus(true); dispatch({ type: 'toggle_button'})}}>DELETE</div>
-      <div className="picture-update-button" onClick={() => {updatePicture(); setStatus(true); dispatch({ type: 'toggle_ubtton'})}}>UPDATE</div>
+      {/* <div className="picture-update-button" onClick={() => {deletePicture()}}>DELETE</div> */}
+      <div className="picture-update-button" onClick={() => {deletePictureArr(product_id, picture); updatePictureState(true); deletePicture()}}>DELETE</div>
+      {/* <div className="picture-update-button" onClick={() => {updatePictureArr(product_id, picture); updatePicture();}}>UPDATE</div> */}
+      <div className="picture-update-button" onClick={() => {updatePictureArr(product_id, picture, formData.picture_url); updatePicture(); updatePictureState(true)}}>UPDATE</div>
       <input className="product-picture admin-input-width" name='picture_url' value={formData.picture_url} onChange={handleInputChange} type="text" />
     </>
   )

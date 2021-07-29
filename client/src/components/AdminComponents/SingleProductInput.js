@@ -184,7 +184,7 @@ function SingleProductInput(props) {
               <input value={formData.product_featured} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_featured' placeholder={product.product_featured.toString()} type="text"   />
             </div>
             <div className="admin-input-row">
-              <div onClick={() => {updateProductFormSubmit(); dispatch({ type: 'toggle_button' })}} className="admin-button">UPDATE</div>
+              <div onClick={() => {updateProductFormSubmit();}} className="admin-button">UPDATE</div>
               <div onClick={() => {addProductPicture()}} className="admin-button">ADD PICTURE SLOT</div>
               <div className="admin-button" onClick={() => { deleteProductFormSubmit()}}>DELETE</div>
           </div>

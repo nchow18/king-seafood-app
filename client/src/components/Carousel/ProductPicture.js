@@ -8,6 +8,8 @@ function ProductPictureCarousel(props) {
     product
   } = props
 
+  console.log(product[0]);
+
   return (
     <>
       <div className="product-slide-container">
