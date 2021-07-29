@@ -15,7 +15,7 @@ function ProductPictureCarousel(props) {
       <div className="product-slide-container">
         <div className={`product-slider ${product.product_picture.length === 1 && `single-product-center`}`}>
         {product.product_picture.map((picture) => (
-          <img key={picture} alt={product._id} src={`http://media.kingsseafood18.com/media/products/${picture}.jpg`} className="single-product-img" />
+          <img key={picture} alt={picture} src={`http://media.kingsseafood18.com/media/products/${picture}.jpg`} className="single-product-img" />
         ))}
         </div>
       </div> 
