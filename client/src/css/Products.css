@@ -252,7 +252,7 @@
   height: 90vh;
   width: 90vw;
   position: relative;
-  z-index: 40;
+  z-index: 900;
   top: 4rem;
   scroll-snap-type: x mandatory;
 }

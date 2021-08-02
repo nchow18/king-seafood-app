@@ -158,31 +158,31 @@ function Home(props) {
     {isPromo === true && (
       <div>
         {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
-            <PromoCarousel
-              promotions={promo}
-              setPromo={setPromo}
-            />
+          <PromoCarousel
+            promotions={promo}
+            setPromo={setPromo}
+          />
         )}
       </div>
     )}
     <div className="home-section">
-        <SaleSpecial
-          products={products}
-        />        
+      <SaleSpecial
+        products={products}
+      />        
     </div>    
     <div className="home-section">
-        <b className="section-title">Featured Products</b>
-        <FeaturedCarousel
-          products={products}
-        />        
+      <b className="section-title">Featured Products</b>
+      <FeaturedCarousel
+        products={products}
+      />        
     </div>
-    <div className="home-section category-section">
-        <b className="section-title">Categories</b>
-        <SectionCategory
-          currentProductLink={currentProductLink}
-          setCurrentProductLink={setCurrentProductLink}
-          productLinks={productLinks}
-        />        
+    <div className="home-section">
+      <b className="section-title">Categories</b>
+      <SectionCategory
+        currentProductLink={currentProductLink}
+        setCurrentProductLink={setCurrentProductLink}
+        productLinks={productLinks}
+      />        
     </div>
     <div className="home-section">
       <b className="section-title">Popular Products</b>

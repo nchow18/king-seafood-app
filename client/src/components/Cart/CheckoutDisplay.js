@@ -82,7 +82,7 @@ function CheckoutDisplay(props) {
 
   const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' + cart_total;
 
-  const number = '60103893421'
+  const number = '60164223018'
 
   function sendMessage() {
     const confirm = window.confirm('Proceed to submit your order through Whatsapp?');
