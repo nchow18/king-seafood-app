@@ -8,11 +8,18 @@ const mongoose = require('mongoose');
 //   useFindAndModify: false
 // });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kingseafood', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false
 });
+
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kingseafood', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// });
 
 module.exports = mongoose.connection;
