@@ -83,6 +83,7 @@ function CheckoutDisplay(props) {
   const message = info + cart_message + ',\n %0a*TOTAL PRICE:* ' + cart_total;
 
   const number = '60164223018'
+  // const number = '60103893421'
 
   function sendMessage() {
     const confirm = window.confirm('Proceed to submit your order through Whatsapp?');
@@ -94,9 +95,6 @@ function CheckoutDisplay(props) {
       //   return;
       // }
       // Using +1 for canada
-
-
-
 
       let url =
         'whatsapp://send?text=' + message + '&phone=+' + number;
@@ -139,7 +137,7 @@ function CheckoutDisplay(props) {
           </div>
           {currentForm === false && (
             <div className="payment-container">
-              <div to="/cart/finalorder" onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div>
+              <div onClick={() => {sendMessage()}} disabled={!(formData.first_name && formData.last_name && formData.address && formData.delivery_date)}  className="payment-button">SUBMIT ORDER WITH WHATSAPP</div>
           </div>
          
           )}

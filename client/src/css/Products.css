@@ -253,7 +253,7 @@
   width: 90vw;
   position: relative;
   z-index: 900;
-  top: 4rem;
+  top: 2rem;
   scroll-snap-type: x mandatory;
 }
 
@@ -306,7 +306,7 @@
   }
 
   .single-product-modal-container {
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 }
 
