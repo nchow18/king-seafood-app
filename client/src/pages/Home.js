@@ -93,10 +93,14 @@ function Home(props) {
   const featuredProducts = [];
 
   useEffect(() => {
-    // setTimeout(displayPromo, 4000);
+    setTimeout(displayPromo, 4000);
     const empty = {name: ""};
     localStorage.setItem('current_category', JSON.stringify(empty))
   }, [])
+
+  function displayPromo() {
+    setPromo(true);
+  }
 
   if (loading) return `...Loading`;
 

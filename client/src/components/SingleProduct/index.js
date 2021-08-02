@@ -57,7 +57,7 @@ function SingleProduct(props) {
                 {product.product_description3 !== '' && (
                   <span>● {product.product_description3}</span>
                 )} 
-                {product.product_description4 !== '' && (
+                {product.product_description4 !== '0' && (
                   <span>● {product.product_description4}</span>
                 )}                                                              
                 </>
