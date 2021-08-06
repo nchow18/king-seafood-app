@@ -214,7 +214,8 @@ if (Auth.loggedIn()) {
         // checks if items in local storage CART still exists
         if (checkExisting.length === 0) {
           //if it does not exist, splice product at index (r)
-          cart_data.splice(r, 1);
+          
+          // cart_data.splice(r, 1);
         } else {
         }
 
@@ -301,6 +302,9 @@ if (Auth.loggedIn()) {
   const user_cart_length = cartArr.length;
 
   localStorage.setItem('cart_total', JSON.stringify(cart_total.toFixed(2)))
+
+  const guest_cart = JSON.parse(localStorage.getItem('new_cart')).length;
+  localStorage.setItem('guest_cart_quantity', guest_cart);
 
   if (error) return `...ERROR`;
   if (loading) return `...Loading`;

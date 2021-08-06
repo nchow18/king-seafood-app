@@ -44,6 +44,11 @@ const orderSchema = new Schema(
           type: String,
           required: false,
           trim: true
+        },
+        order_date: {
+          type: String,
+          required: false,
+          trim: true
         }
     },
     {

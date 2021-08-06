@@ -22,12 +22,18 @@ function FinalOrder(props) {
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
   const currentDate = today.toLocaleDateString("en-US", options);
 
+  const time_diff = Date.now() + (12 * 3600 * 1000);
+  console.log(time_diff);
+  const adjusted_date = new Date(time_diff);
+  const current_date = JSON.stringify(adjusted_date + ' Malaysia-Penang');
+  console.log(current_date);
+
   useEffect(() => {
 
     const previousOrder = [{
       cart_total: cart_total,
       cart: cart,
-      date: currentDate
+      date: current_date
     }]
   
     if (Auth.loggedIn() === true) {
@@ -49,7 +55,8 @@ function FinalOrder(props) {
             delivery_date: formData.delivery_date,
             name: formData.first_name + ' ' + formData.last_name,
             phone: formData.phone,
-            address: formData.address
+            address: formData.address,
+            order_date: current_date
           }
       }})
 
@@ -58,6 +65,25 @@ function FinalOrder(props) {
       }
       window.location.href = "/cart/ordered"
     } else {
+
+      try {
+        addOrder({
+          variables: {
+          input: {
+            cart: JSON.stringify(cart),
+            orderTotal: JSON.stringify(cart_total),
+            delivery_date: formData.delivery_date,
+            name: formData.first_name + ' ' + formData.last_name,
+            phone: formData.phone,
+            address: formData.address,
+            order_date: current_date
+          }
+      }})
+      } catch (e) {
+        console.log(e)
+      }
+
+
       //IF NOT LOGGED IN
       if (JSON.parse(localStorage.getItem('previous_orders')) === 'empty') {
         localStorage.setItem('previous_orders', JSON.stringify(previousOrder))

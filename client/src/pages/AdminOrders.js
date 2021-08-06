@@ -13,6 +13,8 @@ function AdminOrders() {
     const [ordersArray] = useState(orders);
     const [currentOrders, updateOrders] = useState(ordersArray)
 
+    console.log(orders);
+
     const deleteOrder = async (id) => {
 
       const index = orders.findIndex((order) => order._id === id)
@@ -46,7 +48,7 @@ function AdminOrders() {
                 <div className="order-container">
                   <div className="order-view-button" onClick={() => {deleteOrder(order._id)}}>REMOVE ORDER</div>               
                   <span><b>Order ID:</b> {order._id}</span>
-                  <span><b>Order Date:</b> {order.createdAt}</span>
+                  <span><b>Order Date:</b> {order.order_date}</span>
                   <span><b>Delivery Date:</b> {order.delivery_date}</span>
                   <span><b>Name:</b> {order.name}</span>
                   <span><b>Phone:</b> {order.phone}</span>
@@ -59,8 +61,8 @@ function AdminOrders() {
                         {order.new_cart.map((cart) => (
                           <div>
                             <span><b>Product:</b> {cart.product_name}</span>
-                            <span><b>Qty:</b> {cart.quantity}</span>
-                            <span><b>Price:</b> {cart.total_price}</span>
+                            <span><b>Qty:</b> {cart.product_quantity}</span>
+                            <span><b>Price:</b> {cart.total_price.toFixed(2)}</span>
                           </div>
                         ))}
                       </div>                      

@@ -162,6 +162,7 @@ export const ADD_ORDER = gql`
         name
         phone
         address
+        order_date
         }
     }
 `;
@@ -177,6 +178,7 @@ export const UPDATE_ORDER = gql`
         name
         phone
         address
+        order_date
         }
     }
 `;

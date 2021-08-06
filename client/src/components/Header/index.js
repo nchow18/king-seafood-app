@@ -29,7 +29,7 @@ function Header(props) {
   const publicArr = headerLinks.filter((link) => link.guest === true);
   const userArr = headerLinks.filter((link) => link.user === true);
   const adminArr = headerLinks.filter((link) => link.admin === true);
-  const user = data?.userMe.cart.length || 0;
+  const user = data?.userMe.cart.length;
   const user_cart_length = user;
 
   const headerArr = [];
@@ -75,7 +75,7 @@ function Header(props) {
               {currentHeaderLink.name === 'Products' && (
                 <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>Categories</Link>                
               )}
-              <Link to="/cart" className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2])}}>Cart ( {cartCount} )</Link>           
+              <Link to="/cart" className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2])}}>Cart ( {guest_cart} )</Link>           
 
               <Link to={headerLinks[3].href} className={`header-link ${currentHeaderLink.name === headerLinks[3].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[3])}}>{headerLinks[3].name}</Link>
 
@@ -83,7 +83,7 @@ function Header(props) {
 
               <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[6].name}</Link>
 
-              <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({cartCount})</b></i>
+              <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({guest_cart})</b></i>
             
               </>
             )}

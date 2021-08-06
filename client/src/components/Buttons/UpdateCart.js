@@ -78,9 +78,9 @@ function UpdateCartButton(props) {
       <div className="mobile-cart-quantity">
         <div>Quantity</div>
         <div className="quantity-counter">
-          <div onClick={() => {decreaseCount(); setNewCount(true)}}><i class="fas fa-minus"></i></div>
+          <div onClick={() => {decreaseCount(); setNewCount(true)}}><i className="fas fa-minus"></i></div>
           <div>{count}</div>
-          <div onClick={() => {increaseCount(); setNewCount(true)}}><i class="fas fa-plus"></i></div>
+          <div onClick={() => {increaseCount(); setNewCount(true)}}><i className="fas fa-plus"></i></div>
         </div>
         {/* <input className="mobile-cart-quantity-input" type="number" value={formData.quantity} onChange={handleInputChange} placeholder={product.product_quantity} min="1" name="quantity" /> */}
       </div>

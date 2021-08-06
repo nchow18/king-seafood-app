@@ -102,6 +102,7 @@ query {
     name
     phone
     address
+    order_date
   }
 }
 `;
@@ -119,6 +120,7 @@ query {
     name
     phone
     address
+    order_date
   }
 }
 `;

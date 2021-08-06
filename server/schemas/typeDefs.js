@@ -121,6 +121,7 @@ const typeDefs = gql`
     name: String
     phone: String
     address: String
+    order_date: String
   }
 
   input OrderInput {
@@ -132,6 +133,7 @@ const typeDefs = gql`
     name: String
     phone: String
     address: String
+    order_date: String
   }
 
   input OrderUpdate {
