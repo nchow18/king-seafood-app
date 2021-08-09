@@ -19,8 +19,8 @@ function WhatsApp() {
   }
 
   const message = formData.name + " || " + formData.phone + " || " + formData.message;
-  const number = '60103893421'
-
+  // const number = '60103893421'
+  const number = '60164223018'
   
   function sendMessage() {
    window.confirm('Proceed to send message?');
