@@ -99,7 +99,7 @@ function CheckoutDisplay(props) {
       // Using +1 for canada
 
       let url =
-        'https://api.whatsapp://send?text=' + message + '&phone=+' + number;
+        'https://api.whatsapp.com/send?text=' + message + '&phone=+' + number;
       Linking.openURL(url)
         .then((data) => {
           console.log('WhatsApp Opened');
