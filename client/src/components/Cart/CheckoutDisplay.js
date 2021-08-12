@@ -88,6 +88,8 @@ function CheckoutDisplay(props) {
   function sendMessage() {
     const confirm = window.confirm('Proceed to submit your order through Whatsapp?');
 
+    // https://api.whatsapp.com/send?text=First%20Name:%20Grace,%20%0a*Last%20Name:*%20Jong,%20%0a*Phone:*%200103893421,%20%0a*Address:*%20205,%20Jalan%20Perak,%20%0a*Message:*%20After%205pm,%20%0a*Delivery%20Date:*%202021-08-13%20%0a%20=====%20Item:1=====%20%0a%20Item:%20Halibut%20Steak%20%E5%A4%A7%E6%AF%94%E7%9B%AE%E9%B1%BC%E6%8E%92%20454g,%20Quantity:%201,%20Price:%2022.96%20%20%0a%20=====%20Item:2=====%20%0a%20Item:%20Halibut%20Fillet%20%E5%A4%A7%E6%AF%94%E7%9B%AE%E9%B1%BC%E7%89%87%20%C2%B1150g/pc*,%20Quantity:%202,%20Price:%2015.15%20,%20%0a*TOTAL%20PRICE:*%2038.11&phone=+60164223018
+
     if (confirm) {
       // // Check for perfect 10 digit length
       // if (formData.phone.length > 9) {
@@ -97,7 +99,7 @@ function CheckoutDisplay(props) {
       // Using +1 for canada
 
       let url =
-        'whatsapp://send?text=' + message + '&phone=+' + number;
+        'https://api.whatsapp://send?text=' + message + '&phone=+' + number;
       Linking.openURL(url)
         .then((data) => {
           console.log('WhatsApp Opened');
