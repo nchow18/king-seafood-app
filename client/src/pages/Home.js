@@ -3,35 +3,51 @@ import Auth from '../utils/auth';
 import { PROMO, PRODUCTS } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
 import { useLocation } from 'react-router-dom';
-import FeaturedCarousel from '../components/Carousel/FeaturedProducts';
-import PromoCarousel from '../components/Carousel/PromoBanner';
-import {Link} from 'react-router-dom';
-import AboutSection from '../components/About/About';
+
 import '../css/Home.css';
-import ProductCarousel from '../components/Carousel/RandomProducts'
-import MainProducts from '../components/Carousel/MainProducts';
-import SectionCategory from '../components/Home/SectionCategory';
-import Fish from '../assets/images/category/fish.png';
-import Fruit from '../assets/images/category/fruits.png';
-import Meat from '../assets/images/category/meat.png';
-import New from '../assets/images/category/new.png';
-import Scallop from '../assets/images/category/scallop.png';
-import Squid from '../assets/images/category/squid.png';
-import Hotpot from '../assets/images/category/hotpot.png';
-import Featured from '../assets/images/category/top-rated.png';
-import Vegetable from '../assets/images/category/vegetable.png';
-import Sale from '../assets/images/category/sale.png';
-import Special from '../assets/images/category/special.png';
-import Shellfish from '../assets/images/category/shellfish.png';
-import SaleSpecial from '../components/Home/SaleSpecial';
+import HomeContent from './../components/Home/HomeContent';
+import Fish from './../assets/images/category/fish.png';
+import Fruit from './../assets/images/category/fruits.png';
+import Meat from './../assets/images/category/meat.png';
+import New from './../assets/images/category/new.png';
+import Scallop from './../assets/images/category/scallop.png';
+import Squid from './../assets/images/category/squid.png';
+import Hotpot from './../assets/images/category/hotpot.png';
+import Featured from './../assets/images/category/top-rated.png';
+import Vegetable from './../assets/images/category/vegetable.png';
+import Sale from './../assets/images/category/sale.png';
+import Special from './../assets/images/category/special.png';
+import Shellfish from './../assets/images/category/shellfish.png';
+
+import NoMatch from './../pages/NoMatch';
+import Products from './../pages/Products';
+import Promotions from './../pages/Promotions';
+import Account from './../pages/Account';
+import Dashboard from './../pages/Dashboard';
+import SignIn from './../components/SignIn';
+import SignUp from './../components/Signup';
+import SingleOrder from './../pages/AdminSingleOrder';
+import MainPromo from './../components/Header/MainPromo';
+import About from './../pages/About';
+import WindowCart from './../components/Cart/WindowCart';
+import CheckoutDisplay from './../components/Cart/CheckoutDisplay';
+import FinalOrder from './../components/Cart/FinalOrder';
+import Ordered from './../components/Cart/Ordered';
+import PastOrders from './../components/Cart/PastOrders';
+
 
 function Home(props) {
 
   const {
     currentProductLink,
     setCurrentProductLink,
-    productLinks=[]
+    currentHeaderLink,
+    productLinks=[],
+    cartCount,
+    setCartCount
   } = props
+
+  console.log(currentHeaderLink);
 
   const [category] = useState([
     {
@@ -89,11 +105,10 @@ function Home(props) {
   const promo = data?.promo || {};
   const { data: Data } = useQuery(PRODUCTS);
   const products = Data?.products || {};
-  const location = useLocation();
   const featuredProducts = [];
 
   useEffect(() => {
-    setTimeout(displayPromo, 4000);
+    // setTimeout(displayPromo, 4000);
     const empty = {name: ""};
     localStorage.setItem('current_category', JSON.stringify(empty))
   }, [])
@@ -134,64 +149,49 @@ function Home(props) {
   Auth.setGlobalDiscount(promo[0].discount);
 
   return (
-  location.pathname === `/` &&
-  <>
-    <div className="home-page">
-      <MainProducts
-        category={category}
-        currentProductLink={currentProductLink}
-        setCurrentProductLink={setCurrentProductLink}
-        productLinks={productLinks}/>
-      <div className="home-banner-content">
-        <img alt="home-banner" src={`http://media.kingsseafood18.com/media/banner/${promo[0].main_banner}.jpg`} className="home-banner" />
-        <div className="logo-container">
-          <p>{promo[0].home_message}</p>
-          </div>
-        <div className="home-banner-text">
-        {/* TEXT HERE */}
-      
-        <Link to="/products"><div className="home-button-white">SHOP NOW</div></Link>
-        </div>
-      </div>
-
+    <div>
+      {currentHeaderLink.link === 'home' && (
+        <HomeContent
+          category={category}
+          currentProductLink={currentProductLink}
+          setCurrentProductLink={setCurrentProductLink}
+          products={products}
+          productLinks={productLinks}
+          promo={promo}
+          promotions={promo}
+          setPromo={setPromo}
+          currentHeaderLink={currentHeaderLink}
+          isPromo={isPromo} />
+      )}
+      {currentHeaderLink.link === 'cart' && (
+        <WindowCart
+          setCartCount={setCartCount} />
+      )}
+      {currentHeaderLink.link === 'promotions' && (
+        <Promotions />
+      )}
+      {currentHeaderLink.link === 'products' && (
+        <Products
+          currentProductLink={currentProductLink} 
+          setCurrentProductLink={setCurrentProductLink} 
+          productLinks={productLinks}
+          cartCount={cartCount}
+          setCartCount={setCartCount}
+        />
+      )}
+      {currentHeaderLink.link === 'signin' && (
+        <SignIn />
+      )}   
+      {currentHeaderLink.link === 'signup' && (
+        <SignUp />
+      )}
+      {currentHeaderLink.link === 'dashboard' && (
+        <Dashboard />
+      )}     
+      {currentHeaderLink.link === 'account' && (
+        <Account />
+      )}                                
     </div>
-    {isPromo === true && (
-      <div>
-        {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
-          <PromoCarousel
-            promotions={promo}
-            setPromo={setPromo}
-          />
-        )}
-      </div>
-    )}
-    <div className="home-section">
-      <SaleSpecial
-        products={products}
-      />        
-    </div>    
-    <div className="home-section">
-      <b className="section-title">Featured Products</b>
-      <FeaturedCarousel
-        products={products}
-      />        
-    </div>
-    <div className="home-section">
-      <b className="section-title">Categories</b>
-      <SectionCategory
-        currentProductLink={currentProductLink}
-        setCurrentProductLink={setCurrentProductLink}
-        productLinks={productLinks}
-      />        
-    </div>
-    <div className="home-section">
-      <b className="section-title">Popular Products</b>
-      <p></p>
-      <ProductCarousel />
-    </div>
-    <AboutSection
-      promo={promo} />
-  </>
   )
 }
 

@@ -26,26 +26,8 @@ function Header(props) {
 
   const { loading, data } = useQuery(USER_ME)
   const [isModal, setModal] = useState(false);
-  const publicArr = headerLinks.filter((link) => link.guest === true);
-  const userArr = headerLinks.filter((link) => link.user === true);
-  const adminArr = headerLinks.filter((link) => link.admin === true);
   const user = data?.userMe.cart.length;
   const user_cart_length = user;
-
-  const headerArr = [];
-   
-  if (!Auth.loggedIn()) {
-    //GUEST ACCOUNT
-      headerArr.push(publicArr);
-    } else {
-    if(Auth.getProfileType() === 'admin') {
-    //ADMIN ACCOUNT
-      headerArr.push(adminArr)
-    } else {
-    //USER ACCOUNT
-      headerArr.push(userArr);
-    }
-  }
 
   // prevent guest_cart_quantity to be below 0
   const guest_cart = localStorage.getItem('guest_cart_quantity');
@@ -53,6 +35,10 @@ function Header(props) {
   if (guest_cart <= 0) {
     localStorage.setItem('guest_cart_quantity', 0)
   }
+
+  const guestLinks = headerLinks.filter((link) => link.guest === true);
+  const adminLinks = headerLinks.filter((link) => link.admin === true);
+  const userLinks = headerLinks.filter((link) => link.user === true);
 
   if (loading) return `...Loading`;
 
@@ -66,52 +52,29 @@ function Header(props) {
             </div>
           </Link>
           <div className="links">
-            {Auth.loggedIn() === false && (
+            {Auth.loggedIn() ? (
               <>
-              <Link to={headerLinks[0].href} className={`header-link ${currentHeaderLink.name === headerLinks[0].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[0])}}>{headerLinks[0].name}</Link>
-              {currentHeaderLink.name !== 'Products' && (
-                <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>{headerLinks[1].name}</Link>
-              )}
-              {currentHeaderLink.name === 'Products' && (
-                <Link to={headerLinks[1].href} className={`header-link ${currentHeaderLink.name === headerLinks[1].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[1])}}>Categories</Link>                
-              )}
-              <Link to="/cart" className={`header-link ${currentHeaderLink.name === headerLinks[2].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[2])}}>Cart ( {guest_cart} )</Link>           
-
-              <Link to={headerLinks[3].href} className={`header-link ${currentHeaderLink.name === headerLinks[3].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[3])}}>{headerLinks[3].name}</Link>
-
-              <Link to={headerLinks[5].href} className={`header-link ${currentHeaderLink.name === headerLinks[5].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[5])}}>{headerLinks[5].name}</Link>
-
-              <Link to={headerLinks[6].href} className={`header-link ${currentHeaderLink.name === headerLinks[6].name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(headerLinks[7])}}>{headerLinks[6].name}</Link>
-
-              <i className="fas fa-shopping-cart cart-link" onClick={() => {setModal(true)}}><b> ({guest_cart})</b></i>
-            
-              </>
-            )}
-            {Auth.getAdmin() === true && (
-              <>
-              
-              {headerLinks.filter((link) => link.admin === true).map((link) => (
+              {Auth.getAdmin() ? (
                 <>
-                  <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
-                </>        
-              ))}
-                <Link to="/cart" className="header-link" onClick={() => { setCartModal(true)}}>Cart ( {user_cart_length} )</Link>
+                {adminLinks.map((link) => (
+                  <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
+                ))}
               </>
-            )}
+              ) : (
+                <>
+                  {userLinks.map((link) => (
+                    <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
+                  ))}
+                </>
+              )}
 
-            {Auth.getAdmin() === false && (
+              </>
+            ) : (
               <>
-              {headerLinks.filter((link) => link.user === true).map((link) => (
-                  <Link key={link.name} to={link.href} className={`header-link ${currentHeaderLink.name === link.name && `headerActive`}`} onClick={() => { setCurrentHeaderLink(link)}}>{link.name}</Link>
+              {guestLinks.map((link) => (
+                <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
               ))}
-                <Link to="/cart" className="header-link" >Cart ( {user_cart_length} )</Link>
-
               </>
-            )}
-            {Auth.loggedIn() === true && (
-              <>               
-              <Link key='log-out' to="/" className="header-link" onClick={logout} >Log Out</Link>
-              </>   
             )}
           </div>         
         </div>
