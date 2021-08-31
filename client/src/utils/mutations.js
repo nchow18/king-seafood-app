@@ -52,7 +52,7 @@ export const ADD_USER = gql`
 
 
 export const REMOVE_CART = gql`
-  mutation removeCartItem($product_id: ID!) {
+  mutation removeCartItem($product_id: String) {
     removeCartItem(product_id: $product_id) {
       _id
     }
@@ -60,8 +60,8 @@ export const REMOVE_CART = gql`
 `;
 
 export const UPDATE_USER = gql`
-    mutation updateUser($input: UserAccountInput) {
-        updateUser(input: $input) {
+    mutation updateUserAccount($input: UserAccountInput) {
+        updateUserAccount(input: $input) {
           _id
         }
     }
@@ -198,6 +198,14 @@ export const ADD_USER_ORDER = gql`
 export const CLEAR_CART = gql`
   mutation clearCart($user_id: String) {
     clearCart(user_id: $user_id) {
+      _id
+    }
+  }
+`;
+
+export const UPDATE_USER_ADDRESS = gql`
+  mutation updateUserAddress($input: AddressInput) {
+    updateUserAddress(input: $input) {
       _id
     }
   }

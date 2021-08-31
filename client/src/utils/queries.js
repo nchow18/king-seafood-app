@@ -18,7 +18,7 @@ query user($user_id: ID!) {
 		phone
     cart {
       _id
-      inventory_id
+      product_id
       quantity
       product_name
       product_price
@@ -26,17 +26,10 @@ query user($user_id: ID!) {
       product_bulk_price
       product_bulk_quantity
     }
-    address{
-      street_name
-      street_number
-      city
-      region
-      state
-      postal_code
-    }
+    address
     pastOrders {
       _id
-      inventory_id
+      product_id
       quantity
       product_name
       product_price
@@ -71,7 +64,7 @@ query product($product_id: ID!) {
     product_featured
     createdAt
     product_views
-    inventory_id
+    product_id
     product_new
   }
 }
@@ -99,7 +92,7 @@ query {
     product_featured
     createdAt
     product_views
-    inventory_id
+    product_id
     product_new
   }
 }
@@ -184,7 +177,7 @@ query { userMe {
   phone
   cart {
     _id
-    inventory_id
+    product_id
     quantity
     product_name
     product_price
@@ -192,13 +185,10 @@ query { userMe {
     product_bulk_price
     product_bulk_quantity
   }
-  address {
-    street_name
-    street_number
-  }
+  address
   pastOrders {
     _id
-    inventory_id
+    product_id
     quantity
     product_name
     product_price

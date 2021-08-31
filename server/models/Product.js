@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema(
   {
-    inventory_id: {
+    product_id: {
       type: String,
       required: false,
       trim: true

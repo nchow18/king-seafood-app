@@ -91,7 +91,7 @@ const resolvers = {
 
                 return await User.findByIdAndUpdate(
                     context.user._id,
-                    { $pull: { cart: { $in: { product_id: [product_id] }}}},
+                    { $pull: { cart: { product_name: { $in: [product_id] }}}},
                     { new: true }
                 )
             }
@@ -280,7 +280,7 @@ const resolvers = {
           if (context.user) {
             await User.findByIdAndUpdate(
               context.user._id,
-              { $pull: { cart: { $in: { product_id: product_id }}}},
+              { $pull: { cart: { product_name: { $in: [product_id] }}}},
               { new: true }
             )
 

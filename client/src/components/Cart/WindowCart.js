@@ -8,6 +8,7 @@ import MoreInfo from './MoreInfo';
 import { Link } from 'react-router-dom';
 import PastOrders from './PastOrders';
 import CartList from './CartList';
+import CheckOut from '../Cart/CheckOut';
 
 function WindowCart(props) {
 
@@ -18,13 +19,8 @@ function WindowCart(props) {
   } = props
 
   const [removeCart, { error }] = useMutation(REMOVE_CART);
+  const user_cart = user_me.cart;
 
-  const removeProduct = async (id) => {
-
-    if (Auth.loggedIn() === true) {
-      alert('product removed')
-    }
-  }
 
   return (
     <div className="window-cart-content">
@@ -33,7 +29,12 @@ function WindowCart(props) {
           <div className="window-cart-column">
             <CartList
               user_me={user_me}
-              products={products} />      
+              products={products} />
+            <CheckOut 
+              user_me={user_me}
+              products={products}
+              user_cart={user_cart}
+              />
             <div className="more-info-container">
               <MoreInfo />
             </div>

@@ -7,7 +7,7 @@ const typeDefs = gql`
     last_name: String
     email: String
     admin: Boolean
-    address: [Address]
+    address: String
     phone: String
     cart: [Cart]
     pastOrders: [UserOrders]
@@ -15,7 +15,7 @@ const typeDefs = gql`
 
   type UserOrders {
     _id: ID
-    inventory_id: String,
+    product_id: String,
     quantity: Int,
     product_name: String
     product_price: String
@@ -36,7 +36,7 @@ const typeDefs = gql`
 
   type Cart {
     _id: ID
-    inventory_id: String
+    product_id: String
     quantity: Int
     product_name: String
     product_price: String
@@ -51,7 +51,7 @@ const typeDefs = gql`
     email: String
     password: String
     admin: Boolean
-    address: [AddressInput]
+    address: String
     phone: String
     cart: [CartInput]
     pastOrders: [UserOrdersInput]
@@ -67,7 +67,7 @@ const typeDefs = gql`
   }
 
   input UserOrdersInput {
-    inventory_id: String,
+    product_id: String,
     quantity: Int,
     product_name: String
     product_price: String
@@ -77,7 +77,7 @@ const typeDefs = gql`
   }
 
   input CartInput {
-    inventory_id: String
+    product_id: String
     quantity: Int
     product_name: String
     product_price: String
@@ -106,7 +106,7 @@ const typeDefs = gql`
     product_bulk_price: String
     product_featured: Boolean
     product_views: Int
-    inventory_id: String
+    product_id: String
     product_new: Boolean
   }
 
@@ -129,7 +129,7 @@ const typeDefs = gql`
     product_bulk_price: String
     product_featured: Boolean
     product_views: Int
-    inventory_id: String
+    product_id: String
     product_new: Boolean
   }
 
@@ -251,7 +251,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addCart(input: CartInput): Cart
     updateCart(input: CartInput, product_id: String): Cart
-    removeCartItem(product_id: ID!): Cart
+    removeCartItem(product_id: String): Cart
     addProduct(input: ProductInput): Product
     removeProductPicture(product_id: String!, product_name: String): Product
     addProductPicture(product_id: String): Product

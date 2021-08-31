@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks'
 import { ADD_VIEWS, ADD_CART } from '../../utils/mutations';
 
@@ -33,7 +33,7 @@ function AddCart(props) {
         variables: {
           product_id: product._id,
           input: {
-            inventory_id: product.inventory_id,
+            product_id: product.product_id,
             quantity: currentQuantity,
             product_name: product.product_name,
             product_price: product.product_price,
@@ -45,7 +45,7 @@ function AddCart(props) {
       })
 
       user_me.cart.push({
-        inventory_id: product.inventory_id,
+        product_id: product.product_id,
         quantity: currentQuantity,
         product_name: product.product_name,
         product_price: product.product_price,

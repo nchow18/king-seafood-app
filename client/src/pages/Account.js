@@ -6,11 +6,16 @@ import { USER } from '../utils/queries';
 import { validateEmail } from '../utils/helpers'
 import '../css/Account.css';
 
-function Profile() {
+function Profile(props) {
+
+  const {
+    user_me
+  } = props
+
+  console.log(user_me);
 
     const token = Auth.getProfile();
     const [errorMessage, setErrorMessage] = useState('');
-    const {loading, data} = useQuery(USER, { variables: { user_id: token.data._id }})
     const [updateUser, { error }] = useMutation(UPDATE_USER);
     const [updateAddress] = useMutation(UPDATE_ADDRESS);
     const [formData, setFormData] = useState({
@@ -56,7 +61,7 @@ function Profile() {
         console.log('errorMessage', errorMessage);
     }
 
-    const user = data?.user || {};
+    const user = user_me;
     const address = user.address;
 
     if (token) {
@@ -103,7 +108,6 @@ function Profile() {
         }
     }
 
-    if (loading) return 'Loading...';
     if (error) return 'ERROR...';
 
     return (
@@ -149,7 +153,7 @@ function Profile() {
                                 className="account-input-width"
                                 disabled={!(formData.first_name && formData.last_name && formData.email && formData.password)} 
                                 type="submit">Update Information</button>
-                            <div>Street Number</div>
+                            {/* <div>Street Number</div>
                             <input 
                                 className="account-input-width" 
                                 onChange={handleInputChange} 
@@ -192,7 +196,7 @@ function Profile() {
                               <button 
                                 className="account-input-width"
                                 disabled={!(formData.street_number && formData.street_name && formData.region && formData.postal_code && formData.city && formData.state)} 
-                                onClick={updateOnlyAddress}>Update Address</button>
+                                onClick={updateOnlyAddress}>Update Address</button> */}
 
                         </form>               
                 </div>

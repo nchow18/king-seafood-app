@@ -200,7 +200,8 @@ function Home(props) {
         <Dashboard />
       )}     
       {currentHeaderLink.link === 'account' && (
-        <Account />
+        <Account
+          user_me={user_me} />
       )}                              
     </div>
   )

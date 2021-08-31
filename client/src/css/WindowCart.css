@@ -5,8 +5,62 @@
   flex-direction: column;
 }
 
-.cart-list > span {
+.cart-list > div {
+  display: grid;
+  grid-template-columns: 60% 30% 5%;
+  width: 100%;
+  margin: .25rem 0;
+}
+
+.cart-list > div > span {
   font-size: .8rem;
+}
+
+.cart-delete {
+  background-color: red;
+  width: auto;
+  text-align: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.cart-delete:hover {
+  background-color: rgb(254, 94, 94);
+}
+
+.cart-list-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 2rem;
+}
+
+.cart-list-counter > div > span {
+  padding: .25rem .75rem;
+}
+
+.cart-list-counter > div > span:nth-child(1) {
+  background-color: lightgray;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.cart-list-counter > div > span:nth-child(1):hover {
+  background-color: rgb(146, 146, 146);
+}
+
+.cart-list-counter > div > span:nth-child(3):hover {
+  background-color: rgb(146, 146, 146);
+}
+
+.cart-list-counter > div > span:nth-child(2) {
+  padding: .5rem .75rem;
+}
+
+.cart-list-counter > div > span:nth-child(3) {
+  background-color: lightgray;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const cartSchema = new Schema(
     {
-      inventory_id: {
+      product_id: {
           type: String,
           required: true,
           trim: true
@@ -62,7 +62,7 @@ const addressSchema = new Schema(
 
 const pastOrdersSchema = new Schema(
   {
-    inventory_id: {
+    product_id: {
       type: String,
       required: true,
       trim: true
@@ -112,7 +112,7 @@ const userSchema = new Schema(
             type: Boolean,
             default: false
         },
-        address: [addressSchema],
+        address: String,
         phone: {
             type: String
         },
