@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
-import { PROMO, PRODUCTS } from '../utils/queries';
+import { PROMO, PRODUCTS, USER_ME } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
-import { useLocation } from 'react-router-dom';
+
 
 import '../css/Home.css';
 import HomeContent from './../components/Home/HomeContent';
@@ -46,8 +46,6 @@ function Home(props) {
     cartCount,
     setCartCount
   } = props
-
-  console.log(currentHeaderLink);
 
   const [category] = useState([
     {
@@ -100,12 +98,19 @@ function Home(props) {
 		},
   ])
 
+  const [pastOrders, setPastOrders] = useState(false);
   const [isPromo, setPromo] = useState(false);
   const { loading, data } = useQuery(PROMO);
+  const { data: dataUserMe } = useQuery(USER_ME);
   const promo = data?.promo || {};
   const { data: Data } = useQuery(PRODUCTS);
   const products = Data?.products || {};
   const featuredProducts = [];
+  const user_me = dataUserMe?.userMe || {};
+  const user_cart = user_me.cart;
+
+  console.log(user_me);
+  console.log(user_cart);
 
   useEffect(() => {
     // setTimeout(displayPromo, 4000);
@@ -165,10 +170,14 @@ function Home(props) {
       )}
       {currentHeaderLink.link === 'cart' && (
         <WindowCart
-          setCartCount={setCartCount} />
+          setCartCount={setCartCount}
+          products={products}
+          user_me={user_me}
+          setPastOrders={setPastOrders} />
       )}
       {currentHeaderLink.link === 'promotions' && (
-        <Promotions />
+        <Promotions
+          promotions={promo} />
       )}
       {currentHeaderLink.link === 'products' && (
         <Products
@@ -177,6 +186,8 @@ function Home(props) {
           productLinks={productLinks}
           cartCount={cartCount}
           setCartCount={setCartCount}
+          products={products}
+          user_me={user_me}
         />
       )}
       {currentHeaderLink.link === 'signin' && (
@@ -190,7 +201,7 @@ function Home(props) {
       )}     
       {currentHeaderLink.link === 'account' && (
         <Account />
-      )}                                
+      )}                              
     </div>
   )
 }

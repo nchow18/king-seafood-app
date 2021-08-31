@@ -17,8 +17,14 @@ query user($user_id: ID!) {
     email
 		phone
     cart {
-      product_id
+      _id
+      inventory_id
       quantity
+      product_name
+      product_price
+      product_sale_price
+      product_bulk_price
+      product_bulk_quantity
     }
     address{
       street_name
@@ -27,6 +33,16 @@ query user($user_id: ID!) {
       region
       state
       postal_code
+    }
+    pastOrders {
+      _id
+      inventory_id
+      quantity
+      product_name
+      product_price
+      product_sale_price
+      product_bulk_price
+      product_bulk_quantity
     }
   }
 }
@@ -160,21 +176,36 @@ query {
 `;
 
 export const USER_ME = gql`
-query {userMe {
+query { userMe {
   _id
   first_name
   last_name
   email
   phone
   cart {
-    product_id
+    _id
+    inventory_id
     quantity
+    product_name
+    product_price
+    product_sale_price
+    product_bulk_price
+    product_bulk_quantity
   }
-  address{
+  address {
     street_name
     street_number
   }
-  pastOrders
+  pastOrders {
+    _id
+    inventory_id
+    quantity
+    product_name
+    product_price
+    product_sale_price
+    product_bulk_price
+    product_bulk_quantity
+  }
 }
 }
 `;

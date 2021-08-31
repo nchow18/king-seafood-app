@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node config/seeds.js"
+    "seedUser": "node config/seeds_users.js",
+    "seedProduct": "node config/seeds_products.js"
   },
   "keywords": [],
   "author": "",

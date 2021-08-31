@@ -49,9 +49,6 @@ const resolvers = {
         addUser: async (parent, { input }) => {
             const user = await User.create(input);
             const token = signToken(user);
-            console.log(token);
-            console.log(user);
-
 
             return { token, user };
         },
@@ -80,21 +77,7 @@ const resolvers = {
 
             return { token, user }
         },
-        addCart: async (parent, { input }, context) => {
-
-            if (context.user) {
-                const product_id = input[0].product_id;
-                const user = await User.findById(context.user._id)
-
-                    return await User.findByIdAndUpdate(
-                        { _id: context.user._id },
-                        {$addToSet: { cart: input[0] }},
-                        { new: true }
-                    )
-                }
-        throw new AuthenticationError('Not Logged in');
-        },
-        clearCart: async(parent, { user_id }, context) => {
+        clearCart: async(parent, context) => {
           if(context.user) {
             return await User.findByIdAndUpdate(
               context.user._id,
@@ -102,19 +85,19 @@ const resolvers = {
             )
           }
         },
-        removeCart: async(parent, { product_id }, context) => {
+        removeCartItem: async(parent, { product_id }, context) => {
 
             if(context.user) {
 
                 return await User.findByIdAndUpdate(
                     context.user._id,
-                    { $pull: { cart: { product_id: product_id }}},
+                    { $pull: { cart: { $in: { product_id: [product_id] }}}},
                     { new: true }
                 )
             }
             throw new AuthenticationError('Not logged in');
         },
-        updateUser: async (parent, { input }, context) => {
+        updateUserAccount: async (parent, { input }, context) => {
 
             if (context.user) {
                 return await User.findByIdAndUpdate(
@@ -124,7 +107,18 @@ const resolvers = {
                 )
             }
             throw new AuthenticationError('Not logged in');
-        },  
+        },
+        updateUserAddress: async (parent, { input }, context) => {
+
+          if (context.user) {
+              return await User.findByIdAndUpdate(
+                  context.user._id,
+                  {...input},
+                  { new: true }
+              )
+          }
+          throw new AuthenticationError('Not logged in');
+        },        
         addProduct: async(parent, { input }, context) => {
 
             if (context.user.admin === true) {
@@ -153,24 +147,24 @@ const resolvers = {
           }
           throw new AuthenticationError('Not Logged In');
         },
-        removeProductPicture: async(parent, { product_id, product_url }, context) => {
+        removeProductPicture: async(parent, { product_id, product_name }, context) => {
           if (context.user.admin === true) {
             return await Product.findByIdAndUpdate(
               product_id,
-              {$pull: { product_picture: { $in: [ product_url ] }}}
+              {$pull: { product_picture: { $in: [ product_name ] }}}
             )
           }
           throw new AuthenticationError('Not Logged In');
         },
-        updateProductPicture: async(parent, { product_url, product_id, product_old_url}, context) => {
+        updateProductPicture: async(parent, { new_picture_name, product_id, old_picture_name}, context) => {
           if (context.user.admin === true) {
             await Product.findByIdAndUpdate(
               product_id,
-              {$pull: { product_picture: { $in: [ product_old_url ] }}}
+              {$pull: { product_picture: { $in: [ old_picture_name ] }}}
             )
             return await Product.findByIdAndUpdate(
               product_id,
-              {$push: { product_picture: product_url }}
+              {$push: { product_picture: new_picture_name }}
             )
           }
           throw new AuthenticationError('Not Logged In');
@@ -247,56 +241,57 @@ const resolvers = {
             }
             throw new AuthenticationError('Not Admin');
         },
-        updateUserAddress: async(parent, { input, user_id }, context) => {
+        updateUserAddress: async(parent, { input }, context) => {
             if(context.user) {
 
                 await User.findByIdAndUpdate(
-                    user_id,
+                    context.user._id,
                     {$set: { address: [] }},
                     { new: true }
                 )
                 return await User.findByIdAndUpdate(
-                    user_id,
+                    context.user._id,
                     {$push: { address: input }}
                 )
             }
             throw new AuthenticationError('Not Logged In');
         },
-        updateUserAccount: async(parent, { input, user_id }, context) => {
+        updateUserAccount: async(parent, { input }, context) => {
             if (context.user) {
                 return await User.findByIdAndUpdate(
-                    user_id,
+                    context.user._id,
                     {...input},
                     { new: true }
                 )
             }
             throw new AuthenticationError('Not Logged In');
         },
-        updateCart: async(parent, { quantity, product_id }, context) => {
+        addCart: async(parent, {input}, context) => {
           if (context.user) {
-            const user_data = await User.findById(context.user._id);
-            var index = '';
-
-            for (var i = 0; i < user_data.cart.length; i++) {
-                if (user_data.cart[i].product_id === product_id) {
-                  index = i;
-                }
-            }
-
+            return await User.findByIdAndUpdate(
+              context.user._id,
+              { $push: { cart: input }},
+              { new: true }
+            )
+          }
+          throw new AuthenticationError('Not Logged In')
+        },
+        updateCart: async(parent, { input, product_id }, context) => {
+          if (context.user) {
             await User.findByIdAndUpdate(
               context.user._id,
-              {$pull: { cart: { product_id: product_id }}}
+              { $pull: { cart: { $in: { product_id: product_id }}}},
+              { new: true }
             )
 
             return await User.findByIdAndUpdate(
               context.user._id,
-              {$addToSet: {cart: { quantity: quantity, product_id: product_id }}},
+              { $push: { cart: input }},
               { new: true }
             )
           }
           throw new AuthenticationError('Not Logged In');
         }
-
     }
 };
 

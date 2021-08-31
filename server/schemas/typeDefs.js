@@ -9,21 +9,41 @@ const typeDefs = gql`
     admin: Boolean
     address: [Address]
     phone: String
-    stripe_customer_id: String
-    stripe_setup_intent: String
     cart: [Cart]
-    pastOrders: [String]
+    pastOrders: [UserOrders]
+  }
+
+  type UserOrders {
+    _id: ID
+    inventory_id: String,
+    quantity: Int,
+    product_name: String
+    product_price: String
+    product_sale_price: String
+    product_bulk_price: String
+    product_bulk_quantity: Int
+  }
+
+  type Address {
+    _id: ID
+    street_name: String,
+    street_number: String,
+    city: String
+    postal_code: String,
+    region: String,
+    state: String
   }
 
   type Cart {
-    product_id: String
+    _id: ID
+    inventory_id: String
     quantity: Int
-  }
-
-  input CartInput {
-    product_id: String
-    quantity: Int
-  }
+    product_name: String
+    product_price: String
+    product_sale_price: String
+    product_bulk_price: String
+    product_bulk_quantity: Int
+  }          
 
   input UserInput {
     first_name: String
@@ -33,26 +53,37 @@ const typeDefs = gql`
     admin: Boolean
     address: [AddressInput]
     phone: String
-    cart: [String]
-    pastOrders: [String]
+    cart: [CartInput]
+    pastOrders: [UserOrdersInput]
   }
 
-  input UserOrders {
-    pastOrders: [String]
+  input AddressInput {
+    street_name: String,
+    street_number: String,
+    city: String
+    postal_code: String,
+    region: String,
+    state: String
   }
 
-  input UserAccountInput {
-    first_name: String
-    last_name: String
-    email: String
-    password: String
-    admin: Boolean
-    address: [AddressInput]
-    phone: String
-    cart: [String]
-    pastOrders: [String]
-    stripe_customer_id: String
-    stripe_setup_intent: String
+  input UserOrdersInput {
+    inventory_id: String,
+    quantity: Int,
+    product_name: String
+    product_price: String
+    product_sale_price: String
+    product_bulk_price: String
+    product_bulk_quantity: Int
+  }
+
+  input CartInput {
+    inventory_id: String
+    quantity: Int
+    product_name: String
+    product_price: String
+    product_sale_price: String
+    product_bulk_price: String
+    product_bulk_quantity: Int
   }
 
   type Product {
@@ -77,14 +108,6 @@ const typeDefs = gql`
     product_views: Int
     inventory_id: String
     product_new: Boolean
-  }
-
-  type ProductPicture {
-    product_url: [String]
-  }
-
-  input ProductPictureInput {
-    product_url: [String]
   }
 
   input ProductInput {
@@ -125,6 +148,7 @@ const typeDefs = gql`
   }
 
   input OrderInput {
+    _id: ID
     orderTotal: String
     cart: [String]
     paid: Boolean
@@ -142,24 +166,6 @@ const typeDefs = gql`
 
   input OrderStatus {
     delivery_status: Boolean
-  }
-
-  type Address {
-    street_name: String!
-    city: String!
-    street_number: String!
-    postal_code: String!
-    region: String!
-    state: String!
-  }
-
-  input AddressInput {
-    street_name: String!
-    city: String!
-    street_number: String!
-    postal_code: String!
-    region: String!
-    state: String!
   }
 
   type Promo {
@@ -221,48 +227,6 @@ const typeDefs = gql`
     notice_message: String
   }
 
-  type Customer {
-    id: String
-    object: String
-    address: stripeAddress
-    balance: Float
-    currency: String
-    description: String
-    email: String
-    name: String
-    phone: String
-  }
-
-  type stripeAddress {
-    city: String
-    country: String
-    line1: String
-    line2: String
-    postal_code: String
-    state: String
-  }
-
-  type Charge {
-    id: String
-    object: String
-    amount: Int
-    receipt_url: String
-    status: String
-  }
-
-  type Payment{
-    id: String
-    amount: Int
-    created: Int
-    currency: String
-    description: String
-    status: String
-  }
-
-  type Payments {
-    data: [Payment]
-  }
-
   type Auth {
     token: ID!
     user: User
@@ -285,26 +249,25 @@ const typeDefs = gql`
   type Mutation {
     addUser(input: UserInput): Auth
     login(email: String!, password: String!): Auth
-    addCart(input: [CartInput]): User
-    updateCart(quantity: Int, product_id: String!): User
-    removeCart(product_id: ID!): User
-    updateUser(input: UserAccountInput): User
-    addProduct(input: ProductInput!): Product
-    removeProductPicture(product_id: String!, product_url: String): Product
-    addProductPicture(product_url: String, product_id: String!): Product
+    addCart(input: CartInput): Cart
+    updateCart(input: CartInput, product_id: String): Cart
+    removeCartItem(product_id: ID!): Cart
+    addProduct(input: ProductInput): Product
+    removeProductPicture(product_id: String!, product_name: String): Product
+    addProductPicture(product_id: String): Product
     addProductView(product_id: String): Product
-    updateProductPicture(product_url: String, product_id: String!, product_old_url: String!): Product
-    updateProduct(input: ProductInput!, product_id: ID!): Product
+    updateProductPicture(product_id: String, new_picture_name: String, old_picture_name: String): Product
+    updateProduct(input: ProductInput, product_id: ID!): Product
     removeProduct(product_id: ID!): Product
     addOrder(input: OrderInput): Order
-    updateOrder(input: OrderUpdate, order_id: ID!): Order
-    removeOrder(order_id: String!): Order
-    updateOrderStatus(input: OrderStatus, order_id: ID!): Order
+    updateOrder(input: OrderUpdate, order_id: ID): Order
+    removeOrder(order_id: String): Order
+    updateOrderStatus(input: OrderStatus, order_id: ID): Order
     createPromo(input: PromoInput): Promo
-    updatePromo(input: PromoInput, promo_id: ID!): Promo
-    updateUserAccount(input: UserInput, user_id: ID!): User
-    updateUserAddress(input: AddressInput, user_id: ID!): User
-    addUserOrder(input: UserOrders): User
+    updatePromo(input: PromoInput, promo_id: ID): Promo
+    updateUserAccount(input: UserInput): User
+    updateUserAddress(input: AddressInput): Address
+    addUserOrder(input: UserOrdersInput): User
     clearCart(user_id: String): User
   }
 

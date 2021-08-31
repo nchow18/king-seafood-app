@@ -1,56 +1,19 @@
 import React, { useState } from 'react';
 import '../../css/Products.css';
-import { useMutation } from '@apollo/react-hooks'
-import { ADD_VIEWS } from '../../utils/mutations';
-import SingleProduct from '../SingleProduct/';
-import Quantity from '../Quantity';
+
+import AddCart from './AddCart';
 
 function ProductCard(props) {
 
   //process.env.PUBLIC_URL
 
   const {
-  products=[],
   productCategory=[],
-  user,
-  setCategoryModal,
-  setCartCount
+  user_me,
   } = props
-
-  const [productArr] = useState({...products})
-
-  const [isModal, setModal] = useState(false);
-  const [currentSingleProduct, setSingleProduct] = useState(productArr[0])
-  const [setView, { error }] = useMutation(ADD_VIEWS);
-
-  function addView(product_id) {
-
-    try {
-      setView({
-        variables: {
-        product_id: product_id
-        }
-      })
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  if (error) return `...ERROR`;
 
   return (
   <>
-    {isModal && (
-    <div className="single-product-modal-container">
-      <SingleProduct 
-        setModal={setModal}
-        singleProduct={currentSingleProduct}
-        user={user}
-        setCategoryModal={setCategoryModal}
-        setCartCount={setCartCount}
-      />
-    </div>
-    )}
   {productCategory.map((product) => (
     <div key={product._id} className="product-card">
       {product.product_status === false && (
@@ -61,7 +24,7 @@ function ProductCard(props) {
         </>
       )}
       <div>
-          <img onClick={() => {setSingleProduct(product); setModal(true); addView(product._id)}} alt={product.product_name} src={`http://media.kingsseafood18.com/media/products/thumbnails/tn_${product.product_picture[0]}.jpg`} className="product-card-picture"/>
+          <img onClick={() => {}} alt={product.product_name} src={`http://media.kingsseafood18.com/media/products/thumbnails/tn_${product.product_picture[0]}.jpg`} className="product-card-picture"/>
       </div>
     <div className="product-card-description">
       <div className="product-card-font">
@@ -92,14 +55,10 @@ function ProductCard(props) {
         </>
       )}
       </div>
-
-      <div className="display-none">
-        <Quantity
-          product={product}
-          user={user}
-        />
-      </div>
     </div>
+        <AddCart 
+          product={product}
+          user_me={user_me} />
     </div>
   ))}
   </>

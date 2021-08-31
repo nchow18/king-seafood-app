@@ -1,20 +1,88 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const addressSchema = require('./Address');
 
 const cartSchema = new Schema(
     {
-        product_id: {
-            type: String,
-            required: true,
-            trim: true
-        },
-        quantity: {
-            type: Number,
-            required: true,
-            trim: true
-        }
+      inventory_id: {
+          type: String,
+          required: true,
+          trim: true
+      },
+      quantity: {
+          type: Number,
+          required: true,
+          trim: true
+      },
+      product_name: String,
+      product_price: String,
+      product_sale_price: String,
+      product_bulk_price: String,
+      product_bulk_quantity: Number
+    },
+    {
+      toJSON: {
+        getters: true
+      }
     }
+)
+
+const addressSchema = new Schema(
+  {
+      street_name: {
+        type: String,
+        required: true
+    },
+    street_number: {
+        type: String,
+        required: true,   
+    },
+    city: {
+        type: String,
+        required: true  
+    },
+    postal_code: {
+        type: String,
+        required: true  
+    },
+    region: {
+        type: String,
+        required: true 
+    },
+    state: {
+        type: String,
+        required: true 
+    }
+  },
+  {
+    toJSON: {
+      getters: true
+    }
+  }
+)
+
+const pastOrdersSchema = new Schema(
+  {
+    inventory_id: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    quantity: {
+        type: Number,
+        required: true,
+        trim: true
+    },
+    product_name: String,
+    product_price: String,
+    product_sale_price: String,
+    product_bulk_price: String,
+    product_bulk_quantity: Number  
+  },
+  {
+    toJSON: {
+      getters: true
+    }
+  }
 )
 
 const userSchema = new Schema(
@@ -49,15 +117,7 @@ const userSchema = new Schema(
             type: String
         },
         cart: [cartSchema],
-        pastOrders: [String],
-        stripe_customer_id: {
-            type: String,
-            match: [/^cus_.+/, 'Must be a valid stripe customer id!']
-        },
-        stripe_setup_intent: {
-            type: String,
-            match: [/^seti_.+/, 'Must be a valid stripe setup_intent id!']
-        },
+        pastOrders: [pastOrdersSchema],
     },
     {
       toJSON: {

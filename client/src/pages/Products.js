@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Auth from '../utils/auth';
+import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 // import { useLocation } from 'react-router-dom';
 import ProductHeader from '../components/ProductHeader';
-import { useQuery } from '@apollo/react-hooks';
-import { PRODUCTS, USER_ME } from '../utils/queries';
-
 
 function Products(props) {
-
 
   const {
     productLinks=[],
     currentProductLink,
     setCurrentProductLink,
-    setCartCount
+    setCartCount,
+    products,
+    user_me
   } = props
-
-  const {data: dataR} = useQuery(USER_ME);
-  const { loading, data } = useQuery(PRODUCTS);
-  const products = data?.products || {};
 
   const [categoryModal, setCategoryModal] = useState(false);
 
@@ -36,8 +29,6 @@ function Products(props) {
     window.scrollTo(0,0);
   }
 
-  if (loading) return `...Loading`;
-
   function scrollTop() {
     window.scrollTo(0,0);
   }
@@ -45,9 +36,8 @@ function Products(props) {
   var productCategory = [];
 
   if (currentProductLink.name === 'All') {
-    var sortNumber = products;
     //sorting by inventory_id
-    const invArr = sortNumber.sort((a,b) => a.inventory_id - b.inventory_id);
+    const invArr = products.sort((a,b) => a.inventory_id - b.inventory_id);
     productCategory = [];
     productCategory = [...invArr];
   } else if (currentProductLink.name === 'Sale') {
@@ -109,7 +99,7 @@ function Products(props) {
           <ProductCard
             currentProductLink={currentProductLink}
             products={products}
-            user={dataR}
+            user_me={user_me}
             productCategory={productCategory}
             setCategoryModal={setCategoryModal}
             setCartCount={setCartCount}

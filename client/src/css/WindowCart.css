@@ -1,3 +1,15 @@
+/* CART LIST */
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-list > span {
+  font-size: .8rem;
+}
+
+
 /* PAST ORDERS */
 
 .past-orders-section {
@@ -453,3 +465,5 @@
     flex-direction: row;
   }
 }
+
+

@@ -36,55 +36,33 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-    mutation addUser($input: UserInput) {
-        addUser(input: $input) {
-            token
-            user {
-                _id
-                first_name
-                last_name
-                email
-            }
-        }
+  mutation addUser($input: UserInput) {
+    addUser(input: $input) {
+      token
+      user {
+          _id
+          first_name
+          last_name
+          email
+      }
     }
+  }
 `;
 
-export const ADD_CART = gql`
-    mutation addCart($input: [CartInput]) {
-        addCart(input: $input) {
-            cart {
-            product_id
-            quantity
-        }
-        _id
-        first_name
-        last_name
-        }
-    }
-`;
+
 
 export const REMOVE_CART = gql`
-    mutation removeCart($product_id: ID!) {
-        removeCart(product_id: $product_id) {
-            cart {
-            product_id
-            quantity
-        }
-        _id
-        first_name
-        last_name
-        }
+  mutation removeCartItem($product_id: ID!) {
+    removeCartItem(product_id: $product_id) {
+      _id
     }
+  }
 `;
 
 export const UPDATE_USER = gql`
     mutation updateUser($input: UserAccountInput) {
         updateUser(input: $input) {
-        first_name
-        last_name
-        email
-        phone
-        _id
+          _id
         }
     }
 `;
@@ -93,24 +71,6 @@ export const ADD_PRODUCT = gql`
     mutation addProduct($input: ProductInput!) {
         addProduct(input:$input) {
         _id
-        product_name
-        product_category
-        product_price
-        product_description1
-        product_description2
-        product_description3
-        product_description4
-        product_weight
-        product_picture
-        product_nameChinese
-        product_descriptionChinese
-        product_status
-        product_sale_price
-        product_bulk_quantity
-        product_bulk_price
-        product_featured
-        inventory_id
-        product_new
         }
     }
 `;
@@ -119,66 +79,30 @@ export const UPDATE_PRODUCT = gql`
     mutation updateProduct($input: ProductInput!, $product_id: ID!) {
         updateProduct(input:$input, product_id: $product_id) {
         _id
-        product_name
-        product_category
-        product_price
-        product_description1
-        product_description2
-        product_description3
-        product_description4
-        product_weight
-        product_picture
-        product_nameChinese
-        product_descriptionChinese
-        product_status
-        product_sale_price
-        product_bulk_quantity
-        product_bulk_price
-        product_featured
-        inventory_id
-        product_new
         }
     }
 `;
 
 export const REMOVE_PRODUCT = gql`
-    mutation removeProduct($product_id: ID!) {
-        removeProduct(product_id: $product_id) {
-            _id
-        }
+  mutation removeProduct($product_id: ID!) {
+    removeProduct(product_id: $product_id) {
+      _id
     }
+  }
 `;
 
 export const ADD_ORDER = gql`
-    mutation addOrder($input:OrderInput!) {
-        addOrder(input:$input) {
-        cart
-        orderTotal
-        delivery_date
-        paid
-        createdAt
-        delivery_status
-        _id
-        name
-        phone
-        address
-        order_date
-        }
+  mutation addOrder($input:OrderInput!) {
+    addOrder(input:$input) {
+      _id
     }
+  }
 `;
 
 export const UPDATE_ORDER = gql`
     mutation updateOrder($input:OrderUpdate, $order_id: ID!) {
         updateOrder(input:$input, order_id:$order_id) {
         _id
-        cart
-        paid
-        delivery_date
-        delivery_status
-        name
-        phone
-        address
-        order_date
         }
     }
 `;
@@ -187,12 +111,6 @@ export const UPDATE_ORDER_STATUS = gql`
     mutation updateOrderStatus($input:OrderStatus,$order_id: ID!) {
         updateOrderStatus(input:$input, order_id:$order_id) {
         _id
-        delivery_date
-        delivery_status
-        orderTotal
-        cart
-        paid
-        createdAt
         }
     }
 `;
@@ -201,32 +119,6 @@ export const UPDATE_PROMO = gql`
     mutation updatePromo($input:PromoInput, $promo_id: ID!) {
         updatePromo(input:$input, promo_id:$promo_id) {
         _id
-        promoMsg1
-        promo1Start
-        promo1End
-        promoMsg2
-        promo2Start
-        promo2End
-        promoMsg3
-        promo3Start
-        promo3End
-        promoPicture1
-        promoPicture2
-        promoPicture3
-        mainPromo
-        discount
-        featuredProduct1
-        featuredProduct2
-        featuredProduct3
-        contact_us_1
-        contact_us_2
-        address
-        home_message
-        main_banner
-        delivery_fee1
-        delivery_fee2
-        delivery_fee3
-        notice_message
         }
     }
 `;
@@ -235,24 +127,22 @@ export const UPDATE_ADDRESS = gql`
     mutation updateUserAddress($input:AddressInput, $user_id:ID!) {
         updateUserAddress(input:$input, user_id:$user_id) {
         _id
-        first_name
-        last_name
-        address {
-            street_name
-            street_number
-            city
-        }
-        }
+      }
     }
 `;
 
 export const UPDATE_CART = gql`
-  mutation updateCart($quantity: Int, $product_id: String!) {
-    updateCart(quantity: $quantity, product_id: $product_id) {
-      cart {
-        quantity
-        product_id
-      }
+  mutation updateCart($input: CartInput, $product_id: String) {
+    updateCart(input: $input, product_id: $product_id) {
+      _id
+    }
+  }
+`;
+
+export const ADD_CART = gql`
+  mutation addCart($input: CartInput) {
+    addCart(input: $input) {
+      _id
     }
   }
 `;
@@ -260,19 +150,15 @@ export const UPDATE_CART = gql`
 export const ADD_PRODUCT_PICTURE = gql`
   mutation addProductPicture($product_url: String, $product_id: String!) {
     addProductPicture(product_url:$product_url, product_id:$product_id) {
-        _id
-        product_name
-        product_picture 
+      _id
     }
   }
 `;
 
 export const REMOVE_PRODUCT_PICTURE = gql`
-  mutation removeProductPicture($product_id: String!, $product_url: String) {
-    removeProductPicture(product_id:$product_id, product_url:$product_url) {
+  mutation removeProductPicture($product_id: String!, $picture_name: String) {
+    removeProductPicture(product_id:$product_id, picture_name:$picture_name) {
       _id
-      product_name
-      product_picture
     }
   }
 `;
@@ -286,11 +172,9 @@ export const REMOVE_ORDER = gql`
 `;
 
 export const UPDATE_PRODUCT_PICTURE = gql`
-  mutation updateProductPicture($product_url: String, $product_id: String!, $product_old_url: String!) {
-    updateProductPicture(product_url: $product_url, product_id: $product_id, product_old_url:$product_old_url) {
+  mutation updateProductPicture($new_picture_name: String, $product_id: String!, $old_picture_name: String!) {
+    updateProductPicture(new_picture_name: $new_picture_name, product_id: $product_id, old_picture_name:$old_picture_name) {
       _id
-      product_name
-      product_picture
     }
   }
 `;
@@ -299,8 +183,6 @@ export const ADD_VIEWS = gql`
   mutation addProductView ($product_id:String) {
     addProductView(product_id: $product_id) {
       _id
-      product_name
-      product_views
     }
   }
 `;
@@ -308,11 +190,6 @@ export const ADD_VIEWS = gql`
 export const ADD_USER_ORDER = gql`
   mutation addUserOrder($input: UserOrders) {
     addUserOrder(input: $input) {
-      first_name
-      last_name
-      email
-      phone
-      pastOrders
       _id
     }
   }
@@ -322,10 +199,6 @@ export const CLEAR_CART = gql`
   mutation clearCart($user_id: String) {
     clearCart(user_id: $user_id) {
       _id
-      cart {
-        product_id
-        quantity
-      }
     }
   }
 `;
