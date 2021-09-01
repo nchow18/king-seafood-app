@@ -111,6 +111,7 @@ function Home(props) {
 
   console.log(user_me);
   console.log(user_cart);
+  console.log(promo);
 
   useEffect(() => {
     // setTimeout(displayPromo, 4000);
@@ -150,9 +151,6 @@ function Home(props) {
     localStorage.setItem('previous_orders', JSON.stringify('empty'))
   }
 
-  
-  Auth.setGlobalDiscount(promo[0].discount);
-
   return (
     <div>
       {currentHeaderLink.link === 'home' && (
@@ -173,7 +171,8 @@ function Home(props) {
           setCartCount={setCartCount}
           products={products}
           user_me={user_me}
-          setPastOrders={setPastOrders} />
+          setPastOrders={setPastOrders}
+          promotions={promo} />
       )}
       {currentHeaderLink.link === 'promotions' && (
         <Promotions

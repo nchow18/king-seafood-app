@@ -7,10 +7,13 @@ function CartListQuantity(props) {
   const {
     item,
     user_cart,
-    index
+    index,
+    currentCartTotal,
+    setCartTotal,
+    promotions
   } = props
 
-  const global_sale = localStorage.getItem('global_sale')/100;
+  const global_sale = promotions[0].discount/100;
 
   const [currentQuantity, setQuantity] = useState(user_cart[index].quantity);
   const [addCart, { error } ] = useMutation(ADD_CART);

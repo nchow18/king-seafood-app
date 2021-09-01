@@ -16,11 +16,11 @@ function WindowCart(props) {
     products,
     user_me,
     setPastOrders,
+    promotions,
   } = props
 
   const [removeCart, { error }] = useMutation(REMOVE_CART);
   const user_cart = user_me.cart;
-
 
   return (
     <div className="window-cart-content">
@@ -29,7 +29,8 @@ function WindowCart(props) {
           <div className="window-cart-column">
             <CartList
               user_me={user_me}
-              products={products} />
+              products={products}
+              promotions={promotions} />
             <CheckOut 
               user_me={user_me}
               products={products}
