@@ -56,7 +56,7 @@ function App() {
 			name: 'Cart',
       link: 'cart',
 			href: '/cart',
-			guest: true,
+			guest: false,
 			user: true,
 			admin: true
 		},
