@@ -56,7 +56,7 @@ function App() {
 			name: 'Cart',
       link: 'cart',
 			href: '/cart',
-			guest: true,
+			guest: false,
 			user: true,
 			admin: true
 		},
@@ -132,8 +132,10 @@ function App() {
               render={() => <Home 
               currentProductLink={currentProductLink} 
               setCurrentProductLink={setCurrentProductLink} 
+              setCurrentHeaderLink={setCurrentHeaderLink}
               productLinks={productLinks}
               currentHeaderLink={currentHeaderLink}
+              headerLinks={headerLinks}
               cartCount={cartCount}
               setCartCount={setCartCount} />}
               />

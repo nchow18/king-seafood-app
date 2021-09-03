@@ -42,9 +42,11 @@ function Home(props) {
     currentProductLink,
     setCurrentProductLink,
     currentHeaderLink,
+    setCurrentHeaderLink,
     productLinks=[],
     cartCount,
-    setCartCount
+    setCartCount,
+    headerLinks
   } = props
 
   const [category] = useState([
@@ -187,6 +189,8 @@ function Home(props) {
           setCartCount={setCartCount}
           products={products}
           user_me={user_me}
+          setCurrentHeaderLink={setCurrentHeaderLink}
+          headerLinks={headerLinks}
         />
       )}
       {currentHeaderLink.link === 'signin' && (

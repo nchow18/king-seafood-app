@@ -10,8 +10,10 @@ function Products(props) {
     currentProductLink,
     setCurrentProductLink,
     setCartCount,
+    setCurrentHeaderLink,
     products,
-    user_me
+    user_me,
+    headerLinks
   } = props
 
   const [categoryModal, setCategoryModal] = useState(false);
@@ -103,6 +105,8 @@ function Products(props) {
             productCategory={productCategory}
             setCategoryModal={setCategoryModal}
             setCartCount={setCartCount}
+            setCurrentHeaderLink={setCurrentHeaderLink}
+            headerLinks={headerLinks}
           />
         </div>
     </>
