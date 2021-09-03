@@ -132,8 +132,10 @@ function App() {
               render={() => <Home 
               currentProductLink={currentProductLink} 
               setCurrentProductLink={setCurrentProductLink} 
+              setCurrentHeaderLink={setCurrentHeaderLink}
               productLinks={productLinks}
               currentHeaderLink={currentHeaderLink}
+              headerLinks={headerLinks}
               cartCount={cartCount}
               setCartCount={setCartCount} />}
               />

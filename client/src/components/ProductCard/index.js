@@ -9,7 +9,9 @@ function ProductCard(props) {
 
   const {
   productCategory=[],
+  setCurrentHeaderLink,
   user_me,
+  headerLinks
   } = props
 
   return (
@@ -58,7 +60,10 @@ function ProductCard(props) {
     </div>
         <AddCart 
           product={product}
-          user_me={user_me} />
+          user_me={user_me}
+          setCurrentHeaderLink={setCurrentHeaderLink}
+          headerLinks={headerLinks}
+           />
     </div>
   ))}
   </>

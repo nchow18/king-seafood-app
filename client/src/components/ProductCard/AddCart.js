@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks'
 import { ADD_VIEWS, ADD_CART } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function AddCart(props) {
 
   const {
     product,
-    user_me
+    user_me,
+    setCurrentHeaderLink,
+    headerLinks
   } = props
 
   const [currentQuantity, setQuantity] = useState(1);
@@ -76,12 +79,20 @@ function AddCart(props) {
 
   return (
     <>
-    <div className="product-cart-counter">
-      <span onClick={() => addQuantity()}>+</span>
-      <span>{currentQuantity}</span>
-      <span onClick={() => reduceQuantity()}>-</span>
-    </div>
-    <button onClick={() => {addToCart(); addView()}}>ADD TO CART</button>    
+    {Auth.loggedIn() ? (
+      <>
+        <div className="product-cart-counter">
+          <span onClick={() => addQuantity()}>+</span>
+          <span>{currentQuantity}</span>
+          <span onClick={() => reduceQuantity()}>-</span>
+        </div>
+
+        <button onClick={() => {addToCart(); addView()}}>ADD TO CART</button>
+      </>
+    ) : (
+      <button onClick={() => {setCurrentHeaderLink(headerLinks[6])}}>Log In for CART</button>
+    )}
+    
     </>
   )
 }
