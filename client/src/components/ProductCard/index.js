@@ -63,7 +63,7 @@ function ProductCard(props) {
           user_me={user_me}
           setCurrentHeaderLink={setCurrentHeaderLink}
           headerLinks={headerLinks}
-           />
+        />
     </div>
   ))}
   </>

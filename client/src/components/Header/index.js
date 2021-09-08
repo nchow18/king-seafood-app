@@ -11,12 +11,9 @@ function Header(props) {
 
   const {
     headerLinks = [],
-    currentHeaderLink,
     setCurrentHeaderLink,
     cartModal,
     setCartModal,
-    setCartCount,
-    cartCount
   } = props
 
   const logout = event => {
@@ -85,6 +82,10 @@ function Header(props) {
             headerLinks={headerLinks}
             cartModal={cartModal}
             setCartModal={setCartModal}
+            guestLinks={guestLinks}
+            adminLinks={adminLinks}
+            userLinks={userLinks}
+            setCurrentHeaderLink={setCurrentHeaderLink}
             />
         </div> 
       </div>

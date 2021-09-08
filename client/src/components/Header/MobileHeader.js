@@ -7,72 +7,48 @@ import Cart from '../../assets/images/cart.png';
 function MobileHeader(props) {
 
   const {
-    headerLinks=[],
-    cartModal,
-    setCartModal
+    guestLinks,
+    userLinks,
+    adminLinks,
+    setCurrentHeaderLink
   } = props
 
   const [currentMenu, setMenu] = useState(false);
-  const publicArr = headerLinks.filter((link) => link.guest === true);
-  const userArr = headerLinks.filter((link) => link.user === true);
-  const adminArr = headerLinks.filter((link) => link.admin === true);
 
   return (
     <>
       <div className="mobile-header-container">
-          {cartModal ? (
-            <Link to="/cart">
-              <img alt="cart" src={Cart} className="cart-icon" onClick={() => {setCartModal(false)}} />
-              <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
-            </Link>
-          ) : (
-            <Link to="/cart">
-              <img alt="cart" src={Cart} className="cart-icon" onClick={() => {setCartModal(true)}} />
-              <span className="cart-quantity-display">{Auth.getGuestCartQuantity()}</span>
-            </Link>
-          )}  
-          <Link to="/" className="king-title-mobile">
-            {/* <span className="bold">KING'S SEAFOOD 18</span> */}
-            <div>
-              {/* <span>ORDER</span> */}
-              <img alt="lobster" src={Lobster} className="lobster-logo" />
-              {/* <span>FRESH</span> */}
-            </div>
-
-          </Link>        
-          {currentMenu ? (
-            <i className="fas fa-times menu-icon" onClick={() => {setMenu(false)}}></i>
-          ) : (
-            <i className="fas fa-bars menu-icon" onClick={() => {setMenu(true)}}></i>
-          )}
-      </div>
-      {currentMenu && (
-        <div className="mobile-header-menu">
+        {currentMenu ? (
+          <div className="mobile-header-links">
           {Auth.loggedIn() ? (
             <>
-              {Auth.getProfileType() ? (
-                <>
-                {adminArr.map((link) => (
-                  <Link to={link.href} onClick={() => {setMenu(false)}} className="mobile-header-links">{link.name}</Link>
-                  ))}     
-                </>           
+            {Auth.getAdmin() ? (
+              <>
+              {adminLinks.map((link) => (
+                <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
+              ))}
+            </>
+            ) : (
+              <>
+                {userLinks.map((link) => (
+                  <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
+                ))}
+              </>
+            )}
+
+                </>
               ) : (
                 <>
-                  {userArr.map((link) => (
-                    <Link to={link.href} onClick={() => {setMenu(false)}}  className="mobile-header-links">{link.name}</Link>
-                  ))}                 
+                {guestLinks.map((link) => (
+                  <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
+                ))}
                 </>
-              )}            
-            </>
-          ) : (
-            <>
-              {publicArr.map((link) => (
-              <Link to={link.href} onClick={() => {setMenu(false)}}  className="mobile-header-links">{link.name}</Link>
-              ))}            
-            </>
-          )}
-        </div>
-      )}
+              )}
+          </div>
+        ) : (
+          <span onClick={() => {setMenu(true)}}>MENU</span>
+        )}
+      </div>
     </>
   )
 }

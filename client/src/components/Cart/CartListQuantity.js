@@ -8,8 +8,7 @@ function CartListQuantity(props) {
     item,
     user_cart,
     index,
-    currentCartTotal,
-    setCartTotal,
+    updateCartTotal,
     promotions
   } = props
 
@@ -114,9 +113,9 @@ function CartListQuantity(props) {
     <div className="cart-list-counter">
       <span>RM {priceAdjust()}</span>
       <div>
-        <span onClick={() => {addQuantity()}}>+</span>
+        <span onClick={() => {addQuantity(); updateCartTotal()}}>+</span>
         <span>{currentQuantity}</span>
-        <span onClick={() => {subtractQuantity()}}>-</span>
+        <span onClick={() => {subtractQuantity(); updateCartTotal()}}>-</span>
       </div> 
     </div>
   )
