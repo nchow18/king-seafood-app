@@ -88,6 +88,7 @@ function Header(props) {
             adminLinks={adminLinks}
             userLinks={userLinks}
             setCurrentHeaderLink={setCurrentHeaderLink}
+            logout={logout}
             />
         </div> 
       </div>

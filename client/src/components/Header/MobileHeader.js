@@ -10,7 +10,9 @@ function MobileHeader(props) {
     guestLinks,
     userLinks,
     adminLinks,
-    setCurrentHeaderLink
+    setCurrentHeaderLink,
+    logout,
+    headerLinks
   } = props
 
   const [currentMenu, setMenu] = useState(false);
@@ -20,30 +22,33 @@ function MobileHeader(props) {
       <div className="mobile-header-container">
         {currentMenu ? (
           <div className="mobile-header-links">
-          {Auth.loggedIn() ? (
-            <>
-            {Auth.getAdmin() ? (
+            {Auth.loggedIn() ? (
               <>
-              {adminLinks.map((link) => (
-                <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
-              ))}
-            </>
-            ) : (
-              <>
-                {userLinks.map((link) => (
+              {Auth.getAdmin() ? (
+                <>
+                {adminLinks.map((link) => (
                   <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
                 ))}
+                <span onClick={() => {logout(); setMenu(false)}} className="header-link">{headerLinks[8].name}</span>
               </>
-            )}
-
-                </>
               ) : (
                 <>
-                {guestLinks.map((link) => (
-                  <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
-                ))}
+                  {userLinks.map((link) => (
+                    <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
+                  ))}
+                  <span onClick={() => {logout(); setMenu(false)}} className="header-link">{headerLinks[8].name}</span>                  
                 </>
               )}
+
+              </>
+            ) : (
+              <>
+              {guestLinks.map((link) => (
+                <span onClick={() => {setCurrentHeaderLink(link); setMenu(false)}} className="header-link">{link.name}</span>
+              ))}
+              <span onClick={() => {setCurrentHeaderLink(headerLinks[7]); setMenu(false)}} className="header-link">{headerLinks[7].name}</span>              
+              </>
+            )}
           </div>
         ) : (
           <span onClick={() => {setMenu(true)}}>MENU</span>
