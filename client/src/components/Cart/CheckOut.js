@@ -68,7 +68,7 @@ function CheckOut(props) {
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
-  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* RM ' + cart_price;
+  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* RM ' + cart_total();
 
   const number = '60164223018'
   // const number = '60103893421'

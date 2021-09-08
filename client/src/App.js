@@ -88,13 +88,18 @@ function App() {
 			name: 'Sign Up',
       link: 'signup',
 			href: '/signup',
-			guest: true,
+			guest: false,
 			user: false,
 			admin: false
 		},
     {
-      name: 'none'
-    }
+			name: 'Log Out',
+      link: 'logout',
+			href: '/logout',
+			guest: false,
+			user: false,
+			admin: false
+		}
 	]);
 
 
