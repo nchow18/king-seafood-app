@@ -116,7 +116,7 @@ function Home(props) {
   console.log(promo);
 
   useEffect(() => {
-    // setTimeout(displayPromo, 4000);
+    setTimeout(displayPromo, 4000);
     const empty = {name: ""};
     localStorage.setItem('current_category', JSON.stringify(empty))
   }, [])
