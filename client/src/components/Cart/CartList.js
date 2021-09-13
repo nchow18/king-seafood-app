@@ -8,8 +8,6 @@ function CartList(props) {
     user_me,
     products,
     promotions,
-    setCurrentHeaderLink,
-    headerLinks
   } = props
 
 
@@ -40,10 +38,17 @@ function CartList(props) {
     return total;
   }
 
-  const removeCartItem = async (index) => {
-    alert('cart item removed: ' + index)
+  // useEffect(() => {
 
-    user_me.cart.splice(index, 1);
+  //   console.log('re-render');
+  //   reloadCart(false);
+
+  // }, [currentCart]);
+
+  console.table(user_me.cart);
+
+  const removeCartItem = async (index) => {
+    alert('cart item removed: ' + index + ' ' + user_me.cart[index].product_name)
 
     try {
       removeCart({
@@ -54,14 +59,10 @@ function CartList(props) {
     } catch (e) {
       console.log(e)
     }
+
+    user_me.cart.splice(index, 1);
+
   }
-
-  useEffect(() => {
-
-    console.log('re-render');
-    reloadCart(false);
-
-  }, [currentCart]);
 
   return (
     <div className="cart-list">
@@ -73,8 +74,10 @@ function CartList(props) {
               user_cart={user_me.cart}
               index={index}
               updateCartTotal={updateCartTotal}
-              promotions={promotions} />
-          <span onClick={() => {removeCartItem(index); reloadCart(true)}} className="cart-delete">X</span>
+              promotions={promotions}
+              reloadCart={reloadCart}
+              currentCart={currentCart} />
+          <span onClick={() => {removeCartItem(index)}} className="cart-delete">X</span>
         </div>
       ))}
     </div>

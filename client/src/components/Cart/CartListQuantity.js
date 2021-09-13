@@ -9,7 +9,9 @@ function CartListQuantity(props) {
     user_cart,
     index,
     updateCartTotal,
-    promotions
+    promotions,
+    currentCart,
+    reloadCart
   } = props
 
   const global_sale = promotions[0].discount/100;
