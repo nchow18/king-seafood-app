@@ -45,8 +45,6 @@ function CartList(props) {
 
   // }, [currentCart]);
 
-  console.table(user_me.cart);
-
   const removeCartItem = async (index) => {
     alert('cart item removed: ' + index + ' ' + user_me.cart[index].product_name)
 
