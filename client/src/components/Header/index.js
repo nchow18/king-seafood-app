@@ -41,12 +41,10 @@ function Header(props) {
   return (
       <div className="header-items">
         <div className="header-links-container">
-        <Link to="/">
             <div>
               <img alt="kinglogo" src={Logo} className="header-logo"/>
               <span>KING'S SEAFOOD 18</span>
             </div>
-          </Link>
           <div className="links">
             {Auth.loggedIn() ? (
               <>
@@ -77,7 +75,7 @@ function Header(props) {
             )}
           </div>         
         </div>
-        <div className="mobile-header-display">
+        {/* <div className="mobile-header-display">
           <MobileHeader 
             setModal={setModal}
             isModal={isModal}
@@ -90,7 +88,7 @@ function Header(props) {
             setCurrentHeaderLink={setCurrentHeaderLink}
             logout={logout}
             />
-        </div> 
+        </div>  */}
       </div>
   )
 }

@@ -111,10 +111,6 @@ function Home(props) {
   const user_me = dataUserMe?.userMe || {};
   const user_cart = user_me.cart;
 
-  console.log(user_me);
-  console.log(user_cart);
-  console.log(promo);
-
   useEffect(() => {
     setTimeout(displayPromo, 4000);
     const empty = {name: ""};
@@ -166,7 +162,9 @@ function Home(props) {
           promotions={promo}
           setPromo={setPromo}
           currentHeaderLink={currentHeaderLink}
-          isPromo={isPromo} />
+          isPromo={isPromo}
+          setCurrentHeaderLink={setCurrentHeaderLink}
+          headerLinks={headerLinks} />
       )}
       {currentHeaderLink.link === 'cart' && (
         <WindowCart
