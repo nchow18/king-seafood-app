@@ -8,6 +8,29 @@
   position: relative;
 }
 
+.product-card-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0,0,0,0.9);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 999;
+}
+
+.modal-card-picture {
+  max-width: 1200px;
+  width: 20%;
+  object-fit: cover;
+  margin: 1rem;
+}
+
 .product-card > button:hover {
   background-color: white;
   color: black;
@@ -360,8 +383,8 @@
 @media screen and (max-width: 650px) {
   .out-stock-cover {
     font-size: .8rem;
-    height: 10rem;
-    width: 9.1rem;
+    height: 100%;
+    width: 100%;
   }
 
   .nav-product-buttons {
@@ -488,6 +511,16 @@
 @media screen and (max-width: 500px) {
   .products-card-display {
     grid-template-columns: 100%;
+  }
+
+  .modal-card-picture {
+    width: 90%;
+    height: 15rem;
+    object-fit: cover;
+  }
+
+  .product-card-modal {
+    flex-direction: column;
   }
 
 }
