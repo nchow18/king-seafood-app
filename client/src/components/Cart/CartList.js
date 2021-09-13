@@ -54,8 +54,14 @@ function CartList(props) {
     } catch (e) {
       console.log(e)
     }
-
   }
+
+  useEffect(() => {
+
+    console.log('re-render');
+    reloadCart(false);
+
+  }, [currentCart]);
 
   return (
     <div className="cart-list">
