@@ -101,7 +101,7 @@
   flex-direction: column;
   align-content: space-between;
   justify-content: space-between;
-  height: 8rem;
+  height: 12rem;
   position: relative;
   grid-row: 2;
 }
