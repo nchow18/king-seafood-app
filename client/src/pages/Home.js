@@ -172,7 +172,9 @@ function Home(props) {
           products={products}
           user_me={user_me}
           setPastOrders={setPastOrders}
-          promotions={promo} />
+          promotions={promo}
+          setCurrentHeaderLink={setCurrentHeaderLink}
+          headerLinks={headerLinks} />
       )}
       {currentHeaderLink.link === 'promotions' && (
         <Promotions

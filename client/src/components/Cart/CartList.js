@@ -7,21 +7,18 @@ function CartList(props) {
   const {
     user_me,
     products,
-    promotions
+    promotions,
+    setCurrentHeaderLink,
+    headerLinks
   } = props
 
 
   const user_cart = user_me.cart;
   const [removeCart, { ERROR }] = useMutation(REMOVE_CART);
   const [cart, updateCart] = useState(0)
+  const [currentCart, reloadCart] = useState(false);
   var cart_price = '';
 
-  
-  useEffect(() => {
-
-    calcTotal();
-
-  }, [cart]);
 
   function updateCartTotal() {
     updateCart(cart + 1);
@@ -43,39 +40,35 @@ function CartList(props) {
     return total;
   }
 
-  console.log(cart_price);
-
   const removeCartItem = async (index) => {
-    alert('cart item removed')
+    alert('cart item removed: ' + index)
+
+    user_me.cart.splice(index, 1);
 
     try {
       removeCart({
         variables: {
-          product_id: user_cart[index].product_name
+          product_id: user_me.cart[index].product_name
         }
       })
     } catch (e) {
       console.log(e)
     }
 
-    user_cart.splice(index, 1);
   }
-
-
 
   return (
     <div className="cart-list">
       <span>Your Cart: <b>RM {calcTotal()}</b> <button onClick={() => {updateCartTotal()}}>Update Total</button></span>
       {user_cart.map((item, index) => (
-        <div>
-          <span>{item.product_name}</span>
-          <CartListQuantity 
-            item={item}
-            user_cart={user_cart}
-            index={index}
-            updateCartTotal={updateCartTotal}
-            promotions={promotions} />
-          <span onClick={() => {removeCartItem(index)}} className="cart-delete">X</span>
+          <div>
+            <CartListQuantity 
+              item={item}
+              user_cart={user_me.cart}
+              index={index}
+              updateCartTotal={updateCartTotal}
+              promotions={promotions} />
+          <span onClick={() => {removeCartItem(index); reloadCart(true)}} className="cart-delete">X</span>
         </div>
       ))}
     </div>

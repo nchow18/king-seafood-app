@@ -29,6 +29,7 @@ function AddCart(props) {
   }
 
   const addToCart = async (event) => {
+
     alert('Added to cart : Quantity : ' + currentQuantity)
 
     try {

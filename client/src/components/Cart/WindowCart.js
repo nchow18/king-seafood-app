@@ -17,6 +17,8 @@ function WindowCart(props) {
     user_me,
     setPastOrders,
     promotions,
+    setCurrentHeaderLink,
+    headerLinks
   } = props
 
   const [removeCart, { error }] = useMutation(REMOVE_CART);
@@ -30,7 +32,9 @@ function WindowCart(props) {
             <CartList
               user_me={user_me}
               products={products}
-              promotions={promotions} />
+              promotions={promotions}
+              setCurrentHeaderLink={setCurrentHeaderLink}
+              headerLinks={headerLinks} />
             <CheckOut 
               user_me={user_me}
               products={products}

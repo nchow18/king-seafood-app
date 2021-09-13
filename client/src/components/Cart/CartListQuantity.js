@@ -111,10 +111,11 @@ function CartListQuantity(props) {
 
   return (
     <div className="cart-list-counter">
-      <span>RM {priceAdjust()}</span>
-      <div>
+      <span>{user_cart[index].product_name}</span>
+      <div>      
+        <span>RM {priceAdjust()}</span>
         <span onClick={() => {addQuantity(); updateCartTotal()}}>+</span>
-        <span>{currentQuantity}</span>
+        <span>{user_cart[index].quantity}</span>
         <span onClick={() => {subtractQuantity(); updateCartTotal()}}>-</span>
       </div> 
     </div>
