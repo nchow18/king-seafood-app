@@ -53,14 +53,14 @@ function Header(props) {
                 {adminLinks.map((link) => (
                   <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
                 ))}
-                <span onClick={() => {logout()}} className="header-link">{headerLinks[8].name}</span>
+                <span onClick={() => {logout()}} className="header-link">{headerLinks[7].name}</span>
               </>
               ) : (
                 <>
                   {userLinks.map((link) => (
                     <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
                   ))}
-                  <span onClick={() => {logout()}} className="header-link">{headerLinks[8].name}</span>                  
+                  <span onClick={() => {logout()}} className="header-link">{headerLinks[7].name}</span>                  
                 </>
               )}
 
@@ -69,8 +69,7 @@ function Header(props) {
               <>
               {guestLinks.map((link) => (
                 <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
-              ))}
-              <span onClick={() => {setCurrentHeaderLink(headerLinks[7])}} className="header-link">{headerLinks[7].name}</span>              
+              ))}           
               </>
             )}
           </div>         

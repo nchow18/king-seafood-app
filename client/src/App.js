@@ -84,14 +84,6 @@ function App() {
 			user: false,
 			admin: false
 		},
-		{
-			name: 'Sign Up',
-      link: 'signup',
-			href: '/signup',
-			guest: false,
-			user: false,
-			admin: false
-		},
     {
 			name: 'Log Out',
       link: 'logout',
