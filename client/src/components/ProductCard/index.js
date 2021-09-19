@@ -25,7 +25,7 @@ function ProductCard(props) {
       <ModalPicture
         setModal={setModal}
         index={index}
-        products={products} />
+        products={productCategory} />
     )}
       <>
         {productCategory.map((product, index) => (

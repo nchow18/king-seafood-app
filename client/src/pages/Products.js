@@ -66,6 +66,8 @@ function Products(props) {
     productCategory = [...sorted];
   }
 
+  console.log(productCategory)
+
   return (
   <>
   <div className="nav-product-buttons">
