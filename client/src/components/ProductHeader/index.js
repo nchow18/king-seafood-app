@@ -9,6 +9,8 @@ function ProductHeader(props) {
     setCategoryModal,
   } = props
 
+  console.log(productLinks);
+
   return (
     <>
       <div className="admin-category-container">

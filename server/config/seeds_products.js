@@ -48,7 +48,7 @@ db.once('open', async () => {
        "100-2"
     ],
     "product_category": "fish",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -153,7 +153,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "fish",
-    "product_price": " 106.00 ",
+    "product_price": "106.00 ",
     "product_description1": "order by pieces",
     "product_description2": "RM53/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -237,7 +237,7 @@ db.once('open', async () => {
        "109-2"
     ],
     "product_category": "fish",
-    "product_price": " 11.00 ",
+    "product_price": "11.00 ",
     "product_description1": "order by pieces",
     "product_description2": "RM55/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -321,7 +321,7 @@ db.once('open', async () => {
        "113-2"
     ],
     "product_category": "fish",
-    "product_price": " 148.00 ",
+    "product_price": "148.00 ",
     "product_description1": "order by kg (4-6pcs)",
     "product_description2": "RM128/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -342,7 +342,7 @@ db.once('open', async () => {
        "114-2"
     ],
     "product_category": "fish",
-    "product_price": " 12.00 ",
+    "product_price": "12.00 ",
     "product_description1": "5pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -447,7 +447,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "fish",
-    "product_price": " 15.00 ",
+    "product_price": "15.00 ",
     "product_description1": "cut into 4-5pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -468,7 +468,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "fish",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -510,7 +510,7 @@ db.once('open', async () => {
        "122-2"
     ],
     "product_category": "fish",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "2pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -531,7 +531,7 @@ db.once('open', async () => {
        "123-2"
     ],
     "product_category": "fish",
-    "product_price": " 12.00 ",
+    "product_price": "12.00 ",
     "product_description1": "7-8pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -552,7 +552,7 @@ db.once('open', async () => {
        "124-2"
     ],
     "product_category": "fish",
-    "product_price": " 18.00 ",
+    "product_price": "18.00 ",
     "product_description1": "1pc/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -867,7 +867,7 @@ db.once('open', async () => {
        "212-2"
     ],
     "product_category": "scallops",
-    "product_price": " 17.50 ",
+    "product_price": "17.50 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1056,7 +1056,7 @@ db.once('open', async () => {
        "306-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "8 pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1119,7 +1119,7 @@ db.once('open', async () => {
        "309-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 17.50 ",
+    "product_price": "17.50 ",
     "product_description1": "order by nos",
     "product_description2": "RM70/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1287,7 +1287,7 @@ db.once('open', async () => {
        "317-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1602,7 +1602,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "shellfish",
-    "product_price": " 100.00 ",
+    "product_price": "100.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1623,7 +1623,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 129.60 ",
+    "product_price": "129.60 ",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1644,7 +1644,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 151.20 ",
+    "product_price": "151.20 ",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1665,7 +1665,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 172.80 ",
+    "product_price": "172.80 ",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1686,7 +1686,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 194.40 ",
+    "product_price": "194.40 ",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1749,7 +1749,7 @@ db.once('open', async () => {
        "400-2"
     ],
     "product_category": "squid",
-    "product_price": " 11.50 ",
+    "product_price": "11.50 ",
     "product_description1": "6-15pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1854,7 +1854,7 @@ db.once('open', async () => {
        "405-2"
     ],
     "product_category": "squid",
-    "product_price": " 18.00 ",
+    "product_price": "18.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1875,7 +1875,7 @@ db.once('open', async () => {
        "406-2"
     ],
     "product_category": "squid",
-    "product_price": " 17.00 ",
+    "product_price": "17.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1896,7 +1896,7 @@ db.once('open', async () => {
        "407-2"
     ],
     "product_category": "squid",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1938,7 +1938,7 @@ db.once('open', async () => {
        "495-2"
     ],
     "product_category": "meat",
-    "product_price": " 15.00 ",
+    "product_price": "15.00 ",
     "product_description1": "10pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1959,7 +1959,7 @@ db.once('open', async () => {
        "496-2"
     ],
     "product_category": "meat",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1980,7 +1980,7 @@ db.once('open', async () => {
        "497-2"
     ],
     "product_category": "meat",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2001,7 +2001,7 @@ db.once('open', async () => {
        "498-2"
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2022,7 +2022,7 @@ db.once('open', async () => {
        "499-2"
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2085,7 +2085,7 @@ db.once('open', async () => {
        "502-2"
     ],
     "product_category": "meat",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2232,7 +2232,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2253,7 +2253,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2295,7 +2295,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2358,7 +2358,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 11.50 ",
+    "product_price": "11.50 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2400,7 +2400,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 15.00 ",
+    "product_price": "15.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2421,7 +2421,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2442,7 +2442,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2484,7 +2484,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 15.00 ",
+    "product_price": "15.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2589,7 +2589,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "meat",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2652,7 +2652,7 @@ db.once('open', async () => {
        "530-2"
     ],
     "product_category": "meat",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "16pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -2757,7 +2757,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "special",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2778,7 +2778,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "special",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2841,7 +2841,7 @@ db.once('open', async () => {
        "608-2"
     ],
     "product_category": "special",
-    "product_price": " 12.50 ",
+    "product_price": "12.50 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2862,7 +2862,7 @@ db.once('open', async () => {
        "609-2"
     ],
     "product_category": "special",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2883,7 +2883,7 @@ db.once('open', async () => {
        "610-2"
     ],
     "product_category": "special",
-    "product_price": " 12.00 ",
+    "product_price": "12.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2988,7 +2988,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "special",
-    "product_price": " 15.00 ",
+    "product_price": "15.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3030,7 +3030,7 @@ db.once('open', async () => {
        "617-2"
     ],
     "product_category": "special",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3114,7 +3114,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "special",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3261,7 +3261,7 @@ db.once('open', async () => {
        "701-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3345,7 +3345,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3366,7 +3366,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3387,7 +3387,7 @@ db.once('open', async () => {
        "496-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3408,7 +3408,7 @@ db.once('open', async () => {
        "497-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3429,7 +3429,7 @@ db.once('open', async () => {
        "498-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3450,7 +3450,7 @@ db.once('open', async () => {
        "499-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3513,7 +3513,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 11.50 ",
+    "product_price": "11.50 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3555,7 +3555,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 15.00 ",
+    "product_price": "15.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3576,7 +3576,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3597,7 +3597,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3639,7 +3639,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "hotpot",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3660,7 +3660,7 @@ db.once('open', async () => {
        "405-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 18.00 ",
+    "product_price": "18.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3744,7 +3744,7 @@ db.once('open', async () => {
        "617-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3975,7 +3975,7 @@ db.once('open', async () => {
        "212-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 17.50 ",
+    "product_price": "17.50 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4038,7 +4038,7 @@ db.once('open', async () => {
        "800-2"
     ],
     "product_category": "fruits",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4059,7 +4059,7 @@ db.once('open', async () => {
        "801-2"
     ],
     "product_category": "fruits",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4080,7 +4080,7 @@ db.once('open', async () => {
        "802-2"
     ],
     "product_category": "fruits",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4101,7 +4101,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "fruits",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4122,7 +4122,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "fruits",
-    "product_price": " 14.00 ",
+    "product_price": "14.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4206,7 +4206,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "vegetables",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4227,7 +4227,7 @@ db.once('open', async () => {
        ""
     ],
     "product_category": "vegetables",
-    "product_price": " 10.00 ",
+    "product_price": "10.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4248,7 +4248,7 @@ db.once('open', async () => {
        "905-2"
     ],
     "product_category": "vegetables",
-    "product_price": " 12.50 ",
+    "product_price": "12.50 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4265,8 +4265,8 @@ db.once('open', async () => {
     "product_id": "1000",
     "product_name": "Soy Milk Wafers Biscuit 165g/box",
     "product_picture": [
-       " 1000-1",
-       " 1000-2"
+       "1000-1",
+       "1000-2"
     ],
     "product_category": "snacks",
     "product_price": " 9.00 ",
@@ -4286,8 +4286,8 @@ db.once('open', async () => {
     "product_id": "1001",
     "product_name": "Cheese Wafers Biscuit 165g/box",
     "product_picture": [
-       " 1001-1",
-       " 1001-2"
+       "1001-1",
+       "1001-2"
     ],
     "product_category": "snacks",
     "product_price": " 9.00 ",
@@ -4307,8 +4307,8 @@ db.once('open', async () => {
     "product_id": "1002",
     "product_name": "Seaweed Flavour Sandwich Biscuit 218g/pkt",
     "product_picture": [
-       " 1002-1",
-       " 1002-2"
+       "1002-1",
+       "1002-2"
     ],
     "product_category": "snacks",
     "product_price": " 8.00 ",
@@ -4328,11 +4328,11 @@ db.once('open', async () => {
     "product_id": "1003",
     "product_name": "Cheese Flavour Sandwich Biscuit 235g/tin",
     "product_picture": [
-       " 1003-1",
-       " 1003-2"
+       "1003-1",
+       "1003-2"
     ],
     "product_category": "snacks",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "25pkts/tin",
     "product_description2": "0",
     "product_description3": "0",
@@ -4349,11 +4349,11 @@ db.once('open', async () => {
     "product_id": "1004",
     "product_name": "Seasalt Small Round Biscuit 138g/tin",
     "product_picture": [
-       " 1004-1",
-       " 1004-2"
+       "1004-1",
+       "1004-2"
     ],
     "product_category": "snacks",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "1pkt/tin",
     "product_description2": "0",
     "product_description3": "0",
@@ -4370,11 +4370,11 @@ db.once('open', async () => {
     "product_id": "1005",
     "product_name": "Seasalt Small Round Biscuit 248g/pkt",
     "product_picture": [
-       " 1005-1",
-       " 1005-2"
+       "1005-1",
+       "1005-2"
     ],
     "product_category": "snacks",
-    "product_price": " 13.00 ",
+    "product_price": "13.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4391,11 +4391,11 @@ db.once('open', async () => {
     "product_id": "1006",
     "product_name": "Hokkaido Prawn Cracker (Original) 88g/tin",
     "product_picture": [
-       " 1006-1",
-       " 1006-2"
+       "1006-1",
+       "1006-2"
     ],
     "product_category": "snacks",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4412,11 +4412,11 @@ db.once('open', async () => {
     "product_id": "1007",
     "product_name": "Hokkaido Prawn Cracker (Spicy) 88g/tin",
     "product_picture": [
-       " 1007-1",
-       " 1007-2"
+       "1007-1",
+       "1007-2"
     ],
     "product_category": "snacks",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4433,11 +4433,11 @@ db.once('open', async () => {
     "product_id": "1008",
     "product_name": "Japanese Chocolate Roll 128g/tin",
     "product_picture": [
-       " 1008-1",
-       " 1008-2"
+       "1008-1",
+       "1008-2"
     ],
     "product_category": "snacks",
-    "product_price": " 16.00 ",
+    "product_price": "16.00 ",
     "product_description1": "1pkt/tin",
     "product_description2": "0",
     "product_description3": "0",

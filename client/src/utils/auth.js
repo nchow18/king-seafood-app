@@ -70,6 +70,9 @@ class AuthService {
       name: 'Hotpot'
     },
     {
+      name: 'Snacks'
+    },
+    {
       name: 'Sale'
     },
     {

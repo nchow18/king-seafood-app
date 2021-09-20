@@ -89,6 +89,10 @@ function Home(props) {
     {
       name: 'Vegetables',
       img: Vegetable
+    },
+    {
+      name: 'Snacks',
+      img: ''
     },   
 		{
 			name: 'Newest',

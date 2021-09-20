@@ -54,6 +54,9 @@ function Products(props) {
     // filter based on Featured Products
     const currentProduct = products.filter((product) => product.product_featured === true)
     productCategory = currentProduct;
+  } else if (currentProductLink.name === 'Snacks') {
+    const currentProduct = products.filter((product) => product.product_new === true)
+    productCategory = currentProduct;
   } else if (currentProductLink.name === 'Newest Products') {
     const newProduct = products.filter((product) => product.product_new === true);
     const sorted = newProduct.sort((a,b) => a.inventory_id - b.inventory_id);
