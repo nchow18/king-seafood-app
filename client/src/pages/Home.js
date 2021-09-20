@@ -18,6 +18,7 @@ import Vegetable from './../assets/images/category/vegetable.png';
 import Sale from './../assets/images/category/sale.png';
 import Special from './../assets/images/category/special.png';
 import Shellfish from './../assets/images/category/shellfish.png';
+import PromoCarousel from '../components/Carousel/PromoBanner';
 
 import NoMatch from './../pages/NoMatch';
 import Products from './../pages/Products';
@@ -155,6 +156,16 @@ function Home(props) {
 
   return (
     <div>
+      {isPromo === true && (
+        <div>
+          {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
+            <PromoCarousel
+              promotions={promo}
+              setPromo={setPromo}
+            />
+          )}
+        </div>
+      )}      
       {currentHeaderLink.link === 'home' && (
         <HomeContent
           category={category}
