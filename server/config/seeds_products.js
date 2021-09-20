@@ -40,6 +40,7 @@ db.once('open', async () => {
 
 
 
+ 
   await Product.create({
     "product_id": "100",
     "product_name": "Smoked Salmon 烟熏三文鱼 100g",
@@ -59,7 +60,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "101",
@@ -80,7 +81,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "102",
@@ -101,7 +102,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "103",
@@ -122,7 +123,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "104",
@@ -143,7 +144,7 @@ db.once('open', async () => {
     "product_sale_price": 55,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "105",
@@ -164,7 +165,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "106",
@@ -185,7 +186,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "107",
@@ -206,7 +207,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "108",
@@ -227,7 +228,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "109",
@@ -248,7 +249,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "110",
@@ -269,7 +270,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "111",
@@ -290,7 +291,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "112",
@@ -311,7 +312,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "113",
@@ -332,7 +333,7 @@ db.once('open', async () => {
     "product_sale_price": 128,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "114",
@@ -353,7 +354,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "115",
@@ -374,7 +375,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "116",
@@ -395,7 +396,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "117",
@@ -416,7 +417,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "118",
@@ -427,7 +428,7 @@ db.once('open', async () => {
     ],
     "product_category": "fish",
     "product_price": " 8.00 ",
-    "product_description1": "d",
+    "product_description1": "1pc/pkt",
     "product_description2": "",
     "product_description3": "",
     "product_description4": "",
@@ -437,7 +438,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 7,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "119",
@@ -458,7 +459,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "120",
@@ -479,7 +480,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 9,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "121",
@@ -500,7 +501,7 @@ db.once('open', async () => {
     "product_sale_price": 17,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "122",
@@ -521,7 +522,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "123",
@@ -542,7 +543,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "124",
@@ -563,7 +564,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 16,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "125",
@@ -584,7 +585,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 28,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "126",
@@ -605,7 +606,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 33.33,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "200",
@@ -626,7 +627,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "201",
@@ -647,7 +648,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 27,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "202",
@@ -668,7 +669,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 33,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "203",
@@ -689,7 +690,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 30,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "204",
@@ -710,7 +711,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "205",
@@ -731,7 +732,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "206",
@@ -752,7 +753,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "207",
@@ -773,7 +774,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "208",
@@ -794,7 +795,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "209",
@@ -815,7 +816,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "210",
@@ -836,7 +837,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "211",
@@ -857,7 +858,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "212",
@@ -878,7 +879,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "213",
@@ -899,7 +900,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "214",
@@ -920,7 +921,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "300",
@@ -941,7 +942,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "301",
@@ -962,7 +963,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "302",
@@ -983,7 +984,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "303",
@@ -1004,7 +1005,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "304",
@@ -1025,7 +1026,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "305",
@@ -1046,7 +1047,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "306",
@@ -1067,7 +1068,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "307",
@@ -1088,7 +1089,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "308",
@@ -1109,7 +1110,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "309",
@@ -1130,7 +1131,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "310",
@@ -1151,7 +1152,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "311",
@@ -1172,7 +1173,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "312",
@@ -1193,7 +1194,7 @@ db.once('open', async () => {
     "product_sale_price": 27,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "313",
@@ -1214,7 +1215,7 @@ db.once('open', async () => {
     "product_sale_price": 37,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "314",
@@ -1235,7 +1236,7 @@ db.once('open', async () => {
     "product_sale_price": 37,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "315",
@@ -1256,7 +1257,7 @@ db.once('open', async () => {
     "product_sale_price": 37,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "316",
@@ -1277,7 +1278,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "317",
@@ -1298,7 +1299,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "318",
@@ -1319,7 +1320,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "319",
@@ -1340,7 +1341,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "320",
@@ -1361,7 +1362,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "321",
@@ -1382,7 +1383,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "322",
@@ -1403,7 +1404,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "323",
@@ -1424,7 +1425,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "324",
@@ -1445,7 +1446,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "325a",
@@ -1466,7 +1467,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "325",
@@ -1487,7 +1488,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "326",
@@ -1508,7 +1509,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "327",
@@ -1529,7 +1530,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "328",
@@ -1550,7 +1551,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "329",
@@ -1571,7 +1572,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "330",
@@ -1592,7 +1593,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "331",
@@ -1613,7 +1614,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "332",
@@ -1634,7 +1635,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "333",
@@ -1655,7 +1656,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "334",
@@ -1676,7 +1677,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "335",
@@ -1697,7 +1698,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "336",
@@ -1718,7 +1719,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "337",
@@ -1739,7 +1740,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "400",
@@ -1760,7 +1761,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "401",
@@ -1781,7 +1782,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "402",
@@ -1802,7 +1803,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "403",
@@ -1823,7 +1824,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "404",
@@ -1844,7 +1845,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "405",
@@ -1865,7 +1866,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "406",
@@ -1886,7 +1887,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "407",
@@ -1907,7 +1908,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "494",
@@ -1928,7 +1929,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "495",
@@ -1949,7 +1950,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "496",
@@ -1970,7 +1971,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "497",
@@ -1991,7 +1992,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "498",
@@ -2012,7 +2013,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "499",
@@ -2033,7 +2034,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "500",
@@ -2054,7 +2055,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "501",
@@ -2075,7 +2076,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "502",
@@ -2096,7 +2097,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "503",
@@ -2117,7 +2118,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "504",
@@ -2138,7 +2139,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "505",
@@ -2159,7 +2160,7 @@ db.once('open', async () => {
     "product_sale_price": 22,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "506",
@@ -2180,7 +2181,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "507",
@@ -2201,7 +2202,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "508",
@@ -2222,7 +2223,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "509",
@@ -2243,7 +2244,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "510",
@@ -2264,7 +2265,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "511",
@@ -2285,7 +2286,7 @@ db.once('open', async () => {
     "product_sale_price": 27,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "512",
@@ -2306,7 +2307,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "513",
@@ -2327,7 +2328,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 27,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "514",
@@ -2348,7 +2349,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "515",
@@ -2369,7 +2370,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "516",
@@ -2390,7 +2391,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "517",
@@ -2411,7 +2412,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "518",
@@ -2432,7 +2433,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "519",
@@ -2453,7 +2454,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "521",
@@ -2474,7 +2475,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "522",
@@ -2495,7 +2496,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "523",
@@ -2516,7 +2517,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "524",
@@ -2537,7 +2538,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "525",
@@ -2558,7 +2559,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "526",
@@ -2579,7 +2580,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "527",
@@ -2600,7 +2601,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "528",
@@ -2621,7 +2622,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "529",
@@ -2642,7 +2643,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "530",
@@ -2663,7 +2664,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "531",
@@ -2684,7 +2685,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "601",
@@ -2705,7 +2706,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 30,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "602",
@@ -2726,7 +2727,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "603",
@@ -2747,7 +2748,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "604",
@@ -2768,7 +2769,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "605",
@@ -2789,7 +2790,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "606",
@@ -2810,7 +2811,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "607",
@@ -2831,7 +2832,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "608",
@@ -2852,7 +2853,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "609",
@@ -2873,7 +2874,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "610",
@@ -2894,7 +2895,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "200",
@@ -2915,7 +2916,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "612",
@@ -2936,7 +2937,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "613",
@@ -2957,7 +2958,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "614",
@@ -2978,7 +2979,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "615",
@@ -2999,7 +3000,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 13,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "616",
@@ -3020,7 +3021,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 26,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "617",
@@ -3041,7 +3042,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "618",
@@ -3062,7 +3063,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 25,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "619",
@@ -3083,7 +3084,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 5,
     "product_bulk_price": 22,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "620",
@@ -3104,7 +3105,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 10,
     "product_bulk_price": 20,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "621",
@@ -3125,7 +3126,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "622",
@@ -3146,7 +3147,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "623",
@@ -3167,7 +3168,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "624",
@@ -3188,7 +3189,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "625",
@@ -3209,7 +3210,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "700",
@@ -3230,7 +3231,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "701a",
@@ -3251,7 +3252,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "701",
@@ -3272,7 +3273,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "702",
@@ -3293,7 +3294,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "703",
@@ -3314,7 +3315,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "704",
@@ -3335,7 +3336,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "705",
@@ -3356,7 +3357,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "706",
@@ -3377,7 +3378,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "496",
@@ -3398,7 +3399,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "497",
@@ -3419,7 +3420,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "498",
@@ -3440,7 +3441,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "499",
@@ -3461,7 +3462,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "500",
@@ -3482,7 +3483,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "514",
@@ -3503,7 +3504,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "515",
@@ -3524,7 +3525,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "516",
@@ -3545,7 +3546,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "517",
@@ -3566,7 +3567,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "518",
@@ -3587,7 +3588,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "519",
@@ -3608,7 +3609,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "521",
@@ -3629,7 +3630,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "509",
@@ -3650,7 +3651,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "405",
@@ -3671,7 +3672,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "623",
@@ -3692,7 +3693,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "624",
@@ -3713,7 +3714,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "625",
@@ -3734,7 +3735,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "617",
@@ -3755,7 +3756,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "202",
@@ -3776,7 +3777,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 33,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "203",
@@ -3797,7 +3798,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 30,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "204",
@@ -3818,7 +3819,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "205",
@@ -3839,7 +3840,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "206",
@@ -3860,7 +3861,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "207",
@@ -3881,7 +3882,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "208",
@@ -3902,7 +3903,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "209",
@@ -3923,7 +3924,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "210",
@@ -3944,7 +3945,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "211",
@@ -3965,7 +3966,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "212",
@@ -3986,7 +3987,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "213",
@@ -4007,7 +4008,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "214",
@@ -4028,7 +4029,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "800",
@@ -4049,7 +4050,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "801",
@@ -4070,7 +4071,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "802",
@@ -4091,7 +4092,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "803",
@@ -4112,7 +4113,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "804",
@@ -4133,7 +4134,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "900",
@@ -4154,7 +4155,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 3,
     "product_bulk_price": 6,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "901",
@@ -4175,7 +4176,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "902",
@@ -4196,7 +4197,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "903",
@@ -4217,7 +4218,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "904",
@@ -4238,7 +4239,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "905",
@@ -4259,7 +4260,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1000",
@@ -4280,7 +4281,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1001",
@@ -4301,7 +4302,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1002",
@@ -4322,7 +4323,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1003",
@@ -4343,7 +4344,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1004",
@@ -4364,7 +4365,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1005",
@@ -4385,7 +4386,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1006",
@@ -4406,7 +4407,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1007",
@@ -4427,7 +4428,7 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
+    "FIELD17": ""
  })
   await Product.create({
     "product_id": "1008",
@@ -4448,8 +4449,9 @@ db.once('open', async () => {
     "product_sale_price": 0,
     "product_bulk_quantity": 0,
     "product_bulk_price": 0,
-      
- })
+    "FIELD17": ""
+ }
+ 
 
 
  
