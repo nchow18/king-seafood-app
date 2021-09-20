@@ -65,19 +65,19 @@ function ProductCard(props) {
             {product.product_weight !== '' && (
               <span>{product.product_weight}</span>
             )}
-            {product.product_description1 !== '0' && (
+            {product.product_description1 !== "" && (
               <>
                 <b>Description:</b>
-                {product.product_description1 !== '0' && (
+                {product.product_description1 !== '' && (
                   <span>● {product.product_description1}</span>
                 )}   
-                {product.product_description2 !== '0' && (
+                {product.product_description2 !== '' && (
                   <span>● {product.product_description2}</span>
                 )} 
-                {product.product_description3 !== '0' && (
+                {product.product_description3 !== '' && (
                   <span>● {product.product_description3}</span>
                 )} 
-                {product.product_description4 !== '0' && (
+                {product.product_description4 !== '' && (
                   <span>● {product.product_description4}</span>
                 )}           
               </>

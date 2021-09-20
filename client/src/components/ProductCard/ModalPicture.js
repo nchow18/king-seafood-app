@@ -12,7 +12,7 @@ function ModalPicture(props) {
   return (
     <div onClick={() => {setModal(false)}} className="product-card-modal">
       {products[index].product_picture.map((image) => (
-        <img onClick={() => {}} alt={index} src={`http://media.kingsseafood18.com/media/products/${image}.jpg`} className="modal-card-picture"/>
+        <img onClick={() => {}} alt={index} src={`http://media.kingsseafood18.com/media/products/half_size/tn_${image}.jpg`} className="modal-card-picture"/>
       ))}
 
     </div>
