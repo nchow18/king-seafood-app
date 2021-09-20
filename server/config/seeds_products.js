@@ -4,7 +4,6 @@ const { Order, Product, Promo, User } = require('../models');
 db.once('open', async () => {
   console.log('opened');
   
-  await Product.deleteMany();
 
   await Promo.deleteMany();
   await Promo.create(
@@ -39,7 +38,7 @@ db.once('open', async () => {
   )
 
 
-
+  await Product.deleteMany();
   await Product.create({
     "product_id": "100",
     "product_name": "Smoked Salmon 烟熏三文鱼 100g",
@@ -48,7 +47,7 @@ db.once('open', async () => {
        "100-2"
     ],
     "product_category": "fish",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -56,9 +55,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -69,7 +68,7 @@ db.once('open', async () => {
        "101-2"
     ],
     "product_category": "fish",
-    "product_price": " 9.50 ",
+    "product_price": "9.50",
     "product_description1": "order by pieces",
     "product_description2": "RM38/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -77,9 +76,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -90,7 +89,7 @@ db.once('open', async () => {
        "102-2"
     ],
     "product_category": "fish",
-    "product_price": " 38.00 ",
+    "product_price": "38.00",
     "product_description1": "order by kg (4-5pcs)",
     "product_description2": "RM38/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -98,9 +97,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -111,7 +110,7 @@ db.once('open', async () => {
        "103-2"
     ],
     "product_category": "fish",
-    "product_price": " 9.90 ",
+    "product_price": "9.90",
     "product_description1": "order by pieces",
     "product_description2": "RM55/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -119,9 +118,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -132,7 +131,7 @@ db.once('open', async () => {
        "104-2"
     ],
     "product_category": "fish",
-    "product_price": " 60.00 ",
+    "product_price": "60.00",
     "product_description1": "order by kg (5-7pcs)",
     "product_description2": "RM55/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -140,9 +139,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 55,
+    "product_sale_price": "55",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -150,10 +149,10 @@ db.once('open', async () => {
     "product_name": "Salmon Fillet (uncut) 三文鱼片 (大) ±2kg/pc*",
     "product_picture": [
        "105-1",
-       ""
+        
     ],
     "product_category": "fish",
-    "product_price": "106.00 ",
+    "product_price": "106.00",
     "product_description1": "order by pieces",
     "product_description2": "RM53/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -161,9 +160,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -174,7 +173,7 @@ db.once('open', async () => {
        "106-2"
     ],
     "product_category": "fish",
-    "product_price": " 4.80 ",
+    "product_price": "4.80",
     "product_description1": "order by pieces",
     "product_description2": "RM12/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -182,9 +181,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -192,10 +191,10 @@ db.once('open', async () => {
     "product_name": "Halibut Fillet 大比目鱼片 ±150g/pc*",
     "product_picture": [
        "107-1",
-       ""
+        
     ],
     "product_category": "fish",
-    "product_price": " 8.25 ",
+    "product_price": "8.25",
     "product_description1": "order by pieces",
     "product_description2": "RM55/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -203,9 +202,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -213,10 +212,10 @@ db.once('open', async () => {
     "product_name": "Halibut Fillet 大比目鱼片 1kg*",
     "product_picture": [
        "108-1",
-       ""
+        
     ],
     "product_category": "fish",
-    "product_price": " 55.00 ",
+    "product_price": "55.00",
     "product_description1": "order by kg (6-8pcs)",
     "product_description2": "RM55/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -224,9 +223,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -237,7 +236,7 @@ db.once('open', async () => {
        "109-2"
     ],
     "product_category": "fish",
-    "product_price": "11.00 ",
+    "product_price": "11.00",
     "product_description1": "order by pieces",
     "product_description2": "RM55/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -245,9 +244,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -258,7 +257,7 @@ db.once('open', async () => {
        "110-2"
     ],
     "product_category": "fish",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "3pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -266,9 +265,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -279,7 +278,7 @@ db.once('open', async () => {
        "111-2"
     ],
     "product_category": "fish",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "order by pieces",
     "product_description2": "RM60/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -287,9 +286,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -300,7 +299,7 @@ db.once('open', async () => {
        "112-2"
     ],
     "product_category": "fish",
-    "product_price": " 25.60 ",
+    "product_price": "25.60",
     "product_description1": "order by pieces",
     "product_description2": "RM128/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -308,9 +307,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -321,7 +320,7 @@ db.once('open', async () => {
        "113-2"
     ],
     "product_category": "fish",
-    "product_price": "148.00 ",
+    "product_price": "148.00",
     "product_description1": "order by kg (4-6pcs)",
     "product_description2": "RM128/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -329,9 +328,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 128,
+    "product_sale_price": "128",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -342,7 +341,7 @@ db.once('open', async () => {
        "114-2"
     ],
     "product_category": "fish",
-    "product_price": "12.00 ",
+    "product_price": "12.00",
     "product_description1": "5pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -350,9 +349,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -363,7 +362,7 @@ db.once('open', async () => {
        "115-2"
     ],
     "product_category": "fish",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -371,9 +370,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -384,7 +383,7 @@ db.once('open', async () => {
        "116-2"
     ],
     "product_category": "fish",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -392,9 +391,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -405,7 +404,7 @@ db.once('open', async () => {
        "117-2"
     ],
     "product_category": "fish",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -413,9 +412,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -426,7 +425,7 @@ db.once('open', async () => {
        "118-2"
     ],
     "product_category": "fish",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "1pc/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -434,20 +433,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 7,
+    "product_bulk_price": "7",
      
  })
   await Product.create({
     "product_id": "119",
     "product_name": "Siakap Fillet 石甲鱼 400-500g",
     "product_picture": [
-       "119-1",
-       ""
+       "119-1"
     ],
     "product_category": "fish",
-    "product_price": "15.00 ",
+    "product_price": "15.00",
     "product_description1": "cut into 4-5pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -455,20 +453,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "120",
     "product_name": "Patin Slice 巴丁鱼片 1kg",
     "product_picture": [
-       "120-1",
-       ""
+       "120-1"
     ],
     "product_category": "fish",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -476,9 +473,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 9,
+    "product_bulk_price": "9",
      
  })
   await Product.create({
@@ -489,7 +486,7 @@ db.once('open', async () => {
        "121-2"
     ],
     "product_category": "fish",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "3-5pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -497,20 +494,20 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 17,
+    "product_sale_price": "17",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "122",
-    "product_name": "Teriyaki Saba 照烧鲭鱼 180g ",
+    "product_name": "Teriyaki Saba 照烧鲭鱼 180g",
     "product_picture": [
        "122-1",
        "122-2"
     ],
     "product_category": "fish",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "2pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -518,9 +515,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -531,7 +528,7 @@ db.once('open', async () => {
        "123-2"
     ],
     "product_category": "fish",
-    "product_price": "12.00 ",
+    "product_price": "12.00",
     "product_description1": "7-8pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -539,9 +536,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -552,7 +549,7 @@ db.once('open', async () => {
        "124-2"
     ],
     "product_category": "fish",
-    "product_price": "18.00 ",
+    "product_price": "18.00",
     "product_description1": "1pc/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -560,9 +557,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 16,
+    "product_bulk_price": "16",
      
  })
   await Product.create({
@@ -573,7 +570,7 @@ db.once('open', async () => {
        "125-2"
     ],
     "product_category": "fish",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "1pc/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -581,9 +578,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 28,
+    "product_bulk_price": "28",
      
  })
   await Product.create({
@@ -594,7 +591,7 @@ db.once('open', async () => {
        "126-2"
     ],
     "product_category": "fish",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "1pc/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -602,9 +599,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 33.33,
+    "product_bulk_price": "33.33",
      
  })
   await Product.create({
@@ -612,10 +609,10 @@ db.once('open', async () => {
     "product_name": "Breaded Scallops 150g",
     "product_picture": [
        "200-2",
-       ""
+        
     ],
     "product_category": "scallops",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "10pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -623,9 +620,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -636,7 +633,7 @@ db.once('open', async () => {
        "201-2"
     ],
     "product_category": "scallops",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "8pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -644,9 +641,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 27,
+    "product_bulk_price": "27",
      
  })
   await Product.create({
@@ -657,7 +654,7 @@ db.once('open', async () => {
        "202-2"
     ],
     "product_category": "scallops",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "9-10pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -665,9 +662,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 33,
+    "product_bulk_price": "33",
      
  })
   await Product.create({
@@ -678,7 +675,7 @@ db.once('open', async () => {
        "203-2"
     ],
     "product_category": "scallops",
-    "product_price": " 32.50 ",
+    "product_price": "32.50",
     "product_description1": "13-16pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -686,20 +683,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 30,
+    "product_bulk_price": "30",
      
  })
   await Product.create({
     "product_id": "204",
     "product_name": "Hokkaido Scallops XL 10/20 北海道带子 1kg",
     "product_picture": [
-       "204-1",
-       ""
+       "204-1"
     ],
     "product_category": "scallops",
-    "product_price": " 70.00 ",
+    "product_price": "70.00",
     "product_description1": "18-20pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -707,20 +703,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "205",
     "product_name": "Hokkaido Scallops L 20/30 北海道带子 1kg",
     "product_picture": [
-       "205-1",
-       ""
+       "205-1"
     ],
     "product_category": "scallops",
-    "product_price": " 65.00 ",
+    "product_price": "65.00",
     "product_description1": "20-30pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -728,20 +723,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "206",
     "product_name": "Hokkaido Scallops M 30/40 北海道带子 1kg",
     "product_picture": [
-       "206-1",
-       ""
+       "206-1"
     ],
     "product_category": "scallops",
-    "product_price": " 60.00 ",
+    "product_price": "60.00",
     "product_description1": "30-40pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -749,9 +743,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -759,10 +753,10 @@ db.once('open', async () => {
     "product_name": "Hokkaido Scallops 40/50 北海道带子 1kg",
     "product_picture": [
        "207-1",
-       ""
+        
     ],
     "product_category": "scallops",
-    "product_price": " 55.00 ",
+    "product_price": "55.00",
     "product_description1": "40-50pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -770,20 +764,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "208",
     "product_name": "Hokkaido Scallops 60/80 北海道带子 1kg",
     "product_picture": [
-       "208-1",
-       ""
+       "208-1"
     ],
     "product_category": "scallops",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "60-80pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -791,20 +784,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "209",
     "product_name": "Hokkaido Scallops 80/100 北海道带子 1kg",
     "product_picture": [
-       "209-1",
-       ""
+       "209-1"
     ],
     "product_category": "scallops",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "80-100pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -812,9 +804,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -825,7 +817,7 @@ db.once('open', async () => {
        "210-2"
     ],
     "product_category": "scallops",
-    "product_price": " 26.00 ",
+    "product_price": "26.00",
     "product_description1": "8-10pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -833,9 +825,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -846,7 +838,7 @@ db.once('open', async () => {
        "211-2"
     ],
     "product_category": "scallops",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -854,9 +846,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -867,7 +859,7 @@ db.once('open', async () => {
        "212-2"
     ],
     "product_category": "scallops",
-    "product_price": "17.50 ",
+    "product_price": "17.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -875,9 +867,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -888,7 +880,7 @@ db.once('open', async () => {
        "213-2"
     ],
     "product_category": "scallops",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "60-80pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -896,9 +888,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -909,7 +901,7 @@ db.once('open', async () => {
        "214-2"
     ],
     "product_category": "scallops",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "100-150pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -917,9 +909,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -930,7 +922,7 @@ db.once('open', async () => {
        "300-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "18-20pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -938,9 +930,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -951,7 +943,7 @@ db.once('open', async () => {
        "301-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "23-25pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -959,9 +951,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -972,7 +964,7 @@ db.once('open', async () => {
        "302-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "±45pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -980,9 +972,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -993,7 +985,7 @@ db.once('open', async () => {
        "303-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 38.00 ",
+    "product_price": "38.00",
     "product_description1": "±50pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1001,9 +993,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1014,7 +1006,7 @@ db.once('open', async () => {
        "304-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1022,9 +1014,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1035,7 +1027,7 @@ db.once('open', async () => {
        "305-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1043,9 +1035,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1056,7 +1048,7 @@ db.once('open', async () => {
        "306-2"
     ],
     "product_category": "shellfish",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "8 pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1064,9 +1056,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1074,10 +1066,10 @@ db.once('open', async () => {
     "product_name": "Fresh Oyster Meat 蠔肉 1.8kg",
     "product_picture": [
        "307-1",
-       ""
+        
     ],
     "product_category": "shellfish",
-    "product_price": " 88.00 ",
+    "product_price": "88.00",
     "product_description1": "excluded from promotions",
     "product_description2": "1.4-1.5kg nett oyster meat",
     "product_description3": "0",
@@ -1085,9 +1077,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1098,7 +1090,7 @@ db.once('open', async () => {
        "308-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1106,9 +1098,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1119,7 +1111,7 @@ db.once('open', async () => {
        "309-2"
     ],
     "product_category": "shellfish",
-    "product_price": "17.50 ",
+    "product_price": "17.50",
     "product_description1": "order by nos",
     "product_description2": "RM70/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1127,9 +1119,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1140,7 +1132,7 @@ db.once('open', async () => {
        "310-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 70.00 ",
+    "product_price": "70.00",
     "product_description1": "order by nos",
     "product_description2": "RM100/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1148,9 +1140,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1161,7 +1153,7 @@ db.once('open', async () => {
        "311-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "order by nos",
     "product_description2": "RM90/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1169,20 +1161,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "312",
     "product_name": "Mala Crayfish Tailmeat  麻辣虾尾 300g",
     "product_picture": [
-       "312-1",
-       ""
+       "312-1"
     ],
     "product_category": "shellfish",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1190,9 +1181,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 27,
+    "product_sale_price": "27",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1203,7 +1194,7 @@ db.once('open', async () => {
        "313-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1211,9 +1202,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 37,
+    "product_sale_price": "37",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1224,7 +1215,7 @@ db.once('open', async () => {
        "314-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1232,9 +1223,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 37,
+    "product_sale_price": "37",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1245,7 +1236,7 @@ db.once('open', async () => {
        "315-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1253,9 +1244,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 37,
+    "product_sale_price": "37",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1266,7 +1257,7 @@ db.once('open', async () => {
        "316-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1274,9 +1265,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1287,7 +1278,7 @@ db.once('open', async () => {
        "317-2"
     ],
     "product_category": "shellfish",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1295,9 +1286,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1308,7 +1299,7 @@ db.once('open', async () => {
        "318-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1316,9 +1307,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1329,7 +1320,7 @@ db.once('open', async () => {
        "319-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1337,9 +1328,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1350,7 +1341,7 @@ db.once('open', async () => {
        "320-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1358,9 +1349,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1371,7 +1362,7 @@ db.once('open', async () => {
        "321-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1379,9 +1370,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1392,7 +1383,7 @@ db.once('open', async () => {
        "322-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 55.00 ",
+    "product_price": "55.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1400,9 +1391,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1413,7 +1404,7 @@ db.once('open', async () => {
        "323-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 55.00 ",
+    "product_price": "55.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1421,9 +1412,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1434,7 +1425,7 @@ db.once('open', async () => {
        "324-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 7.20 ",
+    "product_price": "7.20",
     "product_description1": "order by nos",
     "product_description2": "RM45/kg",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1442,9 +1433,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1455,7 +1446,7 @@ db.once('open', async () => {
        "325a-2"
     ],
     "product_category": "shellfish",
-    "product_price": " Market Price ",
+    "product_price": "Market Price",
     "product_description1": "order by nos",
     "product_description2": "0",
     "product_description3": "*Final price will be based on actual weight",
@@ -1463,9 +1454,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1473,10 +1464,10 @@ db.once('open', async () => {
     "product_name": "Live Mud Crab Male 2nos/kg 肉螃蟹 (500g up)*",
     "product_picture": [
        "325-1",
-       ""
+        
     ],
     "product_category": "shellfish",
-    "product_price": " Market Price ",
+    "product_price": "Market Price",
     "product_description1": "order by nos",
     "product_description2": "0",
     "product_description3": "*Final price will be based on actual weight",
@@ -1484,20 +1475,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "326",
     "product_name": "Live Mud Crab Male 3nos/kg 肉螃蟹 (300-400g)*",
     "product_picture": [
-       "326-1",
-       ""
+       "326-1"
     ],
     "product_category": "shellfish",
-    "product_price": " Market Price ",
+    "product_price": "Market Price",
     "product_description1": "order by nos",
     "product_description2": "0",
     "product_description3": "*Final price will be based on actual weight",
@@ -1505,20 +1495,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "327",
     "product_name": "Live Mud Crab Male 4nos/kg 肉螃蟹 (250-300g)*",
     "product_picture": [
-       "327-1",
-       ""
+       "327-1"
     ],
     "product_category": "shellfish",
-    "product_price": " Market Price ",
+    "product_price": "Market Price",
     "product_description1": "order by nos",
     "product_description2": "0",
     "product_description3": "*Final price will be based on actual weight",
@@ -1526,20 +1515,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "328",
     "product_name": "Live Mud Crab Female (Egg) Crab 蛋螃蟹 (300g up)*",
     "product_picture": [
-       "328-1",
-       ""
+       "328-1"
     ],
     "product_category": "shellfish",
-    "product_price": " Market Price ",
+    "product_price": "Market Price",
     "product_description1": "order by nos",
     "product_description2": "0",
     "product_description3": "*Final price will be based on actual weight",
@@ -1547,20 +1535,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "329",
     "product_name": "King Crab 帝王蟹 400-600g",
     "product_picture": [
-       "329-1",
-       ""
+       "329-1"
     ],
     "product_category": "shellfish",
-    "product_price": " 50.00 ",
+    "product_price": "50.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1568,20 +1555,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "330",
     "product_name": "King Crab 帝王蟹 600-800g",
     "product_picture": [
-       "330-1",
-       ""
+       "330-1"
     ],
     "product_category": "shellfish",
-    "product_price": " 80.00 ",
+    "product_price": "80.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1589,20 +1575,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "331",
     "product_name": "King Crab 帝王蟹 800-1000g",
     "product_picture": [
-       "331-1",
-       ""
+       "331-1"
     ],
     "product_category": "shellfish",
-    "product_price": "100.00 ",
+    "product_price": "100.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1610,9 +1595,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1623,7 +1608,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": "129.60 ",
+    "product_price": "129.60",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1631,9 +1616,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1644,7 +1629,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": "151.20 ",
+    "product_price": "151.20",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1652,9 +1637,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1665,7 +1650,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": "172.80 ",
+    "product_price": "172.80",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1673,9 +1658,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1686,7 +1671,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": "194.40 ",
+    "product_price": "194.40",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1694,9 +1679,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1707,7 +1692,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 216.00 ",
+    "product_price": "216.00",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1715,9 +1700,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1728,7 +1713,7 @@ db.once('open', async () => {
        "337-2"
     ],
     "product_category": "shellfish",
-    "product_price": " 237.60 ",
+    "product_price": "237.60",
     "product_description1": "RM108/kg",
     "product_description2": "0",
     "product_description3": "*Estimated price only *Final price will be based on actual weight",
@@ -1736,9 +1721,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1749,7 +1734,7 @@ db.once('open', async () => {
        "400-2"
     ],
     "product_category": "squid",
-    "product_price": "11.50 ",
+    "product_price": "11.50",
     "product_description1": "6-15pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1757,9 +1742,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1770,7 +1755,7 @@ db.once('open', async () => {
        "401-2"
     ],
     "product_category": "squid",
-    "product_price": " 88.00 ",
+    "product_price": "88.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1778,9 +1763,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1791,7 +1776,7 @@ db.once('open', async () => {
        "402-2"
     ],
     "product_category": "squid",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1799,9 +1784,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1812,7 +1797,7 @@ db.once('open', async () => {
        "403-2"
     ],
     "product_category": "squid",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1820,20 +1805,20 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "404",
-    "product_name": "Cleaned Sotong 10/20 苏东 1kg ",
+    "product_name": "Cleaned Sotong 10/20 苏东 1kg",
     "product_picture": [
        "404-1",
        "404-2"
     ],
     "product_category": "squid",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1841,9 +1826,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1854,7 +1839,7 @@ db.once('open', async () => {
        "405-2"
     ],
     "product_category": "squid",
-    "product_price": "18.00 ",
+    "product_price": "18.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1862,9 +1847,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1875,7 +1860,7 @@ db.once('open', async () => {
        "406-2"
     ],
     "product_category": "squid",
-    "product_price": "17.00 ",
+    "product_price": "17.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1883,9 +1868,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1896,7 +1881,7 @@ db.once('open', async () => {
        "407-2"
     ],
     "product_category": "squid",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1904,9 +1889,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1917,7 +1902,7 @@ db.once('open', async () => {
        "494-2"
     ],
     "product_category": "meat",
-    "product_price": " 8.50 ",
+    "product_price": "8.50",
     "product_description1": "18pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1925,9 +1910,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1938,7 +1923,7 @@ db.once('open', async () => {
        "495-2"
     ],
     "product_category": "meat",
-    "product_price": "15.00 ",
+    "product_price": "15.00",
     "product_description1": "10pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -1946,9 +1931,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1959,7 +1944,7 @@ db.once('open', async () => {
        "496-2"
     ],
     "product_category": "meat",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1967,9 +1952,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -1980,7 +1965,7 @@ db.once('open', async () => {
        "497-2"
     ],
     "product_category": "meat",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -1988,9 +1973,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2001,7 +1986,7 @@ db.once('open', async () => {
        "498-2"
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2009,9 +1994,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2022,7 +2007,7 @@ db.once('open', async () => {
        "499-2"
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2030,9 +2015,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2043,7 +2028,7 @@ db.once('open', async () => {
        "500-2"
     ],
     "product_category": "meat",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2051,20 +2036,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "501",
     "product_name": "Breaded Chicken Chop 200g",
     "product_picture": [
-       "501-1",
-       ""
+       "501-1"
     ],
     "product_category": "meat",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "1pc/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -2072,9 +2056,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2085,7 +2069,7 @@ db.once('open', async () => {
        "502-2"
     ],
     "product_category": "meat",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2093,20 +2077,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "503",
     "product_name": "Chicken Nuggets Tempura 鸡肉块 1kg",
     "product_picture": [
-       "503-1",
-       ""
+       "503-1"
     ],
     "product_category": "meat",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2114,20 +2097,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "504",
     "product_name": "Crispy Popcorn Chicken 香酥鸡米花 1kg",
     "product_picture": [
-       "504-1",
-       ""
+       "504-1"
     ],
     "product_category": "meat",
-    "product_price": " 24.00 ",
+    "product_price": "24.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2135,20 +2117,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "505",
     "product_name": "Miami Butcher Chicken Ham (Sliced) 1kg",
     "product_picture": [
-       "505-2",
-       ""
+       "505-2"
     ],
     "product_category": "meat",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2156,20 +2137,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 22,
+    "product_sale_price": "22",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "506",
     "product_name": "Miami Butcher Chicken Sausage Breakfast 1kg",
     "product_picture": [
-       "506-2",
-       ""
+       "506-2"
     ],
     "product_category": "meat",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2177,20 +2157,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "507",
     "product_name": "Miami Butcher Chicken Sausage Jumbo 1kg",
     "product_picture": [
-       "507-2",
-       ""
+       "507-2"
     ],
     "product_category": "meat",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2198,20 +2177,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "508",
     "product_name": "Miami Butcher Turkey Bacon (Sliced) 1kg",
     "product_picture": [
-       "508-2",
-       ""
+       "508-2"
     ],
     "product_category": "meat",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2219,9 +2197,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2229,10 +2207,10 @@ db.once('open', async () => {
     "product_name": "Smoked Duck Breast 烟熏鸭胸肉 200-300g",
     "product_picture": [
        "509-1",
-       ""
+        
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2240,20 +2218,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 12,
+    "product_bulk_price": "12",
      
  })
   await Product.create({
     "product_id": "510",
     "product_name": "Black Pepper Duck Breast Meat 黑胡椒鸭胸肉 200-300g",
     "product_picture": [
-       "510-1",
-       ""
+       "510-1"
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2261,20 +2238,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 12,
+    "product_bulk_price": "12",
      
  })
   await Product.create({
     "product_id": "511",
     "product_name": "Smoked Back Bacon 黑毛猪肉培根 500g",
     "product_picture": [
-       "511-1",
-       ""
+       "511-1"
     ],
     "product_category": "meat",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2282,20 +2258,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 27,
+    "product_sale_price": "27",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "512",
     "product_name": "Smoked Streaky Bacon 烟熏五花肉 250g",
     "product_picture": [
-       "512-1",
-       ""
+       "512-1"
     ],
     "product_category": "meat",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2303,9 +2278,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2316,7 +2291,7 @@ db.once('open', async () => {
        "513-2"
     ],
     "product_category": "meat",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2324,9 +2299,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 27,
+    "product_bulk_price": "27",
      
  })
   await Product.create({
@@ -2337,7 +2312,7 @@ db.once('open', async () => {
        "514-2"
     ],
     "product_category": "meat",
-    "product_price": " 6.50 ",
+    "product_price": "6.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2345,9 +2320,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2355,10 +2330,10 @@ db.once('open', async () => {
     "product_name": "Meatballs 猪肉丸 400g",
     "product_picture": [
        "515-1",
-       ""
+        
     ],
     "product_category": "meat",
-    "product_price": "11.50 ",
+    "product_price": "11.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2366,20 +2341,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "516",
     "product_name": "Mince Meat 猪肉碎 (S) 300g",
     "product_picture": [
-       "516-1",
-       ""
+       "516-1"
     ],
     "product_category": "meat",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2387,20 +2361,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "517",
     "product_name": "Mince Meat 猪肉碎 (L) 600g",
     "product_picture": [
-       "517-1",
-       ""
+       "517-1"
     ],
     "product_category": "meat",
-    "product_price": "15.00 ",
+    "product_price": "15.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2408,20 +2381,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "518",
     "product_name": "Shabu Shabu Pork 猪肉片 300g",
     "product_picture": [
-       "518-1",
-       ""
+       "518-1"
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2429,20 +2401,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "519",
     "product_name": "Shabu Shabu Pork Belly 五花肉片 300g",
     "product_picture": [
-       "519-1",
-       ""
+       "519-1"
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2450,20 +2421,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "521",
     "product_name": "Japanese Chashu 日式叉烧 200g",
     "product_picture": [
-       "521-1",
-       ""
+       "521-1"
     ],
     "product_category": "meat",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2471,20 +2441,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "522",
     "product_name": "Thai Moo Ping 泰国猪肉串 (10pcs/pkt)",
     "product_picture": [
-       "522-1",
-       ""
+       "522-1"
     ],
     "product_category": "meat",
-    "product_price": "15.00 ",
+    "product_price": "15.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2492,20 +2461,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "523",
     "product_name": "Cheddar Cheese Sausages 芝士香肠 400g",
     "product_picture": [
-       "523-1",
-       ""
+       "523-1"
     ],
     "product_category": "meat",
-    "product_price": " 22.00 ",
+    "product_price": "22.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2513,20 +2481,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "524",
     "product_name": "Mild Italian Sausages 意大利香肠 400g",
     "product_picture": [
-       "524-1",
-       ""
+       "524-1"
     ],
     "product_category": "meat",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2534,20 +2501,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "525",
     "product_name": "Pork & Herbs Sausages 英式香料香肠 400g",
     "product_picture": [
-       "525-1",
-       ""
+       "525-1"
     ],
     "product_category": "meat",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2555,20 +2521,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "526",
     "product_name": "Habanero Chilli Sausages 辣味香肠 400g",
     "product_picture": [
-       "526-1",
-       ""
+       "526-1"
     ],
     "product_category": "meat",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2576,20 +2541,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "527",
     "product_name": "Pork Stomach 猪肚 400-600g",
     "product_picture": [
-       "527-1",
-       ""
+       "527-1"
     ],
     "product_category": "meat",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2597,20 +2561,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "528",
     "product_name": "Pork Stomach (Cleaned) 猪肚 400-600g",
     "product_picture": [
-       "528-1",
-       ""
+       "528-1"
     ],
     "product_category": "meat",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2618,20 +2581,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "529",
     "product_name": "Pork Tendon 猪脚筋 500g",
     "product_picture": [
-       "529-1",
-       ""
+       "529-1"
     ],
     "product_category": "meat",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2639,9 +2601,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2652,7 +2614,7 @@ db.once('open', async () => {
        "530-2"
     ],
     "product_category": "meat",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "16pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -2660,9 +2622,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2673,7 +2635,7 @@ db.once('open', async () => {
        "531-2"
     ],
     "product_category": "meat",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2681,20 +2643,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "601",
     "product_name": "Caviar 鱼子酱 100g",
     "product_picture": [
-       "601-1",
-       ""
+       "601-1"
     ],
     "product_category": "special",
-    "product_price": " 32.00 ",
+    "product_price": "32.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2702,20 +2663,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 30,
+    "product_bulk_price": "30",
      
  })
   await Product.create({
     "product_id": "602",
     "product_name": "Ebiko Orange 虾卵 500g",
     "product_picture": [
-       "602-2",
-       ""
+       "602-2"
     ],
     "product_category": "special",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2723,20 +2683,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "603",
     "product_name": "Tobiko Orange 鱼卵 500g",
     "product_picture": [
-       "603-1",
-       ""
+       "603-1"
     ],
     "product_category": "special",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2744,20 +2703,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "604",
     "product_name": "Ebiko Orange 虾卵 50g",
     "product_picture": [
-       "604-1",
-       ""
+       "604-1"
     ],
     "product_category": "special",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2765,9 +2723,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2775,10 +2733,10 @@ db.once('open', async () => {
     "product_name": "Tobiko Orange 鱼卵 50g",
     "product_picture": [
        "605-1",
-       ""
+        
     ],
     "product_category": "special",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2786,9 +2744,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2799,7 +2757,7 @@ db.once('open', async () => {
        "606-2"
     ],
     "product_category": "special",
-    "product_price": " 88.00 ",
+    "product_price": "88.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2807,9 +2765,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2820,7 +2778,7 @@ db.once('open', async () => {
        "607-2"
     ],
     "product_category": "special",
-    "product_price": " 25.00 ",
+    "product_price": "25.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2828,9 +2786,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2841,7 +2799,7 @@ db.once('open', async () => {
        "608-2"
     ],
     "product_category": "special",
-    "product_price": "12.50 ",
+    "product_price": "12.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2849,9 +2807,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2862,7 +2820,7 @@ db.once('open', async () => {
        "609-2"
     ],
     "product_category": "special",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2870,9 +2828,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2883,7 +2841,7 @@ db.once('open', async () => {
        "610-2"
     ],
     "product_category": "special",
-    "product_price": "12.00 ",
+    "product_price": "12.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2891,20 +2849,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "200",
     "product_name": "Breaded Scallops 150g",
     "product_picture": [
-       "200-2",
-       ""
+       "200-2"
     ],
     "product_category": "special",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "10pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -2912,9 +2869,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2925,7 +2882,7 @@ db.once('open', async () => {
        "612-2"
     ],
     "product_category": "special",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2933,9 +2890,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2946,7 +2903,7 @@ db.once('open', async () => {
        "613-2"
     ],
     "product_category": "special",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2954,9 +2911,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -2967,7 +2924,7 @@ db.once('open', async () => {
        "614-2"
     ],
     "product_category": "special",
-    "product_price": " 60.00 ",
+    "product_price": "60.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2975,20 +2932,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "615",
     "product_name": "Abalone Can 罐头鲍鱼 215g (4pcs)",
     "product_picture": [
-       "615-1",
-       ""
+       "615-1"
     ],
     "product_category": "special",
-    "product_price": "15.00 ",
+    "product_price": "15.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -2996,20 +2952,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 13,
+    "product_bulk_price": "13",
      
  })
   await Product.create({
     "product_id": "616",
     "product_name": "Abalone Can 罐头鲍鱼 425g (5pcs)",
     "product_picture": [
-       "616-1",
-       ""
+       "616-1"
     ],
     "product_category": "special",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3017,9 +2972,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 26,
+    "product_bulk_price": "26",
      
  })
   await Product.create({
@@ -3030,7 +2985,7 @@ db.once('open', async () => {
        "617-2"
     ],
     "product_category": "special",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3038,9 +2993,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3051,7 +3006,7 @@ db.once('open', async () => {
        "618-2"
     ],
     "product_category": "special",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3059,7 +3014,7 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
     "product_bulk_price": 25,
      
@@ -3072,7 +3027,7 @@ db.once('open', async () => {
        "619-2"
     ],
     "product_category": "special",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3080,7 +3035,7 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 5,
     "product_bulk_price": 22,
      
@@ -3093,7 +3048,7 @@ db.once('open', async () => {
        "620-2"
     ],
     "product_category": "special",
-    "product_price": " 28.00 ",
+    "product_price": "28.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3101,9 +3056,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 10,
-    "product_bulk_price": 20,
+    "product_bulk_price": "20",
      
  })
   await Product.create({
@@ -3111,10 +3066,10 @@ db.once('open', async () => {
     "product_name": "Imitation Shark Fin 碗仔翅 500g",
     "product_picture": [
        "621-1",
-       ""
+        
     ],
     "product_category": "special",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3122,9 +3077,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3132,10 +3087,10 @@ db.once('open', async () => {
     "product_name": "Shark Fin (Real) 鲍翅 500g",
     "product_picture": [
        "622-1",
-       ""
+        
     ],
     "product_category": "special",
-    "product_price": " 53.00 ",
+    "product_price": "53.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3143,9 +3098,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3156,7 +3111,7 @@ db.once('open', async () => {
        "623-2"
     ],
     "product_category": "special",
-    "product_price": " 83.00 ",
+    "product_price": "83.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3164,9 +3119,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3177,7 +3132,7 @@ db.once('open', async () => {
        "624-2"
     ],
     "product_category": "special",
-    "product_price": " 78.00 ",
+    "product_price": "78.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3185,9 +3140,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3198,7 +3153,7 @@ db.once('open', async () => {
        "625-2"
     ],
     "product_category": "special",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3206,20 +3161,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "700",
     "product_name": "Abalone Slice 鲍鱼片 300g",
     "product_picture": [
-       "700-1",
-       ""
+       "700-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 8.50 ",
+    "product_price": "8.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3227,9 +3181,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3237,10 +3191,10 @@ db.once('open', async () => {
     "product_name": "Imitation Crab Stick 500g",
     "product_picture": [
        "701a-1",
-       ""
+        
     ],
     "product_category": "hotpot",
-    "product_price": " 6.70 ",
+    "product_price": "6.70",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3248,9 +3202,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3261,7 +3215,7 @@ db.once('open', async () => {
        "701-2"
     ],
     "product_category": "hotpot",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3269,9 +3223,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3282,7 +3236,7 @@ db.once('open', async () => {
        "702-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 9.00 ",
+    "product_price": "9.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3290,9 +3244,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3303,7 +3257,7 @@ db.once('open', async () => {
        "703-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 9.00 ",
+    "product_price": "9.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3311,9 +3265,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3324,7 +3278,7 @@ db.once('open', async () => {
        "704-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3332,20 +3286,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "705",
     "product_name": "Cheese Tofu 芝士豆腐 500g",
     "product_picture": [
-       "705-1",
-       ""
+       "705-1"
     ],
     "product_category": "hotpot",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3353,20 +3306,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "706",
     "product_name": "Seafood Tofu 海鲜豆腐 500g",
     "product_picture": [
-       "706-1",
-       ""
+       "706-1"
     ],
     "product_category": "hotpot",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3374,9 +3326,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3387,7 +3339,7 @@ db.once('open', async () => {
        "496-2"
     ],
     "product_category": "hotpot",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3395,9 +3347,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3408,7 +3360,7 @@ db.once('open', async () => {
        "497-2"
     ],
     "product_category": "hotpot",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3416,9 +3368,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3429,7 +3381,7 @@ db.once('open', async () => {
        "498-2"
     ],
     "product_category": "hotpot",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3437,9 +3389,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3450,7 +3402,7 @@ db.once('open', async () => {
        "499-2"
     ],
     "product_category": "hotpot",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3458,9 +3410,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3471,7 +3423,7 @@ db.once('open', async () => {
        "500-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 30.00 ",
+    "product_price": "30.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3479,9 +3431,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3492,7 +3444,7 @@ db.once('open', async () => {
        "514-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 6.50 ",
+    "product_price": "6.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3500,20 +3452,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "515",
     "product_name": "Meatballs 猪肉丸 400g",
     "product_picture": [
-       "515-1",
-       ""
+       "515-1"
     ],
     "product_category": "hotpot",
-    "product_price": "11.50 ",
+    "product_price": "11.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3521,20 +3472,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "516",
     "product_name": "Mince Meat 猪肉碎 (S) 300g",
     "product_picture": [
-       "516-1",
-       ""
+       "516-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3542,20 +3492,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "517",
     "product_name": "Mince Meat 猪肉碎 (L) 600g",
     "product_picture": [
-       "517-1",
-       ""
+       "517-1"
     ],
     "product_category": "hotpot",
-    "product_price": "15.00 ",
+    "product_price": "15.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3563,20 +3512,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "518",
     "product_name": "Shabu Shabu Pork 猪肉片 300g",
     "product_picture": [
-       "518-1",
-       ""
+       "518-1"
     ],
     "product_category": "hotpot",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3584,20 +3532,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "519",
     "product_name": "Shabu Shabu Pork Belly 五花肉片 300g",
     "product_picture": [
-       "519-1",
-       ""
+       "519-1"
     ],
     "product_category": "hotpot",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3605,20 +3552,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "521",
     "product_name": "Japanese Chashu 日式叉烧 200g",
     "product_picture": [
-       "521-1",
-       ""
+       "521-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3626,20 +3572,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "509",
     "product_name": "Smoked Duck Breast 烟熏鸭胸肉 200-300g",
     "product_picture": [
-       "509-1",
-       ""
+       "509-1"
     ],
     "product_category": "hotpot",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3647,9 +3592,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": true,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 12,
+    "product_bulk_price": "12",
      
  })
   await Product.create({
@@ -3660,7 +3605,7 @@ db.once('open', async () => {
        "405-2"
     ],
     "product_category": "hotpot",
-    "product_price": "18.00 ",
+    "product_price": "18.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3668,9 +3613,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3681,7 +3626,7 @@ db.once('open', async () => {
        "623-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 83.00 ",
+    "product_price": "83.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3689,9 +3634,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3702,7 +3647,7 @@ db.once('open', async () => {
        "624-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 78.00 ",
+    "product_price": "78.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3710,9 +3655,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3723,7 +3668,7 @@ db.once('open', async () => {
        "625-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3731,9 +3676,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3744,7 +3689,7 @@ db.once('open', async () => {
        "617-2"
     ],
     "product_category": "hotpot",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3752,9 +3697,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3765,7 +3710,7 @@ db.once('open', async () => {
        "202-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "9-10pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3773,9 +3718,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 33,
+    "product_bulk_price": "33",
      
  })
   await Product.create({
@@ -3786,7 +3731,7 @@ db.once('open', async () => {
        "203-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 32.50 ",
+    "product_price": "32.50",
     "product_description1": "13-16pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3794,20 +3739,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 30,
+    "product_bulk_price": "30",
      
  })
   await Product.create({
     "product_id": "204",
     "product_name": "Hokkaido Scallops XL 10/20 北海道带子 1kg",
     "product_picture": [
-       "204-1",
-       ""
+       "204-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 70.00 ",
+    "product_price": "70.00",
     "product_description1": "18-20pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3815,20 +3759,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "205",
     "product_name": "Hokkaido Scallops L 20/30 北海道带子 1kg",
     "product_picture": [
-       "205-1",
-       ""
+       "205-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 65.00 ",
+    "product_price": "65.00",
     "product_description1": "20-30pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3836,20 +3779,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "206",
     "product_name": "Hokkaido Scallops M 30/40 北海道带子 1kg",
     "product_picture": [
-       "206-1",
-       ""
+       "206-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 60.00 ",
+    "product_price": "60.00",
     "product_description1": "30-40pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3857,20 +3799,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "207",
     "product_name": "Hokkaido Scallops 40/50 北海道带子 1kg",
     "product_picture": [
-       "207-1",
-       ""
+       "207-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 55.00 ",
+    "product_price": "55.00",
     "product_description1": "40-50pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3878,20 +3819,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "208",
     "product_name": "Hokkaido Scallops 60/80 北海道带子 1kg",
     "product_picture": [
-       "208-1",
-       ""
+       "208-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 45.00 ",
+    "product_price": "45.00",
     "product_description1": "60-80pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3899,20 +3839,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "209",
     "product_name": "Hokkaido Scallops 80/100 北海道带子 1kg",
     "product_picture": [
-       "209-1",
-       ""
+       "209-1"
     ],
     "product_category": "hotpot",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "80-100pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -3920,9 +3859,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3933,7 +3872,7 @@ db.once('open', async () => {
        "210-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 26.00 ",
+    "product_price": "26.00",
     "product_description1": "8-10pcs/pkt",
     "product_description2": "0",
     "product_description3": "0",
@@ -3941,9 +3880,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3954,7 +3893,7 @@ db.once('open', async () => {
        "211-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 20.00 ",
+    "product_price": "20.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3962,9 +3901,9 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3975,7 +3914,7 @@ db.once('open', async () => {
        "212-2"
     ],
     "product_category": "hotpot",
-    "product_price": "17.50 ",
+    "product_price": "17.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -3983,9 +3922,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -3996,7 +3935,7 @@ db.once('open', async () => {
        "213-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 40.00 ",
+    "product_price": "40.00",
     "product_description1": "60-80pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -4004,9 +3943,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4017,7 +3956,7 @@ db.once('open', async () => {
        "214-2"
     ],
     "product_category": "hotpot",
-    "product_price": " 35.00 ",
+    "product_price": "35.00",
     "product_description1": "100-150pcs/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -4025,9 +3964,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4038,7 +3977,7 @@ db.once('open', async () => {
        "800-2"
     ],
     "product_category": "fruits",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4046,9 +3985,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 12,
+    "product_bulk_price": "12",
      
  })
   await Product.create({
@@ -4059,7 +3998,7 @@ db.once('open', async () => {
        "801-2"
     ],
     "product_category": "fruits",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4067,9 +4006,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 12,
+    "product_bulk_price": "12",
      
  })
   await Product.create({
@@ -4080,7 +4019,7 @@ db.once('open', async () => {
        "802-2"
     ],
     "product_category": "fruits",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4088,7 +4027,7 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
     "product_bulk_price": 12,
      
@@ -4097,11 +4036,10 @@ db.once('open', async () => {
     "product_id": "803",
     "product_name": "Frozen Rasberries 冷冻山莓 500g",
     "product_picture": [
-       "803-1",
-       ""
+       "803-1"
     ],
     "product_category": "fruits",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4109,20 +4047,19 @@ db.once('open', async () => {
     "product_status": false,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "804",
     "product_name": "Frozen Strawberries 冷冻草莓 500g",
     "product_picture": [
-       "804-1",
-       ""
+       "804-1"
     ],
     "product_category": "fruits",
-    "product_price": "14.00 ",
+    "product_price": "14.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4130,9 +4067,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 12,
+    "product_bulk_price": "12",
      
  })
   await Product.create({
@@ -4143,7 +4080,7 @@ db.once('open', async () => {
        "900-2"
     ],
     "product_category": "vegetables",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4151,9 +4088,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 3,
-    "product_bulk_price": 6,
+    "product_bulk_price": "6",
      
  })
   await Product.create({
@@ -4164,7 +4101,7 @@ db.once('open', async () => {
        "901-2"
     ],
     "product_category": "vegetables",
-    "product_price": " 9.00 ",
+    "product_price": "9.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4172,9 +4109,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4185,7 +4122,7 @@ db.once('open', async () => {
        "902-2"
     ],
     "product_category": "vegetables",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4193,20 +4130,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "903",
     "product_name": "French Fries (Crinkle Cut) 薯条 1kg",
     "product_picture": [
-       "903-1",
-       ""
+       "903-1"
     ],
     "product_category": "vegetables",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4214,20 +4150,19 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
     "product_id": "904",
     "product_name": "French Fries (Shoestring) 薯条 1kg",
     "product_picture": [
-       "904-1",
-       ""
+       "904-1"
     ],
     "product_category": "vegetables",
-    "product_price": "10.00 ",
+    "product_price": "10.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4235,9 +4170,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4248,7 +4183,7 @@ db.once('open', async () => {
        "905-2"
     ],
     "product_category": "vegetables",
-    "product_price": "12.50 ",
+    "product_price": "12.50",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4256,9 +4191,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": false,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4269,7 +4204,7 @@ db.once('open', async () => {
        "1000-2"
     ],
     "product_category": "snacks",
-    "product_price": " 9.00 ",
+    "product_price": "9.00",
     "product_description1": "6pkts/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -4277,9 +4212,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4290,7 +4225,7 @@ db.once('open', async () => {
        "1001-2"
     ],
     "product_category": "snacks",
-    "product_price": " 9.00 ",
+    "product_price": "9.00",
     "product_description1": "6pkts/box",
     "product_description2": "0",
     "product_description3": "0",
@@ -4298,9 +4233,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4311,7 +4246,7 @@ db.once('open', async () => {
        "1002-2"
     ],
     "product_category": "snacks",
-    "product_price": " 8.00 ",
+    "product_price": "8.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4319,9 +4254,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4332,7 +4267,7 @@ db.once('open', async () => {
        "1003-2"
     ],
     "product_category": "snacks",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "25pkts/tin",
     "product_description2": "0",
     "product_description3": "0",
@@ -4340,9 +4275,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4353,7 +4288,7 @@ db.once('open', async () => {
        "1004-2"
     ],
     "product_category": "snacks",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "1pkt/tin",
     "product_description2": "0",
     "product_description3": "0",
@@ -4361,9 +4296,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4374,7 +4309,7 @@ db.once('open', async () => {
        "1005-2"
     ],
     "product_category": "snacks",
-    "product_price": "13.00 ",
+    "product_price": "13.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4382,9 +4317,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4395,7 +4330,7 @@ db.once('open', async () => {
        "1006-2"
     ],
     "product_category": "snacks",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4403,9 +4338,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4416,7 +4351,7 @@ db.once('open', async () => {
        "1007-2"
     ],
     "product_category": "snacks",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "0",
     "product_description2": "0",
     "product_description3": "0",
@@ -4424,9 +4359,9 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
   await Product.create({
@@ -4437,7 +4372,7 @@ db.once('open', async () => {
        "1008-2"
     ],
     "product_category": "snacks",
-    "product_price": "16.00 ",
+    "product_price": "16.00",
     "product_description1": "1pkt/tin",
     "product_description2": "0",
     "product_description3": "0",
@@ -4445,18 +4380,12 @@ db.once('open', async () => {
     "product_status": true,
     "product_new": true,
     "product_featured": false,
-    "product_sale_price": 0,
+    "product_sale_price": "0",
     "product_bulk_quantity": 0,
-    "product_bulk_price": 0,
+    "product_bulk_price": "0",
      
  })
  
- 
-
-
- 
- 
-    
 
   console.log('order seeded');
 
