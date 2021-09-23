@@ -40,7 +40,7 @@ function Login() {
               <form 
               onSubmit={handleFormSubmit} 
             className="sign-form-container night-bg">
-              <p>Sign In</p>
+              <p>LOG IN</p>
               <input 
                 onChange={handleInputChange} 
                 value={formData.email} 
@@ -68,7 +68,7 @@ function Login() {
                 type="submit"
                 variant="success"
               >
-                  SIGN IN
+                  LOG IN
               </button>
             </form>
           </div>
