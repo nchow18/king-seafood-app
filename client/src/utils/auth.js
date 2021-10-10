@@ -79,7 +79,7 @@ class AuthService {
       name: 'Newest Products'
     },
     {
-      name: 'sauces'
+      name: 'Sauces'
     }    
     ]
 
