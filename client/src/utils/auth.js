@@ -73,14 +73,14 @@ class AuthService {
       name: 'Snacks'
     },
     {
+      name: 'Sauces'
+    }, 
+    {
       name: 'Sale'
     },
     {
       name: 'Newest Products'
-    },
-    {
-      name: 'Sauces'
-    }    
+    },   
     ]
 
     return categories;
