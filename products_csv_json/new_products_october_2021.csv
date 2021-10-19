@@ -1,0 +1,58 @@
+﻿product_id,product_name,product_picture,product_picture,product_category, product_price ,product_description1,product_description2,product_description3,product_description4,product_status,product_new,product_featured,product_sale_price,product_bulk_quantity,product_bulk_price
+1009,Bourbon Choco & Coffee Biscuit 108g,1009-1,1009-2,snacks,7.5,24pcs/box,,,,true,true,false,0,0,0
+1010,Bourbon Choco & Digestive Biscuit 98g,1010-1,1010-2,snacks,7.5,17pcs/box,,,,true,true,false,0,0,0
+1011,Furuta Green Tea Cookies 87g,1011-1,1011-2,snacks,7,10pcs/box,,,,true,true,false,0,0,0
+1012,Furuta Milk Cookies 80g,1012-1,1012-2,snacks,7,12pcs/box,,,,true,true,false,0,0,0
+1013,Koikeya Pride Potato Chips (Seaweed Salt) 58g,1013-1,1013-2,snacks,8,,,,,true,true,false,0,0,0
+1014,Koikeya Pride Potato Chips (Light Salt) 60g,1014-1,1014-2,snacks,8,,,,,true,true,false,0,0,0
+1015,Koikeya Pride Potato Chips (Wagyu) 58g,1015-1,1015-2,snacks,8,,,,,true,true,false,0,0,0
+1016,Koikeya Pride Potato Chips (No Salt) 60g,1016-1,1016-2,snacks,8,,,,,true,true,false,0,0,0
+1017,Koikeya Pure Potato Chips (Okhotsk Salt & Rock Salt) 58g,1017-1,1017-2,snacks,6.5,,,,,true,true,false,0,0,0
+1018,Koikeya Pure Potato Chips (Sesame Oil & Rock Salt) 58g,1018-1,1018-2,snacks,6.5,,,,,true,true,false,0,0,0
+1019,Koikeya Pure Potato Chips (Setouchi Green Seaweed & Salt) 58g,1019-1,1019-2,snacks,6.5,,,,,true,true,false,0,0,0
+1020,Koikeya Pure Potato Chips (Royal Road Potato Salad) 58g,1020-1,1020-2,snacks,6.5,,,,,true,true,false,0,0,0
+1021,Calbee Jagabee Butter Soy Sauce 80g,1021-1,1021-2,snacks,11.5,16g x 5pkts,,,,true,true,false,0,0,0
+1022,Calbee Jagabee Light Salt 80g,1022-1,1022-2,snacks,11.5,16g x 5pkts,,,,true,true,false,0,0,0
+1023,Calbee Jagabee Light Salt 40g,1023-1,1023-2,snacks,7,resealable packaging,,,,true,true,false,0,0,0
+1024,Calbee Thick Jagabee Sour Cream 35g,1024-1,1024-2,snacks,7,resealable packaging,,,,true,true,false,0,0,0
+1025,Calbee Potato Delux Mild Salt 50g,1025-1,1025-2,snacks,7.5,2pcs x 9pkt,,,,true,true,false,0,0,0
+1026,Calbee Potato Delux Black Pepper 50g,1026-1,1026-2,snacks,7.5,16g x 5pkts,,,,true,true,false,0,0,0
+1027,Sanko Yuki No Yado Rice Cracker 日本三幸雪宿米饼 (Original) ,1027-1,1027-2,snacks,10.5,2pcs x 12pkt,,,,true,true,false,0,0,0
+1028,Sanko Yuki No Yado Rice Cracker 日本黑糖米饼 (Brown Sugar),1028-1,1028-2,snacks,10.5,2pcs x 12pkt,,,,true,true,false,0,0,0
+1029,Sanko Yuki No Yado Rice Cracker 日本盐味米饼 (Salt),1029-1,1029-2,snacks,7.9,2pcs x 9pkt,,,,true,true,false,0,0,0
+1030,Tohato Bitter Caramel Corn 77g,1030-1,1030-2,snacks,5.6,,,,,true,true,false,0,0,0
+1031,Tohato Almond Caramel Corn 70g,1031-1,1031-2,snacks,5.6,,,,,true,true,false,0,0,0
+1032,FritoLay Tortilla Chips Avocado & Cream Cheese 70g,1032-1,1032-2,snacks,7,,,,,true,true,false,0,0,0
+1101,Marukome Miso Paste 味噌酱 375g,1101-1,1101-2,sauces,13,,,,,true,true,false,0,0,0
+1102,Mizkan Gold Sesame Calorie Half 芝麻酱 250mL,1102-1,,sauces,18.5,,,,,true,true,false,0,0,0
+1104,S&B Golden Curry Spicy 辛口 198g,1104-1,1104-2,sauces,12.5,,,,,true,true,false,0,0,0
+1105,S&B Golden Curry Mild Spicy 中辛 198g,1105-1,1105-2,sauces,12.5,,,,,true,true,false,0,0,0
+1106,S&B Golden Curry Sweet 甘口 198g,1106-1,1106-2,sauces,12.5,,,,,true,true,false,0,0,0
+1107,Marumiya Seaweed Mentai Furikake 海苔明太子味 22g,1107-1,1107-2,sauces,7.9,resealable packaging,,,,true,true,false,0,0,0
+1108,Marumiya Tasty Salmon Furikake 鲑鱼味 22g,1108-1,1108-2,sauces,7.9,resealable packaging,,,,true,true,false,0,0,0
+1201,Marutai Hakata Tonkotsu Ramen (White) 185g,1201-1,1201-2,noodles/soup,11.5,,,,,true,true,false,0,0,0
+1202,Marutai Kumamoto Black Chili Oil Ramen (Red) 186g,1202-1,1202-2,noodles/soup,11.5,,,,,true,true,false,0,0,0
+1203,Marutai Kagoshima Ramen (Black) 185g,1203-1,1203-2,noodles/soup,11.5,,,,,true,true,false,0,0,0
+1204,Nissin Donbei Curry Udon 咖喱乌冬面 87g,1204-1,,noodles/soup,10.6,,,,,true,true,false,0,0,0
+1205,Nissin Donbei Tempura Soba 天妇罗荞麦面 100g,1205-1,,noodles/soup,9.6,,,,,true,true,false,0,0,0
+1206,Glico Donburi Gyu Udon 牛丼 160g,1206-1,1206-2,noodles/soup,15,1 serving,,,,true,true,false,0,0,0
+1207,Marukome Miso Soup Topping (4 flavours) 12pkts,1207-1,1207-2,noodles/soup,12.8,each flavour 3pkts,,,,true,true,false,0,0,0
+1208,Marukome Seaweed Miso 216g,1208-1,1208-2,noodles/soup,6,12pcs/pkt,,,,true,true,false,0,0,0
+1209,Marukome Clam Miso 152g,1209-1,1209-2,noodles/soup,6,8pcs/pkt,,,,true,true,false,0,0,0
+1210,Dragon Tiger Grouper Fish Noodle Soup 龙虎斑鱼米汤 (Original),1210-1,,noodles/soup,12,,,,,true,true,false,0,0,0
+1211,Dragon Tiger Grouper Fish Noodle Soup 龙虎斑鱼米汤 (Spicy Milk) ,1211-1,,noodles/soup,12,,,,,true,true,false,0,0,0
+1212,Myojo Kurume Tonkotsu Flavour 久留米豚骨锅 116g,1212-1,1212-2,noodles/soup,10,1 person hotpot,,,,true,true,false,0,0,0
+1213,Myojo Miyazaki Spicy Flavour 宫崎辛锅 111g,1213-1,1213-2,noodles/soup,10,1 person hotpot,,,,true,true,false,0,0,0
+1214,Myojo Sapporo Miso Flavour 札幌味增锅 116g,1214-1,1214-2,noodles/soup,10,1 person hotpot,,,,true,true,false,0,0,0
+1215,Myojo Menjin Rich Aroma Miso Ramen 浓味味增 120g,1215-1,1215-2,noodles/soup,9,,,,,true,true,false,0,0,0
+1216,Myojo Menjin Rich Aroma Soy Sauce Ramen 浓香酱油 120g,1216-1,1216-2,noodles/soup,9,,,,,true,true,false,0,0,0
+1301,Nitto Matcha Au Lait 抹茶 120g,1301-1,1301-2,beverages,17,10sticks/pkt,,,,true,true,false,0,0,0
+1302,Nitto Royal Milk Tea 奶茶 160g,1302-1,1302-2,beverages,18,10sticks/pkt,,,,true,true,false,0,0,0
+1303,Blendy Potion Matcha Au Lait 抹茶 140g,1303-1,1303-2,beverages,12.5,7pcs/pkt,,,,true,true,false,0,0,0
+1304,Oi Ocha Roasted Green Tea Tea Bag,1304-1,1304-2,beverages,15,20pkts/box,,,,true,true,false,0,0,0
+1305,Oi Ocha Green Tea w/ Roasted Rice and Matcha Tea Bag 玄米茶 ,1305-1,1305-2,beverages,15,20pkts/box,,,,true,true,false,0,0,0
+1306,Premium Matcha Green Tea 绿茶,1306-1,1306-2,beverages,19,20bags/box,,,,true,true,false,0,0,0
+1307,Premium Matcha Green Tea with Roasted Rice 玄米茶 ,1307-1,1307-2,beverages,19,20bags/box,,,,true,true,false,0,0,0
+1308,Choya Umeshu Premium 梅酒 350mL,1308-1,1308-2,beverages,17.5,,,,,true,true,false,0,0,0
+515a,Cheese Meatball 芝士猪肉丸 200g,515a-1,515a-2,meat,6.7,,,,,true,true,false,0,0,0
+515a,Cheese Meatball 芝士猪肉丸 200g,515a-1,515a-2,hotpot,6.7,,,,,true,true,false,0,0,0

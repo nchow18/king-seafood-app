@@ -76,6 +76,12 @@ class AuthService {
       name: 'Sauces'
     }, 
     {
+      name: 'Beverages'
+    },
+    {
+      name: 'Noodles/Soup'
+    },
+    {
       name: 'Sale'
     },
     {
