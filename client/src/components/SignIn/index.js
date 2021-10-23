@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { LOGIN } from '../../utils/mutations';
 import '../../css/Signin.css';
+import SignUp from '../Signup';
 
 function Login() {
     const [formData, setUserFormData] = useState({ email: '', password: '' })
@@ -39,7 +40,7 @@ function Login() {
               <form 
               onSubmit={handleFormSubmit} 
             className="sign-form-container night-bg">
-              <p>Sign In</p>
+              <p>LOG IN</p>
               <input 
                 onChange={handleInputChange} 
                 value={formData.email} 
@@ -67,9 +68,12 @@ function Login() {
                 type="submit"
                 variant="success"
               >
-                  SIGN IN
+                  LOG IN
               </button>
             </form>
+          </div>
+          <div>
+            <SignUp />
           </div>
       </>
   )

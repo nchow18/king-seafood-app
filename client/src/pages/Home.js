@@ -18,6 +18,7 @@ import Vegetable from './../assets/images/category/vegetable.png';
 import Sale from './../assets/images/category/sale.png';
 import Special from './../assets/images/category/special.png';
 import Shellfish from './../assets/images/category/shellfish.png';
+import PromoCarousel from '../components/Carousel/PromoBanner';
 
 import NoMatch from './../pages/NoMatch';
 import Products from './../pages/Products';
@@ -89,6 +90,10 @@ function Home(props) {
     {
       name: 'Vegetables',
       img: Vegetable
+    },
+    {
+      name: 'Snacks',
+      img: ''
     },   
 		{
 			name: 'Newest',
@@ -111,12 +116,8 @@ function Home(props) {
   const user_me = dataUserMe?.userMe || {};
   const user_cart = user_me.cart;
 
-  console.log(user_me);
-  console.log(user_cart);
-  console.log(promo);
-
   useEffect(() => {
-    // setTimeout(displayPromo, 4000);
+    setTimeout(displayPromo, 4000);
     const empty = {name: ""};
     localStorage.setItem('current_category', JSON.stringify(empty))
   }, [])
@@ -155,6 +156,16 @@ function Home(props) {
 
   return (
     <div>
+      {isPromo === true && (
+        <div>
+          {promo.promoPicture1 === true || promo.promoPicture2 === true || promo.promoPicture3 === true || (
+            <PromoCarousel
+              promotions={promo}
+              setPromo={setPromo}
+            />
+          )}
+        </div>
+      )}      
       {currentHeaderLink.link === 'home' && (
         <HomeContent
           category={category}
@@ -166,7 +177,9 @@ function Home(props) {
           promotions={promo}
           setPromo={setPromo}
           currentHeaderLink={currentHeaderLink}
-          isPromo={isPromo} />
+          isPromo={isPromo}
+          setCurrentHeaderLink={setCurrentHeaderLink}
+          headerLinks={headerLinks} />
       )}
       {currentHeaderLink.link === 'cart' && (
         <WindowCart
@@ -174,7 +187,9 @@ function Home(props) {
           products={products}
           user_me={user_me}
           setPastOrders={setPastOrders}
-          promotions={promo} />
+          promotions={promo}
+          setCurrentHeaderLink={setCurrentHeaderLink}
+          headerLinks={headerLinks} />
       )}
       {currentHeaderLink.link === 'promotions' && (
         <Promotions

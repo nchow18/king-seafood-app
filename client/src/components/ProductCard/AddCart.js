@@ -29,6 +29,7 @@ function AddCart(props) {
   }
 
   const addToCart = async (event) => {
+
     alert('Added to cart : Quantity : ' + currentQuantity)
 
     try {
@@ -87,10 +88,10 @@ function AddCart(props) {
           <span onClick={() => reduceQuantity()}>-</span>
         </div>
 
-        <button onClick={() => {addToCart(); addView()}}>ADD TO CART</button>
+        <div className="add-product-button" onClick={() => {addToCart(); addView()}}>ADD TO CART</div>
       </>
     ) : (
-      <button onClick={() => {setCurrentHeaderLink(headerLinks[6])}}>Log In for CART</button>
+      <div className="add-product-button" onClick={() => {setCurrentHeaderLink(headerLinks[6])}}>Log In for CART</div>
     )}
     
     </>

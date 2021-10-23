@@ -8,9 +8,10 @@ function CartListQuantity(props) {
     item,
     user_cart,
     index,
-    currentCartTotal,
-    setCartTotal,
-    promotions
+    updateCartTotal,
+    promotions,
+    currentCart,
+    reloadCart
   } = props
 
   const global_sale = promotions[0].discount/100;
@@ -88,8 +89,8 @@ function CartListQuantity(props) {
       user_cart[i].calc_price = (user_cart[i].product_price * (1 - global_sale) * user_cart[i].quantity).toFixed(2);
       user_cart[i].final_price = (user_cart[i].product_price * (1 - global_sale) * user_cart[i].quantity).toFixed(2);
     } else if (user_cart[i].product_sale_price >= '1') {
-      user_cart[i].calc_price = (user_cart[i].product_sale_price * user_cart[i].quantity).toFixed(2);
-      user_cart[i].final_price = (user_cart[i].product_sale_price * user_cart[i].quantity).toFixed(2);
+      user_cart[i].calc_price = ((user_cart[i].product_sale_price * (1 - global_sale)) * user_cart[i].quantity).toFixed(2);
+      user_cart[i].final_price = ((user_cart[i].product_sale_price * (1 - global_sale)) * user_cart[i].quantity).toFixed(2);
     } else if (user_cart[i].product_bulk_quantity !== 0) {
       if (user_cart[i].product_bulk_quantity <= user_cart[i].quantity) {
         user_cart[i].calc_price = (user_cart[i].product_bulk_price * user_cart[i].quantity).toFixed(2);
@@ -112,11 +113,12 @@ function CartListQuantity(props) {
 
   return (
     <div className="cart-list-counter">
-      <span>RM {priceAdjust()}</span>
-      <div>
-        <span onClick={() => {addQuantity()}}>+</span>
-        <span>{currentQuantity}</span>
-        <span onClick={() => {subtractQuantity()}}>-</span>
+      <span>{user_cart[index].product_name}</span>
+      <div>      
+        <span>RM {priceAdjust()}</span>
+        <span onClick={() => {addQuantity(); updateCartTotal()}}>+</span>
+        <span>{user_cart[index].quantity}</span>
+        <span onClick={() => {subtractQuantity(); updateCartTotal()}}>-</span>
       </div> 
     </div>
   )

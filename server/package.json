@@ -7,7 +7,8 @@
     "start": "node server.js",
     "watch": "nodemon",
     "seedUser": "node config/seeds_users.js",
-    "seedProduct": "node config/seeds_products.js"
+    "seedProducts": "node config/seeds_products.js",
+    "seedProduct": "node config/seeds_product.js"
   },
   "keywords": [],
   "author": "",

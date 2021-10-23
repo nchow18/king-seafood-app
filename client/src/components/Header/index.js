@@ -11,16 +11,12 @@ function Header(props) {
 
   const {
     headerLinks = [],
-    currentHeaderLink,
     setCurrentHeaderLink,
     cartModal,
     setCartModal,
-    setCartCount,
-    cartCount
   } = props
 
   const logout = event => {
-    event.preventDefault();
     Auth.logout();
   };
 
@@ -45,12 +41,10 @@ function Header(props) {
   return (
       <div className="header-items">
         <div className="header-links-container">
-        <Link to="/">
             <div>
               <img alt="kinglogo" src={Logo} className="header-logo"/>
               <span>KING'S SEAFOOD 18</span>
             </div>
-          </Link>
           <div className="links">
             {Auth.loggedIn() ? (
               <>
@@ -59,12 +53,14 @@ function Header(props) {
                 {adminLinks.map((link) => (
                   <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
                 ))}
+                <span onClick={() => {logout()}} className="header-link">{headerLinks[7].name}</span>
               </>
               ) : (
                 <>
                   {userLinks.map((link) => (
                     <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
                   ))}
+                  <span onClick={() => {logout()}} className="header-link">{headerLinks[7].name}</span>                  
                 </>
               )}
 
@@ -73,20 +69,25 @@ function Header(props) {
               <>
               {guestLinks.map((link) => (
                 <span onClick={() => {setCurrentHeaderLink(link)}} className="header-link">{link.name}</span>
-              ))}
+              ))}           
               </>
             )}
           </div>         
         </div>
-        <div className="mobile-header-display">
+        {/* <div className="mobile-header-display">
           <MobileHeader 
             setModal={setModal}
             isModal={isModal}
             headerLinks={headerLinks}
             cartModal={cartModal}
             setCartModal={setCartModal}
+            guestLinks={guestLinks}
+            adminLinks={adminLinks}
+            userLinks={userLinks}
+            setCurrentHeaderLink={setCurrentHeaderLink}
+            logout={logout}
             />
-        </div> 
+        </div>  */}
       </div>
   )
 }

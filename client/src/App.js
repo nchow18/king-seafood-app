@@ -84,17 +84,14 @@ function App() {
 			user: false,
 			admin: false
 		},
-		{
-			name: 'Sign Up',
-      link: 'signup',
-			href: '/signup',
-			guest: true,
+    {
+			name: 'Log Out',
+      link: 'logout',
+			href: '/logout',
+			guest: false,
 			user: false,
 			admin: false
-		},
-    {
-      name: 'none'
-    }
+		}
 	]);
 
 

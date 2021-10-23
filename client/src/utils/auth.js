@@ -70,11 +70,23 @@ class AuthService {
       name: 'Hotpot'
     },
     {
+      name: 'Snacks'
+    },
+    {
+      name: 'Sauces'
+    }, 
+    {
+      name: 'Beverages'
+    },
+    {
+      name: 'Noodles/Soup'
+    },
+    {
       name: 'Sale'
     },
     {
       name: 'Newest Products'
-    },
+    },   
     ]
 
     return categories;
@@ -286,6 +298,8 @@ class AuthService {
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
     window.location.assign('/');
+
+    window.alert('Logged Out')
   }
 }
 

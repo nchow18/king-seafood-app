@@ -7,60 +7,74 @@ function CartList(props) {
   const {
     user_me,
     products,
-    promotions
+    promotions,
   } = props
 
 
   const user_cart = user_me.cart;
   const [removeCart, { ERROR }] = useMutation(REMOVE_CART);
+  const [cart, updateCart] = useState(0)
+  const [currentCart, reloadCart] = useState(false);
+  var cart_price = '';
 
+
+  function updateCartTotal() {
+    updateCart(cart + 1);
+  }
+
+  function calcTotal() {
+
+    console.log('updating cart total')
+
+    var total = '';
+
+    for (var i = 0; i < user_cart.length; i++) {
+      var a = total;
+      var b = user_cart[i].final_price;
+      var z = +a + +b;
+      total = z.toFixed(2);
+    }
+    cart_price = total;
+    return total;
+  }
+
+  // useEffect(() => {
+
+  //   console.log('re-render');
+  //   reloadCart(false);
+
+  // }, [currentCart]);
 
   const removeCartItem = async (index) => {
-    alert('cart item removed')
+    alert('cart item removed: ' + index + ' ' + user_me.cart[index].product_name)
 
     try {
       removeCart({
         variables: {
-          product_id: user_cart[index].product_name
+          product_id: user_me.cart[index].product_name
         }
       })
     } catch (e) {
       console.log(e)
     }
 
-    user_cart.splice(index, 1);
+    user_me.cart.splice(index, 1);
+
   }
-
-  function cart_total() {
-    var total = '';
-
-    for (var i = 0; i < user_cart.length; i++) {
-     var a = total;
-     var b = user_cart[i].final_price;
-     var z = +a + +b;
-     total = z.toFixed(2);
-    }
-    return total;
-  }
-
-  const cart_price = cart_total();
-  const [currentCartTotal, setCartTotal] = useState(cart_price);
-
-  console.log(currentCartTotal);
 
   return (
     <div className="cart-list">
-      <span>Your Cart: <b>RM {currentCartTotal}</b></span>
+      <span>Your Cart: <b>RM {calcTotal()}</b> <button onClick={() => {updateCartTotal()}}>Update Total</button></span>
       {user_cart.map((item, index) => (
-        <div>
-          <span>{item.product_name}</span>
-          <CartListQuantity 
-            item={item}
-            user_cart={user_cart}
-            index={index}
-            currentCartTotal={currentCartTotal}
-            setCartTotal={setCartTotal}
-            promotions={promotions} />
+          <div>
+            <CartListQuantity 
+              item={item}
+              user_cart={user_me.cart}
+              index={index}
+              updateCartTotal={updateCartTotal}
+              promotions={promotions}
+              reloadCart={reloadCart}
+              currentCart={currentCart} />
           <span onClick={() => {removeCartItem(index)}} className="cart-delete">X</span>
         </div>
       ))}
