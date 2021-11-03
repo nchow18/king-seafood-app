@@ -1,90 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SingleProductEdit from './SingleProductEdit';
+import AdminCategory from './AdminCategory'
+import Auth from '../../utils/auth';
 import '../../css/Admin.css';
 
 function AdminCategories(props) {
 
   const {
-    currentCategory,
-    productArr=[],
-    setStatus,
-    load,
-    edit,
-    setEdit,
-    search,
-    searchResults=[]
+    products,
   } = props
 
-  var chosenArr = [];
-  const searchArr = searchResults;
+  const Categories = Auth.getCategories();
+  const [open, setClose] = useState(false);
+  const [category, setCategory] = useState(Categories)
+  const [listProduct, setProduct] = useState([])
 
-  if (search === false) {
-    if (currentCategory.name === 'All') {
-      chosenArr = productArr;
-    } else if (currentCategory.name === 'Bundle Promotion') {
-      //filter based on Bundle Promotions
-      const currentProduct = productArr.filter((product) => product.product_bulk_price !== '0');
-      chosenArr = currentProduct;
-    } else if (currentCategory.name === 'Sale') {
-      //filter based on SALE
-      const currentProduct = productArr.filter((product) =>  product.product_sale_price !== '0');
-      chosenArr = currentProduct;      
-    } else if (currentCategory.name === 'Featured') {
-      //Filter based on featured
-      const currentProduct = productArr.filter((product) => product.product_featured === true)
-      chosenArr = currentProduct;
-    } else if (currentCategory.name === 'Newest Products') {
-      //Filter based on newest
-      const reversed = []
 
-      for (var i = productArr.length; i > 0; i--) {
-        reversed.push(productArr[i]);
-      }
+  function sortCategory(cat, index) {
 
-      for (var t = 1; t < 11; t++) {
-        if (reversed[t] === false) {
-          return false;
-        }
-          chosenArr.push(reversed[t]);
-      }
-    } else {
-      const filteredArr = productArr.filter((product) => product.product_category.toLowerCase() === currentCategory.name.toLowerCase());
-      chosenArr = filteredArr;
-    }
-  } else {
-    
+    var listProducts = []
+    const currentCategory = products.filter((product) => product.product_category.toLowerCase() === Categories[index].name.toLowerCase())
+
+    listProducts= [...currentCategory];
+
+    setProduct(listProducts);
+
+    return listProducts;
   }
 
   return (
     <>
-    {search ? (
-      <div className="admin-container">
-        <SingleProductEdit 
-          setStatus={setStatus}
-          singleProduct={searchArr}
-          load={load}
-          edit={edit}
-          setEdit={setEdit}
-          productArr={productArr}
-        />            
-      </div>    
-    ) : (
-      <>
-      {chosenArr.map((product) => (
-        <div className="admin-container">
-          <SingleProductEdit 
-            setStatus={setStatus}
-            singleProduct={product}
-            load={load}
-            edit={edit}
-            setEdit={setEdit}
-            productArr={productArr}
-          />            
-        </div>
-      ))} 
-      </>
-    )}
-
+      <div>
+        {Categories.map((cat, index) => (
+          <>
+            <div className="admin-category" onClick={() => {setClose(true); setCategory(cat); sortCategory(cat, index)}}>
+              <div className="admin-category-header">
+                <div>{cat.name}</div>
+                <div><i className="fas fa-chevron-down"></i></div>
+              </div>
+            </div>
+          </>
+        ))}
+        <AdminCategory
+          products={products}
+          open={open}
+          setClose={setClose}
+          category={category}
+          listProduct={listProduct} />        
+      </div>
     </>
   )
 }

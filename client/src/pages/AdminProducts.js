@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import '../css/Admin.css';
-import AdminCategories from '../components/AdminComponents/Products';
+
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PRODUCT } from '../utils/mutations';
 import ProductHeader from '../components/ProductHeader';
@@ -36,15 +36,9 @@ function AdminProducts(props) {
     product_new: '',
   })
 
-  const [state, dispatch] = useContext(UserContext)
-  const [categoryModal, setCategoryModal] = useState(false)
   const [productLinks] = useState(Auth.getCategories())
   const [status, setStatus] = useState(false)
-  const [load, setLoad] = useState(false)
-  const [edit, setEdit] = useState(true);
-  const [search, setSearch] = useState(false);
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
-  const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
 
   const handleInputChange = (event) => {
   const { name, value } = event.target;
@@ -91,21 +85,7 @@ function AdminProducts(props) {
     return () => {
       console.log('cleaned up')
     }
-  }, [status, state])
-
-  //add search results into productArr
-  const productArr = products;
-  const searchLocalStorage = Auth.getSearchProduct();
-  const searchResults = JSON.parse(searchLocalStorage);
-
-  function searchProduct() {
-
-    console.log('using keywords for search');
-    const searchResults = products.findIndex((product) => product.product_name.toLowerCase().includes(formData.search.toLowerCase()));
-    const result = products[searchResults];
-
-    return Auth.setSearchProduct(JSON.stringify(result));
-  }
+  }, [])
 
   if (error) return `...ERROR`;
 
@@ -193,55 +173,6 @@ function AdminProducts(props) {
         <div className="admin-button" type='submit' onClick={() => {addProductFormSubmit(); setStatus(true)}}>ADD PRODUCT</div>
       </form>
     </div>
-    <div className="flex-start-row">
-      <span><b>Sort by CATEGORY: </b> </span>
-      {categoryModal && (
-      <ProductHeader 
-        productLinks={productLinks}
-        currentProductLink={currentProductLink}
-        setCurrentProductLink={setCurrentProductLink}
-        setCategoryModal={setCategoryModal}
-        setEdit={setEdit}
-        setSearch={setSearch}
-      />
-      )}
-      <button onClick={() => {setCategoryModal(true)}} type="submit">SELECT</button>
-      {load ? (
-        <button onClick={() => {setLoad(false)}} type="submit">CONFIRM</button>        
-      ) : (
-        <button onClick={() => {setLoad(true)}} type="submit">CONFIRM</button>
-      )}
-      <input className="admin-input-width" placeholder="Enter keywords" value={formData.search} onChange={handleInputChange} name="search" />
-        {search ? (
-          <div onClick={() => {searchProduct(); setSearch(false)}} className="admin-button">CLEAR SEARCH</div>
-        ) : (
-          <div onClick={() => {searchProduct(); setSearch(true)}} className="admin-button">SEARCH</div>
-        )}       
-    </div>
-    {search ? (
-      <AdminCategories
-        currentCategory={currentProductLink}
-        searchResults={searchResults}
-        setStatus={setStatus}
-        currentProductLink={currentProductLink}
-        load={load}
-        setEdit={setEdit}
-        edit={edit}
-        search={search}
-    />
-    ) : (
-      <AdminCategories
-        currentCategory={currentProductLink}
-        productArr={productArr}
-        setStatus={setStatus}
-        currentProductLink={currentProductLink}
-        load={load}
-        setEdit={setEdit}
-        edit={edit}
-        search={search}
-     />      
-    )}
-
   </div>
 
   </>
