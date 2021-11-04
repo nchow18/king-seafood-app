@@ -3,6 +3,7 @@ import SingleProductEdit from './SingleProductEdit';
 import AdminCategory from './AdminCategory'
 import Auth from '../../utils/auth';
 import '../../css/Admin.css';
+import AdminProduct from './AdminProduct';
 
 function AdminCategories(props) {
 
@@ -13,7 +14,33 @@ function AdminCategories(props) {
   const Categories = Auth.getCategories();
   const [open, setClose] = useState(false);
   const [category, setCategory] = useState(Categories)
-  const [listProduct, setProduct] = useState([])
+  const [listProduct, setProducts] = useState([])
+  const [productDisplay, setProductDisplay] = useState(false);
+  const [singleProduct, setSingleProduct] = useState([])
+  const [updatedProducts, setUpdateProducts] = useState(products)
+
+  const product = singleProduct;
+
+  const [formData, setFormData] = useState({
+    product_name: product.product_name,
+    product_description1: product.product_description1,
+    product_description2: product.product_description2,
+    product_description3: product.product_description3,
+    product_description4: product.product_description4,
+    product_category: product.product_category,
+    product_weight: product.product_weight,
+    product_price: product.product_price,
+    product_picture: product.product_picture,
+    product_nameChinese: product.product_nameChinese,
+    product_status: JSON.stringify(product.product_status),
+    product_descriptionChinese: product.product_descriptionChinese,
+    product_sale_price: product.product_sale_price,
+    product_bulk_quantity: product.product_bulk_quantity,
+    product_bulk_price: product.product_bulk_price,
+    product_featured: product.product_featured,
+    product_id: product.product_id,
+    product_new: product.product_new
+  })
 
 
   function sortCategory(cat, index) {
@@ -23,9 +50,14 @@ function AdminCategories(props) {
 
     listProducts= [...currentCategory];
 
-    setProduct(listProducts);
+    setProducts(listProducts);
 
     return listProducts;
+  }
+
+  function findProduct(product) {
+    setSingleProduct(product);
+    setFormData(product);
   }
 
   return (
@@ -44,12 +76,31 @@ function AdminCategories(props) {
         </div>
         <div>
           <AdminCategory
-            products={products}
+            products={updatedProducts}
             open={open}
             setClose={setClose}
             category={category}
-            listProduct={listProduct} /> 
+            listProduct={listProduct}
+            setProductDisplay={setProductDisplay}
+            findProduct={findProduct} /> 
         </div>
+        {productDisplay ? (
+          <div>
+            <AdminProduct
+              singleProduct={singleProduct}
+              formData={formData}
+              setFormData={setFormData}
+              products={updatedProducts}
+              setUpdateProducts={setUpdateProducts}
+              setSingleProduct={setSingleProduct}
+            />
+          </div>
+        ) : (
+          <div>
+            Select Product
+          </div>
+        )}
+
        
       </div>
     </>

@@ -19,6 +19,7 @@ function ProductCard(props) {
   const [modal, setModal] = useState(false);
   const [index, setProductIndex] = useState(0);
 
+
   return (
   <>
     {modal === true && (
