@@ -30,23 +30,27 @@ function AdminCategories(props) {
 
   return (
     <>
-      <div>
-        {Categories.map((cat, index) => (
-          <>
-            <div className="admin-category" onClick={() => {setClose(true); setCategory(cat); sortCategory(cat, index)}}>
-              <div className="admin-category-header">
-                <div>{cat.name}</div>
-                <div><i className="fas fa-chevron-down"></i></div>
+      <div className="admin-selection-container">
+        <div>
+          {Categories.map((cat, index) => (
+            <>
+              <div className="admin-category" onClick={() => {setClose(true); setCategory(cat); sortCategory(cat, index)}}>
+                <div className="admin-category-header">
+                  <div>{cat.name}</div>
+                </div>
               </div>
-            </div>
-          </>
-        ))}
-        <AdminCategory
-          products={products}
-          open={open}
-          setClose={setClose}
-          category={category}
-          listProduct={listProduct} />        
+            </>
+          ))}
+        </div>
+        <div>
+          <AdminCategory
+            products={products}
+            open={open}
+            setClose={setClose}
+            category={category}
+            listProduct={listProduct} /> 
+        </div>
+       
       </div>
     </>
   )
