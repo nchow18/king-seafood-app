@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function AdminCategory(props) {
 
@@ -8,23 +8,28 @@ function AdminCategory(props) {
     setClose,
     category,
     currentCategory,
-    listProduct
+    listProduct,
+    setProductDisplay,
+    setSingleProduct,
+    findProduct
   } = props
-
-  console.log(listProduct); 
 
   return (
     <>
-      {open === true && (
+      {open ? (
         <div className="admin-category-content">
           <div><b>{category.name.toUpperCase()}</b></div>
           {listProduct.map((product) => (
-            <div className="admin-product-list">
+            <div onClick={() => {setProductDisplay(true); findProduct(product)}} className="admin-product-list">
               <div>{product.product_id}</div>
               <div>{product.product_name}</div>
               <div>RM {product.product_price}</div>
             </div>
           ))}
+        </div>
+      ) : (
+        <div>
+          Select Category
         </div>
       )}
     </>

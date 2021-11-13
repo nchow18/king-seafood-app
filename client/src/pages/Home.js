@@ -116,11 +116,26 @@ function Home(props) {
   const user_me = dataUserMe?.userMe || {};
   const user_cart = user_me.cart;
 
+
   useEffect(() => {
     setTimeout(displayPromo, 4000);
     const empty = {name: ""};
     localStorage.setItem('current_category', JSON.stringify(empty))
+
+
+    // convert all product_picture to STRING
+    for (var p = 0; p < products.length; p++) {
+      products[p].product_picture = products[p].product_picture.toString().replaceAll(' ','')
+    }
+
+    // convert all product_pictures to ARRAY
+    for (var a = 0; a < products.length; a++) {
+      products[a].product_picture = products[a].product_picture.split(',')
+    }
+
   }, [])
+
+  console.log(products[0]);
 
   function displayPromo() {
     setPromo(true);
