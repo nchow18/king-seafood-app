@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Linking } from 'react-native-web';
+import { Linking, Vibration } from 'react-native-web';
 import { useMutation } from '@apollo/react-hooks';
-import { UPDATE_USER } from '../../utils/mutations';
+import { UPDATE_USER, CLEAR_CART, ADD_USER_ORDER } from '../../utils/mutations';
 
 function CheckOut(props) {
 
@@ -9,21 +9,48 @@ function CheckOut(props) {
     user_me,
     products,
     user_cart
-  } = props
+  } = props 
+
+  console.log(user_me);
+
+  const user_details = localStorage.getItem('ks_user_details');
+
+  // get data from local storage for user delivery
+  if (user_details !== null) {
+    const user_storage = JSON.parse(user_details);
+    user_me.phone = user_storage.phone;
+    user_me.address = user_storage.address;
+  } else {
+    // if data does not exist, use blank to store for next sessions
+    user_me.phone = '';
+    user_me.address = '';
+  }
 
 
-  const today = new Date();
   const [currentForm, setFormType] = useState(false)
   const [updateUserAddress, { error }] = useMutation(UPDATE_USER);
+  const [updateUser] = useMutation(ADD_USER_ORDER)
+  const [clearCart] = useMutation(CLEAR_CART);
+
+  // Date formatting
+  const today = new Date();
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
   const currentDate = today.toLocaleDateString("en-US", options);
+
+  const time_diff = Date.now() + (12 * 3600 * 1000);
+  // console.log(time_diff);
+  const adjusted_date = new Date(time_diff);
+  const current_date = JSON.stringify(adjusted_date + ' Malaysia-Penang');
+  // console.log(current_date);
+
   const [checkOut, setCheckOut]  = useState(false);
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
+    first_name: user_me.first_name,
+    last_name: user_me.last_name,
     message: '',
     delivery_date: '',
-    phone: ''
+    address: user_me.address,
+    phone: user_me.phone
   })
 
   const saveUserData = async (event) => {
@@ -40,6 +67,42 @@ function CheckOut(props) {
 
   var cart_message = '';
   var cart_price = '';
+
+  const clear_cart = async => {
+
+    const previousOrder = {
+      user_cart_total: cart_total().toFixed(2),
+      cart: user_me.cart,
+      date: current_date
+    }
+
+    console.log(user_me)
+    console.log(JSON.stringify(previousOrder));
+
+    try {
+
+      // Add Cart to past orders
+      updateUser({
+        variables: {
+          past_order: JSON.stringify(previousOrder)
+        }
+      })
+
+      // Clear cart
+      // clearCart({
+      //   variables: {
+      //     user_id: user_me._id
+      //   }
+      // })
+
+
+    } catch (e) {
+      console.log(e);
+    }
+
+    // user_me.cart = [];
+    console.log(user_me);
+  }
 
   function cart_total() {
     var total = '';
@@ -68,7 +131,7 @@ function CheckOut(props) {
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
-  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* RM ' + cart_total();
+  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* RM ' + cart_total().toFixed(2);
 
   const number = '60164223018'
   // const number = '60103893421'
@@ -78,7 +141,23 @@ function CheckOut(props) {
 
     // https://api.whatsapp.com/send?text=First%20Name:%20Grace,%20%0a*Last%20Name:*%20Jong,%20%0a*Phone:*%200103893421,%20%0a*Address:*%20205,%20Jalan%20Perak,%20%0a*Message:*%20After%205pm,%20%0a*Delivery%20Date:*%202021-08-13%20%0a%20=====%20Item:1=====%20%0a%20Item:%20Halibut%20Steak%20%E5%A4%A7%E6%AF%94%E7%9B%AE%E9%B1%BC%E6%8E%92%20454g,%20Quantity:%201,%20Price:%2022.96%20%20%0a%20=====%20Item:2=====%20%0a%20Item:%20Halibut%20Fillet%20%E5%A4%A7%E6%AF%94%E7%9B%AE%E9%B1%BC%E7%89%87%20%C2%B1150g/pc*,%20Quantity:%202,%20Price:%2015.15%20,%20%0a*TOTAL%20PRICE:*%2038.11&phone=+60164223018
 
+    const user_details = localStorage.getItem('ks_user_details');
+
+    if (user_details === null) {
+      console.log('user details does not exist')
+      const ks_user_details = {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        phone: formData.phone,
+        address: formData.address,
+      }
+
+      localStorage.setItem('ks_user_details', JSON.stringify(ks_user_details))
+    }
+
     if (confirm) {
+
+
       // // Check for perfect 10 digit length
       // if (formData.phone.length > 9) {
       //   alert('Please insert correct contact number');
@@ -95,9 +174,10 @@ function CheckOut(props) {
         .catch(() => {
           alert('Make sure Whatsapp installed on your device');
         });  
-
     }
- 
+
+    Vibration.vibrate()
+    clear_cart()
   }
 
   if (error) return `... ERROR`;

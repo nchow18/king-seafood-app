@@ -52,13 +52,22 @@ const resolvers = {
 
             return { token, user };
         },
-        addUserOrder: async(parent, {input}, context) => {
-          if(context.user) {
+        addUserOrder: async (parent, { past_order }, context) => {
+          if (context.user) {
+
+            // return await User.findByIdAndUpdate(
+            //   context.user._id,
+            //   {$set: { previous_orders: [] }},
+            //   { new: true }
+            // )
+
             return await User.findByIdAndUpdate(
               context.user._id,
-              {$push: { pastOrders: (input.pastOrders)}}
+              {$push: { previous_orders: past_order }},
+              { new: true }
             )
           }
+          throw new AuthenticationError('Not Logged In')
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email })
@@ -78,9 +87,11 @@ const resolvers = {
             return { token, user }
         },
         clearCart: async(parent, context) => {
-          if(context.user) {
+
+          if (context.user_id) {
+
             return await User.findByIdAndUpdate(
-              context.user._id,
+              context.user_id,
               {$set: { cart: [] }}
             )
           }

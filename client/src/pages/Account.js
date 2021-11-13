@@ -12,8 +12,6 @@ function Profile(props) {
     user_me
   } = props
 
-  console.log(user_me);
-
     const token = Auth.getProfile();
     const [errorMessage, setErrorMessage] = useState('');
     const [updateUser, { error }] = useMutation(UPDATE_USER);
@@ -67,9 +65,6 @@ function Profile(props) {
     if (token) {
         Auth.saveCart(user.cart);
     }
-
-    console.log(user);
-    console.log(address);
 
     const updateOnlyAddress = e => {
       alert('address updated');

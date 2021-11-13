@@ -60,31 +60,6 @@ const addressSchema = new Schema(
   }
 )
 
-const pastOrdersSchema = new Schema(
-  {
-    product_id: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    quantity: {
-        type: Number,
-        required: true,
-        trim: true
-    },
-    product_name: String,
-    product_price: String,
-    product_sale_price: String,
-    product_bulk_price: String,
-    product_bulk_quantity: Number  
-  },
-  {
-    toJSON: {
-      getters: true
-    }
-  }
-)
-
 const userSchema = new Schema(
     {
         first_name: {
@@ -117,7 +92,8 @@ const userSchema = new Schema(
             type: String
         },
         cart: [cartSchema],
-        pastOrders: [pastOrdersSchema],
+        pastOrders: [String],
+        previous_orders: [String]
     },
     {
       toJSON: {

@@ -188,8 +188,8 @@ export const ADD_VIEWS = gql`
 `;
 
 export const ADD_USER_ORDER = gql`
-  mutation addUserOrder($input: UserOrders) {
-    addUserOrder(input: $input) {
+  mutation addUserOrder($past_order: String) {
+    addUserOrder(past_order: $past_order) {
       _id
     }
   }

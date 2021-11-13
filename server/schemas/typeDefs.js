@@ -10,7 +10,8 @@ const typeDefs = gql`
     address: String
     phone: String
     cart: [Cart]
-    pastOrders: [UserOrders]
+    pastOrders: [String]
+    previous_orders: [String]
   }
 
   type UserOrders {
@@ -54,7 +55,8 @@ const typeDefs = gql`
     address: String
     phone: String
     cart: [CartInput]
-    pastOrders: [UserOrdersInput]
+    pastOrders: [String]
+    previous_orders: [String]
   }
 
   input AddressInput {
@@ -267,7 +269,7 @@ const typeDefs = gql`
     updatePromo(input: PromoInput, promo_id: ID): Promo
     updateUserAccount(input: UserInput): User
     updateUserAddress(input: AddressInput): Address
-    addUserOrder(input: UserOrdersInput): User
+    addUserOrder(past_order: String): User
     clearCart(user_id: String): User
   }
 

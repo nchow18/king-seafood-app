@@ -27,16 +27,8 @@ query user($user_id: ID!) {
       product_bulk_quantity
     }
     address
-    pastOrders {
-      _id
-      product_id
-      quantity
-      product_name
-      product_price
-      product_sale_price
-      product_bulk_price
-      product_bulk_quantity
-    }
+    pastOrders
+    previous_orders
   }
 }
 
@@ -170,32 +162,24 @@ query {
 
 export const USER_ME = gql`
 query { userMe {
-  _id
-  first_name
-  last_name
-  email
-  phone
-  cart {
     _id
-    product_id
-    quantity
-    product_name
-    product_price
-    product_sale_price
-    product_bulk_price
-    product_bulk_quantity
+    first_name
+    last_name
+    email
+    phone
+    cart {
+      _id
+      product_id
+      quantity
+      product_name
+      product_price
+      product_sale_price
+      product_bulk_price
+      product_bulk_quantity
+    }
+    address
+    pastOrders 
+    previous_orders
   }
-  address
-  pastOrders {
-    _id
-    product_id
-    quantity
-    product_name
-    product_price
-    product_sale_price
-    product_bulk_price
-    product_bulk_quantity
-  }
-}
 }
 `;
