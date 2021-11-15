@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Linking, Vibration } from 'react-native-web';
 import { useMutation } from '@apollo/react-hooks';
 import { UPDATE_USER, CLEAR_CART, ADD_USER_ORDER, ADD_ORDER } from '../../utils/mutations';
@@ -8,8 +8,10 @@ function CheckOut(props) {
   const {
     user_me,
     products,
-    user_cart
+    setOrdersModal
   } = props 
+
+  console.log(user_me.cart);
 
   const user_details = localStorage.getItem('ks_user_details');
 
@@ -30,6 +32,13 @@ function CheckOut(props) {
   const [updateUser] = useMutation(ADD_USER_ORDER)
   const [clearCart] = useMutation(CLEAR_CART);
   const [addAdminOrder] = useMutation(ADD_ORDER);
+  const [user_cart, setUserCart] = useState([])
+
+  useEffect(() => {
+    setUserCart(user_me.cart)
+  },[])
+
+  console.log(user_cart);
 
   // Date formatting
   const today = new Date();
@@ -102,11 +111,11 @@ function CheckOut(props) {
       })
 
       // Clear cart
-      // clearCart({
-      //   variables: {
-      //     user_id: user_me._id
-      //   }
-      // })
+      clearCart({
+        variables: {
+          user_id: user_me._id
+        }
+      })
 
       // Add order to admin dashboard
       addAdminOrder({
@@ -129,8 +138,9 @@ function CheckOut(props) {
       console.log(e);
     }
 
-    // user_me.cart = [];
-    console.log(user_me);
+    user_me.cart = [];
+    setUserCart([]);
+    setOrdersModal(false);
   }
 
   for (var i = 0; i < user_cart.length; i++) {
@@ -145,7 +155,7 @@ function CheckOut(props) {
     ',\n %0a*Message:* '+formData.message+
     ',\n %0a*Delivery Date:* '+formData.delivery_date;
 
-  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* RM ' + cart_total().toFixed(2);
+  const message = info + cart_message + ',\n %0a*TOTAL PRICE:* RM ' + cart_total();
 
   const number = '60164223018'
   // const number = '60103893421'
@@ -252,7 +262,7 @@ function CheckOut(props) {
                 <span><b>Price: RM </b>{cart.final_price}</span>
               </div>
             ))}
-            <h1><b>Your Total: RM </b>{cart_total().toFixed(2)}</h1>
+            <h1><b>Your Total: RM </b>{cart_total()}</h1>
           </div>
           </div> 
         </div>

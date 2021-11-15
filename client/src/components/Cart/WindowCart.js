@@ -54,6 +54,7 @@ function WindowCart(props) {
                 user_me={user_me}
                 products={products}
                 user_cart={user_cart}
+                setOrdersModal={setOrdersModal}
                 />
               <div className="more-info-container">
                 <MoreInfo />
