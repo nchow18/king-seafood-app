@@ -135,8 +135,6 @@ function Home(props) {
 
   }, [])
 
-  console.log(products[0]);
-
   function displayPromo() {
     setPromo(true);
   }

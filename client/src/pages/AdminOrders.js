@@ -44,37 +44,37 @@ function AdminOrders() {
         <>
         {orders && (
             <div className="order-page">
-            {newest_orders.map((order) => (
-                <div className="order-container">
-                  <div className="order-view-button" onClick={() => {deleteOrder(order._id)}}>REMOVE ORDER</div>               
-                  <span><b>Order ID:</b> {order._id}</span>
-                  <span><b>Order Date:</b> {order.order_date}</span>
-                  <span><b>Delivery Date:</b> {order.delivery_date}</span>
-                  <span><b>Name:</b> {order.name}</span>
-                  <span><b>Phone:</b> {order.phone}</span>
-                  <span><b>Address:</b> {order.address}</span>
-                  <span><b>TOTAL:</b> {order.orderTotal}</span>
-                  {details ? (
-                    <div className="order-details-comp">
-                      <div className="order-view-button" onClick={() => viewDetails(false)}>Hide Details</div>
-                      <div className="order-cart-details-container">
-                        {order.new_cart.map((cart) => (
-                          <div>
-                            <span><b>Product:</b> {cart.product_name}</span>
-                            <span><b>Qty:</b> {cart.product_quantity}</span>
-                            <span><b>Price:</b> {cart.total_price.toFixed(2)}</span>
-                          </div>
-                        ))}
-                      </div>                      
-                    </div>
-                  ) : (
-                    <div className="order-details-comp">
-                      <div className="order-view-button" onClick={() => viewDetails(true)}>View Order Details</div>
-                    </div>
-                  )}
-                </div>
-            ))}
-        </div>
+              {newest_orders.map((order) => (
+                  <div className="order-container">
+                    <div className="order-view-button" onClick={() => {deleteOrder(order._id)}}>REMOVE ORDER</div>               
+                    <span><b>Order ID:</b> {order._id}</span>
+                    <span><b>Order Date:</b> {order.order_date}</span>
+                    <span><b>Delivery Date:</b> {order.delivery_date}</span>
+                    <span><b>Name:</b> {order.name}</span>
+                    <span><b>Phone:</b> {order.phone}</span>
+                    <span><b>Address:</b> {order.address}</span>
+                    <span><b>TOTAL:</b> {order.orderTotal}</span>
+                    {details ? (
+                      <div className="order-details-comp">
+                        <div className="order-view-button" onClick={() => viewDetails(false)}>Hide Details</div>
+                        <div className="order-cart-details-container">
+                          {order.new_cart.map((cart) => (
+                            <div>
+                              <span><b>Product:</b> {cart.product_name}</span>
+                              <span><b>Qty:</b> {cart.quantity}</span>
+                              <span><b>Price:</b> {cart.final_price}</span>
+                            </div>
+                          ))}
+                        </div>                      
+                      </div>
+                    ) : (
+                      <div className="order-details-comp">
+                        <div className="order-view-button" onClick={() => viewDetails(true)}>View Order Details</div>
+                      </div>
+                    )}
+                  </div>
+              ))}
+          </div>
         )}
 
         </>

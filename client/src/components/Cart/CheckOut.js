@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Linking, Vibration } from 'react-native-web';
 import { useMutation } from '@apollo/react-hooks';
-import { UPDATE_USER, CLEAR_CART, ADD_USER_ORDER } from '../../utils/mutations';
+import { UPDATE_USER, CLEAR_CART, ADD_USER_ORDER, ADD_ORDER } from '../../utils/mutations';
 
 function CheckOut(props) {
 
@@ -10,8 +10,6 @@ function CheckOut(props) {
     products,
     user_cart
   } = props 
-
-  console.log(user_me);
 
   const user_details = localStorage.getItem('ks_user_details');
 
@@ -31,6 +29,7 @@ function CheckOut(props) {
   const [updateUserAddress, { error }] = useMutation(UPDATE_USER);
   const [updateUser] = useMutation(ADD_USER_ORDER)
   const [clearCart] = useMutation(CLEAR_CART);
+  const [addAdminOrder] = useMutation(ADD_ORDER);
 
   // Date formatting
   const today = new Date();
@@ -53,6 +52,21 @@ function CheckOut(props) {
     phone: user_me.phone
   })
 
+  function cart_total() {
+    var total = '';
+
+    for (var i = 0; i < user_cart.length; i++) {
+     var a = total;
+     var b = user_cart[i].final_price;
+     var z = +a + +b;
+     total = z;
+    }
+
+    cart_price = total;
+
+    return total;
+  }
+
   const saveUserData = async (event) => {
 
   }
@@ -68,6 +82,8 @@ function CheckOut(props) {
   var cart_message = '';
   var cart_price = '';
 
+  console.log(user_cart);
+
   const clear_cart = async => {
 
     const previousOrder = {
@@ -76,7 +92,6 @@ function CheckOut(props) {
       date: current_date
     }
 
-    console.log(user_me)
     console.log(JSON.stringify(previousOrder));
 
     try {
@@ -95,6 +110,22 @@ function CheckOut(props) {
       //   }
       // })
 
+      // Add order to admin dashboard
+      addAdminOrder({
+        variables: {
+          input: {
+            orderTotal: JSON.stringify(cart_total()),
+            cart: JSON.stringify(user_cart),
+            paid: false,
+            delivery_date: formData.delivery_date,
+            name: formData.first_name + ' ' + formData.last_name,
+            phone: formData.phone,
+            address: formData.address,
+            order_date: current_date
+          }
+        }
+      })
+
 
     } catch (e) {
       console.log(e);
@@ -104,20 +135,6 @@ function CheckOut(props) {
     console.log(user_me);
   }
 
-  function cart_total() {
-    var total = '';
-
-    for (var i = 0; i < user_cart.length; i++) {
-     var a = total;
-     var b = user_cart[i].final_price;
-     var z = +a + +b;
-     total = z;
-    }
-
-    cart_price = total;
-
-    return total;
-  }
 
   for (var i = 0; i < user_cart.length; i++) {
     cart_message += "\n %0a ===== Item:"+[i+1]+"=====\n %0a *Item:* "+user_cart[i].product_name+", *Quantity:* "+user_cart[i].quantity+", *Price:* RM "+user_cart[i].final_price+" ";

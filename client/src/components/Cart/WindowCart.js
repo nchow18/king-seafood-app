@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Auth from '../../utils/auth';
 import '../../css/WindowCart.css';
 import '../../css/MobileCart.css';
@@ -21,43 +21,74 @@ function WindowCart(props) {
     headerLinks
   } = props
 
-  const [removeCart, { error }] = useMutation(REMOVE_CART);
+  const [ordersModal, setOrdersModal] = useState(true);
+  const [pastOrders, setOrders] = useState([])
   const user_cart = user_me.cart;
+
+  useEffect(() => {
+
+    const ordersArr = [];
+    
+    for (var i = 0; i < user_me.previous_orders.length; i++) {
+      ordersArr.push(JSON.parse(user_me.previous_orders[i]))
+    }
+
+    setOrders(ordersArr)
+
+  },[])
+
+  console.log(pastOrders);
+  console.log(ordersModal);
 
   return (
     <div className="window-cart-content">
-      <span onClick={() => {setPastOrders(true)}} className="past-orders-button">Past Orders</span>
-      {user_me.cart.length > 0 ? (
-          <div className="window-cart-column">
-            <CartList
-              user_me={user_me}
-              products={products}
-              promotions={promotions}
-              setCurrentHeaderLink={setCurrentHeaderLink}
-              headerLinks={headerLinks} />
-            <CheckOut 
-              user_me={user_me}
-              products={products}
-              user_cart={user_cart}
-              />
-            <div className="more-info-container">
-              <MoreInfo />
-            </div>
-          </div>        
-        ) : (
-          <div className="empty-cart-display">
-            <div className="empty-cart-content">
-              <h1>Please fill your Cart</h1>
+      {ordersModal ? (
+        <>
+          <span onClick={() => {setOrdersModal(false)}} className="past-orders-button">Past Orders</span>
+          {user_me.cart.length > 0 ? (
+            <div className="window-cart-column">
+              <CartList
+                user_me={user_me}
+                products={products}
+                promotions={promotions}
+                setCurrentHeaderLink={setCurrentHeaderLink}
+                headerLinks={headerLinks} />
+              <CheckOut 
+                user_me={user_me}
+                products={products}
+                user_cart={user_cart}
+                />
               <div className="more-info-container">
                 <MoreInfo />
               </div>
-
-              <div className="past-orders-container">
-                <PastOrders />
-              </div>              
+            </div>        
+          ) : (
+            <div className="empty-cart-display">
+              <div className="empty-cart-content">
+                <h1>Please fill your Cart</h1>
+                <div className="more-info-container">
+                  <MoreInfo />
+                </div>
+                <div className="past-orders-container">
+                  <PastOrders
+                    pastOrders={pastOrders}
+                  />
+                </div>              
+              </div>
             </div>
-          </div>
-        )}               
+          )}  
+        </>
+      ) : (
+        <>
+        <span onClick={() => {setOrdersModal(true)}} className="past-orders-button">BACK TO CART</span>
+          <div className="past-orders-container">
+            <PastOrders
+              pastOrders={pastOrders}
+            />
+        </div> 
+        </>
+      )}
+             
     </div>
   )
 }

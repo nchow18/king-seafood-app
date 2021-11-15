@@ -1,44 +1,35 @@
 import React from 'react';
 import Auth from '../../utils/auth';
-import { useQuery } from '@apollo/react-hooks';
-import { USER_ME } from '../../utils/queries';
 
-function PastOrders() {
+function PastOrders(props) {
 
-  const pastOrders = JSON.parse(localStorage.getItem('previous_orders'))
-  const { loading, data } = useQuery(USER_ME);
-  const user_old_cart = data?.userMe.pastOrders || {};
-  const userCartArr = [];
+const {
+  pastOrders
+ } = props
 
-  for (var i = 0; i < user_old_cart.length; i++) {
-    const cart = user_old_cart[i];
-    const cartParse = JSON.parse(cart)
-    userCartArr.push(cartParse[0]);
-  }
-
-  if (loading) return `...LOADING`;
+console.log(pastOrders);
 
   return (
     <div className="past-orders-section">
       <h3>Your Past Orders</h3>      
       {Auth.loggedIn() ? (
         <>
-        {userCartArr !== false ? (
+        {pastOrders !== false ? (
           <div>
-            {userCartArr.reverse().map((item, index) => (
+            {pastOrders.map((item, index) => (
               <div>
                 <span><b>Date Ordered: </b>{item.date}</span>
                 <div className="past-orders-item">
                   {item.cart.map((cart, index) => (
                     <div>
                       <span><b>{index + 1}. </b>{cart.product_name}</span>
-                      <span><b>Qty: </b>{cart.new_quantity}</span>
-                      <span><b>Price: </b>RM {cart.total_price.toFixed(2)}</span>
+                      <span><b>Qty: </b>{cart.quantity}</span>
+                      <span><b>Price: </b>RM {cart.final_price}</span>
                     </div>
                   ))}
                 </div>
                 <div>
-                  <span><b>Cart Total: </b>RM {item.cart_total}</span>
+                  <span><b>Cart Total: </b>RM {item.user_cart_total}</span>
                 </div>
               </div>
             ))}
@@ -59,12 +50,12 @@ function PastOrders() {
                     <div>
                       <span><b>{index + 1}. </b>{cart.product_name}</span>
                       <span><b>Qty: </b>{cart.product_quantity}</span>
-                      <span><b>Price: </b>RM {cart.total_price.toFixed(2)}</span>
+                      <span><b>Price: </b>RM {cart.final_price}</span>
                     </div>
                   ))}
                 </div>
                 <div>
-                  <span><b>Cart Total: </b>RM {item.cart_total}</span>
+                  <span><b>Cart Total: </b>RM {item.user_cart_total}</span>
                 </div>
               </div>
             ))}
