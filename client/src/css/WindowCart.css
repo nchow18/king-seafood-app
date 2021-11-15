@@ -9,8 +9,9 @@
   display: grid;
   grid-template-columns: 90% 10%;
   width: 100%;
-  margin: .25rem 0;
   font-size: .8rem;
+  padding: .25rem;
+  border: 1px solid lightgray;
 }
 
 .cart-list > div > span {
@@ -291,7 +292,6 @@
   background-color: white;
   width: 100vw;
   max-width: 1200px;
-  box-shadow: 10px 10px 25px rgb(0,0,0,0.7);
   z-index: 30;
   margin: 5rem 0;
   padding: 2rem;
