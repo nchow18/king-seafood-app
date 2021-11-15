@@ -9,14 +9,18 @@ const {
 
 console.log(pastOrders);
 
+const past_orders = [].concat(pastOrders).reverse();
+
+console.log(past_orders);
+
   return (
     <div className="past-orders-section">
-      <h3>Your Past Orders</h3>      
+      <h3>Your Past Orders (Newest to Oldest)</h3>      
       {Auth.loggedIn() ? (
         <>
         {pastOrders !== false ? (
           <div>
-            {pastOrders.map((item, index) => (
+            {past_orders.map((item, index) => (
               <div>
                 <span><b>Date Ordered: </b>{item.date}</span>
                 <div className="past-orders-item">

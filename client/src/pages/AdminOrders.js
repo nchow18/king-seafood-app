@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { ORDERS } from '../utils/queries';
 import { REMOVE_ORDER } from '../utils/mutations';
+import AdminOrderDetails from '../components/AdminComponents/AdminOrderDetails';
 import '../css/Orders.css';
 
 function AdminOrders() {
 
     const [removeOrder] = useMutation(REMOVE_ORDER)
-    const [details, viewDetails] = useState(false);
+
     const {loading, data} = useQuery(ORDERS);
     const orders = data?.orders || {};
     const [ordersArray] = useState(orders);
@@ -54,24 +55,8 @@ function AdminOrders() {
                     <span><b>Phone:</b> {order.phone}</span>
                     <span><b>Address:</b> {order.address}</span>
                     <span><b>TOTAL:</b> {order.orderTotal}</span>
-                    {details ? (
-                      <div className="order-details-comp">
-                        <div className="order-view-button" onClick={() => viewDetails(false)}>Hide Details</div>
-                        <div className="order-cart-details-container">
-                          {order.new_cart.map((cart) => (
-                            <div>
-                              <span><b>Product:</b> {cart.product_name}</span>
-                              <span><b>Qty:</b> {cart.quantity}</span>
-                              <span><b>Price:</b> {cart.final_price}</span>
-                            </div>
-                          ))}
-                        </div>                      
-                      </div>
-                    ) : (
-                      <div className="order-details-comp">
-                        <div className="order-view-button" onClick={() => viewDetails(true)}>View Order Details</div>
-                      </div>
-                    )}
+                      <AdminOrderDetails
+                        order={order} />
                   </div>
               ))}
           </div>

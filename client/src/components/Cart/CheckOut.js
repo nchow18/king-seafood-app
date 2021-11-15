@@ -82,8 +82,6 @@ function CheckOut(props) {
   var cart_message = '';
   var cart_price = '';
 
-  console.log(user_cart);
-
   const clear_cart = async => {
 
     const previousOrder = {
@@ -135,9 +133,8 @@ function CheckOut(props) {
     console.log(user_me);
   }
 
-
   for (var i = 0; i < user_cart.length; i++) {
-    cart_message += "\n %0a ===== Item:"+[i+1]+"=====\n %0a *Item:* "+user_cart[i].product_name+", *Quantity:* "+user_cart[i].quantity+", *Price:* RM "+user_cart[i].final_price+" ";
+    cart_message += "\n %0a ===== Item:"+[i+1]+"=====\n %0a *Item:* "+user_cart[i].product_name.replace('&','And')+", *Quantity:* "+user_cart[i].quantity+", *Price:* RM "+user_cart[i].final_price+" ";
   }
 
   const info = 

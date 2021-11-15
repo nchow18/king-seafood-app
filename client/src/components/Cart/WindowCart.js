@@ -37,9 +37,6 @@ function WindowCart(props) {
 
   },[])
 
-  console.log(pastOrders);
-  console.log(ordersModal);
-
   return (
     <div className="window-cart-content">
       {ordersModal ? (

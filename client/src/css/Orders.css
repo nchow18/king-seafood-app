@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  font-size: .7rem;
 }
 
 .order-container {
@@ -49,5 +50,9 @@
     width: 100%;
     margin: .5rem;
     font-size: .8rem;
+  }
+
+  .order-cart-details-container div {
+    font-size: .6rem;
   }
 }
