@@ -13,6 +13,7 @@ function Products(props) {
   const [productModal, setProductModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState();
   const [imageCounter, setImageCounter] = useState(1);
+  const [isQty, setQty] = useState(1);
 
   function previousPic() {
     if (imageCounter !== 1) {
@@ -26,6 +27,16 @@ function Products(props) {
     }
   }
 
+  function addQty() {
+    setQty(isQty + 1)
+  }
+
+  function minusQty() {
+    if (isQty !== 1) {
+      setQty(isQty - 1)
+    }
+  }
+
   function removeSpace(item) {
 
     const picture = item.replaceAll(' ', '');
@@ -33,9 +44,7 @@ function Products(props) {
     return picture;
   }
 
-  console.log(products);
   console.log(currentProduct);
-  console.log(imageCounter);
 
   return (
     <>
@@ -96,9 +105,37 @@ function Products(props) {
                 </div>          
               </div>
               <div className="product-desktop-view-details">
-                <div>{currentProduct.product_name}</div>
-                <div>{currentProduct.product_price}</div>
+                <div className="font-size-large">{currentProduct.product_name}</div>
+                <div>RM {currentProduct.product_price}</div>
+                {currentProduct.product_description1 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description1}
+                  </div>
+                )}
+                {currentProduct.product_description2 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description2}
+                  </div>
+                )}
+                {currentProduct.product_description3 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description3}
+                  </div>
+                )}
+                {currentProduct.product_description4 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description4}
+                  </div>
+                )}                                                
               </div>
+            </div>
+            <div className="product-add-cart-container">
+              <div className="quantity-container">
+                <div onClick={() => {minusQty()}}>-</div>
+                <div>{isQty}</div>
+                <div onClick={() => {addQty()}}>+</div>
+              </div>
+              <div className="cart-button">ADD TO CART</div>
             </div>
           </div>
         </div>

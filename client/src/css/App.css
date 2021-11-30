@@ -1,10 +1,12 @@
 :root {
-  --primary: #FEF1E6;
-  --secondary: #F9D5A7;
-  --tertiary: #FFB085;
-  --quaternary: #90AACB;
+  --primary: #FCECDD;
+  --secondary: #FFC288;
+  --tertiary: #FEA82F;
+  --quaternary: #FF6701;
   --light-font: #454545;
-  --highlight: #2a2a2c;
+  --highlight: #49494d;
+  --button: #49494d;
+  --white: #FDFAF6;
 }
 
 html {
@@ -17,6 +19,29 @@ html {
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.font-circle {
+  font-size: 5px;
+}
+
+.font-size-large {
+  font-size: 20px;
+}
+
+.display-flex-column-center-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.display-flex-column-left-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 }
 
 .display-flex-right-center {
@@ -270,13 +295,44 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(0,0,0,0.4);
+  background-color: rgb(0,0,0,0.6);
+  animation: modalShow 1s forwards;
 }
 
 .product-modal-info {
   width: 35rem;
   background-color: var(--primary);
   border-radius: 20px;
+}
+
+.product-add-cart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+  justify-content: start !important;
+}
+
+.cart-button {
+  background-color: var(--button);
+  color: var(--primary);
+  padding: .25rem 1rem;
+  border-radius: 10px;
+}
+
+.quantity-container {
+  display: flex;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: .25rem 1rem;
+  margin-right: 1rem;
+}
+
+.quantity-container > div:nth-child(1) {
+  padding-right: 1.5rem;
+}
+
+.quantity-container > div:nth-child(3) {
+  padding-left: 1.5rem;
 }
 
 @media screen and (max-width: 600px) {
