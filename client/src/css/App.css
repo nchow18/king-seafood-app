@@ -1,8 +1,8 @@
 :root {
-  --primary: #FAEBE0;
-  --secondary: #C9E4C5;
-  --tertiary: #B5CDA3;
-  --quaternary: #C1AC95;
+  --primary: #FEF1E6;
+  --secondary: #F9D5A7;
+  --tertiary: #FFB085;
+  --quaternary: #90AACB;
   --light-font: #454545;
   --highlight: #2a2a2c;
 }
@@ -13,9 +13,22 @@ html {
 
 .display-flex-center-all {
   display: flex;
-  flex-direction: center;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
+}
+
+.display-flex-right-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+.flex-row-center-all {
+  display: flex;
+  flex-direction: row;
 }
 
 .border-round {
@@ -27,7 +40,7 @@ html {
 }
 
 .font-size-12px {
-  font-size: 13px;
+  font-size: 20px;
 }
 
 .bold-font {
@@ -42,7 +55,7 @@ html {
   width: 100vw;
   background-color: var(--primary);
   color: var(--light-font);
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 
 /* HEADER */
@@ -188,15 +201,17 @@ html {
 .product-desktop-card {
   padding: 1rem;
   margin: 1rem;
-  background-color: var(--secondary);
+  /* background-color: var(--secondary); */
   border-radius: 15px;
   width: 20rem;
+  /* box-shadow: 5px 5px 10px rgb(0,0,0,0.2); */
 }
 
 .product-desktop-picture {
   margin: 0 1rem;
   width: 100%;
   object-fit: fill;
+  box-shadow: 5px 5px 15px rgb(0,0,0,0.3);
 }
 
 .products-desktop-description {
@@ -210,7 +225,7 @@ html {
 
 .product-desktop-view {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .product-desktop-view-details {
@@ -219,12 +234,13 @@ html {
 }
 
 .product-desktop-view > div {
-  padding: 2rem;
+  padding: 1rem 0;
 }
 
 .product-desktop-image-container {
-  width: 50%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -235,8 +251,32 @@ html {
 }
 
 .product-desktop-picture-full {
-  width: 90%;
+  width: 100%;
   object-fit: contain;
+}
+
+.product-desktop-mini-pictures {
+}
+
+.product-desktop-mini-pictures > img {
+  height: 4rem;
+  width: 4rem;
+  margin: 1rem 0.5rem;
+}
+
+.product-modal-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0,0.4);
+}
+
+.product-modal-info {
+  width: 35rem;
+  background-color: var(--primary);
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 600px) {
