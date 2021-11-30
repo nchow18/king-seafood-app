@@ -7,6 +7,10 @@
   --highlight: #2a2a2c;
 }
 
+html {
+  background: var(--primary);
+}
+
 .display-flex-center-all {
   display: flex;
   flex-direction: center;
@@ -22,6 +26,10 @@
   padding: 1rem;
 }
 
+.font-size-12px {
+  font-size: 13px;
+}
+
 .bold-font {
   font-weight: bold;
 }
@@ -32,10 +40,9 @@
 
 .page {
   width: 100vw;
-  height: 100%;
   background-color: var(--primary);
   color: var(--light-font);
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 /* HEADER */
@@ -192,8 +199,44 @@
   object-fit: fill;
 }
 
-.prodcuts-desktop-description {
+.products-desktop-description {
   margin: 1rem 0;
+}
+
+.products-desktop-description div:nth-child(2) {
+  color: var(--quaternary);
+  font-weight: bold;
+}
+
+.product-desktop-view {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-desktop-view-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-desktop-view > div {
+  padding: 2rem;
+}
+
+.product-desktop-image-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-desktop-image-container i {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.product-desktop-picture-full {
+  width: 90%;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 600px) {
