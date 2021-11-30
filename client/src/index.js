@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
+import './assets/fonts/Raleway/static/Raleway-Regular.ttf';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -2,11 +2,15 @@
   --primary: #FCECDD;
   --secondary: #FFC288;
   --tertiary: #FEA82F;
-  --quaternary: #FF6701;
+  --quaternary: rgb(255, 103, 1);
   --light-font: #454545;
   --highlight: #49494d;
   --button: #49494d;
   --white: #FDFAF6;
+}
+
+.font-face-rale {
+  font-family: 'raleway';
 }
 
 html {
@@ -81,6 +85,8 @@ html {
   background-color: var(--primary);
   color: var(--light-font);
   font-size: 14px !important;
+  font-family: 'raleway' !important;
+  letter-spacing: .5px;
 }
 
 /* HEADER */
@@ -176,7 +182,7 @@ html {
 
 .close-icon {
   position: absolute;
-  right: 1rem;
+  right: 2rem;
   top: 2rem;
   font-size: 1.5rem;
 }
@@ -209,12 +215,19 @@ html {
 
 .categories-desktop-container {
   padding-right: 1rem;
-  border-right: 1px solid rgb(0,0,0,0.5);
+  border-right: 1px solid rgb(0,0,0,0.1);
   margin-right: 1rem;
+  position: sticky;
 }
 
 .category-item {
-  padding: .5rem 0;
+  padding: .25rem .5rem;
+  margin: .5rem 1rem;
+}
+
+.category-item:hover {
+  border-radius: 15px;
+  background-color: rgb(255, 103, 1,0.7);
 }
 
 .products-desktop-list {

@@ -105,7 +105,7 @@ function Products(props) {
                 </div>          
               </div>
               <div className="product-desktop-view-details">
-                <div className="font-size-large">{currentProduct.product_name}</div>
+                <div className="font-size-large bold-font">{currentProduct.product_name}</div>
                 <div>RM {currentProduct.product_price}</div>
                 {currentProduct.product_description1 !== '0' && (
                   <div>

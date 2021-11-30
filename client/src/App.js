@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './css/App.css';
+import './App.css';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Auth from './utils/auth';
