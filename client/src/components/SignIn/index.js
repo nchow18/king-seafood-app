@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { LOGIN } from '../../utils/mutations';
-import '../../css/Signin.css';
 import SignUp from '../Signup';
 
 function Login() {

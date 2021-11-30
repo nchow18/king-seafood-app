@@ -1,119 +1,51 @@
 import React, { useState } from 'react';
-import ProductCard from '../components/ProductCard';
-// import { useLocation } from 'react-router-dom';
-import ProductHeader from '../components/ProductHeader';
+import Auth from '../utils/auth.js'
 
 function Products(props) {
 
   const {
-    productLinks=[],
-    currentProductLink,
-    setCurrentProductLink,
-    setCartCount,
-    setCurrentHeaderLink,
-    products,
-    user_me,
-    headerLinks
+    setCart,
+    user_type,
+    products
   } = props
 
-  const [categoryModal, setCategoryModal] = useState(false);
+  const categories = Auth.getCategories();
+  const [productModal, setProductModal] = useState(false);
 
-  // useEffect(() => {
-  //   window.scrollTo(0,0);
-  //   return () => {
-
-  //   }
-  // }, [categoryModal])
-
-  if (categoryModal) {
-    window.scrollTo(0,0);
-  } else {
-    window.scrollTo(0,0);
-  }
-
-  function scrollTop() {
-    window.scrollTo(0,0);
-  }
-
-  var productCategory = [];
-
-  if (currentProductLink.name === 'All') {
-    //sorting by inventory_id
-    const invArr = products.sort((a,b) => a.inventory_id - b.inventory_id);
-    productCategory = [];
-    productCategory = [...invArr];
-  } else if (currentProductLink.name === 'Sale') {
-    // filter based on Sale Products
-    const currentSale = products.filter((product) => product.product_sale_price > 0)
-    const currentBundle = products.filter((product) =>  product.product_bulk_price > 0);
-    var invArr = [...currentBundle,...currentSale];
-    const sort = invArr.sort((a,b) => a.inventory_id - b.inventory_id)
-    productCategory = [];
-    productCategory = [...sort];
-  } else if (currentProductLink.name === 'Featured') {
-    // filter based on Featured Products
-    const currentProduct = products.filter((product) => product.product_featured === true)
-    productCategory = currentProduct;
-  } else if (currentProductLink.name === 'Newest Products') {
-    const newProduct = products.filter((product) => product.product_new === true);
-    const sorted = newProduct.sort((a,b) => a.inventory_id - b.inventory_id);
-    productCategory = [];
-    productCategory = [...sorted];
-  } else {
-    const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
-    const sorted = currentProduct.sort((a,b) => a.inventory_id - b.inventory_id);
-    productCategory = [];
-    productCategory = [...sorted];
-  }
+  console.log(products);
 
   return (
-  <>
-  <div className="nav-product-buttons">
-    <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
-    {categoryModal ? (
-      <span className="category-button" onClick={() => {setCategoryModal(false); }}>Category</span>
-    ) : (
-      <span className="category-button" onClick={() => {setCategoryModal(true); }}>Category</span>
-    )}
-
-  </div>
-
-  {categoryModal && (
-    <ProductHeader 
-      productLinks={productLinks}
-      currentProductLink={currentProductLink}
-      setCurrentProductLink={setCurrentProductLink}
-      setCategoryModal={setCategoryModal}
-      />
-  )}
-  <div className="product-page-container">
-    <div className="product-full-categories-panel">
-      <div className="categories-links">
-        <span><b>Categories</b></span>
-        {productLinks.map((category) => (
-          <span key={category.name} className={`categories-links link-hover ${currentProductLink.name === category.name && `categoryActive`}`} onClick={() => {setCurrentProductLink(category);}}>{category.name}</span>
-        ))}
-      </div>
-
-    </div>
-      <>
-        <div className="products-card-display">
-          <ProductCard
-            currentProductLink={currentProductLink}
-            products={products}
-            user_me={user_me}
-            productCategory={productCategory}
-            setCategoryModal={setCategoryModal}
-            setCartCount={setCartCount}
-            setCurrentHeaderLink={setCurrentHeaderLink}
-            headerLinks={headerLinks}
-          />
+    <>
+      {productModal ? (
+        <>
+        </>
+      ) : (
+        <div className="products-desktop-container">
+          <div className="categories-desktop-container">
+            <div className="bold-font">Categories</div>
+            <div className="categories-desktop-list">
+              {categories.map((cat) => (
+                <div key={cat.name} className="category-item">
+                  {cat.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="products-desktop-list">
+            {products.map((product) => (
+              <div key={product._id} className="product-desktop-card">
+                <div className="display-flex-center-all">
+                  <img className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
+                </div>
+                <div className="products-desktop-description">
+                  {product.product_name}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      )}
     </>
-
-  </div>
-
-  </>
   )
 }
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { ADD_USER } from '../../utils/mutations';
-import '../../css/Signin.css';
 
 function SignUp() {
   const [formData, setUserFormData] = useState({

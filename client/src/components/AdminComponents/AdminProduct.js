@@ -71,9 +71,6 @@ function AdminProduct(props) {
     }
   } 
 
-  console.log(products[0]);
-  console.log(formData.product_picture);
-
   const deleteProductFormSubmit = async (e) => {
 
     var confirm = window.confirm('Continue to DELETE product');

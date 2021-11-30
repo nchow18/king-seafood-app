@@ -3,15 +3,9 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './css/App.css';
-import Footer from './components/Footer';
-import Header from './components/Header';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Auth from './utils/auth';
-import MainPromo from './components/Header/MainPromo';
-import './css/Whatsapp.css';
-import './css/Footer.css';
-import { UserProvider } from './utils/GlobalState';
 
 const client = new ApolloClient({
     request: operation => {
@@ -94,62 +88,33 @@ function App() {
 		}
 	]);
 
-
 	const [currentHeaderLink, setCurrentHeaderLink] = useState(headerLinks[0]);
-  const [cartModal, setCartModal] = useState(false)
-  const [productLinks] = useState(Auth.getCategories())
-  const [currentProductLink, setCurrentProductLink] = useState(productLinks[0])
-  const [cartCount, setCartCount] = useState(0);
 
-  Auth.checkToken();
+  const user_type = Auth.getProfileType();
 
     return (
-        <ApolloProvider client={client}>
-          <Router>
-            <UserProvider>
-              <>
+      <ApolloProvider client={client}>
+        <Router>
+            <>
               <div className="page">
-                <div className="page-content">
-              <MainPromo />
-			    <nav className="header-container">
-          <Header 
-            headerLinks={headerLinks}
-            currentHeaderLink={currentHeaderLink}
-            setCurrentHeaderLink={setCurrentHeaderLink}
-            cartModal={cartModal}
-            setCartModal={setCartModal}
-            cartCount={cartCount}
-            setCartCount={setCartCount}
-					/>
-			    </nav>
-      
-          <Switch>
-            <Route 
-              exact path='/' 
-              render={() => <Home 
-              currentProductLink={currentProductLink} 
-              setCurrentProductLink={setCurrentProductLink} 
-              setCurrentHeaderLink={setCurrentHeaderLink}
-              productLinks={productLinks}
-              currentHeaderLink={currentHeaderLink}
-              headerLinks={headerLinks}
-              cartCount={cartCount}
-              setCartCount={setCartCount} />}
-              />
-            <Route component={NoMatch} />
-          </Switch>
-      <i onClick={() => {window.open("https://wa.me/60164223018")}} className="fab fa-whatsapp-square whatsapp-icon"></i>
-
-      <Footer 
-        headerLinks={headerLinks}
-        currentHeaderLink={currentHeaderLink}
-        setCurrentHeaderLink={setCurrentHeaderLink} />
-        </div>
-    </div>
-    </>
-  </UserProvider> 
-</Router>
-</ApolloProvider>
+                <Switch>
+                  <Route 
+                    exact path='/' 
+                    render={() => <Home 
+                      currentHeaderLink={currentHeaderLink}
+                      user_type={user_type}
+                      headerLinks={headerLinks}
+                      setCurrentHeaderLink={setCurrentHeaderLink}
+                      user_type={user_type}
+                    />}
+                    />
+                  <Route component={NoMatch} />
+                </Switch>
+                <i onClick={() => {window.open("https://wa.me/60164223018")}} className="fab fa-whatsapp-square whatsapp-icon"></i>
+              </div>
+            </>
+        </Router>
+      </ApolloProvider>
     );
 }
 export default App;
