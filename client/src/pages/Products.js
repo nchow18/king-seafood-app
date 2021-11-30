@@ -1,119 +1,172 @@
 import React, { useState } from 'react';
-import ProductCard from '../components/ProductCard';
-// import { useLocation } from 'react-router-dom';
-import ProductHeader from '../components/ProductHeader';
+import Auth from '../utils/auth.js'
 
 function Products(props) {
 
   const {
-    productLinks=[],
-    currentProductLink,
-    setCurrentProductLink,
-    setCartCount,
-    setCurrentHeaderLink,
-    products,
-    user_me,
-    headerLinks
+    setCart,
+    user_type,
+    products
   } = props
 
-  const [categoryModal, setCategoryModal] = useState(false);
+  const categories = Auth.getCategories();
+  const [productModal, setProductModal] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState();
+  const [imageCounter, setImageCounter] = useState(1);
+  const [isQty, setQty] = useState(1);
 
-  // useEffect(() => {
-  //   window.scrollTo(0,0);
-  //   return () => {
-
-  //   }
-  // }, [categoryModal])
-
-  if (categoryModal) {
-    window.scrollTo(0,0);
-  } else {
-    window.scrollTo(0,0);
+  function previousPic() {
+    if (imageCounter !== 1) {
+      setImageCounter(imageCounter - 1)
+    }
   }
 
-  function scrollTop() {
-    window.scrollTo(0,0);
+  function nextPic() {
+    if (imageCounter !== currentProduct.product_picture.length) {
+      setImageCounter(imageCounter + 1)
+    }
   }
 
-  var productCategory = [];
-
-  if (currentProductLink.name === 'All') {
-    //sorting by inventory_id
-    const invArr = products.sort((a,b) => a.inventory_id - b.inventory_id);
-    productCategory = [];
-    productCategory = [...invArr];
-  } else if (currentProductLink.name === 'Sale') {
-    // filter based on Sale Products
-    const currentSale = products.filter((product) => product.product_sale_price > 0)
-    const currentBundle = products.filter((product) =>  product.product_bulk_price > 0);
-    var invArr = [...currentBundle,...currentSale];
-    const sort = invArr.sort((a,b) => a.inventory_id - b.inventory_id)
-    productCategory = [];
-    productCategory = [...sort];
-  } else if (currentProductLink.name === 'Featured') {
-    // filter based on Featured Products
-    const currentProduct = products.filter((product) => product.product_featured === true)
-    productCategory = currentProduct;
-  } else if (currentProductLink.name === 'Newest Products') {
-    const newProduct = products.filter((product) => product.product_new === true);
-    const sorted = newProduct.sort((a,b) => a.inventory_id - b.inventory_id);
-    productCategory = [];
-    productCategory = [...sorted];
-  } else {
-    const currentProduct = products.filter((product) => product.product_category.toLowerCase() === currentProductLink.name.toLowerCase());
-    const sorted = currentProduct.sort((a,b) => a.inventory_id - b.inventory_id);
-    productCategory = [];
-    productCategory = [...sorted];
+  function addQty() {
+    setQty(isQty + 1)
   }
+
+  function minusQty() {
+    if (isQty !== 1) {
+      setQty(isQty - 1)
+    }
+  }
+
+  function removeSpace(item) {
+
+    const picture = item.replaceAll(' ', '');
+
+    return picture;
+  }
+
+  console.log(currentProduct);
 
   return (
-  <>
-  <div className="nav-product-buttons">
-    <i className="fas fa-arrow-circle-up top-button" onClick={() => {scrollTop()}}></i>
-    {categoryModal ? (
-      <span className="category-button" onClick={() => {setCategoryModal(false); }}>Category</span>
-    ) : (
-      <span className="category-button" onClick={() => {setCategoryModal(true); }}>Category</span>
-    )}
-
-  </div>
-
-  {categoryModal && (
-    <ProductHeader 
-      productLinks={productLinks}
-      currentProductLink={currentProductLink}
-      setCurrentProductLink={setCurrentProductLink}
-      setCategoryModal={setCategoryModal}
-      />
-  )}
-  <div className="product-page-container">
-    <div className="product-full-categories-panel">
-      <div className="categories-links">
-        <span><b>Categories</b></span>
-        {productLinks.map((category) => (
-          <span key={category.name} className={`categories-links link-hover ${currentProductLink.name === category.name && `categoryActive`}`} onClick={() => {setCurrentProductLink(category);}}>{category.name}</span>
-        ))}
-      </div>
-
-    </div>
-      <>
-        <div className="products-card-display">
-          <ProductCard
-            currentProductLink={currentProductLink}
-            products={products}
-            user_me={user_me}
-            productCategory={productCategory}
-            setCategoryModal={setCategoryModal}
-            setCartCount={setCartCount}
-            setCurrentHeaderLink={setCurrentHeaderLink}
-            headerLinks={headerLinks}
-          />
+    <>
+        <div className="products-desktop-container">
+          <div className="categories-desktop-container">
+            <div className="bold-font">Categories</div>
+            <div className="categories-desktop-list">
+              {categories.map((cat) => (
+                <div key={cat.name} className="category-item">
+                  {cat.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="products-desktop-list">
+            {products.map((product) => (
+              <div key={product._id} className="product-desktop-card" onClick={() => (setProductModal(true), setCurrentProduct(product))}>
+                <div className="display-flex-center-all">
+                  <img alt={product._id} className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
+                </div>
+                <div className="products-desktop-description">
+                  <div><b>{product.product_name}</b></div>
+                  <div>RM {product.product_price}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>    
+      {productModal ? (
+        <div className="product-modal-container display-flex-center-all">
+          <div className="product-modal-info padding-1rem">
+            <div className="display-flex-right-center" onClick={() => {setProductModal(false); setImageCounter(1)}}><i className="fas fa-times font-size-12px"></i></div>          
+            <div className="product-desktop-view">
+              <div className="product-desktop-image-container">
+                <div className="display-flex-center-all">
+                  <img alt={currentProduct._id} className="product-desktop-picture-full border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${currentProduct.product_id}-${imageCounter}.jpg`} />
+                </div>
+                <div className="display-flex-center-all">
+                  {currentProduct.product_picture.length >= 1 && (
+                    <div className="product-desktop-mini-pictures display-flex-center-all">
+                      {currentProduct.product_picture.length > 1 && (
+                        <>
+                          <i className="fas fa-arrow-left" onClick={() => (previousPic())}></i>
+                        </>
+                      )}                      
+                      {currentProduct.product_picture.map((picture) => (
+                        <>
+                          <img alt={picture} src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${removeSpace(picture)}.jpg`} />
+                        </>
+                      ))}
+                      {currentProduct.product_picture.length > 1 && (
+                        <>
+                          <i className="fas fa-arrow-right" onClick={() => (nextPic())}></i>
+                        </>
+                      )}                      
+                    </div>
+                  )}
+                </div>          
+              </div>
+              <div className="product-desktop-view-details">
+                <div className="font-size-large bold-font">{currentProduct.product_name}</div>
+                <div>RM {currentProduct.product_price}</div>
+                {currentProduct.product_description1 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description1}
+                  </div>
+                )}
+                {currentProduct.product_description2 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description2}
+                  </div>
+                )}
+                {currentProduct.product_description3 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description3}
+                  </div>
+                )}
+                {currentProduct.product_description4 !== '0' && (
+                  <div>
+                    - {currentProduct.product_description4}
+                  </div>
+                )}                                                
+              </div>
+            </div>
+            <div className="product-add-cart-container">
+              <div className="quantity-container">
+                <div onClick={() => {minusQty()}}>-</div>
+                <div>{isQty}</div>
+                <div onClick={() => {addQty()}}>+</div>
+              </div>
+              <div className="cart-button">ADD TO CART</div>
+            </div>
+          </div>
         </div>
+      ) : (
+        <div className="products-desktop-container">
+          <div className="categories-desktop-container">
+            <div className="bold-font">Categories</div>
+            <div className="categories-desktop-list">
+              {categories.map((cat) => (
+                <div key={cat.name} className="category-item">
+                  {cat.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="products-desktop-list">
+            {products.map((product) => (
+              <div key={product._id} className="product-desktop-card" onClick={() => (setProductModal(true), setCurrentProduct(product))}>
+                <div className="display-flex-center-all">
+                  <img alt={product._id} className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
+                </div>
+                <div className="products-desktop-description">
+                  <div><b>{product.product_name}</b></div>
+                  <div>RM {product.product_price}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
-
-  </div>
-
-  </>
   )
 }
 
