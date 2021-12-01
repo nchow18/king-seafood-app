@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function HomePage(props) {
 
   const {
     setCurrentHeaderLink,
-    products
+    products,
+    userData,
+    setCartQty,
+    cartQty,
+    cart
   } = props
+
+  function randomProducts() {
+    var prod = [];
+
+    for (var i = 0; i < 6; i++) {
+      const randomNumber = Math.round(Math.random() * products.length);
+      const randomProd = products[randomNumber];
+
+      prod = [...prod, randomProd]
+    }
+    return prod
+  }
 
   return (
     <div className="homepage-desktop">
@@ -16,7 +32,18 @@ function HomePage(props) {
         <div className="banner-text font-face-bebas">SCROLL TO DISCOVER OUR POPULAR PRODUCTS</div>
         <img alt="arrow" className="banner-arrow-icon" src={process.env.PUBLIC_URL + '/images/home/down_arrow.png'} />
       </div>
-      <img alt="second-page" className="home-second-page" src={process.env.PUBLIC_URL + '/images/home/second-page-transparent.png'} />
+      <div className="home-second-page-container display-flex-column-center-all">
+        <h3 className="font-face-bebas text-center">POPULAR PRODUCTS</h3>
+        <div className="home-popular-products">
+            {randomProducts().map((prod) => (
+              <div key={prod.product_id} className="home-popular-products-item">
+                <img alt="prod" className="home-popular-products-picture" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${prod.product_picture[0]}.jpg`} />
+                <h6>{prod.product_name}</h6>
+              </div>
+            ))}
+          </div>        
+      </div>
+
     </div>
   )
 }

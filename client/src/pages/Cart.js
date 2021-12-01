@@ -13,8 +13,6 @@ function Cart(props) {
 
   const [updateUser] = useMutation(UPDATE_USER);
 
-  console.log(cart);
-
   const clear_cart = async => {
 
     try {

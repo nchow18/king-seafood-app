@@ -20,9 +20,9 @@ function Home(props) {
     user_type
   } = props
 
-  const {data: data1} = useQuery(PRODUCTS);
-  const {data: data2} = useQuery(USER_ME);
-  const {data: data3} = useQuery(PROMO);
+  const {loading: loading1, data: data1} = useQuery(PRODUCTS);
+  const {loading: loading2, data: data2} = useQuery(USER_ME);
+  const {loading: loading3, data: data3} = useQuery(PROMO);
 
   const products = data1?.products || {};
   const userData = data2?.userMe || {};
@@ -31,7 +31,7 @@ function Home(props) {
   const userCart = userData?.cart || {};
 
   const [cart, setCart] = useState(userCart);
-  const [cartQty, setCartQty] = useState(userCart.length);
+  const [cartQty, setCartQty] = useState();
 
   useEffect(() => {
     setTimeout(displayPromo, 4000);
@@ -50,13 +50,13 @@ function Home(props) {
 
   },[])
 
-
-
   function displayPromo() {
 
   }
 
-  // if (loading) return `...Loading`;
+  if (loading1) return `...Loading products`;
+  if (loading2) return `...Loading user data`;
+  if (loading3) return `...Loading promo data`;
 
   return (
     <>
@@ -74,7 +74,12 @@ function Home(props) {
       
         {currentHeaderLink === 'Home' && (
           <HomePage
-            setCurrentHeaderLink={setCurrentHeaderLink} />
+            setCurrentHeaderLink={setCurrentHeaderLink}
+            products={products}
+            userData={userData}
+            setCartQty={setCartQty}
+            cartQty={cartQty}
+            cart={cart} />
         )}
         {currentHeaderLink === 'Cart' && (
           <Cart
