@@ -4,6 +4,7 @@ import { PROMO, PRODUCTS, USER_ME } from '../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
 import HomePage from '../components/Home/HomePage.js';
 import SignIn from '../components/SignIn/index.js';
+import Cart from './Cart.js'
 import SignUp from '../components/Signup/index.js';
 import NoMatch from './../pages/NoMatch';
 import Products from './Products.js'
@@ -27,7 +28,9 @@ function Home(props) {
   const userData = data2?.userMe || {};
   const promoData = data3?.promo[0] || {};
 
-  const [cart, setCart] = useState(userData.cart)
+  const userCart = userData.cart;
+
+  const [cart, setCart] = useState(userCart)
 
   useEffect(() => {
     setTimeout(displayPromo, 4000);
@@ -44,7 +47,7 @@ function Home(props) {
       products[a].product_picture = products[a].product_picture.split(',')
     }
 
-  }, [])
+  },[])
 
   function displayPromo() {
 
@@ -66,17 +69,25 @@ function Home(props) {
           <HomePage
             setCurrentHeaderLink={setCurrentHeaderLink} />
         )}
-        {/* {currentHeaderLink === 'Cart' && (
-
+        {currentHeaderLink === 'Cart' && (
+          <Cart
+            cart={cart}
+            userData={userData}
+            userCart={userCart}
+            setCart={setCart} />
         )}
-        {currentHeaderLink === 'Promotions' && (
+        {/* {currentHeaderLink === 'Promotions' && (
 
         )} */}
         {currentHeaderLink=== 'Products' && (
           <Products
             user_type={user_type}
             setCart={setCart}
+            cart={cart}
+            userCart={userCart}
             products={products}
+            setCurrentHeaderLink={setCurrentHeaderLink}
+            promoData={promoData}
              />
         )}
         {currentHeaderLink === 'Sign In' && (

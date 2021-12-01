@@ -1,19 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth.js'
+import { useMutation } from '@apollo/react-hooks';
+import { ADD_CART } from '../utils/mutations';
 
 function Products(props) {
 
   const {
     setCart,
     user_type,
-    products
+    products,
+    cart,
+    setCurrentHeaderLink,
+    promoData,
+    userCart
   } = props
+
+
+  useEffect(() => {
+    setCart(userCart)
+  },[])
 
   const categories = Auth.getCategories();
   const [productModal, setProductModal] = useState(false);
+  const [isCat, setCat] = useState('All');
+  const [isCatModal, setCatModal] = useState(false)
   const [currentProduct, setCurrentProduct] = useState();
   const [imageCounter, setImageCounter] = useState(1);
   const [isQty, setQty] = useState(1);
+  const [isIndex, setIndex] = useState(0);
+  const [addUserCart] = useMutation(ADD_CART)
 
   function previousPic() {
     if (imageCounter !== 1) {
@@ -37,6 +52,65 @@ function Products(props) {
     }
   }
 
+  function priceAdjust() {
+
+    var newPrice = 'Price';
+
+    if (products[isIndex].product_bulk_quantity > 0 && isQty >= products[isIndex].product_bulk_quantity) {
+      //check if quantity qualifies for product_bulk_quantity
+        newPrice = (isQty * products[isIndex].product_bulk_price).toFixed(2);
+    } else if (products[isIndex].product_sale_price !== '0') {
+      //check if sale applies
+        newPrice = (products[isIndex].product_sale_price * 1.00).toFixed(2);
+    } else if (promoData.discount !== '0') {
+      //check if global sale applies
+        newPrice = (products[isIndex].product_price * ((100 - promoData.discount)/100)).toFixed(2);
+    } else {
+      //no discounts, apply regular price
+    }
+
+    return newPrice;
+  }
+
+  function addCart() {
+
+    const prod = currentProduct;
+
+    const prodArr = {}
+
+    prodArr.quantity = isQty;
+    prodArr.product_price = (isQty * priceAdjust()).toFixed(2);
+    prodArr.product_name = prod.product_name;
+    prodArr.product_sale_price = prod.product_sale_price;
+    prodArr.product_bulk_price = prod.product_bulk_price;
+    prodArr.product_bulk_quantity = prod.product_bulk_quantity;
+    prodArr.product_id = prod.product_id;
+
+    const new_cart = [...cart, prodArr]
+
+    setCart(new_cart)
+    addCartDB(prodArr)
+  }
+
+  const addCartDB = async(prod) => {
+
+    try {
+      addUserCart({
+        variables: {
+          input: prod
+        }
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  function twoDec(num) {
+
+    const number = num * 1.00;
+    return number.toFixed(2);
+  }
+
   function removeSpace(item) {
 
     const picture = item.replaceAll(' ', '');
@@ -44,35 +118,91 @@ function Products(props) {
     return picture;
   }
 
-  console.log(currentProduct);
+  function sortCategory() {
+    var cat = [];
+
+    if (isCat === 'All') {
+      cat = products;
+    } else if (isCat === 'Sale') {
+      const result = products.filter(prod => prod.product_sale_price !== '0');
+      cat = result;
+    } else if (isCat === 'Newest Products') {
+      const result = products.filter(prod => prod.product_new === true);
+      cat = result
+    } else {
+      const result = products.filter(prod => prod.product_category === isCat.toLowerCase());
+      cat = result;
+    }
+    return cat;
+  }
 
   return (
     <>
-        <div className="products-desktop-container">
-          <div className="categories-desktop-container">
-            <div className="bold-font">Categories</div>
-            <div className="categories-desktop-list">
-              {categories.map((cat) => (
-                <div key={cat.name} className="category-item">
-                  {cat.name}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="products-desktop-list">
-            {products.map((product) => (
-              <div key={product._id} className="product-desktop-card" onClick={() => (setProductModal(true), setCurrentProduct(product))}>
-                <div className="display-flex-center-all">
-                  <img alt={product._id} className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
-                </div>
-                <div className="products-desktop-description">
-                  <div><b>{product.product_name}</b></div>
-                  <div>RM {product.product_price}</div>
-                </div>
+        <div className="categories-desktop-container sticky">
+          <div className="bold-font">Categories</div>
+          <div className="categories-desktop-list">
+            {categories.map((cat) => (
+              <div key={cat.name} className="category-item" onClick={() => {setCat(cat.name)}}>
+                {cat.name}
               </div>
             ))}
           </div>
-        </div>    
+        </div>
+        <div className="categories-mobile-container">
+          <div className="bold-font" onClick={() => {setCatModal(true)}}>Categories</div>
+            {isCatModal === true && (
+              <div className="categories-desktop-list">
+                <div className="bold-font" onClick={() => {setCatModal(true)}}>Categories</div>                
+                {categories.map((cat) => (
+                  <div key={cat.name} className="category-item" onClick={() => {setCat(cat.name); setCatModal(false)}}>
+                    {cat.name}
+                  </div>
+                ))}
+              </div>
+            )}
+        </div>
+        <div className="products-desktop-list">
+          {sortCategory().map((product, index) => (
+            <div key={product._id} className="product-desktop-card" onClick={() => {setProductModal(true); setCurrentProduct(product); setIndex(index)}}>
+              <div className="display-flex-center-all position-relative">
+                <img alt={product._id} className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
+                <div className="sale-container">
+                  {product.product_bulk_price !== '0' && (
+                    <>
+                      <i className="fas fa-tags sale-icon"></i>                    
+                    </>
+                  )}
+                  {product.product_sale_price !== '0' && (
+                    <>
+                      <i className="fas fa-percent sale-icon"></i>
+                    </>
+                  )}
+                </div>
+
+              </div>
+              <div className="products-desktop-description">
+                <div><b>{product.product_name}</b></div>
+                  {product.product_sale_price !== '0' && (
+                    <div className="display-flex-row"><div className="line-through padding-right-1rem">RM {product.product_price}</div><b className="bold-font">RM {twoDec(product.product_sale_price)}</b></div>
+                  )}
+                  {product.product_sale_price === '0' && (
+                    <>
+                      {promoData.discount !== '0' && (
+                        <>
+                          <div className="display-flex-row">RM {twoDec(product.product_price * (1 - (promoData.discount/100)))}</div>                           
+                        </>
+                      )} 
+                      {promoData.discount === '0' && (
+                        <>
+                          <div className="display-flex-row">RM {twoDec(product.product_price)}</div>                           
+                        </>
+                      )}                                            
+                    </>
+                  )}  
+              </div>
+            </div>
+          ))}
+        </div>  
       {productModal ? (
         <div className="product-modal-container display-flex-center-all">
           <div className="product-modal-info padding-1rem">
@@ -91,9 +221,9 @@ function Products(props) {
                         </>
                       )}                      
                       {currentProduct.product_picture.map((picture) => (
-                        <>
+                        <div key={picture}>
                           <img alt={picture} src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${removeSpace(picture)}.jpg`} />
-                        </>
+                        </div>
                       ))}
                       {currentProduct.product_picture.length > 1 && (
                         <>
@@ -106,7 +236,16 @@ function Products(props) {
               </div>
               <div className="product-desktop-view-details">
                 <div className="font-size-large bold-font">{currentProduct.product_name}</div>
-                <div>RM {currentProduct.product_price}</div>
+                {currentProduct.product_sale_price !== '0' && (
+                  <div className="display-flex-row"><div className="line-through padding-right-1rem">RM {currentProduct.product_price}</div><b className="bold-font">RM {twoDec(currentProduct.product_sale_price)}</b></div>
+                )}
+                {currentProduct.product_sale_price === '0' && (
+                  <div className="display-flex-row">RM {currentProduct.product_price}</div>
+                )}                
+
+                {currentProduct.product_bulk_price !== '0' && (
+                  <div>Bundle Deal! Buy {currentProduct.product_bulk_quantity} or more for RM {currentProduct.product_bulk_price} each</div>
+                )}
                 {currentProduct.product_description1 !== '0' && (
                   <div>
                     - {currentProduct.product_description1}
@@ -130,18 +269,31 @@ function Products(props) {
               </div>
             </div>
             <div className="product-add-cart-container">
-              <div className="quantity-container">
-                <div onClick={() => {minusQty()}}>-</div>
-                <div>{isQty}</div>
-                <div onClick={() => {addQty()}}>+</div>
-              </div>
-              <div className="cart-button">ADD TO CART</div>
+              {Auth.loggedIn() ? (
+                  <>
+                    {currentProduct.product_status ? (
+                      <>
+                        <div className="quantity-container">
+                            <div onClick={() => {minusQty()}}>-</div>
+                            <div>{isQty}</div>
+                            <div onClick={() => {addQty()}}>+</div>
+                          </div>
+                        <div className="cart-button" onClick={() => {addCart()}}>ADD TO CART</div>
+                      </>
+                    ) : (
+                      <div className="cart-button" onClick={() => {}}>OUT OF STOCK</div> 
+                    )}
+
+                  </>
+                ) : (
+                  <div className="cart-button" onClick={() => {setCurrentHeaderLink('Sign In')}}>LOG IN OR SIGN UP FOR CART</div>                  
+                )}
             </div>
           </div>
         </div>
       ) : (
         <div className="products-desktop-container">
-          <div className="categories-desktop-container">
+          {/* <div className="categories-desktop-container">
             <div className="bold-font">Categories</div>
             <div className="categories-desktop-list">
               {categories.map((cat) => (
@@ -152,10 +304,11 @@ function Products(props) {
             </div>
           </div>
           <div className="products-desktop-list">
-            {products.map((product) => (
-              <div key={product._id} className="product-desktop-card" onClick={() => (setProductModal(true), setCurrentProduct(product))}>
-                <div className="display-flex-center-all">
+            {sortCategory().map((product, index) => (
+              <div key={product._id} className="product-desktop-card" onClick={() => {setProductModal(true); setCurrentProduct(product); setIndex(index)}}>
+                <div className="display-flex-center-all position-relative">
                   <img alt={product._id} className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
+                 
                 </div>
                 <div className="products-desktop-description">
                   <div><b>{product.product_name}</b></div>
@@ -163,7 +316,7 @@ function Products(props) {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       )}
     </>
