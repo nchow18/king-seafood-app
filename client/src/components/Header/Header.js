@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Auth from '../../utils/auth';
 
 function Header(props) {
@@ -8,11 +8,14 @@ function Header(props) {
     setCurrentHeaderLink,
     user_type,
     promoData,
-    userData
+    userData,
+    cartQty,
+    setCartQty,
+    userCart,
+    cart
   } = props
 
   var header_link = [];
-  const [isMobileModal, setMobileModal] = useState(false);
   const [isModal, setModal] = useState(false)
 
   if (user_type === 'admin') {
@@ -47,7 +50,8 @@ function Header(props) {
               KS 18
             </div>
             <div className="header-mobile-icons">
-              <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>  
+              <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>
+              <i className="fas fa-shopping-cart padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Cart'))}> ({cartQty})</i>  
               <i className="fas fa-bars padding-1rem icon-size" onClick={() => (setModal(true))}></i>                         
             </div>        
             <div className="header-mobile-modal">
@@ -107,7 +111,8 @@ function Header(props) {
               KS 18
             </div>
             <div className="header-mobile-icons">
-              <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>  
+              <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>
+                  <i className="fas fa-shopping-cart padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Cart'))}> ({cartQty})</i>               
               <i className="fas fa-bars padding-1rem icon-size" onClick={() => (setModal(true))}></i>                         
             </div>
           </>

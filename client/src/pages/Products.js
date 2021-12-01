@@ -12,7 +12,9 @@ function Products(props) {
     cart,
     setCurrentHeaderLink,
     promoData,
-    userCart
+    userCart,
+    setCartQty,
+    cartQty
   } = props
 
 
@@ -28,7 +30,8 @@ function Products(props) {
   const [imageCounter, setImageCounter] = useState(1);
   const [isQty, setQty] = useState(1);
   const [isIndex, setIndex] = useState(0);
-  const [addUserCart] = useMutation(ADD_CART)
+  const [addUserCart] = useMutation(ADD_CART);
+  const [addedCartModal, setAddedCartModal] = useState(false);
 
   function previousPic() {
     if (imageCounter !== 1) {
@@ -103,6 +106,20 @@ function Products(props) {
     } catch (e) {
       console.log(e)
     }
+
+    setAddedCartModal(true);
+
+    removeAlert()
+  }
+
+  function removeAlert() {
+    setTimeout(timeOut, 3000);
+  }
+
+  function timeOut() {
+    setAddedCartModal(false);
+    setProductModal(false);
+    setCartQty(cartQty + 1)
   }
 
   function twoDec(num) {
@@ -133,11 +150,19 @@ function Products(props) {
       const result = products.filter(prod => prod.product_category === isCat.toLowerCase());
       cat = result;
     }
+
+    window.scrollTo(0,0);
+
     return cat;
   }
 
   return (
-    <>
+    <div className="position-relative">
+        {addedCartModal === true && (
+          <div className="cart-added-container">
+            <div className="cart-added-modal">Added to cart!</div>
+          </div>
+        )}
         <div className="categories-desktop-container sticky">
           <div className="bold-font">Categories</div>
           <div className="categories-desktop-list">
@@ -319,7 +344,7 @@ function Products(props) {
           </div> */}
         </div>
       )}
-    </>
+    </div>
   )
 }
 

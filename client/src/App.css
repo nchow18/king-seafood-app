@@ -54,8 +54,8 @@ html {
   padding-right: 1rem;
 }
 
-.sale-icon {
-
+.padding-05rem {
+  padding: .5rem;
 }
 
 .display-flex-column-center-all {
@@ -353,6 +353,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 3;
   background-color: rgb(0,0,0,0.6);
   animation: modalShow 1s forwards;
 }
@@ -400,6 +401,28 @@ html {
   padding-left: 1.5rem;
 }
 
+.cart-added-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0,0,0,0.4);
+  z-index: 4;
+}
+
+.cart-added-modal {
+  padding: .5rem 1rem;
+  background-color: var(--dark);
+  color: var(--primary);
+  font-size: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.7);
+}
+
 @media screen and (max-width: 600px) {
 
   .page {
@@ -425,7 +448,7 @@ html {
 
   .categories-mobile-container {
     position: absolute;
-    top: 5rem;
+    top: 0rem;
     left: 0rem;
     display: flex;
     flex-direction: column;

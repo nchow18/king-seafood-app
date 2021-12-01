@@ -31,11 +31,18 @@ function Home(props) {
   const userCart = userData.cart;
 
   const [cart, setCart] = useState(userCart)
+  const [cartQty, setCartQty] = useState()
 
   useEffect(() => {
     setTimeout(displayPromo, 4000);
 
     setCurrentHeaderLink('Home')
+
+    if (Auth.loggedIn()) {
+      setCartQty(cart.length);
+    } else {
+      setCartQty(0)
+    }
 
     // convert all product_picture to STRING
     for (var p = 0; p < products.length; p++) {
@@ -62,7 +69,11 @@ function Home(props) {
         setCurrentHeaderLink={setCurrentHeaderLink}
         user_type={user_type}
         promoData={promoData}
-        userData={userData} />    
+        userData={userData}
+        cartQty={cartQty}
+        setCartQty={setCartQty}
+        userCart={userCart}
+        cart={cart} />    
       <div className="padding-1rem">
       
         {currentHeaderLink === 'Home' && (
@@ -88,6 +99,8 @@ function Home(props) {
             products={products}
             setCurrentHeaderLink={setCurrentHeaderLink}
             promoData={promoData}
+            setCartQty={setCartQty}
+            cartQty={cartQty}
              />
         )}
         {currentHeaderLink === 'Sign In' && (
