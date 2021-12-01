@@ -60,7 +60,7 @@ export const REMOVE_CART = gql`
 `;
 
 export const UPDATE_USER = gql`
-    mutation updateUserAccount($input: UserAccountInput) {
+    mutation updateUserAccount($input: UserInput) {
         updateUserAccount(input: $input) {
           _id
         }

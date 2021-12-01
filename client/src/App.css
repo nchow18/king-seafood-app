@@ -313,7 +313,7 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  left: 11rem;
+  padding-left: 11rem;
   top: -43rem;
 }
 
@@ -541,7 +541,7 @@ html {
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    left: 0;
+    padding-left: 0;
     top: 2rem;
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { CLEAR_CART } from '../utils/mutations';
+import { UPDATE_USER } from '../utils/mutations';
 
 function Cart(props) {
 
@@ -11,32 +11,34 @@ function Cart(props) {
     setCartQty
   } = props
 
-  const [clearCart] = useMutation(CLEAR_CART);
+  const [updateUser] = useMutation(UPDATE_USER);
 
-  const clearUserCart = async => {
+  console.log(cart);
+
+  const clear_cart = async => {
 
     try {
-      clearCart({
+
+      updateUser({
         variables: {
-          user_id: userData._id
+          input: {
+              cart: []
+          }
         }
       })
+      
     } catch (e) {
       console.log(e);
     }
 
-    console.log(userData.cart);
     setCart([])
     userData.cart = [];
     setCartQty(0)
-    console.log(userData.cart);
-    console.log(userData._id)
-
   }
 
   return (
     <div>
-      <button onClick={() => {clearUserCart()}}>BUTTON</button>
+      <button onClick={() => {clear_cart()}}>CLEAR CART</button>
     </div>
   )
 }
