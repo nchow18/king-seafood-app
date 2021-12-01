@@ -55,7 +55,8 @@ function Header(props) {
             </div>
             <div className="header-mobile-icons">
               <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>
-              <i className="fas fa-shopping-cart padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Cart'))}> ({cartQty})</i>  
+              <i className="fas fa-shopping-cart padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Cart'))}> ({cartQty})</i>
+              <i onClick={() => {window.open("https://wa.me/60164223018")}} className="fab fa-whatsapp-square whatsapp-icon-size padding-1rem"></i>  
               <i className="fas fa-bars padding-1rem icon-size" onClick={() => (setModal(true))}></i>                         
             </div>        
             <div className="header-mobile-modal">
@@ -144,7 +145,8 @@ function Header(props) {
             </div>
             <div className="header-mobile-icons">
               <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>
-                  <i className="fas fa-shopping-cart padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Cart'))}> ({cartQty})</i>               
+              <i className="fas fa-shopping-cart padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Cart'))}> ({cartQty})</i>   
+              <i onClick={() => {window.open("https://wa.me/60164223018")}} className="fab fa-whatsapp-square whatsapp-icon-size padding-1rem"></i>            
               <i className="fas fa-bars padding-1rem icon-size" onClick={() => (setModal(true))}></i>                         
             </div>
           </>

@@ -36,14 +36,14 @@ function HomePage(props) {
         <h3 className="font-face-bebas text-center">POPULAR PRODUCTS</h3>
         <div className="home-popular-products">
             {randomProducts().map((prod) => (
-              <div key={prod.product_id} className="home-popular-products-item">
+              <div key={prod.product_id} className="home-popular-products-item" onClick={() => {setCurrentHeaderLink('Products')}}>
+                <h6><b>{prod.product_name}</b></h6>
                 <img alt="prod" className="home-popular-products-picture" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${prod.product_picture[0]}.jpg`} />
-                <h6>{prod.product_name}</h6>
+                <h6>RM {prod.product_price}</h6>
               </div>
             ))}
           </div>        
       </div>
-
     </div>
   )
 }

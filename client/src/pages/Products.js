@@ -113,7 +113,7 @@ function Products(props) {
   }
 
   function removeAlert() {
-    setTimeout(timeOut, 2000);
+    setTimeout(timeOut, 1500);
   }
 
   function timeOut() {

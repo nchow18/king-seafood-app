@@ -118,6 +118,8 @@ function Home(props) {
             user_me={user_me} />
         )}                               */}
       </div>
+      <Footer
+        promoData={promoData} />
     </>
   )
 }

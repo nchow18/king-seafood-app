@@ -110,7 +110,6 @@ function App() {
                     />
                   <Route component={NoMatch} />
                 </Switch>
-                <i onClick={() => {window.open("https://wa.me/60164223018")}} className="fab fa-whatsapp-square whatsapp-icon"></i>
               </div>
             </>
         </Router>
