@@ -92,6 +92,11 @@ html {
   display: flex;
 }
 
+.display-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .display-flex-right-center {
   display: flex;
   flex-direction: row;
@@ -412,7 +417,7 @@ h6 {
   margin: 1rem;
   /* background-color: var(--secondary); */
   border-radius: 15px;
-  width: 20rem;
+  width: 10rem;
   /* box-shadow: 5px 5px 10px rgb(0,0,0,0.2); */
 }
 

@@ -212,7 +212,7 @@ function Products(props) {
               <div className="products-desktop-description">
                 <div><b>{product.product_name}</b></div>
                   {product.product_sale_price !== '0' && (
-                    <div className="display-flex-row"><div className="line-through padding-right-1rem">RM {product.product_price}</div><b className="bold-font">RM {twoDec(product.product_sale_price)}</b></div>
+                    <div className="display-flex-column"><div className="line-through padding-right-1rem">RM {product.product_price}</div><b className="bold-font">RM {twoDec(product.product_sale_price)}</b></div>
                   )}
                   {product.product_sale_price === '0' && (
                     <>
