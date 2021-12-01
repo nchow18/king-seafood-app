@@ -151,9 +151,13 @@ function Products(props) {
       cat = result;
     }
 
-    window.scrollTo(0,0);
+
 
     return cat;
+  }
+
+  function scrollTop() {
+    window.scrollTo(0,0);
   }
 
   return (
@@ -167,7 +171,7 @@ function Products(props) {
           <div className="bold-font">Categories</div>
           <div className="categories-desktop-list">
             {categories.map((cat) => (
-              <div key={cat.name} className="category-item" onClick={() => {setCat(cat.name)}}>
+              <div key={cat.name} className="category-item" onClick={() => {setCat(cat.name); scrollTop()}}>
                 {cat.name}
               </div>
             ))}
@@ -228,7 +232,7 @@ function Products(props) {
             </div>
           ))}
         </div>  
-      {productModal ? (
+      {productModal === true && (
         <div className="product-modal-container display-flex-center-all">
           <div className="product-modal-info padding-1rem">
             <div className="display-flex-right-center" onClick={() => {setProductModal(false); setImageCounter(1)}}><i className="fas fa-times font-size-12px"></i></div>          
@@ -315,33 +319,6 @@ function Products(props) {
                 )}
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="products-desktop-container">
-          {/* <div className="categories-desktop-container">
-            <div className="bold-font">Categories</div>
-            <div className="categories-desktop-list">
-              {categories.map((cat) => (
-                <div key={cat.name} className="category-item">
-                  {cat.name}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="products-desktop-list">
-            {sortCategory().map((product, index) => (
-              <div key={product._id} className="product-desktop-card" onClick={() => {setProductModal(true); setCurrentProduct(product); setIndex(index)}}>
-                <div className="display-flex-center-all position-relative">
-                  <img alt={product._id} className="product-desktop-picture border-round" src={process.env.PUBLIC_URL + `/images/products/half_size/tn_${product.product_id}-1.jpg`} />
-                 
-                </div>
-                <div className="products-desktop-description">
-                  <div><b>{product.product_name}</b></div>
-                  <div>RM {product.product_price}</div>
-                </div>
-              </div>
-            ))}
-          </div> */}
         </div>
       )}
     </div>
