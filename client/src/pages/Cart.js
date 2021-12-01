@@ -12,7 +12,7 @@ function Cart(props) {
 
   const [clearCart] = useMutation(CLEAR_CART);
 
-  const clearUserCart = async() => {
+  const clearUserCart = async => {
 
     try {
       clearCart({
@@ -21,10 +21,12 @@ function Cart(props) {
     } catch (e) {
       console.log(e);
     }
-    console.log(userData);
+    console.log(userData.cart);
   }
 
-  console.log(userData);
+
+
+  console.log(userData.cart);
 
   return (
     <div>
