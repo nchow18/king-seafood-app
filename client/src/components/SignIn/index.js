@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { LOGIN } from '../../utils/mutations';
 import SignUp from '../Signup';
 
-function Login() {
+function Login(props) {
+
+  const {
+    cart,
+    setCartQty
+  } = props
+
     const [formData, setUserFormData] = useState({ email: '', password: '' })
     const [login, { error } ] = useMutation(LOGIN)
 
