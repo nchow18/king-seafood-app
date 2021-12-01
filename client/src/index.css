@@ -2,3 +2,8 @@
   font-family: 'raleway';
   src: local('raleway'), url('./assets/fonts/Raleway/static/Raleway-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'bebas';
+  src: local('bebas'), url('./assets/fonts/bebas_kai/BebasKai.ttf') format('truetype');
+}

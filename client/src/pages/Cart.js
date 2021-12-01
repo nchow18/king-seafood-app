@@ -7,7 +7,8 @@ function Cart(props) {
   const {
     cart,
     userData,
-    setCart
+    setCart,
+    setCartQty
   } = props
 
   const [clearCart] = useMutation(CLEAR_CART);
@@ -16,17 +17,22 @@ function Cart(props) {
 
     try {
       clearCart({
-        user_id: userData._id
+        variables: {
+          user_id: userData._id
+        }
       })
     } catch (e) {
       console.log(e);
     }
+
     console.log(userData.cart);
+    setCart([])
+    userData.cart = [];
+    setCartQty(0)
+    console.log(userData.cart);
+    console.log(userData._id)
+
   }
-
-
-
-  console.log(userData.cart);
 
   return (
     <div>

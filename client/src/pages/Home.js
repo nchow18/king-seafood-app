@@ -79,7 +79,8 @@ function Home(props) {
             cart={cart}
             userData={userData}
             userCart={userCart}
-            setCart={setCart} />
+            setCart={setCart}
+            setCartQty={setCartQty} />
         )}
         {/* {currentHeaderLink === 'Promotions' && (
 

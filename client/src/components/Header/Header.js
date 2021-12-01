@@ -40,7 +40,7 @@ function Header(props) {
 
   return (
     <>
-      <div className="header-promo highlight">
+      <div className="header-promo">
         {promoData.mainPromo}
       </div>
       <div className="header-mobile-container padding-1rem">      

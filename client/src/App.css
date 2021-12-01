@@ -8,10 +8,16 @@
   --button: #49494d;
   --white: #FDFAF6;
   --dark: #262629;
+  --banner: #FFC289;
+  --font-color: rgb(22, 22, 22);
 }
 
 .font-face-rale {
   font-family: 'raleway';
+}
+
+.font-face-bebas {
+  font-family: 'bebas';
 }
 
 html {
@@ -141,6 +147,9 @@ html {
   display: flex;
   justify-content: center;
   padding: .25rem;
+  background-color: var(--font-color);
+  color: var(--primary);
+  opacity: 0.95;
 }
 
 .highlight {
@@ -156,7 +165,7 @@ html {
   position: sticky;
   position: -webkit-sticky;
   top: 0rem;
-  background-color: var(--primary);
+  background-color: var(--banner);
   z-index: 2;
 }
 
@@ -224,9 +233,14 @@ html {
 /* HOME-PAGE */
 
 .home-desktop-banner {
-  width: 90%;
+  width: 100vw;
   object-fit: contain;
-  border-radius: 25px;
+  position: relative;
+  top: -1rem;
+}
+
+.home-desktop-banner:hover {
+  background-color: var(--banner);
 }
 
 .homepage-desktop {
@@ -234,6 +248,29 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.homepage-banner-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--banner);
+  width: 100vw;
+  padding: 1rem;
+  position: relative;
+  top: -1rem;
+}
+
+.banner-text {
+  font-size: 15pt;
+  font-family: 'bebas';
+  color: var(--font-color);
+}
+
+.banner-arrow-icon {
+  width: 1.5rem;
+  padding-top: .5rem;
 }
 
 .icon-size {

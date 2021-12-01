@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import './assets/fonts/Raleway/static/Raleway-Regular.ttf';
+import './assets/fonts/bebas_kai/BebasKai.ttf';
 
 ReactDOM.render(
   <React.StrictMode>
