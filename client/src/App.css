@@ -16,6 +16,10 @@
   font-family: 'raleway';
 }
 
+.box-shadow {
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+
 .font-face-bebas {
   font-family: 'bebas';
 }
@@ -236,6 +240,15 @@ html {
   width: 100vw;
   object-fit: contain;
   position: relative;
+  margin-top: 2rem;
+  -webkit-box-shadow: -5px 5px 10px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: -5px 5px 10px 5px rgba(0,0,0,0.4);
+  box-shadow: -5px 5px 10px 5px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.banner-box {
+  background-color: var(--banner);
   top: -1rem;
 }
 
@@ -458,6 +471,10 @@ html {
   font-size: 20px;
   border-radius: 15px;
   box-shadow: 5px 5px 10px rgb(0,0,0,0.7);
+}
+
+.home-second-page {
+  width: 100vw;
 }
 
 @media screen and (max-width: 600px) {
