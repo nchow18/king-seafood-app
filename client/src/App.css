@@ -203,13 +203,26 @@ html {
   top: 0;
   right: 0;
   z-index: 2;
-  background-color: var(--primary);
-  width: 35rem;
+  background-color: var(--font-color);
+  color: var(--primary);
+  width: 25rem;
   height: 100vh;
   animation: modalSlide 1s forwards;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  padding-top: 2rem;
+  padding: 2rem;
+}
+
+.menu-social-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+}
+
+.menu-social-icons > * {
+  margin-right: .5rem;
 }
 
 @keyframes modalSlide {
@@ -225,6 +238,10 @@ html {
 
 .header-mobile-link {
   margin-bottom: 1rem;
+}
+
+.menu-footer {
+  margin-top: 2rem;
 }
 
 .close-icon {

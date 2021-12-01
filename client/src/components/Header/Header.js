@@ -38,6 +38,8 @@ function Header(props) {
     }    
   }
 
+  console.log(promoData);
+
   return (
     <>
       <div className="header-promo">
@@ -102,6 +104,27 @@ function Header(props) {
                   </div>
                 )}
                 <i className="fas fa-times close-icon" onClick={() => setModal(false)}></i>
+                <div className="menu-footer">
+                  <div className="menu-details-container">
+                    <h5><b>Address</b></h5>
+                    <h8>{promoData.address}</h8>
+                    <h5><b>Operating Hours</b></h5>
+                    <h8>10:00AM - 5:30PM (Closed on Sundays & Public Holidays)</h8>
+                    <h5><b>Contact Us</b></h5>
+                    <h8>{promoData.contact_us_1}<br></br></h8>
+                    <h8>{promoData.contact_us_2}</h8>
+                    <h5><b>Follow Us</b></h5>
+                    <div className="menu-social-icons">
+                      <i className="fab fa-facebook"></i>
+                      <h8>@kingsseafood18</h8>
+                      <i className="fab fa-instagram"></i>
+                      <h8>@kingsseafood18</h8>
+                    </div>
+                  </div>
+                  <div className="menu-map-container">
+
+                  </div>
+                </div>
               </div>
             </div>
           </>
