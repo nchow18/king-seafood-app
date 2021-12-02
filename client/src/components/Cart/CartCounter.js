@@ -6,10 +6,12 @@ function CartCounter(props) {
     userCart,
     index,
     addQty,
-    minusQty
+    minusQty,
+    state,
+    setState
   } = props
 
-  const [itemQty, setItemQty] = useState(1)
+  const [itemQty, setItemQty] = useState(userCart[index].quantity)
 
   function add() {
     setItemQty(itemQty + 1)
@@ -24,11 +26,11 @@ function CartCounter(props) {
 
   return (
     <>
-    <div onClick={() => {minus(); minusQty(index)}}>-</div>
+    <div onClick={() => {minus(); minusQty(index); setState(state +1)}}>-</div>
       <div>    
         {itemQty}
       </div>
-      <div onClick={() => {add(); addQty(index)}}>+</div>
+      <div onClick={() => {add(); addQty(index); setState(state + 1)}}>+</div>
     </>
   )
 }

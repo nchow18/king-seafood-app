@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { UPDATE_USER } from '../utils/mutations';
+import { UPDATE_USER, UPDATE_CART } from '../utils/mutations';
 import CartCounter from '../components/Cart/CartCounter';
+import ItemPrice from '../components/Cart/ItemPrice';
 
 function Cart(props) {
 
@@ -14,8 +15,10 @@ function Cart(props) {
   } = props
 
   const [updateUser] = useMutation(UPDATE_USER);
+  const [updateCart] = useMutation(UPDATE_CART);
   const [isOrder, setOrder] = useState(true);
   const [userCart, setUserCart] = useState(userData.cart)
+  const [state, setState] = useState(0)
 
 
   useEffect(() => {
@@ -45,9 +48,6 @@ function Cart(props) {
 
   const removeItem = async(index) => {
 
-    console.log(userCart);
-    console.log('index: ' + index)
-
     const new_cart = userCart;
 
     new_cart.splice(index, 1);
@@ -62,7 +62,6 @@ function Cart(props) {
           }
         }
       })
-
     } catch (e) {
       console.log(e)
     }
@@ -70,16 +69,24 @@ function Cart(props) {
 
   const addQty = async(index) => {
 
-    console.log(index);
-    console.log(userCart[index])
-
+    userCart[index].product_price = ((userCart[index].product_price / userCart[index].quantity) * (userCart[index].quantity + 1)).toFixed(2);
     userCart[index].quantity = (userCart[index].quantity + 1);
 
-    console.log(userCart[index].quantity)
+    for (var i = 0; i < userCart.length; i++) {
+      delete userCart[i]._id
+    }
 
+    console.log(userCart[index])
 
     try {
-
+      updateCart({
+        variables: {
+          product_id: userCart[index].product_id,
+          input: {
+            cart: [userCart[index]]
+          }
+        }
+      })
     } catch (e) {
       console.log(e)
     }
@@ -87,19 +94,27 @@ function Cart(props) {
 
   const minusQty = async(index) => {
 
-    console.log(index);
-    console.log(userCart[index])
-
-
+    const newArr = [];
 
     if (userCart[index].quantity !== 1) {
+      userCart[index].product_price = ((userCart[index].product_price / userCart[index].quantity) * (userCart[index].quantity - 1)).toFixed(2);
       userCart[index].quantity = (userCart[index].quantity - 1);
     }
 
-    console.log(userCart[index].quantity)
+    for (var i = 0; i < userCart.length; i++) {
+      delete userCart[i]._id
+    }
 
-    try {
+    console.log(userCart)
 
+    try { 
+      updateUser({
+        variables: {
+          input: {
+            cart: userCart
+          }
+        }
+      })
     } catch (e) {
       console.log(e)
     }
@@ -112,7 +127,7 @@ function Cart(props) {
       total = +total + +userData.cart[i].product_price;
     }
 
-    return total
+    return total.toFixed(2)
   }
 
   if (loading2) return `...Loading user data`;
@@ -134,20 +149,24 @@ function Cart(props) {
                     <div className="cart-item-quantity">
                       <div>Qty: </div>
                       <div className="counter-container">
-
-                          <CartCounter 
-                            userCart={userCart}
-
-                            index={index}
-                            minusQty={minusQty}
-                            addQty={addQty}
-                            />
-
+                        <CartCounter 
+                          userCart={userCart}
+                          index={index}
+                          minusQty={minusQty}
+                          addQty={addQty}
+                          state={state}
+                          setState={setState}
+                        />
                       </div>
                     </div>
                   </div>
                   <div className="cart-item-price">
-                    RM {item.product_price}
+                    RM <ItemPrice 
+                          index={index}
+                          userCart={userCart}
+                          price={item.product_price}
+                          state={state}
+                          setState={setState}                          />
                   </div>
                   <div className="cart-item-remove">
                     <i className="far fa-times-circle delete-circle" onClick={() => {removeItem(index)}}></i>
