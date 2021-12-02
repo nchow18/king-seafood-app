@@ -19,7 +19,12 @@ function Header(props) {
   const [isModal, setModal] = useState(false)
 
   useEffect(() => {
-    setCartQty(userData.cart.length);
+    if (Auth.loggedIn()) {
+      setCartQty(userData.cart.length);
+    } else {
+      setCartQty(0)
+    }
+
   },[])
 
   if (user_type === 'admin') {

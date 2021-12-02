@@ -10,6 +10,7 @@
   --dark: #262629;
   --banner: #FFC289;
   --font-color: rgb(22, 22, 22);
+  --checkout: rgb(22, 22, 22);
 }
 
 .font-face-rale {
@@ -573,6 +574,72 @@ h6 {
   position: relative;
   bottom: 0;
   left: 0;
+}
+
+/*  CART */
+
+.cart-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -1rem;
+  margin-top: -1rem;
+}
+
+.cart-items-container {
+  width: 60vw;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.cart-checkout-container {
+  width: 40vw;
+  background-color: var(--checkout);
+  color: var(--primary);
+  position: relative;
+  height: 100vh;
+}
+
+.checkout-tab {
+  transform: rotate(270deg);
+  text-align: center;
+  position: absolute;
+  left: -4rem;
+  top: 3rem;
+  padding: .25rem .5rem;
+  background-color: var(--checkout);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  opacity: .9;
+}
+
+.opacity-08 {
+  opacity: .8 !important;
+}
+
+.checkout-tab:hover {
+  opacity: .8;
+}
+
+.how-to-tab:hover {
+  opacity: .8;
+}
+
+.how-to-tab {
+  transform: rotate(270deg);
+  text-align: center;
+  position: absolute;
+  left: -5rem;
+  top: 11rem;
+  padding: .25rem .5rem;
+  background-color: var(--checkout);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  opacity: .9;
 }
 
 @media screen and (max-width: 600px) {
