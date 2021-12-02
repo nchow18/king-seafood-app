@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { UPDATE_USER, UPDATE_CART } from '../utils/mutations';
+import { UPDATE_USER, UPDATE_CART, REMOVE_CART } from '../utils/mutations';
 import CartCounter from '../components/Cart/CartCounter';
 import ItemPrice from '../components/Cart/ItemPrice';
 
@@ -16,6 +16,7 @@ function Cart(props) {
 
   const [updateUser] = useMutation(UPDATE_USER);
   const [updateCart] = useMutation(UPDATE_CART);
+  const [removeCart] = useMutation(REMOVE_CART)
   const [isOrder, setOrder] = useState(true);
   const [userCart, setUserCart] = useState(userData.cart)
   const [state, setState] = useState(0)
@@ -50,21 +51,19 @@ function Cart(props) {
 
     const new_cart = userCart;
 
-    new_cart.splice(index, 1);
-    setUserCart(new_cart);
-    setCartQty(new_cart.length);
-
     try {
-      updateUser({
+      removeCart({
         variables: {
-          input: {
-            cart: [new_cart]
-          }
+          product_id: userCart[index].product_name
         }
       })
     } catch (e) {
       console.log(e)
     }
+
+    new_cart.splice(index, 1);
+    setUserCart(new_cart);
+    setCartQty(new_cart.length);
   }
 
   const addQty = async(index) => {
@@ -76,15 +75,23 @@ function Cart(props) {
       delete userCart[i]._id
     }
 
-    console.log(userCart[index])
+    const item = userCart[index]
+
+    const updateItem = {
+      product_id: item.product_id,
+      product_bulk_price: item.product_bulk_price,
+      product_bulk_quantity: item.product_bulk_quantity,
+      product_sale_price: item.product_sale_price,
+      quantity: item.quantity,
+      product_price: item.product_price,
+      product_name: item.product_name
+    }
 
     try {
       updateCart({
         variables: {
-          product_id: userCart[index].product_id,
-          input: {
-            cart: [userCart[index]]
-          }
+          product_id: userCart[index].product_name,
+          input: updateItem
         }
       })
     } catch (e) {
@@ -93,8 +100,6 @@ function Cart(props) {
   }
 
   const minusQty = async(index) => {
-
-    const newArr = [];
 
     if (userCart[index].quantity !== 1) {
       userCart[index].product_price = ((userCart[index].product_price / userCart[index].quantity) * (userCart[index].quantity - 1)).toFixed(2);
@@ -105,14 +110,23 @@ function Cart(props) {
       delete userCart[i]._id
     }
 
-    console.log(userCart)
+    const item = userCart[index]
 
-    try { 
-      updateUser({
+    const updateItem = {
+      product_id: item.product_id,
+      product_bulk_price: item.product_bulk_price,
+      product_bulk_quantity: item.product_bulk_quantity,
+      product_sale_price: item.product_sale_price,
+      quantity: item.quantity,
+      product_price: item.product_price,
+      product_name: item.product_name
+    }
+    
+    try {
+      updateCart({
         variables: {
-          input: {
-            cart: userCart
-          }
+          product_id: userCart[index].product_name,
+          input: updateItem
         }
       })
     } catch (e) {
