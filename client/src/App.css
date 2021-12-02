@@ -642,7 +642,7 @@ h6 {
   color: var(--primary);
   position: fixed;
   right: 0;
-  top: 7.1rem;
+  top: 6.8rem;
   height: 100%;
   border-left: 1px solid var(--banner); 
   box-shadow: -5px -5px 10px rgb(0,0,0,0.6);
