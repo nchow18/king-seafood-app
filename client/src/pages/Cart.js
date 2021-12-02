@@ -209,7 +209,40 @@ function Cart(props) {
         </div>
         {isOrder ? (
           <div className="cart-checkout-content padding-1rem">
-            YOUR ORDER DETAILS:
+            <div className="order-fill">
+              <div>YOUR ORDER DETAILS:</div>
+              <form className="input-container">
+                <input placeholder="Full Name:"></input>
+                <input placeholder="Phone:"></input>
+                <input  placeholder="Full Address:"></input>
+                <input type="date"></input>
+                <textarea placeholder="Message"></textarea>
+                <div className="submit-whatsapp-button">Submit order with Whatsapp <img alt="whatsapp" src={process.env.PUBLIC_URL + `./icons/cart/whatsappicon.png`} /></div>
+              </form>
+              <div className="delivery-details">
+                <div>DELIVERY FEE:</div>
+                <div className="delivery-fee-container">
+                  <div>
+                    <img alt="car" src={process.env.PUBLIC_URL + `./icons/cart/car.png`} />
+                    <p>FREE DELIVERY for orders RM100 and above for Penang area (RM5 delivery fee for orders than than RM100)</p>
+                  </div>
+                  <div>
+                    <img alt="outstation" src={process.env.PUBLIC_URL + `./icons/cart/outofstation.png`} />
+                    <p>Outstation delivery fee RM40</p>
+                  </div>  
+                  <div>
+                    <img alt="pickup" src={process.env.PUBLIC_URL + `./icons/cart/pickup.png`} />
+                    <p>Pickup location: <br></br> 205, Jalan Perak, 11600 Jelulong</p>
+
+                  </div>
+                  <div>
+                    <img alt="notice" src={process.env.PUBLIC_URL + `./icons/cart/outofstation.png`} />
+                    <p>NOTICE: For any troubles during checkout, please contact Grace 016-4223018</p>
+                  </div>                                   
+                </div>
+              </div>              
+            </div>
+
           </div>
         ) : (
           <div className="cart-how-content padding-1rem">
