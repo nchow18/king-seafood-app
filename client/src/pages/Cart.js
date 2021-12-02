@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { UPDATE_USER } from '../utils/mutations';
+import CartCounter from '../components/Cart/CartCounter';
 
 function Cart(props) {
 
@@ -15,6 +16,7 @@ function Cart(props) {
   const [updateUser] = useMutation(UPDATE_USER);
   const [isOrder, setOrder] = useState(true);
   const [userCart, setUserCart] = useState(userData.cart)
+
 
   useEffect(() => {
 
@@ -53,11 +55,54 @@ function Cart(props) {
     setCartQty(new_cart.length);
 
     try {
+      updateUser({
+        variables: {
+          input: {
+            cart: [new_cart]
+          }
+        }
+      })
 
     } catch (e) {
       console.log(e)
     }
+  }
 
+  const addQty = async(index) => {
+
+    console.log(index);
+    console.log(userCart[index])
+
+    userCart[index].quantity = (userCart[index].quantity + 1);
+
+    console.log(userCart[index].quantity)
+
+
+    try {
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const minusQty = async(index) => {
+
+    console.log(index);
+    console.log(userCart[index])
+
+
+
+    if (userCart[index].quantity !== 1) {
+      userCart[index].quantity = (userCart[index].quantity - 1);
+    }
+
+    console.log(userCart[index].quantity)
+
+    try {
+
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   function getCartTotal() {
@@ -69,8 +114,6 @@ function Cart(props) {
 
     return total
   }
-
-  console.log(isOrder);
 
   if (loading2) return `...Loading user data`;
 
@@ -89,7 +132,18 @@ function Cart(props) {
                       {item.product_name}
                     </div>
                     <div className="cart-item-quantity">
-                      Qty: {item.quantity}
+                      <div>Qty: </div>
+                      <div className="counter-container">
+
+                          <CartCounter 
+                            userCart={userCart}
+
+                            index={index}
+                            minusQty={minusQty}
+                            addQty={addQty}
+                            />
+
+                      </div>
                     </div>
                   </div>
                   <div className="cart-item-price">
