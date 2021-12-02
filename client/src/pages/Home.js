@@ -29,9 +29,9 @@ function Home(props) {
   const promoData = data3?.promo[0] || {};
 
   const userCart = userData?.cart || {};
-
   const [cart, setCart] = useState(userCart);
   const [cartQty, setCartQty] = useState();
+
 
   useEffect(() => {
     setTimeout(displayPromo, 4000);
@@ -50,6 +50,7 @@ function Home(props) {
 
   },[])
 
+
   function displayPromo() {
 
   }
@@ -57,6 +58,7 @@ function Home(props) {
   if (loading1) return `...Loading products`;
   if (loading2) return `...Loading user data`;
   if (loading3) return `...Loading promo data`;
+
 
   return (
     <>
@@ -70,7 +72,7 @@ function Home(props) {
         setCartQty={setCartQty}
         userCart={userCart}
         cart={cart} />    
-      <div className="padding-1rem">
+      <div className="">
       
         {currentHeaderLink === 'Home' && (
           <HomePage
@@ -87,7 +89,8 @@ function Home(props) {
             userData={userData}
             userCart={userCart}
             setCart={setCart}
-            setCartQty={setCartQty} />
+            setCartQty={setCartQty}
+            loading2={loading2} />
         )}
         {/* {currentHeaderLink === 'Promotions' && (
 
@@ -118,8 +121,11 @@ function Home(props) {
             user_me={user_me} />
         )}                               */}
       </div>
-      <Footer
+      {currentHeaderLink !== 'Cart' && (
+        <Footer
         promoData={promoData} />
+      )}
+
     </>
   )
 }

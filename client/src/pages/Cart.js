@@ -8,11 +8,17 @@ function Cart(props) {
     cart,
     userData,
     setCart,
-    setCartQty
+    setCartQty,
+    loading2
   } = props
 
   const [updateUser] = useMutation(UPDATE_USER);
   const [isOrder, setOrder] = useState(true);
+  const [userCart, setUserCart] = useState(userData.cart)
+
+  useEffect(() => {
+
+  },[userCart])
 
   const clear_cart = async => {
 
@@ -35,43 +41,121 @@ function Cart(props) {
     setCartQty(0)
   }
 
-  console.log(cart);
+  const removeItem = async(index) => {
+
+    console.log(userCart);
+    console.log('index: ' + index)
+
+    const new_cart = userCart;
+
+    new_cart.splice(index, 1);
+    setUserCart(new_cart);
+    setCartQty(new_cart.length);
+
+    try {
+
+    } catch (e) {
+      console.log(e)
+    }
+
+  }
+
+  function getCartTotal() {
+    var total = '';
+
+    for (var i = 0; i < userData.cart.length; i++) {
+      total = +total + +userData.cart[i].product_price;
+    }
+
+    return total
+  }
+
+  console.log(isOrder);
+
+  if (loading2) return `...Loading user data`;
 
   return (
     <div className="cart-container">
       <div className="cart-items-container">
-        <div>
-          <div className="font-face-bebas font-size-large">YOUR CART</div>
-           {userData.cart.map((item) => (
-              <div className="cart-item">
-                <img alt={item.product_id} src={process.env.PUBLIC_URL + `./images/products/half_size/tn_${item.product_id}-1.jpg`} />
-                <div className="cart-item-section-2">
-                  <div className="cart-item-name">
-                    {item.product_name}
+        {userData.cart.length !== 0 && (
+          <div className="cart-items-width">
+            <div className="font-face-bebas font-size-large">YOUR CART</div>
+            <div className="cart-items-content">
+            {userCart.map((item, index) => (
+                <div key={item._id} className="cart-item">
+                  <img className="cart-item-picture" alt={item.product_id} src={process.env.PUBLIC_URL + `./images/products/half_size/tn_${item.product_id}-1.jpg`} />
+                  <div className="cart-item-section-2">
+                    <div className="cart-item-name">
+                      {item.product_name}
+                    </div>
+                    <div className="cart-item-quantity">
+                      Qty: {item.quantity}
+                    </div>
                   </div>
-                  <div className="cart-item-quantity">
-                    {item.quantity}
+                  <div className="cart-item-price">
+                    RM {item.product_price}
+                  </div>
+                  <div className="cart-item-remove">
+                    <i className="far fa-times-circle delete-circle" onClick={() => {removeItem(index)}}></i>
                   </div>
                 </div>
-                
-              </div>
-           ))}
-        </div>
+              ))}
+            </div>
+            <div className="cart-item-total-container">
+              <div className="font-size-large font-face-bebas">YOUR TOTAL:</div>
+              <div>RM {getCartTotal()}</div>
+            </div>
+          </div>
+        )}
+        {userData.cart.length === 0 && (
+          <>
+            Please Fill Your Cart
+          </>
+        )}
       </div>
       <div className="cart-checkout-container">
-        <div className={`checkout-tab ${isOrder === true && `opacity-08`}`} onClick={() => {setOrder(true)}}>
-          CHECKOUT
+        <div className={`checkout-tab font-face-bebas ${isOrder === true && `active-tab`}`} onClick={() => {setOrder(true)}}>
+          PLACE YOUR ORDER
         </div>
-        <div className={`how-to-tab ${isOrder === false && `opacity-08`}`} onClick={() => {setOrder(false)}}>
+        <div className={`how-to-tab font-face-bebas ${isOrder === false && `active-tab`}`} onClick={() => {setOrder(false)}}>
           HOW TO ORDER
         </div>
         {isOrder ? (
           <div className="cart-checkout-content padding-1rem">
-            CHECKOUT
+            YOUR ORDER DETAILS:
           </div>
         ) : (
           <div className="cart-how-content padding-1rem">
-            HOW TO ORDER
+            <div className="cart-how-details">
+              <div className="font-face-bebas font-size-xl">STEPS:</div>
+              <div className="cart-how-line">
+                <img alt="number" className="number-circle" src={process.env.PUBLIC_URL + `./icons/cart/how_icons/1.png`} />
+                <div>Add to cart and update quantity desired</div>
+              </div>
+              <div className="cart-how-line">
+                <img alt="number" className="number-circle" src={process.env.PUBLIC_URL + `./icons/cart/how_icons/2.png`} />
+                <div>Fill in ALL details on checkout page</div>
+              </div>
+              <div className="cart-how-line">
+                <img alt="number" className="number-circle" src={process.env.PUBLIC_URL + `./icons/cart/how_icons/3.png`} />
+                <div>Delivery/Pickup options available at checkout</div>
+              </div>
+              <div className="cart-how-line">
+                <img alt="number" className="number-circle" src={process.env.PUBLIC_URL + `./icons/cart/how_icons/4.png`} />
+                <div>All orders will be submitted via WhatsApp</div>
+              </div>
+              <div className="cart-how-line">
+                <img alt="number" className="number-circle" src={process.env.PUBLIC_URL + `./icons/cart/how_icons/5.png`} />
+                <div>Final invoice will be sent via WhatsApp</div>
+              </div>
+              <div className="cart-how-line">
+                <img alt="number" className="number-circle" src={process.env.PUBLIC_URL + `./icons/cart/how_icons/payment.png`} />
+                <div>Payment Method: Bank transfer, TNG e-wallet, COD (exact change only) - details will be provided in invoice</div>
+              </div>  
+              <div className="place-order">
+                <div>PLACE YOUR ORDER</div>
+              </div>                                                                    
+            </div>
           </div> 
         )}
       </div>

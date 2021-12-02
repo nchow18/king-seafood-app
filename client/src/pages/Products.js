@@ -92,6 +92,7 @@ function Products(props) {
     const new_cart = [...cart, prodArr]
 
     setCart(new_cart)
+    userCart.push(prod);
     addCartDB(prodArr)
   }
 
@@ -161,7 +162,7 @@ function Products(props) {
   }
 
   return (
-    <div className="position-relative">
+    <div className="products-page-container position-relative padding-1rem">
         {addedCartModal === true && (
           <div className="cart-added-container">
             <div className="cart-added-modal">Added to cart!</div>
