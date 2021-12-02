@@ -890,4 +890,63 @@ h6 {
   .homepage-desktop {
     padding-top: 2rem;
   }
+
+  .cart-checkout-container {
+    width: 100%;
+    position: relative;
+    top: 0rem;
+    border-left: none;
+    border-top: 1px solid var(--banner);
+    height: 100vh;
+  }
+
+  .cart-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cart-items-container {
+    height: 100%;
+    padding-bottom: 2rem;
+  }
+
+  .cart-items-content {
+    width: 100vw;
+  }
+
+  .cart-items-width {
+    width: 100vw;
+  }
+
+  .cart-item-picture {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 5px;
+    margin-right: -1rem;
+  }
+
+  .cart-item-name {
+    width: 10rem;
+    margin-bottom: .5rem;
+  }
+
+  .cart-item-section-2 {
+    margin-right: .5rem;
+  }
+
+  .cart-item-price {
+    margin-right: .5rem;
+  }
+
+  .checkout-tab {
+    left: .5rem;
+    top: -1.6rem;
+    transform: initial;
+  }
+
+  .how-to-tab {
+    left: 7rem;
+    top: -1.5rem;
+    transform: initial;
+  }
 }
