@@ -65,9 +65,9 @@ function SignUp() {
               className="sign-input" 
               name="password" 
               placeholder="Password"/>
-            <button disabled={!(formData.email && formData.password && formData.first_name && formData.last_name)} className="sign-input" type="submit">SIGN UP</button>
+            <button disabled={!(formData.email && formData.password && formData.first_name && formData.last_name)} className="sign-input" type="submit">Sign up</button>
           </form>
-          <div>Already a member? <p>Log in here</p></div>          
+          <div>Not a member? <p>Sign up now!</p></div>          
       </div>
     </>
   )

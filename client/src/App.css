@@ -933,6 +933,7 @@ h6 {
   align-items: center;
   justify-content: center;
   font-family: 'raleway';
+  margin-top: 4rem;
 }
 
 .log-container {
@@ -941,7 +942,7 @@ h6 {
   background-color: var(--log);
   border-radius: 50px;
   box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
-  height: 21rem;
+  height: 23rem;
 }
 
 .log-container > * {
@@ -978,7 +979,17 @@ h6 {
   flex-direction: column;
   align-items: center;
   box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
-  height: 21rem;
+  height: 23rem;
+  position: relative;
+  top: -20rem;
+}
+
+.customer-container button {
+  border-radius: 20px;
+  border: none;
+  background-color: var(--banner);
+  padding: .25rem 3rem;
+  color: var(--font-color);
 }
 
 .sign-container div {
@@ -995,12 +1006,17 @@ h6 {
   color: #ffc894;
 }
 
+.sign-container p {
+  color: #ffc894;
+}
+
 .customer-container input {
   margin-bottom: 1rem;
   border-radius: 25px;
   border: none;
   padding: .25rem 1rem;
   font-size: 10pt;
+  width: 15rem;
 }
 
 /* --------------- */

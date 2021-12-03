@@ -74,7 +74,7 @@ function Login(props) {
                     type="submit"
                     variant="success"
                   >
-                  LOG IN
+                  Sign in
               </button>
             </form>
           </div>
