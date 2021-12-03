@@ -11,6 +11,8 @@
   --banner: #FFC289;
   --font-color: rgb(22, 22, 22);
   --checkout: rgb(22, 22, 22);
+  --log: #fcecdd;
+  --sign: rgb(22, 22, 22);
 }
 
 .font-face-rale {
@@ -617,6 +619,7 @@ h6 {
   flex-direction: column;
   text-align: initial;
   padding-top: 3rem;
+  padding-left: 2rem;
 }
 
 .cart-items-width {
@@ -921,6 +924,103 @@ h6 {
   font-family: 'raleway';
 }
 
+/* SIGN IN */
+
+.customer-container {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'raleway';
+}
+
+.log-container {
+  width: 25rem;
+  padding: 1rem;
+  background-color: var(--log);
+  border-radius: 50px;
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
+  height: 21rem;
+}
+
+.log-container > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.log-container > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top: -1rem;
+}
+
+.log-container > div:nth-child(1) > p {
+  margin-left: 1rem;
+  color: #ffc894;
+}
+
+.sign-container > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-container {
+  width: 25rem;
+  padding: 1rem;
+  background-color: var(--sign);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
+  height: 21rem;
+}
+
+.sign-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: var(--primary);
+  position: relative;
+  bottom: -1em;
+}
+
+.sign-container div > p {
+  margin-left: 1rem;
+  color: #ffc894;
+}
+
+.customer-container input {
+  margin-bottom: 1rem;
+  border-radius: 25px;
+  border: none;
+  padding: .25rem 1rem;
+  font-size: 10pt;
+}
+
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* MOBILE CSS CODE */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+/* --------------- */
+
+
 @media screen and (max-width: 600px) {
 
   .page {
@@ -1048,7 +1148,7 @@ h6 {
 
   .cart-items-container {
     height: 100%;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
   }
 
   .cart-items-content {
@@ -1089,5 +1189,9 @@ h6 {
     left: 7rem;
     top: -1.5rem;
     transform: initial;
+  }
+
+  .circle-dot {
+    top: 1.4px;
   }
 }

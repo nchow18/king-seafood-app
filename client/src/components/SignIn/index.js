@@ -40,39 +40,40 @@ function Login(props) {
     }
 
   return (
-      <>
-          <div className="sign-container">
+      <div className="customer-container">
+          <div className="log-container">
+            <div>Already a member? <p>Log in here</p></div>            
               <form 
-              onSubmit={handleFormSubmit} 
-            className="sign-form-container night-bg">
-              <p>LOG IN</p>
-              <input 
-                onChange={handleInputChange} 
-                value={formData.email} 
-                className="sign-input" 
-                name="email" 
-                placeholder="EMAIL">
-              </input>
-              <input 
-                onChange={handleInputChange} 
-                value={formData.password} 
-                className="sign-input" 
-                type="password"
-                name="password" 
-                placeholder="PASSWORD">
-              </input>
-                {
-                error ? <div>
-                    <p className="error-text" >The provided credentials are incorrect</p>
-                </div> : null
-                }
-              <button 
-                disabled={!(formData.email && formData.password)}
-                onChange={handleInputChange} 
-                className="sign-input" 
-                type="submit"
-                variant="success"
-              >
+                  onSubmit={handleFormSubmit} 
+                  className="sign-form-container night-bg">
+                  <p>Log in</p>
+                  <input 
+                    onChange={handleInputChange} 
+                    value={formData.email} 
+                    className="sign-input" 
+                    name="email" 
+                    placeholder="Email">
+                  </input>
+                  <input 
+                    onChange={handleInputChange} 
+                    value={formData.password} 
+                    className="sign-input" 
+                    type="password"
+                    name="password" 
+                    placeholder="Password">
+                  </input>
+                    {
+                    error ? <div>
+                        <p className="error-text" >The provided credentials are incorrect</p>
+                    </div> : null
+                    }
+                  <button 
+                    disabled={!(formData.email && formData.password)}
+                    onChange={handleInputChange} 
+                    className="sign-input" 
+                    type="submit"
+                    variant="success"
+                  >
                   LOG IN
               </button>
             </form>
@@ -80,7 +81,7 @@ function Login(props) {
           <div>
             <SignUp />
           </div>
-      </>
+      </div>
   )
 }
 

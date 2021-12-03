@@ -39,34 +39,35 @@ function SignUp() {
     <>
       <div className="sign-container">
           <form onSubmit={handleFormSubmit} className="sign-form-container night-bg">
-          SIGN UP
+            <p>Sign up</p>
             <input 
               value={formData.first_name} 
               onChange={handleInputChange} 
               className="sign-input" 
               name="first_name" 
-              placeholder="FIRST NAME"/>
+              placeholder="First Name"/>
             <input 
               value={formData.last_name} 
               onChange={handleInputChange} 
               className="sign-input" 
               name="last_name" 
-              placeholder="LAST NAME"/>
+              placeholder="Last Name"/>
             <input 
               value={formData.email} 
               onChange={handleInputChange} 
               className="sign-input" 
               name="email" 
-              placeholder="EMAIL"/>
+              placeholder="Email"/>
             <input 
               value={formData.password} 
               onChange={handleInputChange} 
               type="password"  
               className="sign-input" 
               name="password" 
-              placeholder="PASSWORD"/>
+              placeholder="Password"/>
             <button disabled={!(formData.email && formData.password && formData.first_name && formData.last_name)} className="sign-input" type="submit">SIGN UP</button>
           </form>
+          <div>Already a member? <p>Log in here</p></div>          
       </div>
     </>
   )
