@@ -266,15 +266,15 @@ function Cart(props) {
 
     if (confirm) {
 
-      // let url =
-      //   'https://api.whatsapp.com/send?text=' + message + '&phone=+' + number;
-      // Linking.openURL(url)
-      //   .then((data) => {
-      //     console.log('WhatsApp Opened');
-      //   })
-      //   .catch(() => {
-      //     alert('Make sure Whatsapp installed on your device');
-      //   });  
+      let url =
+        'https://api.whatsapp.com/send?text=' + message + '&phone=+' + number;
+      Linking.openURL(url)
+        .then((data) => {
+          console.log('WhatsApp Opened');
+        })
+        .catch(() => {
+          alert('Make sure Whatsapp installed on your device');
+        });  
     }
 
     clear_cart()
@@ -287,8 +287,6 @@ function Cart(props) {
       orders.push(JSON.parse(userData.pastOrders[i]))
     }
 
-    console.log(orders);
-
     return orders;
   }
 
@@ -297,8 +295,6 @@ function Cart(props) {
 
     return newTime
   }
-
-  console.log(pastOrderCart);
 
   if (loading2) return `...Loading user data`;
 
@@ -316,7 +312,7 @@ function Cart(props) {
               <div className="font-face-bebas font-size-large">YOUR PAST ORDERS</div>
               <div className="past-orders-container">
                 {parsePastOrders().map((item, index) => (
-                  <div key={item} className="past-orders-item">
+                  <div key={index} className="past-orders-item">
                     <p>{index + 1}</p>
                     <p>{formatTime(item.date)}</p>
                     <p>RM {item.user_cart_total}</p>
