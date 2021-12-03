@@ -10,6 +10,8 @@ import NoMatch from './../pages/NoMatch';
 import Products from './Products.js'
 import Footer from '../components/Footer/Footer.js';
 import Header from '../components/Header/Header.js';
+import Promotions from './Promotions.js';
+import Dashboard from './Dashboard.js';
 
 function Home(props) {
 
@@ -31,6 +33,7 @@ function Home(props) {
   const userCart = userData?.cart || {};
   const [cart, setCart] = useState(userCart);
   const [cartQty, setCartQty] = useState();
+  const [isPromoModal, setPromoModal] = useState(false);
 
   useEffect(() => {
     setTimeout(displayPromo, 4000);
@@ -50,12 +53,14 @@ function Home(props) {
   },[])
 
   function displayPromo() {
-
+    setPromoModal(true);
   }
 
   if (loading1) return `...Loading products`;
   if (loading2) return `...Loading user data`;
   if (loading3) return `...Loading promo data`;
+
+  console.log(isPromoModal);
 
   return (
     <>
@@ -89,9 +94,9 @@ function Home(props) {
             setCartQty={setCartQty}
             loading2={loading2} />
         )}
-        {/* {currentHeaderLink === 'Promotions' && (
-
-        )} */}
+        {currentHeaderLink === 'Promotions' && (
+          <Promotions />
+        )}
         {currentHeaderLink=== 'Products' && (
           <Products
             user_type={user_type}
@@ -110,9 +115,9 @@ function Home(props) {
             cart={cart}
             setCartQty={setCartQty} />
         )}   
-        {/* {currentHeaderLink === 'Dashboard' && (
+        {currentHeaderLink === 'Dashboard' && (
           <Dashboard />
-        )}      */}
+        )}     
         {/* {currentHeaderLink === 'Account' && (
           <Account
             user_me={user_me} />
@@ -120,7 +125,14 @@ function Home(props) {
       </div>
       {currentHeaderLink !== 'Cart' && (
         <Footer
-        promoData={promoData} />
+          promoData={promoData} />
+      )}
+      {isPromoModal === true && (
+        <div className="promo-modal" onClick={() => {setPromoModal(false)}}>
+          <div className="promo-content">
+            <img alt="promo" src={process.env.PUBLIC_URL + `./images/promotions/dec_promo.jpeg`} />
+          </div>
+        </div>
       )}
 
     </>

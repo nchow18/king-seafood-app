@@ -8,6 +8,8 @@ import ItemPrice from '../components/Cart/ItemPrice';
 
 function Cart(props) {
 
+  window.scrollTo(0,0)
+
   const {
     userData,
     setCart,
