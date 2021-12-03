@@ -13,6 +13,7 @@ function Login(props) {
 
     const [formData, setUserFormData] = useState({ email: '', password: '' })
     const [login, { error } ] = useMutation(LOGIN)
+    const [isLog, setLog] = useState(false)
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -39,10 +40,12 @@ function Login(props) {
         }
     }
 
+    console.log(isLog);
+
   return (
       <div className="customer-container">
-          <div className="log-container">
-            <div>Already a member? <p>Log in here</p></div>            
+          <div className={`log-container ${isLog === true && `log-modal`}`}>
+            <div>Already a member? <p onClick={() => {setLog(true)}}>Log in here</p></div>            
               <form 
                   onSubmit={handleFormSubmit} 
                   className="sign-form-container night-bg">
@@ -78,9 +81,9 @@ function Login(props) {
               </button>
             </form>
           </div>
-          <div>
-            <SignUp />
-          </div>
+          <SignUp
+            isLog={isLog}
+            setLog={setLog} />
       </div>
   )
 }

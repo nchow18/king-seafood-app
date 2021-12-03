@@ -3,7 +3,13 @@ import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { ADD_USER } from '../../utils/mutations';
 
-function SignUp() {
+function SignUp(props) {
+
+  const {
+    isLog,
+    setLog
+  } = props
+    
   const [formData, setUserFormData] = useState({
     first_name: '',
     last_name: '',
@@ -37,7 +43,7 @@ function SignUp() {
 
   return (
     <>
-      <div className="sign-container">
+      <div className={`sign-container ${isLog === false && `log-modal`}`}>
           <form onSubmit={handleFormSubmit} className="sign-form-container night-bg">
             <p>Sign up</p>
             <input 
@@ -67,7 +73,7 @@ function SignUp() {
               placeholder="Password"/>
             <button disabled={!(formData.email && formData.password && formData.first_name && formData.last_name)} className="sign-input" type="submit">Sign up</button>
           </form>
-          <div>Not a member? <p>Sign up now!</p></div>          
+          <div>Not a member? <p onClick={() => {setLog(false)}}>Sign up now!</p></div>          
       </div>
     </>
   )

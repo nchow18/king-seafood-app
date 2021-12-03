@@ -943,6 +943,23 @@ h6 {
   border-radius: 50px;
   box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
   height: 23rem;
+  z-index: 1;
+}
+
+.log-modal {
+  position: relative;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    z-index: 0;
+    opacity: 0%;
+  }
+  to {
+    z-index: 2;
+    opacity: 100%;
+  }
 }
 
 .log-container > * {
@@ -982,6 +999,7 @@ h6 {
   height: 23rem;
   position: relative;
   top: -20rem;
+  z-index: 1;
 }
 
 .customer-container button {
@@ -998,7 +1016,7 @@ h6 {
   justify-content: center;
   color: var(--primary);
   position: relative;
-  bottom: -1em;
+  bottom: -2.5em;
 }
 
 .sign-container div > p {
@@ -1209,5 +1227,17 @@ h6 {
 
   .circle-dot {
     top: 1.4px;
+  }
+
+  .sign-container div {
+    bottom: -5.5em;
+  }
+
+  .log-container {
+    width: 20rem;
+  }
+
+  .sign-container {
+    width: 20rem;
   }
 }
