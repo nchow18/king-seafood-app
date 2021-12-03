@@ -513,6 +513,7 @@ h6 {
 
 .product-desktop-picture-full {
   width: 100%;
+  height: 100%;
   object-fit: contain;
   max-height: 495px;
 }
@@ -1323,5 +1324,13 @@ h6 {
   .promo-content img {
     object-fit: contain;
     height: 20rem;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .product-desktop-picture-full {
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
   }
 }
