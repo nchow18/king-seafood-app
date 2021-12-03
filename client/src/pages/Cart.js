@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Linking, Vibration } from 'react-native-web';
 import { UPDATE_USER, UPDATE_CART, REMOVE_CART, ADD_USER_ORDER, ADD_ORDER } from '../utils/mutations';
 import CartCounter from '../components/Cart/CartCounter';
+import PastOrders from '../components/Cart/PastOrders';
 import ItemPrice from '../components/Cart/ItemPrice';
 
 function Cart(props) {
@@ -19,8 +20,11 @@ function Cart(props) {
   const [removeCart] = useMutation(REMOVE_CART)
   const [addAdminOrder] = useMutation(ADD_ORDER);
   const [isOrder, setOrder] = useState(true);
+  const [pastOrderModal, setPastOrderModal] = useState(false);
+  const [pastOrderCart, setPastOrderCart] = useState()
   const [userCart, setUserCart] = useState(userData.cart)
   const [state, setState] = useState(0);
+  const [isPastOrders, setPastOrders] = useState(false);
   const [isDelivery, setDelivery] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -276,61 +280,108 @@ function Cart(props) {
     clear_cart()
   }
 
+  function parsePastOrders() {
+    const orders = [];
+
+    for (var i = 0; i < userData.pastOrders.length; i++) {
+      orders.push(JSON.parse(userData.pastOrders[i]))
+    }
+
+    console.log(orders);
+
+    return orders;
+  }
+
+  function formatTime(time) {
+    const newTime = time.replace('GMT-0500 (Eastern Standard Time) Malaysia-Penang', '')
+
+    return newTime
+  }
+
+  console.log(pastOrderCart);
+
   if (loading2) return `...Loading user data`;
 
   return (
     <div className="cart-container">
       <div className="cart-items-container">
-        {userData.cart.length !== 0 && (
+        {pastOrderModal === true && (
+          <PastOrders 
+            setPastOrderModal={setPastOrderModal}
+            pastOrderCart={pastOrderCart}/>
+        )}        
+        {isPastOrders ? (
           <div className="cart-items-width">
-            <div className="font-face-bebas font-size-large">YOUR CART</div>
-            <div className="cart-items-content">
-            {userCart.map((item, index) => (
-                <div key={item._id} className="cart-item">
-                  <img className="cart-item-picture" alt={item.product_id} src={process.env.PUBLIC_URL + `./images/products/half_size/tn_${item.product_id}-1.jpg`} />
-                  <div className="cart-item-section-2">
-                    <div className="cart-item-name">
-                      {item.product_name}
-                    </div>
-                    <div className="cart-item-quantity">
-                      <div>Qty: </div>
-                      <div className="counter-container">
-                        <CartCounter 
-                          userCart={userCart}
-                          index={index}
-                          minusQty={minusQty}
-                          addQty={addQty}
-                          state={state}
-                          setState={setState}
-                        />
+              <div className="past-orders-button" onClick={() => {setPastOrders(false)}}>Current Order</div>
+              <div className="font-face-bebas font-size-large">YOUR PAST ORDERS</div>
+              <div className="past-orders-container">
+                {parsePastOrders().map((item, index) => (
+                  <div key={item} className="past-orders-item">
+                    <p>{index + 1}</p>
+                    <p>{formatTime(item.date)}</p>
+                    <p>RM {item.user_cart_total}</p>
+                    <p onClick={() => {setPastOrderCart(item); setPastOrderModal(true)}}>View Order</p>
+                  </div>
+                ))}
+
+              </div>
+          </div>
+        ) : (
+          <>
+          {userData.cart.length !== 0 && (
+            <div className="cart-items-width">
+              <div className="past-orders-button" onClick={() => {setPastOrders(true)}}>Past Orders</div>
+              <div className="font-face-bebas font-size-large">YOUR CART</div>
+              <div className="cart-items-content">
+              {userCart.map((item, index) => (
+                  <div key={item._id} className="cart-item">
+                    <img className="cart-item-picture" alt={item.product_id} src={process.env.PUBLIC_URL + `./images/products/half_size/tn_${item.product_id}-1.jpg`} />
+                    <div className="cart-item-section-2">
+                      <div className="cart-item-name">
+                        {item.product_name}
+                      </div>
+                      <div className="cart-item-quantity">
+                        <div>Qty: </div>
+                        <div className="counter-container">
+                          <CartCounter 
+                            userCart={userCart}
+                            index={index}
+                            minusQty={minusQty}
+                            addQty={addQty}
+                            state={state}
+                            setState={setState}
+                          />
+                        </div>
                       </div>
                     </div>
+                    <div className="cart-item-price">
+                      RM <ItemPrice 
+                            index={index}
+                            userCart={userCart}
+                            price={item.product_price}
+                            state={state}
+                            setState={setState}                          />
+                    </div>
+                    <div className="cart-item-remove">
+                      <i className="far fa-times-circle delete-circle" onClick={() => {removeItem(index)}}></i>
+                    </div>
                   </div>
-                  <div className="cart-item-price">
-                    RM <ItemPrice 
-                          index={index}
-                          userCart={userCart}
-                          price={item.product_price}
-                          state={state}
-                          setState={setState}                          />
-                  </div>
-                  <div className="cart-item-remove">
-                    <i className="far fa-times-circle delete-circle" onClick={() => {removeItem(index)}}></i>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <div className="cart-item-total-container">
+                <div className="font-size-large font-face-bebas">YOUR TOTAL:</div>
+                <div>RM {getCartTotal()}</div>
+              </div>
             </div>
-            <div className="cart-item-total-container">
-              <div className="font-size-large font-face-bebas">YOUR TOTAL:</div>
-              <div>RM {getCartTotal()}</div>
-            </div>
-          </div>
+          )}
+          {userData.cart.length === 0 && (
+            <>
+              Please Fill Your Cart
+            </>
+          )}
+          </>          
         )}
-        {userData.cart.length === 0 && (
-          <>
-            Please Fill Your Cart
-          </>
-        )}
+
       </div>
       <div className="cart-checkout-container">
         <div className={`checkout-tab font-face-bebas ${isOrder === true && `active-tab`}`} onClick={() => {setOrder(true)}}>
