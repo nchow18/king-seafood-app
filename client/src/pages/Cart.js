@@ -82,7 +82,8 @@ function Cart(props) {
     const previousOrder = {
       user_cart_total: getCartTotal(),
       cart: userCart,
-      date: current_date
+      date: current_date,
+      message:  formData.message
     }
 
     console.log(JSON.stringify(previousOrder))
@@ -276,10 +277,10 @@ function Cart(props) {
         })
         .catch(() => {
           alert('Make sure Whatsapp installed on your device');
-        });  
-    }
+        }); 
 
-    clear_cart()
+      clear_cart() 
+    }
   }
 
   function parsePastOrders() {
@@ -374,6 +375,7 @@ function Cart(props) {
           )}
           {userData.cart.length === 0 && (
             <>
+              <div className="past-orders-button" onClick={() => {setPastOrders(true)}}>Past Orders</div>
               Please Fill Your Cart
             </>
           )}

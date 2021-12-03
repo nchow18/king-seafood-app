@@ -11,6 +11,8 @@ function PastOrders(props) {
   return (
     <div className="past-cart-container" onClick={() => {setPastOrderModal(false)}}>
       <div className="past-cart-details">
+        <div><b>Message:</b> {pastOrderCart.message}</div><br></br>
+        <div>Cart Items:</div>
         {pastOrderCart.cart.map((past) => (
           <div className="past-orders-item">
             <p>{past.product_name}</p>

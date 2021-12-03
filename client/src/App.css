@@ -634,6 +634,8 @@ h6 {
   color: var(--checkout);
   padding: .25rem 1rem;
   border-radius: 15px;
+  width: 10rem;
+  text-align: center;
 }
 
 .past-orders-button:hover {

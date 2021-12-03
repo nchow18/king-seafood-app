@@ -235,7 +235,7 @@ function Products(props) {
           ))}
         </div>  
       {productModal === true && (
-        <div className="product-modal-container display-flex-center-all">
+        <div onClick={() => {setProductModal(false)}} className="product-modal-container display-flex-center-all">
           <div className="product-modal-info padding-1rem">
             <div className="display-flex-right-center" onClick={() => {setProductModal(false); setImageCounter(1)}}><i className="fas fa-times font-size-12px"></i></div>          
             <div className="product-desktop-view">
