@@ -213,7 +213,6 @@ html {
   width: 100vw;
   height: 100vh;
   animation: modalShow 1s forwards;
-  opacity: 1;
 }
 
 @keyframes modalShow {
