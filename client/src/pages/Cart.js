@@ -497,7 +497,7 @@ function Cart(props) {
                 <div>Payment Method: Bank transfer, TNG e-wallet, COD (exact change only) - details will be provided in invoice</div>
               </div>  
               <div className="place-order">
-                <div>PLACE YOUR ORDER</div>
+                <div onClick={() => {setOrder(true)}}>PLACE YOUR ORDER</div>
               </div>                                                                    
             </div>
           </div> 
