@@ -1027,9 +1027,11 @@ h6 {
 @keyframes fadeIn {
   from {
     z-index: 0;
+    opacity: 0;
   }
   to {
     z-index: 2;
+    opacity: 1;
   }
 }
 
