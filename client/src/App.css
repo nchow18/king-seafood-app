@@ -1010,13 +1010,13 @@ h6 {
 }
 
 .log-container {
-  width: 25rem;
+  width: 22rem;
   padding: 1rem;
   background-color: var(--log);
-  border-radius: 50px;
-  box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
+  border-radius: 70px;
+  box-shadow: 0 0 8px rgb(0,0,0,0.1);
   height: 23rem;
-  z-index: 1;
+  z-index: 0;
 }
 
 .log-modal {
@@ -1030,7 +1030,7 @@ h6 {
     opacity: 0;
   }
   to {
-    z-index: 2;
+    z-index: 1;
     opacity: 1;
   }
 }
@@ -1061,18 +1061,27 @@ h6 {
 }
 
 .sign-container {
-  width: 25rem;
+  width: 22rem;
   padding: 1rem;
   background-color: #232222;
-  border-radius: 50px;
+  border-radius: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 5px 5px 10px rgb(0,0,0,0.2);
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.4);
   height: 23rem;
   position: relative;
   top: -20rem;
-  z-index: 1;
+  z-index: 0;
+}
+
+.log-container input {
+  background-color: #fef7f0;
+}
+
+.sign-container input {
+  background-color: #343231;
+  color: #757575;
 }
 
 .customer-container button {

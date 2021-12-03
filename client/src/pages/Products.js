@@ -17,6 +17,7 @@ function Products(props) {
     cartQty
   } = props
 
+  window.scrollTo(0,0)
 
   useEffect(() => {
     setCart(userCart)

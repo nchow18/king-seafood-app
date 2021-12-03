@@ -11,6 +11,9 @@ function Login(props) {
     setCartQty
   } = props
 
+  window.scrollTo(0,0)
+
+
     const [formData, setUserFormData] = useState({ email: '', password: '' })
     const [login, { error } ] = useMutation(LOGIN)
     const [isLog, setLog] = useState(false)
