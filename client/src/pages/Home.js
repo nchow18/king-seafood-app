@@ -11,7 +11,7 @@ import Products from './Products.js'
 import Footer from '../components/Footer/Footer.js';
 import Header from '../components/Header/Header.js';
 import Promotions from './Promotions.js';
-import Dashboard from './Dashboard.js';
+// import Dashboard from './Dashboard.js';
 
 function Home(props) {
 
@@ -115,9 +115,9 @@ function Home(props) {
             cart={cart}
             setCartQty={setCartQty} />
         )}   
-        {currentHeaderLink === 'Dashboard' && (
+        {/* {currentHeaderLink === 'Dashboard' && (
           <Dashboard />
-        )}     
+        )}      */}
         {/* {currentHeaderLink === 'Account' && (
           <Account
             user_me={user_me} />

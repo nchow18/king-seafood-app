@@ -56,7 +56,7 @@ function Header(props) {
         {isModal ? (
           <>
             <div className="header-mobile-logo">
-              KS 18
+              KINGSSEAFOOD 18
             </div>
             <div className="header-mobile-icons">
               <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>
@@ -148,7 +148,7 @@ function Header(props) {
         ) : (
           <>
             <div className="header-mobile-logo">
-              KS 18
+              KINGSSEAFOOD 18
             </div>
             <div className="header-mobile-icons">
               <i className="fas fa-home padding-1rem icon-size" onClick={() => (setCurrentHeaderLink('Home'))}></i>
