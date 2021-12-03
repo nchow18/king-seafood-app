@@ -1063,7 +1063,7 @@ h6 {
 .sign-container {
   width: 25rem;
   padding: 1rem;
-  background-color: var(--sign);
+  background-color: #232222;
   border-radius: 50px;
   display: flex;
   flex-direction: column;

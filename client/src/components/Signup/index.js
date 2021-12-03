@@ -45,7 +45,7 @@ function SignUp(props) {
     <>
       <div className={`sign-container ${isLog === false && `log-modal`}`}>
           <form onSubmit={handleFormSubmit} className="sign-form-container night-bg">
-            <p>Sign up</p>
+            <p>Create your account</p>
             <input 
               value={formData.first_name} 
               onChange={handleInputChange} 
