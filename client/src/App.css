@@ -271,11 +271,9 @@ h6 {
 
 @keyframes modalSlide {
   from {
-    opacity: 100%;
     transform: translateX(50vw);
   }
   to {
-    opacity: 100%;
     margin-left: 3rem;
   }
 }
