@@ -700,6 +700,11 @@ h6 {
   flex-direction: column;
 }
 
+.input-container > span {
+  font-size: 7pt;
+  color: white;
+}
+
 .order-fill {
   margin: 1rem
 }
@@ -757,12 +762,21 @@ h6 {
   margin: 1rem 0;
   color: var(--checkout);
   border: 1px solid var(--banner);
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.submit-whatsapp-button img {
+  margin-left: .5rem;
 }
 
 .submit-whatsapp-button:hover {
   background-color: var(--checkout);
   color: var(--banner);
 }
+
+
 
 .number-circle {
   height: 2rem;
@@ -825,7 +839,7 @@ h6 {
 .cart-item-section-2 {
   display: flex;
   flex-direction: column;
-  margin-right: 5rem;
+  margin-right: 2rem;
   align-content: space-between;
 }
 
@@ -861,6 +875,36 @@ h6 {
 
 .cart-item-quantity > div:nth-child(1) {
   margin-right: .5rem;
+}
+
+.circle-choice-container {
+  position: relative;
+}
+
+.circle-empty {
+  margin-right: 1rem;
+}
+
+.circle-dot {
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+
+.delivery-choice-container p {
+  margin-right: 1rem;
+}
+
+.delivery-choice-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.pickup-choice-container {
+  position: relative;
 }
 
 .counter-container {

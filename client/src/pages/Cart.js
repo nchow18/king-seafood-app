@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { UPDATE_USER, UPDATE_CART, REMOVE_CART } from '../utils/mutations';
+import { Linking, Vibration } from 'react-native-web';
+import { UPDATE_USER, UPDATE_CART, REMOVE_CART, ADD_USER_ORDER, ADD_ORDER } from '../utils/mutations';
 import CartCounter from '../components/Cart/CartCounter';
 import ItemPrice from '../components/Cart/ItemPrice';
 
 function Cart(props) {
 
   const {
-    cart,
     userData,
     setCart,
     setCartQty,
@@ -17,10 +17,39 @@ function Cart(props) {
   const [updateUser] = useMutation(UPDATE_USER);
   const [updateCart] = useMutation(UPDATE_CART);
   const [removeCart] = useMutation(REMOVE_CART)
+  const [addAdminOrder] = useMutation(ADD_ORDER);
   const [isOrder, setOrder] = useState(true);
   const [userCart, setUserCart] = useState(userData.cart)
-  const [state, setState] = useState(0)
+  const [state, setState] = useState(0);
+  const [isDelivery, setDelivery] = useState(false);
 
+  const [formData, setFormData] = useState({
+    first_name: userData.first_name,
+    last_name: userData.last_name,
+    message: '',
+    delivery_date: '',
+    address: userData.address,
+    phone: userData.phone
+  })
+
+  // Date formatting
+  const today = new Date();
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
+  const currentDate = today.toLocaleDateString("en-US", options);
+
+  const time_diff = Date.now() + (12 * 3600 * 1000);
+  // console.log(time_diff);
+  const adjusted_date = new Date(time_diff);
+  const current_date = JSON.stringify(adjusted_date + ' Malaysia-Penang');
+  // console.log(current_date);
+
+  const handleInputChange = async (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
 
   useEffect(() => {
 
@@ -28,23 +57,70 @@ function Cart(props) {
 
   const clear_cart = async => {
 
+    const new_cart = [];
+
+    for (var i = 0; i < userCart.length; i++) {
+      const cartArr = {
+        product_id: userCart[i].product_id,
+        quantity: userCart[i].quantity,
+        product_name: userCart[i].product_name,
+        product_price: userCart[i].product_price,
+        product_sale_price: userCart[i].product_sale_price,
+        product_bulk_price: userCart[i].product_bulk_price,
+        product_bulk_quantity: userCart[i].product_bulk_quantity
+      };
+
+      new_cart.push(cartArr);
+    }
+
+    const previousOrder = {
+      user_cart_total: getCartTotal(),
+      cart: userCart,
+      date: current_date
+    }
+
+    console.log(JSON.stringify(previousOrder))
+
     try {
 
+      // Clear USER cart
       updateUser({
         variables: {
           input: {
-              cart: []
+            cart: [],
+            pastOrders: [...userData.pastOrders, JSON.stringify(previousOrder)],
+            phone: formData.phone,
+            address: formData.address
+          }
+        }
+      })
+
+      // Add order to admin dashboard
+      addAdminOrder({
+        variables: {
+          input: {
+            orderTotal: JSON.stringify(getCartTotal()),
+            cart: JSON.stringify(userCart),
+            paid: false,
+            delivery_date: formData.delivery_date,
+            name: formData.first_name + ' ' + formData.last_name,
+            phone: formData.phone,
+            address: formData.address,
+            order_date: current_date
           }
         }
       })
       
+
     } catch (e) {
       console.log(e);
     }
 
     setCart([])
     userData.cart = [];
+    setUserCart([])
     setCartQty(0)
+    userData.pastOrders = [...userData.pastOrders, JSON.stringify(previousOrder)]
   }
 
   const removeItem = async(index) => {
@@ -134,14 +210,70 @@ function Cart(props) {
     }
   }
 
+  // if (userCart.length !== 0) {
+  //   setEmpty(false)
+  // } else {
+  //   setEmpty(true)
+  // }
+
   function getCartTotal() {
     var total = '';
+    var value = '';
 
     for (var i = 0; i < userData.cart.length; i++) {
       total = +total + +userData.cart[i].product_price;
     }
 
-    return total.toFixed(2)
+    if (total) {
+      value = total.toFixed(2);
+    } else {
+      value ='0.00'
+    }
+
+    return value
+  }
+
+  function cartMessage() {
+    var message = '';
+
+    for (var y = 0; y < userCart.length; y++) {
+      message += "\n %0a ===== Item:"+[y+1]+"=====\n %0a *Item:* "+userCart[y].product_name.replace('&','And')+", *Quantity:* "+userCart[y].quantity+", *Price:* RM "+userCart[y].product_price+" ";
+    }
+    return message;
+  }
+
+  const info = 
+    '*First Name:* '+formData.first_name+
+    ',\n %0a*Last Name:* '+formData.last_name+
+    ',\n %0a*Phone:* '+formData.phone+
+    ',\n %0a*Address:* '+formData.address+
+    ',\n %0a*Message:* '+formData.message+
+    ',\n %0a*Delivery Date:* '+formData.delivery_date;
+
+  const message = info + cartMessage() + ',\n %0a*TOTAL PRICE:* RM ' + getCartTotal();
+
+  const number = '60164223018'
+  // const number = '60103893421'
+
+  function sendMessage() {
+    const confirm = window.confirm('Please confirm Whatsapp has opened to submit order OR screenshot order and submit directly on Whatsapp');
+
+    // https://api.whatsapp.com/send?text=First%20Name:%20Grace,%20%0a*Last%20Name:*%20Jong,%20%0a*Phone:*%200103893421,%20%0a*Address:*%20205,%20Jalan%20Perak,%20%0a*Message:*%20After%205pm,%20%0a*Delivery%20Date:*%202021-08-13%20%0a%20=====%20Item:1=====%20%0a%20Item:%20Halibut%20Steak%20%E5%A4%A7%E6%AF%94%E7%9B%AE%E9%B1%BC%E6%8E%92%20454g,%20Quantity:%201,%20Price:%2022.96%20%20%0a%20=====%20Item:2=====%20%0a%20Item:%20Halibut%20Fillet%20%E5%A4%A7%E6%AF%94%E7%9B%AE%E9%B1%BC%E7%89%87%20%C2%B1150g/pc*,%20Quantity:%202,%20Price:%2015.15%20,%20%0a*TOTAL%20PRICE:*%2038.11&phone=+60164223018
+
+    if (confirm) {
+
+      // let url =
+      //   'https://api.whatsapp.com/send?text=' + message + '&phone=+' + number;
+      // Linking.openURL(url)
+      //   .then((data) => {
+      //     console.log('WhatsApp Opened');
+      //   })
+      //   .catch(() => {
+      //     alert('Make sure Whatsapp installed on your device');
+      //   });  
+    }
+
+    clear_cart()
   }
 
   if (loading2) return `...Loading user data`;
@@ -212,12 +344,53 @@ function Cart(props) {
             <div className="order-fill">
               <div>YOUR ORDER DETAILS:</div>
               <form className="input-container">
-                <input placeholder="Full Name:"></input>
-                <input placeholder="Phone:"></input>
-                <input  placeholder="Full Address:"></input>
-                <input type="date"></input>
-                <textarea placeholder="Message"></textarea>
-                <div className="submit-whatsapp-button">Submit order with Whatsapp <img alt="whatsapp" src={process.env.PUBLIC_URL + `./icons/cart/whatsappicon.png`} /></div>
+                <input value={formData.first_name} onChange={handleInputChange} name="first_name" placeholder="Full Name:"></input>
+                <input value={formData.phone} onChange={handleInputChange} name="phone" placeholder="Phone:"></input>
+                {isDelivery === true && (
+                  <>
+                    <input value={formData.address} onChange={handleInputChange} name="address" placeholder="Full Address:"></input>
+                    <input value={formData.delivery_date} onChange={handleInputChange} name="delivery_date" type="date"></input>                  
+                    <span className="delivery-date">Delivery Date (except Sundays and Public Holidays)</span>
+                  </>
+                )}
+                <textarea value={formData.message} onChange={handleInputChange} name="message" placeholder="Message"></textarea>
+                  <div className="delivery-choice-container">
+                    {isDelivery ? (
+                      <>
+                        <div className="circle-choice-container">                      
+                          <img alt="circle-empty" className="circle-empty" src={process.env.PUBLIC_URL + `./icons/cart/circle-empty.png`} />
+                          <img onClick={() => {setDelivery(false)}} alt="circle-dot" className="circle-dot" src={process.env.PUBLIC_URL + `./icons/cart/circle-dot.png`} />    
+                        </div>
+                        <p>Delivery</p>
+                        <div className="circle-choice-container">                      
+                            <img onClick={() => {setDelivery(false)}} alt="circle-empty" className="circle-empty" src={process.env.PUBLIC_URL + `./icons/cart/circle-empty.png`} />  
+                          </div> 
+                        <p>Pick-up</p>                       
+                      </>
+                      ) : (   
+                        <>
+                          <img onClick={() => {setDelivery(true)}} alt="circle-empty" className="circle-empty" src={process.env.PUBLIC_URL + `./icons/cart/circle-empty.png`} />
+                          <p>Delivery</p>
+                          <div className="circle-choice-container">                      
+                            <img alt="circle-empty" className="circle-empty" src={process.env.PUBLIC_URL + `./icons/cart/circle-empty.png`} />
+                            <img onClick={() => {setDelivery(true)}} alt="circle-dot" className="circle-dot" src={process.env.PUBLIC_URL + `./icons/cart/circle-dot.png`} />    
+                          </div> 
+                          <p>Pick-up</p>                       
+                        </>
+                      )}                                
+                  </div>
+                  {userCart.length === 0 && (
+                    <div className="submit-whatsapp-button">
+                      Please fill your cart
+                      <img alt="whatsapp" src={process.env.PUBLIC_URL + `./icons/cart/whatsappicon.png`} />
+                    </div> 
+                  )}
+                  {userCart.length !== 0 && (
+                    <div className="submit-whatsapp-button" onClick={() => {sendMessage()}}>
+                        Submit order with Whatsapp
+                      <img alt="whatsapp" src={process.env.PUBLIC_URL + `./icons/cart/whatsappicon.png`} />
+                    </div>                    
+                  )}
               </form>
               <div className="delivery-details">
                 <div>DELIVERY FEE:</div>

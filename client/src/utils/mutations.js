@@ -49,8 +49,6 @@ export const ADD_USER = gql`
   }
 `;
 
-
-
 export const REMOVE_CART = gql`
   mutation removeCartItem($product_id: String) {
     removeCartItem(product_id: $product_id) {

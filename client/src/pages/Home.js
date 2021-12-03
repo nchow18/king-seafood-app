@@ -32,7 +32,6 @@ function Home(props) {
   const [cart, setCart] = useState(userCart);
   const [cartQty, setCartQty] = useState();
 
-
   useEffect(() => {
     setTimeout(displayPromo, 4000);
 
@@ -50,7 +49,6 @@ function Home(props) {
 
   },[])
 
-
   function displayPromo() {
 
   }
@@ -58,7 +56,6 @@ function Home(props) {
   if (loading1) return `...Loading products`;
   if (loading2) return `...Loading user data`;
   if (loading3) return `...Loading promo data`;
-
 
   return (
     <>

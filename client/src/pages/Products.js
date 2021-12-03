@@ -92,7 +92,7 @@ function Products(props) {
     const new_cart = [...cart, prodArr]
 
     setCart(new_cart)
-    userCart.push(prod);
+    userCart.push(prodArr);
     addCartDB(prodArr)
   }
 

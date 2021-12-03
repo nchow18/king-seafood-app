@@ -10,7 +10,7 @@ const typeDefs = gql`
     address: String
     phone: String
     cart: [Cart]
-    pastOrders: [UserOrders]
+    pastOrders: [String]
   }
 
   type UserOrders {
@@ -54,7 +54,7 @@ const typeDefs = gql`
     address: String
     phone: String
     cart: [CartInput]
-    pastOrders: [UserOrdersInput]
+    pastOrders: [String]
   }
 
   input AddressInput {

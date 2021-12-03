@@ -117,7 +117,7 @@ const userSchema = new Schema(
             type: String
         },
         cart: [cartSchema],
-        pastOrders: [pastOrdersSchema],
+        pastOrders: [String],
     },
     {
       toJSON: {
