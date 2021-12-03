@@ -213,15 +213,15 @@ html {
   width: 100vw;
   height: 100vh;
   animation: modalShow 1s forwards;
-  opacity: 0%;
+  opacity: 1;
 }
 
 @keyframes modalShow {
   from {
-    opacity: 0%
+    opacity: 0;
   }
   to {
-    opacity: 100%
+    opacity: 1;
   }
 }
 
