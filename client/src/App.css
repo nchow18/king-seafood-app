@@ -512,7 +512,8 @@ h6 {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  max-height: 495px;
+  max-height: 400px;
+  max-width: 400px;
 }
 
 .categories-mobile-container {
