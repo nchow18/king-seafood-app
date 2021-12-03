@@ -445,6 +445,7 @@ h6 {
   margin: 0 1rem;
   width: 100%;
   object-fit: fill;
+  height: 9rem;
   box-shadow: 5px 5px 15px rgb(0,0,0,0.3);
 }
 
@@ -487,6 +488,7 @@ h6 {
 .product-desktop-picture-full {
   width: 100%;
   object-fit: contain;
+  max-height: 495px;
 }
 
 .categories-mobile-container {
@@ -1239,5 +1241,9 @@ h6 {
 
   .sign-container {
     width: 20rem;
+  }
+
+  .product-desktop-picture {
+    height: 7rem;
   }
 }
