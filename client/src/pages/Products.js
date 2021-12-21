@@ -76,6 +76,8 @@ function Products(props) {
 
     } else {
       //no discounts, apply regular price
+
+      newPrice = (products[isIndex].product_price)
     }
 
     return newPrice;
@@ -87,8 +89,29 @@ function Products(props) {
 
     const prodArr = {}
 
+    var newPrice = '';
+
+    if (prod.product_bulk_quantity > 0 && isQty >= prod.product_bulk_quantity) {
+      //check if quantity qualifies for product_bulk_quantity
+        newPrice = (isQty * prod.product_bulk_price).toFixed(2);
+    } else if (prod.product_sale_price !== '0') {
+      //check if sale applies
+        newPrice = (prod.product_sale_price * 1.00).toFixed(2);
+    } else if (promoData.discount !== '0') {
+      //check if global sale applies
+      if (prod.product_bulk_quantity !== 0) {
+        newPrice = (prod.product_price)
+      } else {
+        newPrice = (prod.product_price * ((100 - promoData.discount)/100)).toFixed(2);
+      }
+
+    } else {
+      //no discounts, apply regular price
+      newPrice = (products[isIndex].product_price)
+    }
+
     prodArr.quantity = isQty;
-    prodArr.product_price = (isQty * priceAdjust()).toFixed(2);
+    prodArr.product_price = (isQty * newPrice).toFixed(2);
     prodArr.product_name = prod.product_name;
     prodArr.product_sale_price = prod.product_sale_price;
     prodArr.product_bulk_price = prod.product_bulk_price;
@@ -164,7 +187,7 @@ function Products(props) {
     window.scrollTo(0,0);
   }
 
-  console.log(products)
+  console.log(currentProduct);
 
   return (
     <div className="products-page-container position-relative padding-1rem">
@@ -224,7 +247,8 @@ function Products(props) {
                     <>
                       {product.product_bulk_quantity === 0 && (
                         <>
-                          <div className="display-flex-row">RM {twoDec(product.product_price * (1 - (promoData.discount/100)))}</div>                        
+                          <div className="display-flex-row">RM {twoDec(product.product_price)}</div>
+                          {/* <div className="display-flex-row">RM {twoDec(product.product_price * (1 - (promoData.discount/100)))}</div>                                                     */}
                         </>
                       )}
                       {product.product_bulk_quantity !== 0 && (

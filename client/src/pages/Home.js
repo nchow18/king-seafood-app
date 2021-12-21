@@ -61,8 +61,6 @@ function Home(props) {
   if (loading2) return `...Loading user data`;
   if (loading3) return `...Loading promo data`;
 
-  console.log(isPromoModal);
-
   return (
     <>
       <Header 
