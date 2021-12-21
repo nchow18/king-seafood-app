@@ -96,7 +96,12 @@ function Products(props) {
         newPrice = (isQty * prod.product_bulk_price).toFixed(2);
     } else if (prod.product_sale_price !== '0') {
       //check if sale applies
+      if (promoData.discount > '0') {
+        newPrice = (prod.product_sale_price * 1.00).toFixed(2) * ((100 - promoData.discount)/100);
+      } else {
         newPrice = (prod.product_sale_price * 1.00).toFixed(2);
+      }
+
     } else if (promoData.discount !== '0') {
       //check if global sale applies
       if (prod.product_bulk_quantity !== 0) {
@@ -186,8 +191,6 @@ function Products(props) {
   function scrollTop() {
     window.scrollTo(0,0);
   }
-
-  console.log(currentProduct);
 
   return (
     <div className="products-page-container position-relative padding-1rem">
