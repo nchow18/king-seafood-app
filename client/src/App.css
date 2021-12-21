@@ -1122,6 +1122,86 @@ h6 {
   width: 15rem;
 }
 
+/* ADMIN PRODUCTS */
+
+.admin-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.admin-button {
+  background-color: var(--font-color);
+  padding: .5rem 1rem;
+  border-radius: 25px;
+  margin: 1rem;
+  color: var(--primary);
+}
+
+.flex-start-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flex-start-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.admin-input-width {
+  margin-left: 1rem;
+}
+
+.admin-selection-container {
+  padding: 2rem;
+}
+
+.admin-new-product-form > div label {
+  width: 10rem;
+}
+
+.admin-single-product-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 3;
+}
+
+.admin-single-product-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-single-product-container > div > li, input {
+  height: 1.25rem;
+}
+
+.admin-single-product-container > div > input {
+  width: 30rem;
+}
+
+.admin-single-product-container > div > li {
+  color: var(--primary);
+  text-decoration: none;
+  list-style: none;
+}
+
+.admin-single-product-modal {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0,0,0,0.85);
+  height: 100%;
+  width: 100%;
+}
+
+
 /* --------------- */
 /* --------------- */
 /* --------------- */

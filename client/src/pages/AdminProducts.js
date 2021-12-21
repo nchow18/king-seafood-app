@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
-import '../css/Admin.css';
+import '../App.css';
 
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PRODUCT } from '../utils/mutations';
-import ProductHeader from '../components/ProductHeader';
-import '../css/ProductHeader.css';
 import { UserContext } from '../utils/GlobalState';
 
 function AdminProducts(props) {
@@ -90,6 +88,8 @@ function AdminProducts(props) {
 
   if (error) return `...ERROR`;
 
+  console.log(formData);
+
   return (
   <>
   <div className="admin-container">
@@ -98,7 +98,7 @@ function AdminProducts(props) {
     </div>
     <div className="admin-form-container night-bg">
     <div className="admin-input-width" value="ID">ID</div>
-    <form className="flex-start-row">
+    <form className="flex-start-column admin-new-product-form">
       <div className="admin-input-row">
         <label className="bold">Inventory ID</label>
         <input value={formData.inventory_id} onChange={handleInputChange} className="product-name admin-input-width" name='inventory_id' type="text"></input>      

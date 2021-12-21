@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { ORDERS } from '../utils/queries';
 import { REMOVE_ORDER } from '../utils/mutations';
-import '../css/Orders.css';
 
 function AdminOrders() {
 

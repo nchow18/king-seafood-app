@@ -227,8 +227,13 @@ function Cart(props) {
     var total = '';
     var value = '';
 
-    for (var i = 0; i < userData.cart.length; i++) {
-      total = +total + +userData.cart[i].product_price;
+    for (var i = 0; i < userData.cart.length; i++) { 
+      
+      if (userData.cart[i].product_bulk_quantity !== 0 && userData.cart[i].quantity >= userData.cart[i].product_bulk_quantity) {
+        total = +total + +(userData.cart[i].product_bulk_price * userData.cart[i].quantity);
+      } else {
+        total = +total + +userData.cart[i].product_price;
+      }
     }
 
     if (total) {

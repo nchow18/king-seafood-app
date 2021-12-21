@@ -68,7 +68,12 @@ function Products(props) {
         newPrice = (products[isIndex].product_sale_price * 1.00).toFixed(2);
     } else if (promoData.discount !== '0') {
       //check if global sale applies
+      if (products[isIndex].product_bulk_quantity !== 0) {
+        newPrice = (products[isIndex].product_price)
+      } else {
         newPrice = (products[isIndex].product_price * ((100 - promoData.discount)/100)).toFixed(2);
+      }
+
     } else {
       //no discounts, apply regular price
     }
@@ -152,15 +157,14 @@ function Products(props) {
       const result = products.filter(prod => prod.product_category === isCat.toLowerCase());
       cat = result;
     }
-
-
-
     return cat;
   }
 
   function scrollTop() {
     window.scrollTo(0,0);
   }
+
+  console.log(products)
 
   return (
     <div className="products-page-container position-relative padding-1rem">
@@ -218,16 +222,17 @@ function Products(props) {
                   )}
                   {product.product_sale_price === '0' && (
                     <>
-                      {promoData.discount !== '0' && (
+                      {product.product_bulk_quantity === 0 && (
                         <>
-                          <div className="display-flex-row">RM {twoDec(product.product_price * (1 - (promoData.discount/100)))}</div>                           
+                          <div className="display-flex-row">RM {twoDec(product.product_price * (1 - (promoData.discount/100)))}</div>                        
                         </>
-                      )} 
-                      {promoData.discount === '0' && (
+                      )}
+                      {product.product_bulk_quantity !== 0 && (
                         <>
-                          <div className="display-flex-row">RM {twoDec(product.product_price)}</div>                           
+                          <div className="display-flex-row">RM {twoDec(product.product_price)}</div>    
+                          <div className="" >Bundle deal! Buy {product.product_bulk_quantity} or more for RM {product.product_bulk_price} each</div>                                                 
                         </>
-                      )}                                            
+                      )}                                           
                     </>
                   )}  
               </div>

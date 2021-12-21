@@ -6,11 +6,10 @@ function AdminProduct(props) {
 
   const {
     singleProduct,
-    formData,
-    setFormData,
     products,
     setUpdateProducts,
-    setSingleProduct
+    setSingleProduct,
+    setProductDisplay
   } = props
 
   var product = singleProduct;
@@ -19,6 +18,26 @@ function AdminProduct(props) {
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
   const [addPicture] = useMutation(ADD_PRODUCT_PICTURE);
 
+  const [formData, setFormData] = useState({
+    product_name: product.product_name,
+    product_description1: product.product_description1,
+    product_description2: product.product_description2,
+    product_description3: product.product_description3,
+    product_description4: product.product_description4,
+    product_category: product.product_category,
+    product_weight: product.product_weight,
+    product_price: product.product_price,
+    product_picture: product.product_picture,
+    product_nameChinese: product.product_nameChinese,
+    product_status: JSON.stringify(product.product_status),
+    product_descriptionChinese: product.product_descriptionChinese,
+    product_sale_price: product.product_sale_price,
+    product_bulk_quantity: product.product_bulk_quantity,
+    product_bulk_price: product.product_bulk_price,
+    product_featured: product.product_featured,
+    product_id: product.product_id,
+    product_new: product.product_new
+  })
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -108,44 +127,47 @@ function AdminProduct(props) {
 
   return (
     <>
-      <div className="admin-single-product-container">
-        <div>
-          <li key='product id'>Product ID</li>
-          <li key='product_name'>Name</li>
-          <li key='product_category'>Category</li>
-          <li key="product_price">Price</li>
-          <li key='desc 1'>Description 1</li>
-          <li key='desc 2'>Description 2</li> 
-          <li key='desc 3'>Description 3</li>
-          <li key='desc 4'>Description 4</li>
-          <li key='product-status'>Product Status: true / false</li>
-          <li key="sale price">Sale Price</li>
-          <li key="bulk_quantity">Bulk Quantity</li>
-          <li key="bulk_sale_price">Bulk Sale Price</li>
-          <li key="product_featured">Featured: true / false</li>
-          <li key="product_new">New Product: true / false</li>
-          <li key="product_picture">Pictures</li>
+      <div className="admin-single-product-modal">
+        <div onClick={() => {setProductDisplay(false)}} className="admin-button">CLOSE</div>
+        <div className="admin-single-product-container">
+          <div>
+            <li key='product id'>Product ID</li>
+            <li key='product_name'>Name</li>
+            <li key='product_category'>Category</li>
+            <li key="product_price">Price</li>
+            <li key='desc 1'>Description 1</li>
+            <li key='desc 2'>Description 2</li>
+            <li key='desc 3'>Description 3</li>
+            <li key='desc 4'>Description 4</li>
+            <li key='product-status'>Product Status: true / false</li>
+            <li key="sale price">Sale Price</li>
+            <li key="bulk_quantity">Bulk Quantity</li>
+            <li key="bulk_sale_price">Bulk Sale Price</li>
+            <li key="product_featured">Featured: true / false</li>
+            <li key="product_new">New Product: true / false</li>
+            <li key="product_picture">Pictures</li>
+          </div>
+          <div>
+            <input onChange={handleInputChange} name='product_id' className="product-name admin-input-width" type="text" value={formData.product_id} placeholder={product.product_id}/>
+            <input onChange={handleInputChange} name='product_name' className="product-name admin-input-width" type="text" value={formData.product_name} placeholder={product.product_name} />
+            <input value={formData.product_category} onChange={handleInputChange} className="product-category admin-input-width" name='product_category' placeholder={product.product_category} type="text"   />
+            <input value={formData.product_price} onChange={handleInputChange} className="product-price admin-input-width" name='product_price' placeholder={product.product_price} type="text"   />
+            <input value={formData.product_description1} onChange={handleInputChange} className="product-description admin-input-width" name='product_description1' placeholder={product.product_description1} type="text"   />
+            <input value={formData.product_description2} onChange={handleInputChange} className="product-description admin-input-width" name='product_description2' placeholder={product.product_description2} type="text"   />
+            <input value={formData.product_description3} onChange={handleInputChange} className="product-description admin-input-width" name='product_description3' placeholder={product.product_description3} type="text"   />
+            <input value={formData.product_description4} onChange={handleInputChange} className="product-description admin-input-width" name='product_description4' placeholder={product.product_description4} type="text"   />
+            <input value={formData.product_status} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_status' placeholder={product.product_status.toString()} type="text"   />
+            <input value={formData.product_sale_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" placeholder={product.product_sale_price} name='product_sale_price' type="text"   />
+            <input value={formData.product_bulk_quantity} onChange={handleInputChange} className="product-description-chinese admin-input-width" placeholder={product.product_bulk_quantity} name='product_bulk_quantity' type="text"   />
+            <input value={formData.product_bulk_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" placeholder={product.product_bulk_price} name='product_bulk_price' type="text"   />
+            <input value={formData.product_featured} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_featured' placeholder={product.product_featured.toString()} type="text"/>
+            <input value={formData.product_new} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_new' placeholder={product.product_new.toString()} type="text"   />
+            <input value={formData.product_picture} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_picture' placeholder={product.product_picture.toString()} type="text" />
+          </div>
         </div>
-        <div>
-          <input onChange={handleInputChange} name='product_id' className="product-name admin-input-width" type="text" value={formData.product_id} />
-          <input onChange={handleInputChange} name='product_name' className="product-name admin-input-width" type="text" value={formData.product_name} />  
-          <input value={formData.product_category} onChange={handleInputChange} className="product-category admin-input-width" name='product_category' placeholder={product.product_category} type="text"   />     
-          <input value={formData.product_price} onChange={handleInputChange} className="product-price admin-input-width" name='product_price' placeholder={product.product_price} type="text"   />
-          <input value={formData.product_description1} onChange={handleInputChange} className="product-description admin-input-width" name='product_description1' placeholder={product.product_description1} type="text"   />   
-          <input value={formData.product_description2} onChange={handleInputChange} className="product-description admin-input-width" name='product_description2' placeholder={product.product_description2} type="text"   />   
-          <input value={formData.product_description3} onChange={handleInputChange} className="product-description admin-input-width" name='product_description3' placeholder={product.product_description3} type="text"   />      
-          <input value={formData.product_description4} onChange={handleInputChange} className="product-description admin-input-width" name='product_description4' placeholder={product.product_description4} type="text"   />      
-          <input value={formData.product_status} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_status' placeholder={product.product_status.toString()} type="text"   />    
-          <input value={formData.product_sale_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" placeholder={product.product_sale_price} name='product_sale_price' type="text"   />     
-          <input value={formData.product_bulk_quantity} onChange={handleInputChange} className="product-description-chinese admin-input-width" placeholder={product.product_bulk_quantity} name='product_bulk_quantity' type="text"   />       
-          <input value={formData.product_bulk_price} onChange={handleInputChange} className="product-description-chinese admin-input-width" placeholder={product.product_bulk_price} name='product_bulk_price' type="text"   />  
-          <input value={formData.product_featured} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_featured' placeholder={product.product_featured.toString()} type="text"/>  
-          <input value={formData.product_new} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_new' placeholder={product.product_new.toString()} type="text"   />
-          <input value={formData.product_picture} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_picture' placeholder={product.product_new.toString()} type="text" />                                                                                                     
-        </div>
-      </div>
-      <div onClick={() => {updateProductFormSubmit();}} className="admin-button">UPDATE</div>  
-      <div className="admin-button admin-button-delete" onClick={() => { deleteProductFormSubmit()}}>DELETE</div>       
+        <div onClick={() => {updateProductFormSubmit();}} className="admin-button">UPDATE</div>
+        <div className="admin-button admin-button-delete" onClick={() => { deleteProductFormSubmit()}}>DELETE</div>
+      </div>      
     </>
   )
 }
