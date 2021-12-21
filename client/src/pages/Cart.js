@@ -305,9 +305,7 @@ function Cart(props) {
   }
 
   if (loading2) return `...Loading user data`;
-
-  console.log(userData.cart)
-
+  
   return (
     <div className="cart-container">
       <div className="cart-items-container">
