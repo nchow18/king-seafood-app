@@ -70,10 +70,17 @@ html {
 
 .sale-container {
   position: absolute;
-  left: 1rem;
-  top: 1rem;
+  left: .5rem;
+  top: .5rem;
   font-size: 1.5rem;
   color: var(--quaternary);
+}
+
+.sale-icon {
+  background-color: var(--font-color);
+  padding: .5rem;
+  border-radius: 50px;
+  box-shadow: 5px 5px 10px rgb(0,0,0,.4)
 }
 
 .padding-right-1rem {
