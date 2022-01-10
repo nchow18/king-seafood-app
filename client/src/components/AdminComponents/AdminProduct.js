@@ -12,6 +12,8 @@ function AdminProduct(props) {
     setProductDisplay
   } = props
 
+  console.log(singleProduct)
+
   var product = singleProduct;
 
   const [removeProduct] = useMutation(REMOVE_PRODUCT);
@@ -103,7 +105,6 @@ function AdminProduct(props) {
         product_id: product._id
       }})
 
-      window.location.href =`/admindashboard`;
     } catch (e) {
       console.log(e);
     }

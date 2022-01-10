@@ -129,7 +129,7 @@ function Home(props) {
       {isPromoModal === true && (
         <div className="promo-modal" onClick={() => {setPromoModal(false)}}>
           <div className="promo-content">
-            <img alt="promo" src={process.env.PUBLIC_URL + `./images/promotions/dec_promo.jpeg`} />
+            <img alt="promo" src={process.env.PUBLIC_URL + `./images/promotions/jan_promo.jpeg`} />
           </div>
         </div>
       )}

@@ -15,10 +15,10 @@ function AdminProducts(props) {
   const [formData, setProductFormData] = useState({
     product_name: '',
     product_category: '',
-    product_description1: '',
-    product_description2: '',
-    product_description3: '',
-    product_description4: '',
+    product_description1: '0',
+    product_description2: '0',
+    product_description3: '0',
+    product_description4: '0',
     product_weight: '',
     product_price: '',
     product_picture: '',
@@ -46,7 +46,15 @@ function AdminProducts(props) {
   })
   }
 
-  
+  function createArray(arr) {
+
+    const array = formData.product_picture.replaceAll(' ', '').split(',');
+
+    return array;
+  }
+
+  createArray();
+
   const addProductFormSubmit = async (e) => {
 
     try {
@@ -58,17 +66,15 @@ function AdminProducts(props) {
       product_description4: formData.product_description4,
       product_price: formData.product_price,
       product_weight: formData.product_weight,
-      product_nameChinese: formData.product_nameChinese,
-      product_descriptionChinese: formData.product_descriptionChinese,
-      product_picture: formData.product_picture,
+      product_picture: createArray(),
       product_category: formData.product_category,
       product_status: JSON.parse(formData.product_status.toLowerCase()),
       product_sale_price: formData.product_sale_price,
       product_bulk_quantity: parseInt(formData.product_bulk_quantity),
       product_bulk_price: formData.product_bulk_price,
       product_featured: JSON.parse(formData.product_featured),
-      inventory_id: formData.inventory_id,
-      product_new: formData.product_new
+      product_id: formData.inventory_id,
+      product_new: JSON.parse(formData.product_new)
       } }})
 
         alert('product added');
@@ -87,8 +93,6 @@ function AdminProducts(props) {
   }, [])
 
   if (error) return `...ERROR`;
-
-  console.log(formData);
 
   return (
   <>
@@ -134,14 +138,6 @@ function AdminProducts(props) {
       <div className="admin-input-row">
         <label className="bold">Weight</label>
         <input value={formData.product_weight} onChange={handleInputChange} className="product-weight admin-input-width" name='product_weight' type="text"></input>
-      </div>
-      <div className="admin-input-row">
-        <label className="bold">Chinese Name</label>
-        <input value={formData.product_nameChinese} onChange={handleInputChange} className="product-name-chinese admin-input-width" name='product_nameChinese' type="text"></input>
-      </div>
-      <div className="admin-input-row">
-        <label className="bold">Chinese Description</label>
-        <input value={formData.product_descriptionChinese} onChange={handleInputChange} className="product-description-chinese admin-input-width" name='product_descriptionChinese' type="text"></input>
       </div>
       <div className="admin-input-row">
         <label className="bold">Product Status: true/false</label>

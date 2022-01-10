@@ -1303,6 +1303,27 @@ h6 {
   width: 13rem;
 }
 
+/* PROMOTION */
+
+.promo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-container > div > input {
+  width: 25rem;
+}
+
+.promo-container > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 /* --------------- */
 /* --------------- */
 /* --------------- */

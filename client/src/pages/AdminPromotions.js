@@ -73,7 +73,7 @@ function AdminPromotions() {
       <div className="admin-container">
         <form className="admin-promo-container night-bg">
           <div>
-            <div className="promo-column admin-input-width">
+            <div className="flex-column">
               <b>MAIN PROMO</b>
               <textarea  onChange={handleInputChange} name="mainPromo" value={formData.mainPromo}></textarea>
               <b>DISCOUNT</b>
@@ -83,69 +83,101 @@ function AdminPromotions() {
 
           <div className="promo-container">
 
-              <b>Promotion 1</b>
-              <input onChange={handleInputChange} name="promoMsg1" value={formData.promoMsg1} />
-              <b>Promotion 1 - Start Date</b>
-              <input onChange={handleInputChange} className="date-input-size" name="promo1Start" value={formData.promo1Start} type="text" />
-              <b>Promotion 1 - End Date</b>
-              <input onChange={handleInputChange} className="date-input-size" name="promo1End" value={formData.promo1End} type="text" />
+              <div className="">
+                <b>Promotion 1</b>
+                <input onChange={handleInputChange} name="promoMsg1" value={formData.promoMsg1} />
+                {/* <b>Promotion 1 - Start Date</b>
+                <input onChange={handleInputChange} className="date-input-size" name="promo1Start" value={formData.promo1Start} type="text" />
+                <b>Promotion 1 - End Date</b>
+                <input onChange={handleInputChange} className="date-input-size" name="promo1End" value={formData.promo1End} type="text" /> */}
+              </div>
 
-              <b>Promotion 2</b>
-              <input onChange={handleInputChange} name="promoMsg2" value={formData.promoMsg2} />
-              <b>Promotion 2 - Start Date</b>
-              <input onChange={handleInputChange} name="promo2Start" value={formData.promo2Start} type="text" />
-              <b>Promotion 2 - End Date</b>
-              <input onChange={handleInputChange} name="promo2End" value={formData.promo2End} type="text" />
+              <div className="">
+                <b>Promotion 2</b>
+                <input onChange={handleInputChange} name="promoMsg2" value={formData.promoMsg2} />
+                {/* <b>Promotion 2 - Start Date</b>
+                <input onChange={handleInputChange} name="promo2Start" value={formData.promo2Start} type="text" />
+                <b>Promotion 2 - End Date</b>
+                <input onChange={handleInputChange} name="promo2End" value={formData.promo2End} type="text" /> */}
+              </div>
 
-              <b>Promotion 3</b>
-              <input  onChange={handleInputChange} name="promoMsg3" value={formData.promoMsg3} />
-              <b>Promotion 3 - Start Date</b>
-              <input onChange={handleInputChange} name="promo3Start" value={formData.promo3Start} type="text" />
-              <b>Promotion 3 - End Date</b>
-              <input onChange={handleInputChange} name="promo3End" value={formData.promo3End} type="text" />
+              <div className="">
+                <b>Promotion 3</b>
+                <input  onChange={handleInputChange} name="promoMsg3" value={formData.promoMsg3} />
+                {/* <b>Promotion 3 - Start Date</b>
+                <input onChange={handleInputChange} name="promo3Start" value={formData.promo3Start} type="text" />
+                <b>Promotion 3 - End Date</b>
+                <input onChange={handleInputChange} name="promo3End" value={formData.promo3End} type="text" /> */}
+              </div>
 
-              <b>Promotion Picture 1</b>
-              <input onChange={handleInputChange} name="promoPicture1" value={formData.promoPicture1} />
-              <b>Promotion Picture 2</b>
-              <input onChange={handleInputChange} name="promoPicture2" value={formData.promoPicture2} />
-              <b>Promotion Picture 3</b>
-              <input onChange={handleInputChange} name="promoPicture3" value={formData.promoPicture3} />
+              <div className="">
+                <b>Promotion Picture 1</b>
+                <input onChange={handleInputChange} name="promoPicture1" value={formData.promoPicture1} />
+                {/* <b>Promotion Picture 2</b>
+                <input onChange={handleInputChange} name="promoPicture2" value={formData.promoPicture2} />
+                <b>Promotion Picture 3</b>
+                <input onChange={handleInputChange} name="promoPicture3" value={formData.promoPicture3} /> */}
+              </div>
 
-              <b>Featured 1 Product ID</b>
-              <input onChange={handleInputChange} name="featuredProduct1" value={formData.featuredProduct1} />
+              {/* <div>
+                <b>Featured 1 Product ID</b>
+                <input onChange={handleInputChange} name="featuredProduct1" value={formData.featuredProduct1} />
+              </div>
 
-              <b>Featured 2 Product ID</b>
-              <input onChange={handleInputChange} name="featuredProduct2" value={formData.featuredProduct2} />
+              <div>
+                <b>Featured 2 Product ID</b>
+                <input onChange={handleInputChange} name="featuredProduct2" value={formData.featuredProduct2} />
+              </div>
 
-              <b>Featured 3 Product ID</b>
-              <input type="text" onChange={handleInputChange} name="featuredProduct3" value={formData.featuredProduct3} />
+              <div>
+                <b>Featured 3 Product ID</b>
+                <input type="text" onChange={handleInputChange} name="featuredProduct3" value={formData.featuredProduct3} />
+              </div> */}
 
-              <b>Contact Us #1</b>
-              <input onChange={handleInputChange} name="contact_us_1" value={formData.contact_us_1} />
+              <div>
+                <b>Contact Us #1</b>
+                <input onChange={handleInputChange} name="contact_us_1" value={formData.contact_us_1} />
+              </div>
 
-              <b>Contact Us #2</b>
-              <input onChange={handleInputChange} name="contact_us_2" value={formData.contact_us_2} />
+              <div>
+                <b>Contact Us #2</b>
+                <input onChange={handleInputChange} name="contact_us_2" value={formData.contact_us_2} />
+              </div>
 
-              <b>Address</b>
-              <input type="text" onChange={handleInputChange} name="address" value={formData.address} />
+              <div>
+                <b>Address</b>
+                <input type="text" onChange={handleInputChange} name="address" value={formData.address} />
+              </div>
 
-              <b>Home Page Picture Banner</b>
-              <input type="text" onChange={handleInputChange} name="main_banner" value={formData.main_banner} />
+              <div>
+                <b>Home Page Picture Banner</b>
+                <input type="text" onChange={handleInputChange} name="main_banner" value={formData.main_banner} />
+              </div>
 
-              <b>Home Page Message</b>
-              <input type="text" onChange={handleInputChange} name="home_message" value={formData.home_message} />
+              <div>
+                <b>Home Page Message</b>
+                <input type="text" onChange={handleInputChange} name="home_message" value={formData.home_message} />
+              </div>
 
-              <b>Delivery Fee Message 1</b>
-              <input type="text" onChange={handleInputChange} name="delivery_fee1" value={formData.delivery_fee1} />
+              <div>
+                <b>Delivery Fee Message 1</b>
+                <input type="text" onChange={handleInputChange} name="delivery_fee1" value={formData.delivery_fee1} />
+              </div>
 
-              <b>Delivery Fee Message 2</b>
-              <input type="text" onChange={handleInputChange} name="delivery_fee2" value={formData.delivery_fee2} />
+              <div>
+                <b>Delivery Fee Message 2</b>
+                <input type="text" onChange={handleInputChange} name="delivery_fee2" value={formData.delivery_fee2} />
+              </div>
 
-              <b>Delivery Fee Message 3</b>
-              <input type="text" onChange={handleInputChange} name="delivery_fee3" value={formData.delivery_fee3} />
+              <div>
+                <b>Delivery Fee Message 3</b>
+                <input type="text" onChange={handleInputChange} name="delivery_fee3" value={formData.delivery_fee3} />
+              </div>
 
-              <b>Notice Message - CART</b>
-              <input type="text" onChange={handleInputChange} name="notice_message" value={formData.notice_message} />
+              <div>
+                <b>Notice Message - CART</b>
+                <input type="text" onChange={handleInputChange} name="notice_message" value={formData.notice_message} />
+              </div>
             </div>
 
           <button onClick={() => {updatePromotions()}} className="order-button">UPDATE</button>
