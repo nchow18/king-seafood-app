@@ -17,6 +17,8 @@ function Cart(props) {
     loading2
   } = props
 
+  console.log(userData);
+
   const [updateUser] = useMutation(UPDATE_USER);
   const [updateCart] = useMutation(UPDATE_CART);
   const [removeCart] = useMutation(REMOVE_CART)

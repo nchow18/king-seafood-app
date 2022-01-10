@@ -11,7 +11,7 @@ function DashboardHeader(props) {
 
     return (
         <>
-            <div className="productHeader-container flex-c-row">
+            <div className="admin-dashboard-header-container">
                 {dashLinks.map((link) => (
                     <Link key={link.name} className={`admin-header-link ${currentDashLink.name === link.name && `headerActive`}`} onClick={() => {
                         setCurrentDashLink(link);
