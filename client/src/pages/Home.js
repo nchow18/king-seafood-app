@@ -27,12 +27,11 @@ function Home(props) {
   const {loading: loading2, data: data2} = useQuery(USER_ME);
   const {loading: loading3, data: data3} = useQuery(PROMO);
 
-  const productsArr = data1?.products || {};
+  const products = data1?.products || {};
   const userData = data2?.userMe || {};
   const promoData = data3?.promo[0] || {};
 
   const userCart = userData?.cart || {};
-  const [products, setProducts] = useState(productsArr)
   const [cart, setCart] = useState(userCart);
   const [cartQty, setCartQty] = useState();
   const [isPromoModal, setPromoModal] = useState(false);
@@ -51,14 +50,6 @@ function Home(props) {
     for (var a = 0; a < products.length; a++) {
       products[a].product_picture = products[a].product_picture.split(',')
     }
-
-    var prodArr = []
-
-    const Arr = products.filter(prod => prod.product_status !== false);
-
-    prodArr = Arr
-
-    setProducts(prodArr);
 
   },[])
 
@@ -111,7 +102,7 @@ function Home(props) {
             setCart={setCart}
             cart={cart}
             userCart={userCart}
-            products={products}
+            productsArr={products}
             setCurrentHeaderLink={setCurrentHeaderLink}
             promoData={promoData}
             setCartQty={setCartQty}

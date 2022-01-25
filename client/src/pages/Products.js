@@ -8,7 +8,7 @@ function Products(props) {
   const {
     setCart,
     user_type,
-    products,
+    productsArr,
     cart,
     setCurrentHeaderLink,
     promoData,
@@ -20,8 +20,10 @@ function Products(props) {
   // window.scrollTo(0,0)
 
   useEffect(() => {
-    setCart(userCart)
+
   },[])
+
+  const products = Object.values(productsArr).filter(prod => prod.product_status !== false)
 
   const categories = Auth.getCategories();
   const [productModal, setProductModal] = useState(false);
