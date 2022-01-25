@@ -52,9 +52,13 @@ function Home(props) {
       products[a].product_picture = products[a].product_picture.split(',')
     }
 
+    var prodArr = []
+
     const Arr = products.filter(prod => prod.product_status !== false);
 
-    setProducts(Arr);
+    prodArr = Arr
+
+    setProducts(prodArr);
 
   },[])
 
