@@ -58,8 +58,6 @@ function Home(props) {
 
   },[])
 
-  console.log(products);
-
   function displayPromo() {
     setPromoModal(true);
   }
