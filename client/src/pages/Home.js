@@ -27,11 +27,12 @@ function Home(props) {
   const {loading: loading2, data: data2} = useQuery(USER_ME);
   const {loading: loading3, data: data3} = useQuery(PROMO);
 
-  const products = data1?.products || {};
+  const productsArr = data1?.products || {};
   const userData = data2?.userMe || {};
   const promoData = data3?.promo[0] || {};
 
   const userCart = userData?.cart || {};
+  const [products, setProducts] = useState(productsArr)
   const [cart, setCart] = useState(userCart);
   const [cartQty, setCartQty] = useState();
   const [isPromoModal, setPromoModal] = useState(false);
@@ -51,7 +52,13 @@ function Home(props) {
       products[a].product_picture = products[a].product_picture.split(',')
     }
 
+    const Arr = products.filter(prod => prod.product_status !== false);
+
+    setProducts(Arr);
+
   },[])
+
+  console.log(products);
 
   function displayPromo() {
     setPromoModal(true);

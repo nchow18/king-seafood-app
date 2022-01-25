@@ -548,6 +548,7 @@ h6 {
   width: 35rem;
   background-color: var(--primary);
   border-radius: 20px;
+  max-height: 100vh;
 }
 
 .product-add-cart-container {
@@ -1538,7 +1539,7 @@ h6 {
   }
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 800px) {
   .product-desktop-picture-full {
     height: 200px;
     width: 200px;
