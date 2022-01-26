@@ -102,7 +102,7 @@ function Home(props) {
             setCart={setCart}
             cart={cart}
             userCart={userCart}
-            productsArr={products}
+            products={products}
             setCurrentHeaderLink={setCurrentHeaderLink}
             promoData={promoData}
             setCartQty={setCartQty}

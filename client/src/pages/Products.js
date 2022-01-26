@@ -8,7 +8,7 @@ function Products(props) {
   const {
     setCart,
     user_type,
-    productsArr,
+    products,
     cart,
     setCurrentHeaderLink,
     promoData,
@@ -23,7 +23,9 @@ function Products(props) {
 
   },[])
 
-  const products = Object.values(productsArr).filter(prod => prod.product_status !== false)
+  // const products = Object.values(productsArr).filter(prod => prod.product_status !== false);
+  
+  console.log(products);
 
   const categories = Auth.getCategories();
   const [productModal, setProductModal] = useState(false);
