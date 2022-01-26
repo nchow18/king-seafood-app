@@ -21,11 +21,17 @@ function Products(props) {
 
   useEffect(() => {
 
+    const Arr = Object.values(products).filter(prod => prod.product_status !== false);
+
+    if (products.length > 3) {
+      products.splice(0, products.length, ...Arr);
+
+      setCart(userCart);
+    }
+
   },[])
 
-  // const products = Object.values(productsArr).filter(prod => prod.product_status !== false);
-  
-  console.log(products);
+  console.log(cart);
 
   const categories = Auth.getCategories();
   const [productModal, setProductModal] = useState(false);

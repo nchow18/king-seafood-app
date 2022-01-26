@@ -32,7 +32,7 @@ function Home(props) {
   const promoData = data3?.promo[0] || {};
 
   const userCart = userData?.cart || {};
-  const [cart, setCart] = useState(userCart);
+  const [cart, setCart] = useState();
   const [cartQty, setCartQty] = useState();
   const [isPromoModal, setPromoModal] = useState(false);
 
@@ -51,7 +51,17 @@ function Home(props) {
       products[a].product_picture = products[a].product_picture.split(',')
     }
 
+      const Arr = Object.values(products).filter(prod => prod.product_status !== false);
+
+      if (products.length > 3) {
+        products.splice(0, products.length, ...Arr);
+
+        setCart(userCart);
+
+      }
+
   },[])
+
 
   function displayPromo() {
     setPromoModal(true);
