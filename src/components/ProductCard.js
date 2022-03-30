@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductPicture from './ProductPicture';
+import AddCartButton from './AddCartButton';
 
 function ProductCard(props) {
 
   const {
     prod
   } = props
+
+
 
   return (
     <div className="product-card-container">
@@ -33,6 +36,8 @@ function ProductCard(props) {
           <li>{prod.d4}</li>
         )}                        
       </div>
+      <AddCartButton 
+        prod={prod}/>
     </div>
   )
 }
