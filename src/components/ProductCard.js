@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductPicture from './ProductPicture';
 
 function ProductCard(props) {
 
@@ -9,7 +10,9 @@ function ProductCard(props) {
   return (
     <div className="product-card-container">
       <div className="product-card-picture">
-        <img alt={prod.name} src={process.env.PUBLIC_URL + `/products/${prod.picture[0].trim()}.jpeg`} />
+        <ProductPicture
+          prod={prod}
+        />
       </div>
       <div className="product-card-details">
         <li>{prod.name}</li>
