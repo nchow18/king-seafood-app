@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS nuxe_db;
+CREATE DATABASE nuxe_db;

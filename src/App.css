@@ -1,0 +1,72 @@
+:root {
+  --primary: #2a2a2c;
+  --secondary: #fdf0e4;
+  --tertiary: #e5c297;
+  --light-font: #454545;
+  --menu-modal: rgb(255, 241, 233);
+  --news-modal: rgb(239, 217, 193);
+}
+
+.font-face-louis {
+  font-family: 'louis';
+}
+
+.font-face-florence {
+  font-family: 'florence';
+}
+
+.font-face-lemon {
+  font-family: 'lemon-milk-light';
+}
+
+.font-face-raleway {
+  font-family: 'raleway';
+}
+
+.font-face-geomanist {
+  font-family: 'geomanist';
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.nuxe-colour {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

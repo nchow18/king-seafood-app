@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'louis';
+  src: local('louis'), url('./assets//fonts/louis_george_caf/Louis\ George\ Cafe.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'florence';
+  src: local('florence'), url('./assets/fonts/Florence-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'lemon-milk-light';
+  src: local('lemon-milk-light'), url('./assets/fonts/lemon_milk/LEMONMILK-Light.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'raleway';
+  src: local('raleway'), url('./assets/fonts/Raleway/static/Raleway-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'geomanist';
+  src: local('geomanist'), url('./assets/fonts/Geomanist/Desktop/Geomanist-Regular.otf') format('truetype');
+}

@@ -1,96 +1,70 @@
-# <img src="client/public/images/woof-logo.svg" height="90" alt="Woof" title="Woof">
+# Getting Started with Create React App
 
-You need a break. So do your dogs. We will help both! Woof connects dog owners with dog walkers who’ll treat your dog like family. You can trust us to keep your pet happy, healthy, and sweet as ever!
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Table Of Content
-* [Contributors](#contributors)
-* [General Info](#general-info)
-* [Technologies](#technologies)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Future Development](#future-development)
-* [Screenshot](#screenshot)
-* [License](#license)
-* [Questions](#questions)
+## Available Scripts
 
-## Contributors
-|Eric Normann|Samiul Choudhury|Benn Asabir|Nathan Chow|Shamim Imtiaz|Alex Chung|Rose Franis|Brian Wang|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|![myImage](https://ca.slack-edge.com/T01EXTZCZ44-U01FFJX35EH-8853f39f557f-512)|![myImage](https://avatars.githubusercontent.com/u/3344833?s=460&u=46efd9bd90904237b452dbaefdb03a57156ef84b&v=4)|![myImage](https://ca.slack-edge.com/T01EXTZCZ44-U01FR9XTTN0-9995038c9f3b-512)|![myImage](https://ca.slack-edge.com/T01EXTZCZ44-U01FGC3DAN7-41377ad60b24-512)|![myImage](https://ca.slack-edge.com/T01EXTZCZ44-U01F9AY18T0-ad94549a1f86-512)|![myImage](https://ca.slack-edge.com/T01EXTZCZ44-U01FX6ZRAD7-390208b29630-512)|![myImage](https://avatars.githubusercontent.com/u/32376285?v=4)|![myImage](https://ca.slack-edge.com/T01EXTZCZ44-U01FNARJKGU-eb0d40e6e9f7-512)
-|<a href="https://github.com/e-p-n" target="_blank">Eric's Github</a>| <a href="https://github.com/samiul1988"> Samiul's Github</a>|<a href="https://github.com/BennAsabir">Benn's Github</a>|<a href="https://github.com/nchow18">Nathan's Github</a>|<a href="https://github.com/shamimimtiaz">Shamim's Github|<a href="https://github.com/AChung92">Alex's Github|<a href="https://github.com/rosefrancis-tech">Rose's Github|<a href="https://github.com/BrianCKWang">Brian's Github|""|
+In the project directory, you can run:
 
+### `npm start`
 
-## General Info
-The application follows the MERN paradigm in its architectural structure.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Technologies
-Project is created with 
-* [Javascript](https://www.javascript.com/)
-* [Css](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [GraphQL](https://graphql.org/)
-* [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
-* [React](https://reactjs.org/)
-* [React Router](https://reactrouter.com/)
-* [Concurrently](https://www.npmjs.com/package/concurrently)
-* [if-env](https://www.npmjs.com/package/if-env)
-* [Nodemon](https://www.npmjs.com/package/nodemon)
-* [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
-* [jwt-decode"](https://jwt.io/)
-* [bcrypt](https://www.npmjs.com/package/bcrypt)
-* [graphql](https://graphql.org/)
-* [mapbox-gl](https://www.mapbox.com/mapbox-gljs)
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Installation
-To get started clone this repository using 
-```terminal
-git clone git@github.com:woof-board/woof.git
-```
-Install dependencies 
-```terminal
-npm install
-```
-to start running application simply input 
-```terminal
-npm start
-```
-Once all that is done, navigate to - http://localhost:3000 to begin!
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Usage
-This application is deployed on Heroku at ....
+### `npm run build`
 
-There are three types of access:
-* **Owner access**
-* **Walker access**
-* **Administrator access**
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-**Owner access** allows one to 
-* 
-* 
-* 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-**Walker access** 
-* 
-* 
-* 
-* 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-**Administrator access** 
-* 
-*  
+### `npm run eject`
 
-## Future Development
-Upcoming features:
-* 
-* 
-* 
-* 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Screenshot
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## License
-This repository is licensed under the MIT license.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Questions
-Questions about this repository? Please contact us at [woof.board.2021@gmail.com](mailto:woof.board.2021@gmail.com). View more of our work in GitHub at [woof](https://github.com/woof-board/woof) 
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
