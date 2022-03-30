@@ -7,9 +7,6 @@ const apiRoutes = require('./api');
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
 router.use('/products', productRoutes)
-router.use('/products/classic_tape_in', productRoutes)
-router.use('/products/invisible_tape_in', productRoutes)
-router.use('/products/seamless_tape_in', productRoutes)
 router.use('/dashboard', dashboardRoutes);
 
 // router.use((req, res) => {

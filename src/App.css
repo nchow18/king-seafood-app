@@ -5,6 +5,7 @@
   --light-font: #454545;
   --menu-modal: rgb(255, 241, 233);
   --news-modal: rgb(239, 217, 193);
+  font-size: 12px;
 }
 
 .font-face-louis {
@@ -68,5 +69,12 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  :root {
+    font-size: 10px;
   }
 }

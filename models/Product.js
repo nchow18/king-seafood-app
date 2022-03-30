@@ -13,82 +13,66 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
+    product_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     category: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    details: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    colors: {
+    price: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    Jet_Black: {
+    d1: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Natural_Black: {
+    d2: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Darkest_Brown:  {
+    d3: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Chocolate_Brown:  {
+    d4: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Chestnut_Brown:  {
-      type: DataTypes.STRING,
-      allowNull: true
+    status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     },
-    Medium_Brown:  {
+    sale_price: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Ash_Blonde:  {
+    bulk_qty: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Light_Ash_Blonde:  {
+    bulk_price: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Honey_Blonde:  {
+    featured: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Medium_Auburn:  {
-      type: DataTypes.STRING,
-      allowNull: true
+    new_product: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     },
-    Dark_Auburn:  {
+    picture: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    Platinum_Blonde:  {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Bleach_Blonde:  {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Plum_Red:  {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Dark_Wine:  {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Smokey_Grey:  {
-      type: DataTypes.STRING,
-      allowNull: true
-    }
   },
   {
     sequelize,

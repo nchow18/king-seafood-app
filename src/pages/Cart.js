@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Home() {
+function Cart() {
 
   return (
     <div>
-      Home
+      Cart
     </div>
   )
 }
 
-export default Home;
+export default Cart;

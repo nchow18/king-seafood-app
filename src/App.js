@@ -3,12 +3,17 @@ import { BrowserRouter, BrowserRouter as Router, Route, Switch } from 'react-rou
 import NoMatch from './pages/NoMatch';
 import Products from './pages/Products';
 import Home from './pages/Home';
+import Cart from './pages/Cart';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import TopPromo from './components/TopPromo';
 import Axios from 'axios';
 import './App.css';
+import './css/main.css';
 
 function App() {
 
-
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
 
@@ -16,28 +21,70 @@ function App() {
     const heroku = 'https://nuxe-website.herokuapp.com/api/products'
 
     if (checkURL >= 1) {
-      Axios.get(`http://localhost:3001/api/products`).then((data) => {})
+      Axios.get(`http://localhost:3001/api/products`).then((data) => setProducts(sortProducts(data.data)))
     } else {
-      Axios.get(heroku).then((data) => {})
+      const prodArr = Axios.get(heroku).then((data) => data.data)
     }
 
-
   },[])
-  
+
+  function sortProducts(data) {
+
+    const arr = data;
+
+    console.log(arr);
+    
+    for (var i = 0; i < data.length; i++) {
+      arr[i].picture = JSON.stringify(arr[i].picture).trim().replaceAll('"', '').split(',');
+      arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').split(',');
+    }
+
+    return arr;
+  }
+
+  const categories = [
+    'All',
+    'Fish',
+    'Scallops',
+    'Shellfish',
+    'Squid',
+    'Meat',
+    'Special',
+    'Vegetables',
+    'Fruits',
+    'Hotpot',
+    'Snacks',
+    'Sauces',
+    'Beverages',
+    'Noodles/Soup',
+    'Sale',
+    'Newest Products'
+  ]
 
   return (
         <BrowserRouter>
-              <Switch>
-                <Route 
-                  exact path='/' 
-                  render={() => <Home 
-                  />}
-                  />
-                <Route exact path='/products' render={() => <Products
-                   />} />
-                                
-                <Route component={NoMatch} />
-              </Switch>
+          <TopPromo />
+          <Header />
+            <Switch>
+              <Route 
+                exact path='/' 
+                render={() => <Home 
+                />}
+                />
+              <Route 
+                exact path='/products' 
+                render={() => <Products
+                  categories={categories}
+                  products={products}
+                  />} />
+              <Route 
+                exact path='/cart' 
+                render={() => <Cart
+                  />} />
+                              
+              <Route component={NoMatch} />
+            </Switch>
+          <Footer />
         </BrowserRouter>
     );
 }

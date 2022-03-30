@@ -10,25 +10,21 @@ router.get('/', (req, res) => {
   Product.findAll({
     attributes: [
       'id',
+      'product_id',
       'category',
-      'details',
-      'colors',
-      'Jet_Black',
-      'Natural_Black',
-      'Darkest_Brown',
-      'Chocolate_Brown',
-      'Chestnut_Brown',
-      'Medium_Brown',
-      'Ash_Blonde',
-      'Light_Ash_Blonde',
-      'Honey_Blonde',
-      'Medium_Auburn',
-      'Dark_Auburn',
-      'Platinum_Blonde',
-      'Bleach_Blonde',
-      'Plum_Red',
-      'Dark_Wine',
-      'Smokey_Grey'
+      'name',
+      'price',
+      'd1',
+      'd2',
+      'd3',
+      'd4',
+      'status',
+      'sale_price',
+      'bulk_qty',
+      'bulk_price',
+      'featured',
+      'new_product',
+      'picture'
     ]
   })
   .then(dbProductData => res.json(dbProductData))
@@ -47,25 +43,21 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
+      'product_id',
       'category',
-      'details',
-      'colors',
-      'Jet_Black',
-      'Natural_Black',
-      'Darkest_Brown',
-      'Chocolate_Brown',
-      'Chestnut_Brown',
-      'Medium_Brown',
-      'Ash_Blonde',
-      'Light_Ash_Blonde',
-      'Honey_Blonde',
-      'Medium_Auburn',
-      'Dark_Auburn',
-      'Platinum_Blonde',
-      'Bleach_Blonde',
-      'Plum_Red',
-      'Dark_Wine',
-      'Smokey_Grey'
+      'name',
+      'price',
+      'd1',
+      'd2',
+      'd3',
+      'd4',
+      'status',
+      'sale_price',
+      'bulk_qty',
+      'bulk_price',
+      'featured',
+      'new_product',
+      'picture'
     ],
   })
   .then(dbProductData => {
@@ -86,9 +78,20 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
 
   Product.create({
+    product_id: req.body.product_id,
     category: req.body.category,
-    details: req.body.details,
-    colors: req.body.colors
+    name: req.body.name,
+    price: req.body.price,
+    d1: req.body.d1,
+    d2: req.body.d2,
+    d3: req.body.d3,
+    d4: req.body.d4,
+    status: req.body.status,
+    sale_price: req.body.sale_price,
+    bulk_qty: req.body.bulk_qty,
+    bulk_price: req.body.bulk_price,
+    featured: req.body.featured,
+    new_product: req.body.new_product
   })
   .then(dbProductData => res.json(dbProductData))
   .catch(err => {
@@ -101,9 +104,20 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   Product.update({
+    product_id: req.body.product_id,
     category: req.body.category,
-    details: req.body.details,
-    colors: req.body.colors
+    name: req.body.name,
+    price: req.body.price,
+    d1: req.body.d1,
+    d2: req.body.d2,
+    d3: req.body.d3,
+    d4: req.body.d4,
+    status: req.body.status,
+    sale_price: req.body.sale_price,
+    bulk_qty: req.body.bulk_qty,
+    bulk_price: req.body.bulk_price,
+    featured: req.body.featured,
+    new_product: req.body.new_product
   },
   {
     where: {
@@ -146,12 +160,12 @@ router.delete('/:id', (req, res) => {
 
 // user check Logged in
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-  }
-  res.render('login');
-})
+// router.get('/login', (req, res) => {
+//   if (req.session.loggedIn) {
+//       res.redirect('/');
+//       return;
+//   }
+//   res.render('login');
+// })
 
 module.exports = router;

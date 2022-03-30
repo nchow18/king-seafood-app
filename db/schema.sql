@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS nuxe_db;
-CREATE DATABASE nuxe_db;
+DROP DATABASE IF EXISTS king_seafood_db;
+CREATE DATABASE king_seafood_db;
