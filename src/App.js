@@ -14,6 +14,7 @@ import './css/main.css';
 function App() {
 
   const [products, setProducts] = useState([])
+  const [cart, setCart] = useState([{name: 'test'}])
 
   useEffect(() => {
 
@@ -26,7 +27,19 @@ function App() {
       const prodArr = Axios.get(heroku).then((data) => data.data)
     }
 
+    const localCart = localStorage.getItem('user_cart');
+
+    if (localCart === null) {
+      console.log('cart does not exist, creating new local cart')
+
+      localStorage.setItem('user_cart', JSON.stringify(cart))
+    } else {
+      setCart(JSON.parse(localCart))
+    }
+
   },[])
+
+  console.log(cart);
 
   function sortProducts(data) {
 
