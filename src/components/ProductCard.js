@@ -5,13 +5,17 @@ import AddCartButton from './AddCartButton';
 function ProductCard(props) {
 
   const {
-    prod
+    prod,
+    fav,
+    setFav,
+    cart,
+    setCart
   } = props
 
 
 
   return (
-    <div key={prod} className="product-card-container">
+    <div className="product-card-container">
       <div className="product-card-picture">
         <ProductPicture
           prod={prod}
@@ -38,7 +42,11 @@ function ProductCard(props) {
           )}
         </div>
         <AddCartButton 
-          prod={prod}/>
+          prod={prod}
+          fav={fav}
+          setFav={setFav}
+          cart={cart}
+          setCart={setCart} />
       </div>
     </div>
   )

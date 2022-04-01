@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 function AddCartButton(props) {
 
   const {
-    prod
+    prod,
+    fav,
+    setFav,
+    cart,
+    setCart
   } = props
 
   const [qty, setQty] = useState(1);
@@ -17,8 +21,22 @@ function AddCartButton(props) {
     }
   }
 
+  function addFav() {
+
+    const oldFav = fav;
+    const newFav = [...oldFav, prod];
+
+    setFav(newFav)
+  }
+
   function addCart() {
-    console.log(`added ${qty} of ${prod.name} at RM ${prod.price * qty} to cart`);
+
+    const oldCart = cart;
+    prod.quantity = qty
+    const newCart = [...oldCart, prod];
+
+
+    setCart(newCart);
   }
 
   return (
@@ -30,6 +48,9 @@ function AddCartButton(props) {
       </div>
       <div onClick={() => addCart()} className="add-cart-button">
         ADD TO CART
+      </div>
+      <div onClick={() => addFav()} className="add-cart-button">
+        ADD TO FAVORITES
       </div>
 
 

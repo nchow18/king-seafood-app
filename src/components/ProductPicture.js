@@ -9,8 +9,6 @@ function ProductPicture(props) {
   const [picture, setPicture] = useState(0)
   const [isModal, setModal] = useState(false);
 
-  console.log(picture);
-
   return (
     <div>
       <img className="product-card-img" onClick={() => setModal(true)} alt={prod.name} src={process.env.PUBLIC_URL + `/products/${prod.picture[picture].trim()}`} />

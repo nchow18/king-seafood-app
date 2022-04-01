@@ -2,7 +2,12 @@ import React from 'react';
 import '../css/main.css';
 import { NavLink } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
+
+  const {
+    fav,
+    cart
+  } = props
 
   return (
     <div className="header-container">
@@ -20,7 +25,12 @@ function Header() {
         </li>
         <li>
           <NavLink style={{ textDecoration: 'none'}} className="header-button" to={`/cart`}>
-            CART
+            CART ( {cart.length} )
+          </NavLink>
+        </li>
+        <li>
+          <NavLink style={{ textDecoration: 'none'}} className="header-button" to={`/favorites`}>
+            FAVORITES ( {fav.length} )
           </NavLink>
         </li>
       </div>
