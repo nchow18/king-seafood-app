@@ -14,7 +14,7 @@ function Cart(props) {
   return (
     <div className="cart-page">
       {cart.map((item, index) => (
-        <div className="cart-item-container">
+        <div key={item.name} className="cart-item-container">
           <img alt={item.name} src={process.env.PUBLIC_URL + `/products/${item.picture[0]}`} />
           <div>
             <li>{item.name}</li>

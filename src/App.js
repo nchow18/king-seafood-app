@@ -18,6 +18,9 @@ function App() {
   const [cart, setCart] = useState([])
   const [fav, setFav] = useState([])
 
+  const localCart = localStorage.getItem('user_cart');
+  const localFav = localStorage.getItem('user_fav');
+
   useEffect(() => {
 
     const checkURL = window.location.href.search('localhost');
@@ -29,14 +32,12 @@ function App() {
       Axios.get(web).then((data) => data.data)
     }
 
-    const localCart = localStorage.getItem('user_cart');
-    const localFav = localStorage.getItem('user_fav');
-
     if (localCart === null) {
       console.log('cart does not exist, creating new local cart')
 
       localStorage.setItem('user_cart', JSON.stringify(cart))
     } else {
+
       setCart(JSON.parse(localCart))
     }
 
@@ -45,6 +46,7 @@ function App() {
 
       localStorage.setItem('user_fav', JSON.stringify(fav))
     } else {
+
       setFav(JSON.parse(localFav))
     }
 
@@ -80,6 +82,14 @@ function App() {
     'Sale',
     'Newest Products'
   ]
+
+  if (cart.length !== 0) {
+    localStorage.setItem('user_cart', JSON.stringify(cart))
+  }
+
+  if (fav.length !== 0) {
+    localStorage.setItem('user_fav', JSON.stringify(fav))
+  }
 
   console.log(cart);
   console.log(fav);
