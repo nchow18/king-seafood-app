@@ -18,7 +18,7 @@ const productData = [
     bulk_price: '',
     featured: false,
     new_product: false,
-    picture: '100-1, 100-2'
+    picture: 'tn_100-1.jpg,tn_100-2.jpg'
   },
 
   {
@@ -37,7 +37,7 @@ const productData = [
     bulk_price: '',
     featured: false,
     new_product: false,
-    picture: '100-1, 100-2'
+    picture: 'tn_101-1.jpg,tn_101-2.jpg'
   },
 
   {
@@ -56,7 +56,7 @@ const productData = [
     bulk_price: '',
     featured: false,
     new_product: false,
-    picture: '100-1, 100-2'
+    picture: 'tn_102-1.jpg,tn_102-2.jpg'
   },
 
   {
@@ -75,7 +75,7 @@ const productData = [
     bulk_price: '12',
     featured: false,
     new_product: false,
-    picture: '100-1, 100-2'
+    picture: 'tn_103-1.jpg,tn_103-2.jpg'
   },
   
 ];

@@ -13,11 +13,11 @@ function ProductPicture(props) {
 
   return (
     <div>
-      <img className="product-card-img" onClick={() => setModal(true)} alt={prod.name} src={process.env.PUBLIC_URL + `/products/${prod.picture[picture].trim()}.jpeg`} />
+      <img className="product-card-img" onClick={() => setModal(true)} alt={prod.name} src={process.env.PUBLIC_URL + `/products/${prod.picture[picture].trim()}`} />
       {prod.picture.length > 1 && (
         <div className="product-card-img-extra">
           {prod.picture.map((img, index) => (
-            <img key={index} className="product-card-img-small" onClick={() => setPicture(index)} alt={index} src={process.env.PUBLIC_URL + `/products/${prod.picture[picture].trim()}.jpeg`} />
+            <img key={index} className="product-card-img-small" onClick={() => setPicture(index)} alt={index} src={process.env.PUBLIC_URL + `/products/${prod.picture[index].trim()}`} />
           ))}
         </div>
       )}
@@ -25,7 +25,7 @@ function ProductPicture(props) {
     
     {isModal === true && (
       <div onClick={() => setModal(false)} className="picture-modal">
-        <img alt={prod.name} src={process.env.PUBLIC_URL + `/products/${prod.picture[picture].trim()}.jpeg`} />
+        <img alt={prod.name} src={process.env.PUBLIC_URL + `/products/${prod.picture[picture].trim()}`} />
       </div>
     )}
     </div>
