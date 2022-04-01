@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import CartQty from '../components/CartQty';
+import CartPrice from '../components/CartPrice';
 
 function Cart(props) {
 
@@ -8,26 +10,31 @@ function Cart(props) {
     siteSale
   } = props
 
-  function checkPrice(item) {
+  function checkPrice(item, index) {
 
-    var newPrice = '';
+    if (item.bulk_qty >= 1 && item.bulk_qty >= item.quantity) {
 
-    if (item.bulk_qty !== '') {
-      // check if qty meets bulk_qty
-      if (item.bulk_qty >= item.qty) {
-        item.new_price = item.bulk_price * item.qty;
-      } else {
-        item.new_price = item.price * (1 - siteSale/100).toFixed(2);
-      }
+      //checks for bulk quantity to be greater or equal to quantity
+      item.new_price = item.bulk_price * item.quantity;
+
+      console.log(`bulk price applied to ${item.name}`);
+
     } else if (item.sale_price !== '' && item.sale_price < (item.price * (1 - siteSale/100))) {
-      item.new_price = item.sale_price;
+
+      // checks if sale price exists, if so, apply sale price
+      item.new_price = item.sale_price * item.quantity;
+
+      console.log(`sale price applied to ${item.name}`)
+
+
     } else {
-      item.new_price = item.price * (1 - siteSale/100).toFixed(2);
+
+      // if no sale / bulk price exists, apply site sale to regular price
+      item.new_price = (item.price * (1 - siteSale/100).toFixed(2)) * item.quantity;
+
+      console.log(`site sale applied to ${item.name}`)
+
     }
-
-    console.log(item);
-
-
     return `RM ${item.new_price}`;
   }
 
@@ -38,9 +45,13 @@ function Cart(props) {
           <img alt={item.name} src={process.env.PUBLIC_URL + `/products/${item.picture[0]}`} />
           <div>
             <li>{item.name}</li>
-            <li>{checkPrice(item)}</li>
+            <li>{checkPrice(item, index)}</li>
             <div>
-
+              <CartQty 
+                cart={cart}
+                setCart={setCart}
+                item={item}
+                index={index} />
             </div>
           </div>
         </div>
