@@ -12,8 +12,6 @@ function ProductCard(props) {
     setCart
   } = props
 
-
-
   return (
     <div className="product-card-container">
       <div className="product-card-picture">

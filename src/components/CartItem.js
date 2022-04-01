@@ -7,7 +7,8 @@ function CartItem(props) {
     setCart,
     siteSale,
     item,
-    index
+    index,
+    removeItem
   } = props
 
   const [qty, setQty] = useState(item.quantity)
@@ -74,13 +75,13 @@ function CartItem(props) {
         <div>
           <li>{item.name}</li>
           <li>{checkPrice()}</li>
-          <div className="cart-qty-container">
+          <li className="cart-qty-container">
             <div onClick={() => {setQty(qty + 1); addQty()}}>+</div>
             <div className="add-cart-counter">{qty}</div>
             <div onClick={() => minusQty()}>-</div>
-          </div>
+          </li>
         </div>
-        <div className="cart-button-delete">X</div>
+        <div onClick={() => removeItem(index)} className="cart-button-delete">X</div>
       </div>
     </>
 
