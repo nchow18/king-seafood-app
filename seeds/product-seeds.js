@@ -62,7 +62,7 @@ const productData = [
   {
     id: 4,
     product_id: '104',
-    name: 'Salmon Steak 三文鱼排 1kg*',
+    name: 'Salmon Steak 三文鱼排 1.5kg*',
     category: 'fish, meat',
     price: '14',
     d1: 'order by pieces',

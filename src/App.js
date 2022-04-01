@@ -20,6 +20,7 @@ function App() {
 
   const localCart = localStorage.getItem('user_cart');
   const localFav = localStorage.getItem('user_fav');
+  const siteSale = '10.10';
 
   useEffect(() => {
 
@@ -122,6 +123,7 @@ function App() {
                   render={() => <Cart
                     cart={cart}
                     setCart={setCart}
+                    siteSale={siteSale}
                     />} />
                 <Route
                   exact path='/favorites'
