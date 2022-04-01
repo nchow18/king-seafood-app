@@ -21,12 +21,12 @@ function App() {
   useEffect(() => {
 
     const checkURL = window.location.href.search('localhost');
-    const heroku = 'https://nuxe-website.herokuapp.com/api/products'
+    const web = 'https://kingsseafood18.com/api/products'
 
     if (checkURL >= 1) {
       Axios.get(`http://localhost:3001/api/products`).then((data) => setProducts(sortProducts(data.data)))
     } else {
-      const prodArr = Axios.get(heroku).then((data) => data.data)
+      Axios.get(web).then((data) => data.data)
     }
 
     const localCart = localStorage.getItem('user_cart');
@@ -110,6 +110,8 @@ function App() {
                 <Route
                   exact path='/cart'
                   render={() => <Cart
+                    cart={cart}
+                    setCart={setCart}
                     />} />
                 <Route
                   exact path='/favorites'

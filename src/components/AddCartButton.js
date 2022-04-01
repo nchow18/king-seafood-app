@@ -23,20 +23,58 @@ function AddCartButton(props) {
 
   function addFav() {
 
-    const oldFav = fav;
-    const newFav = [...oldFav, prod];
+    var dup = '';
 
-    setFav(newFav)
-  }
+    if (fav.length === 0) {
+        const oldFav = fav;
+        const newFav = [...oldFav, prod];
+
+        setFav(newFav)
+      } else {
+        for (var i = 0; i < fav.length; i++) {
+          if (fav[i].name === prod.name) {
+            alert('Product is already in your Favorites');
+
+            dup = 'duplicate';
+          } 
+        }
+        
+        if (dup !== 'duplicate') {
+          const oldFav = fav;
+          const newFav = [...oldFav, prod];
+  
+          setFav(newFav)
+        }
+      }
+    }
 
   function addCart() {
 
-    const oldCart = cart;
-    prod.quantity = qty
-    const newCart = [...oldCart, prod];
+    var dup = '';
 
+    if (fav.length === 0) {
+      const oldCart = cart;
+      prod.quantity = qty
+      const newCart = [...oldCart, prod];
+  
+      setCart(newCart);
+      } else {
+        for (var i = 0; i < cart.length; i++) {
+          if (cart[i].name === prod.name) {
+            alert('Product is already in your Cart');
 
-    setCart(newCart);
+            dup = 'duplicate';
+          } 
+        }
+        
+        if (dup !== 'duplicate') {
+          const oldCart = cart;
+          prod.quantity = qty
+          const newCart = [...oldCart, prod];
+      
+          setCart(newCart);
+        }
+    }
   }
 
   return (
@@ -52,7 +90,6 @@ function AddCartButton(props) {
       <div onClick={() => addFav()} className="add-cart-button">
         ADD TO FAVORITES
       </div>
-
 
     </div>
   )

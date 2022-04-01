@@ -9,6 +9,9 @@ function Favorites(props) {
     setCart
   } = props
 
+  const [isModal, setModal] = useState(false);
+  const [pic, setPic] = useState();
+
   function removeFav(index) {
     
     if (fav.length === 1) {
@@ -36,7 +39,7 @@ function Favorites(props) {
     <div className="favorites-page">
       {fav.map((item, index) => (
         <div key={item.product_id} className="favorites-list">
-          <img alt={item.name} src={process.env.PUBLIC_URL + `/products/${item.picture[0]}`} />
+          <img onClick={() => {setPic(item); setModal(true)}} alt={item.name} src={process.env.PUBLIC_URL + `/products/${item.picture[0]}`} />
           <div className="favorites-details">
             <div>
               <li>{item.name}</li>
@@ -57,6 +60,11 @@ function Favorites(props) {
           </div>
         </div>
       ))}
+      {isModal === true && (
+        <div onClick={() => setModal(false)} className="picture-modal">
+          <img alt={pic.name} src={process.env.PUBLIC_URL + `/products/${pic.picture[0]}`} />
+        </div>
+      )}
     </div>
   )
 }

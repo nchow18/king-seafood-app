@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Cart() {
+function Cart(props) {
+
+  const {
+    cart,
+    setCart
+  } = props
+
+  function checkPrice(item) {
+
+  }
 
   return (
-    <div>
-      Cart
+    <div className="cart-page">
+      {cart.map((item, index) => (
+        <div className="cart-item-container">
+          <img alt={item.name} src={process.env.PUBLIC_URL + `/products/${item.picture[0]}`} />
+          <div>
+            <li>{item.name}</li>
+            <div>
+
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
