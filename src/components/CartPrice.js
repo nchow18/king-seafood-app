@@ -10,9 +10,11 @@ function CartPrice(props) {
     item
   } = props
 
+  const [price, setPrice] = useState(checkPrice(item, index))
+
   return (
     <div>
-
+      {price}
     </div>
   )
 }

@@ -44,10 +44,10 @@ function Favorites(props) {
             <div>
               <li>{item.name}</li>
               <li>Price: RM {item.price}</li>
-              {item.d1 !== '' && (<li>{item.d1}</li>)}
-              {item.d2 !== '' && (<li>{item.d2}</li>)}
-              {item.d3 !== '' && (<li>{item.d3}</li>)}
-              {item.d4 !== '' && (<li>{item.d4}</li>)}
+              {item.d1 !== '' && (<li>» {item.d1}</li>)}
+              {item.d2 !== '' && (<li>» {item.d2}</li>)}
+              {item.d3 !== '' && (<li>» {item.d3}</li>)}
+              {item.d4 !== '' && (<li>» {item.d4}</li>)}
             </div>
             <div className="favorites-button-container">
               <div onClick={() => addCart(item)} className="favorites-button">
