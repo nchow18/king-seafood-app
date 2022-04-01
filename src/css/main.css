@@ -176,4 +176,10 @@
   .product-card-details {
     font-size: 9px;
   }
+
+  .product-card-img-small {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+  }
 }

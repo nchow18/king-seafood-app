@@ -11,7 +11,7 @@ function ProductCard(props) {
 
 
   return (
-    <div className="product-card-container">
+    <div key={prod} className="product-card-container">
       <div className="product-card-picture">
         <ProductPicture
           prod={prod}

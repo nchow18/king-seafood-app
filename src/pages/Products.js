@@ -33,14 +33,16 @@ function Products(props) {
     <div className="products-container">
       <div className="category-container">
         {categories.map((cat) => (
-          <li className={`category-icon ${isCategory === cat && `isCategoryActive`}`} onClick={() => {setCategory(cat); updateProducts(cat)}}>{cat}</li>
+          <li key={cat} className={`category-icon ${isCategory === cat && `isCategoryActive`}`} onClick={() => {setCategory(cat); updateProducts(cat)}}>{cat}</li>
         ))}
       </div>
       <div className="products-list">
         {isProducts.map((prod) => (
-          <ProductCard
-            prod={prod}
-          />
+          <div key={prod}>
+            <ProductCard
+              prod={prod}
+            />
+          </div>
         ))}
       </div>
     </div>
