@@ -9,7 +9,11 @@ function Cart(props) {
     siteSale
   } = props
 
+  var totalPrice = '';
+  var test = getCartTotal(cart);
+
   const [isModal, setModal] = useState(false);
+  const [totalCart, setTotal] = useState(test);
 
   function removeItem(index) {
 
@@ -20,6 +24,18 @@ function Cart(props) {
     setCart(cart.splice(0, index));
   }
 
+
+  function getCartTotal(getCartTotal) {
+
+     for (var i = 0; i < getCartTotal.length; i++) {
+       totalPrice = +totalPrice + +getCartTotal[i].new_price;
+     }
+
+     return totalPrice;
+  }
+
+  console.log(totalCart);
+
   return (
     <div className="cart-page">
       {cart.map((item, index) => (
@@ -29,9 +45,13 @@ function Cart(props) {
           siteSale={siteSale} 
           item={item}
           index={index}
-          removeItem={removeItem}     />
+          removeItem={removeItem}
+          setTotal={setTotal}
+          totalCart={totalCart}
+          getCartTotal={getCartTotal}    />
       ))}
-      <div onClick={() => setModal(true)} className="cart-checkout-button">CHECKOUT ( GENERATE INVOICE )</div>
+      <div className="cart-total">Your Total: RM {totalCart}</div>
+      <div onClick={() => {setModal(true)}} className="cart-checkout-button">CHECKOUT ( GENERATE INVOICE )</div>
       {isModal === true && (
         <div onClick={() => setModal(false)} className="invoice-modal">
           <div className="invoice-content">

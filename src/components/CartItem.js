@@ -8,7 +8,10 @@ function CartItem(props) {
     siteSale,
     item,
     index,
-    removeItem
+    removeItem,
+    setTotal,
+    totalCart,
+    getCartTotal
   } = props
 
   const [qty, setQty] = useState(item.quantity)
@@ -41,6 +44,8 @@ function CartItem(props) {
 
   function checkPrice() {
 
+    var price = '';
+
     if (item.bulk_qty >= 1 && item.bulk_qty <= item.quantity) {
 
       //checks for bulk quantity to be greater or equal to quantity
@@ -63,6 +68,10 @@ function CartItem(props) {
 
     setCart(cart);
 
+    for (var i = 0; i < cart.length; i++) {
+      
+    }
+
     localStorage.setItem('user_cart', JSON.stringify(cart))
 
     return `RM ${item.new_price}`;
@@ -76,9 +85,9 @@ function CartItem(props) {
           <li>{item.name}</li>
           <li>{checkPrice()}</li>
           <li className="cart-qty-container">
-            <div onClick={() => {setQty(qty + 1); addQty()}}>+</div>
+            <div onClick={() => {setQty(qty + 1); addQty(); }}>+</div>
             <div className="add-cart-counter">{qty}</div>
-            <div onClick={() => minusQty()}>-</div>
+            <div onClick={() => {minusQty(); }}>-</div>
           </li>
         </div>
         <div onClick={() => removeItem(index)} className="cart-button-delete">X</div>
