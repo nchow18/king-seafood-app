@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function CartItem(props) {
 
@@ -11,11 +11,15 @@ function CartItem(props) {
     removeItem,
     setTotal,
     totalCart,
-    getCartTotal
+    getCartTotal,
   } = props
 
   const [qty, setQty] = useState(item.quantity)
   const [price, setPrice] = useState()
+
+  useEffect(() => {
+    updateCartTotal()
+  },[])
 
   function addQty() {
     item.quantity = qty + 1;
@@ -24,6 +28,8 @@ function CartItem(props) {
     cart[index].quantity = qty + 1;
     // setCart updated with new cart and item quantity
     setCart(cart);
+
+    updateCartTotal();
   }
 
   function minusQty() {
@@ -40,11 +46,45 @@ function CartItem(props) {
       setCart(cart);
     }
 
+    updateCartTotal();
+
+  }
+
+  function updateCartTotal() {
+    if (item.bulk_qty >= 1 && item.bulk_qty <= item.quantity) {
+
+      //checks for bulk quantity to be greater or equal to quantity
+      item.new_price = item.bulk_price * item.quantity;
+
+    } else if (item.sale_price !== '' && item.sale_price < (item.price * (1 - siteSale/100))) {
+
+      // checks if sale price exists, if so, apply sale price
+      item.new_price = item.sale_price * item.quantity;
+
+    } else {
+
+      // if no sale / bulk price exists, apply site sale to regular price
+      item.new_price = (item.price * (1 - siteSale/100).toFixed(2)) * item.quantity;
+
+    }
+
+    cart[index].new_price = item.new_price;
+    cart[index].quantity = qty;
+
+    setCart(cart);
+
+    localStorage.setItem('user_cart', JSON.stringify(cart))
+
+    var totalPrice = '';
+
+    for (var i = 0; i < cart.length; i++) {
+      totalPrice = +totalPrice + +cart[i].new_price;
+    }
+
+    setTotal(totalPrice.toFixed(2));
   }
 
   function checkPrice() {
-
-    var price = '';
 
     if (item.bulk_qty >= 1 && item.bulk_qty <= item.quantity) {
 
@@ -68,10 +108,6 @@ function CartItem(props) {
 
     setCart(cart);
 
-    for (var i = 0; i < cart.length; i++) {
-      
-    }
-
     localStorage.setItem('user_cart', JSON.stringify(cart))
 
     return `RM ${item.new_price}`;
@@ -83,9 +119,9 @@ function CartItem(props) {
         <img alt={item.name} src={process.env.PUBLIC_URL + `/products/${item.picture[0]}`} />
         <div>
           <li>{item.name}</li>
-          <li>{checkPrice()}</li>
+          <li className="cart-item-price">{checkPrice()}</li>
           <li className="cart-qty-container">
-            <div onClick={() => {setQty(qty + 1); addQty(); }}>+</div>
+            <div onClick={() => {setQty(qty + 1); addQty();}}>+</div>
             <div className="add-cart-counter">{qty}</div>
             <div onClick={() => {minusQty(); }}>-</div>
           </li>

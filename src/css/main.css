@@ -128,9 +128,10 @@
 
 .add-cart-counter {
   background-color: white;
-  width: auto;
+  width: 15px;
   margin: 1rem 1rem;
   padding: 5px 10px;
+  text-align: center;
 }
 
 .picture-modal {
@@ -317,7 +318,48 @@
   font-weight: bold;
 }
 
+.cart-item-price {
+  width: 60px;
+}
+
+.invoice-item-container {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.invoice-item {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.invoice-item > div {
+  display: flex;
+  position: relative;
+}
+
+.invoice-item > div > li:nth-child(1) {
+  position: absolute;
+  right: 80px;
+  width: 50px;
+}
+
+.invoice-total-price {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
 @media screen and (max-width: 600px) {
+
+  .invoice-item > div > li:nth-child(1) {
+    position: absolute;
+    right: 40px;
+    width: 50px;
+  }
 
   .invoice-content {
     background-color: white;
