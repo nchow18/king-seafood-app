@@ -44,17 +44,19 @@ function Cart(props) {
   return (
     <div className="cart-page">
       {cart.map((item, index) => (
-        <CartItem 
-          cart={cart}
-          setCart={setCart}
-          siteSale={siteSale} 
-          item={item}
-          index={index}
-          removeItem={removeItem}
-          setTotal={setTotal}
-          totalCart={totalCart}
-          getCartTotal={getCartTotal}
-          cartPriceArr={cartPriceArr}    />
+        <div key={item.name}>
+          <CartItem 
+            cart={cart}
+            setCart={setCart}
+            siteSale={siteSale} 
+            item={item}
+            index={index}
+            removeItem={removeItem}
+            setTotal={setTotal}
+            totalCart={totalCart}
+            getCartTotal={getCartTotal}
+            cartPriceArr={cartPriceArr}    />
+          </div>
       ))}
       <div className="cart-total">Your Total: RM {totalCart}</div>
       <div onClick={() => {setModal(true)}} className="cart-checkout-button">CHECKOUT ( GENERATE INVOICE )</div>

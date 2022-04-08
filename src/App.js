@@ -63,7 +63,7 @@ function App() {
 
     for (var i = 0; i < data.length; i++) {
       arr[i].picture = JSON.stringify(arr[i].picture).trim().replaceAll('"', '').split(',');
-      arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').split(',');
+      arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').replaceAll('/','').split(',');
     }
 
     return arr;
@@ -100,57 +100,57 @@ function App() {
   console.log(fav);
 
   return (
-        <BrowserRouter>
-          <TopPromo
-            promoBanner={promoBanner} />
-          <Header
-            cart={cart}
-            fav={fav} />
-            <div className="page-content">
-              <Switch>
-                <Route
-                  exact path='/'
-                  render={() => <Home
-                  />}
-                  />
-                <Route
-                  exact path='/products'
-                  render={() => <Products
-                    categories={categories}
-                    products={products}
-                    fav={fav}
-                    setFav={setFav}
-                    cart={cart}
-                    setCart={setCart}
-                    />} />
-                <Route
-                  exact path='/cart'
-                  render={() => <Cart
-                    cart={cart}
-                    setCart={setCart}
-                    sale={sale}
-                    />} />
-                <Route
-                  exact path='/favorites'
-                  render={() => <Favorites
-                    fav={fav}
-                    setFav={setFav}
-                    cart={cart}
-                    setCart={setCart}
-                    />} />
-                <Route
-                  exact path='/dashboard'
-                  render={() => <Dashboard
-                    products={products}
-                    setProducts={setProducts}
-                    promo={promo}
-                    />} />                    
-              
-                <Route component={NoMatch} />
-              </Switch>
-            </div>
-          <Footer />
-        </BrowserRouter>
-    );
+    <BrowserRouter>
+      <TopPromo
+        promoBanner={promoBanner} />
+      <Header
+        cart={cart}
+        fav={fav} />
+        <div className="page-content">
+          <Switch>
+            <Route
+              exact path='/'
+              render={() => <Home
+              />}
+              />
+            <Route
+              exact path='/products'
+              render={() => <Products
+                categories={categories}
+                products={products}
+                fav={fav}
+                setFav={setFav}
+                cart={cart}
+                setCart={setCart}
+                />} />
+            <Route
+              exact path='/cart'
+              render={() => <Cart
+                cart={cart}
+                setCart={setCart}
+                sale={sale}
+                />} />
+            <Route
+              exact path='/favorites'
+              render={() => <Favorites
+                fav={fav}
+                setFav={setFav}
+                cart={cart}
+                setCart={setCart}
+                />} />
+            <Route
+              exact path='/dashboard'
+              render={() => <Dashboard
+                products={products}
+                setProducts={setProducts}
+                promo={promo}
+                />} />                    
+          
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 export default App;

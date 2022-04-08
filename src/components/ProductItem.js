@@ -43,11 +43,15 @@ function ProductItem(props) {
 
   function removeArr(info) {
 
-    if (info.length > 1) {
+    if (Array.isArray(info)) {
+      // if data is an array
+
       const final = info.join(', ').replaceAll(' ', '');
 
-      return final;
+      return final;      
     } else {
+      // if data is NOT an array
+
       return info;
     }
   }
@@ -59,7 +63,7 @@ function ProductItem(props) {
 
     const data1 = {
         product_id: formData.product_id,
-        category: removeArr(formData.category.split(',')),
+        category: removeArr(formData.category),
         name: formData.name,
         price: formData.price,
         d1: formData.d1,
@@ -73,11 +77,13 @@ function ProductItem(props) {
         featured: formData.featured,
         picture: removeArr(formData.picture),
         new_product: true
-      }           
+      }
 
-    // Axios.get(updateURL).then((response) => {setUpdate(response.data)})
+      console.log(data1);           
 
     Axios.put(updateURL, data1).then((response) => {setUpdate(response.data)});
+
+    alert(`${formData.name} has been updated!`)
 
   }
 

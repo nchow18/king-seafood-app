@@ -1,16 +1,14 @@
 const router = require('express').Router();
-const cors = require('cors');
+const imageUploadPath = './public/products';
 const multer = require('multer');
-const bodyParser = require('body-parser');
-
-const imageUploadPath = 'C:/Users/nc/Desktop/projects/king-seafood-app/public/products';
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, imageUploadPath)
   },
   filename: function(req, file, cb) {
-    cb(null, `${file.fieldname}_dateVal_${Date.now()}_${file.originalname}`)
+    // cb(null, `${Date.now()}_${file.originalname}`)
+    cb(null, `${file.originalname}`)    
   }
 })
 

@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     id: req.body.id,
     promo_banner: req.body.promo_banner,
     promo_discount: req.body.promo_discount,
-    promo_picture: req.body.picture
+    promo_picture: req.body.promo_picture
   })
   .then(dbDetailData => {
     res.json(dbDetailData)
@@ -43,7 +43,7 @@ router.put('/:id', (req, res) => {
     id: req.body.id,
     promo_banner: req.body.promo_banner,
     promo_discount: req.body.promo_discount,
-    promo_picture: req.body.picture
+    promo_picture: req.body.promo_picture
   },
   {
     where: {

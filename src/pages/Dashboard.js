@@ -47,17 +47,20 @@ function Dashboard(props) {
   const handleClick = () => {
 
     const currentURL = window.location.href;
-    const updateURL = currentURL.replace('0/dashboard', `1/image-upload`)
+    const updateURL = currentURL.replace('0/dashboard', `1/api/image-upload`)
 
-    Axios.post(updateURL, image)
+    Axios.post('http://localhost:3001/api/image-upload', image)
     .then(res => {
       console.log('Axios response: ', res)
     })
+
+    alert('Image uploaded successfully');    
   }
 
   const handleFileInput = (e) => {
     console.log('handleFileInput working!')
     console.log(e.target.files[0]);
+
     const formData = new FormData(); 
     formData.append('my-image-file', e.target.files[0], e.target.files[0].name);
     setImage(formData);
