@@ -36,10 +36,10 @@ router.get('/', (req, res) => {
 
 // Product Find One
 
-router.get('/:id', (req, res) => {
+router.get('/:product_id', (req, res) => {
   Product.findOne({
     where: {
-      id: req.params.id
+      product_id: req.params.product_id
     },
     attributes: [
       'id',
@@ -91,6 +91,7 @@ router.post('/', (req, res) => {
     bulk_qty: req.body.bulk_qty,
     bulk_price: req.body.bulk_price,
     featured: req.body.featured,
+    picture: req.body.picture,
     new_product: req.body.new_product
   })
   .then(dbProductData => res.json(dbProductData))
@@ -102,7 +103,8 @@ router.post('/', (req, res) => {
 
 // Product Update one 
 
-router.put('/:id', (req, res) => {
+router.put('/:product_id', (req, res) => {
+
   Product.update({
     product_id: req.body.product_id,
     category: req.body.category,
@@ -117,11 +119,12 @@ router.put('/:id', (req, res) => {
     bulk_qty: req.body.bulk_qty,
     bulk_price: req.body.bulk_price,
     featured: req.body.featured,
+    picture: req.body.picture,
     new_product: req.body.new_product
   },
   {
     where: {
-      id: req.params.id
+      product_id: req.params.product_id
     }
   })
   .then(dbProductData => {
@@ -139,10 +142,10 @@ router.put('/:id', (req, res) => {
 
 // Product Delete 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:product_id', (req, res) => {
   Product.destroy({
     where: {
-      id: req.params.id
+      product_id: req.params.product_id
     }
   })
   .then(dbProductData => {

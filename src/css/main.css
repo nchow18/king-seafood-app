@@ -1,5 +1,5 @@
 .page-content {
-  margin: 5px;
+
 }
 
 .top-promo {
@@ -13,7 +13,10 @@
   flex-direction: row;
   justify-content: space-between;
   list-style: none;
-  padding: 1rem;
+  background-color: rgb(0, 187, 0);
+  color: white;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .header-icons {
@@ -24,19 +27,27 @@
   margin-right: 1rem;
 }
 
+.header-lock {
+  position: relative;
+  top: -3px;
+}
+
 .footer-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  position: relative;
+  bottom: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: #161616;
+  color: white;
+  padding: 10px;
 }
 
 .category-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .category-container li {
@@ -304,6 +315,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .invoice-content {
@@ -353,7 +365,251 @@
   list-style: none;
 }
 
+.dashboard-page {
+  height: 100%;
+  list-style: none;
+  font-size: 10px;
+}
+
+.dashboard-notlogged-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+.dashboard-loggin-container {
+  margin-top: 100px;
+  background-color:rgb(135, 253, 135);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-loggin-container > div {
+  padding: 10px;
+}
+
+.dashboard-loggin-container > button {
+  margin: 10px;
+}
+
+.dashboard-title {
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  margin: 25px 0;
+}
+
+.dashboard-logged-page {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  width: 100%;
+}
+
+.dashboard-product-item {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.dashboard-product-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-product-input > input {
+  width: 250px;
+  font-size: 8px;
+  height: 11px;
+}
+
+.dashboard-product-input > button {
+  height: 17px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-product-input > button:hover {
+  background-color: rgb(115, 255, 115);
+  color: black;
+  border: none;
+}
+
+.dashboard-product-delete {
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.dashboard-product-delete:hover {
+  background-color: rgb(250, 133, 133);
+  color: black
+}
+
+.dashboard-product-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-product-titles > * {
+  border: 1px solid black;
+  width: 156px;
+  height: 15px;
+  padding-left: 5px;
+}
+
+.add-product-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.home-page-banner {
+  width: 100%;
+}
+
+.home-page-banner:hover {
+  background-color: rgb(0, 187, 0);
+}
+
+.home-page {
+  width: 100%;
+}
+
+.header-button {
+  color: white;
+}
+
+.active {
+  color: black;
+}
+
+.top-promo {
+  background-color: #161616;
+  color: white;
+}
+
+.footer-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.footer-left {
+  padding: 20px;
+}
+
+.footer-right {
+  padding: 20px;
+}
+
+.dashboard-page {
+  display: flex;
+}
+
+.dashboard-header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.dashboard-header > div {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.dashboard-header > div:hover {
+  background-color: lightgrey;
+}
+
+.promo-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.promo-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0;
+  width: 80%;
+  max-width: 600px;
+}
+
+.promo-container > * {
+  margin: 3px;
+}
+
+.promo-container > li {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.promo-container > input {
+  font-size: 10px;
+
+}
+
+.promo-container > button {
+  margin-top: 10px;
+  background-color: rgb(0, 187, 0);
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.promo-container > button:hover {
+  background-color: rgb(106, 255, 106);
+  color: black;
+}
+
 @media screen and (max-width: 600px) {
+
+  .promo-container > input {
+    font-size: 8px;
+  }
+
+  .king-map {
+    width: 150px;
+  }
+
+  .header-container {
+    font-size: 9px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 187, 0);
+    color: white;
+    font-weight: initial;
+  }
+
+  .add-product-container {
+    position: relative;
+    left: 40px;
+  }
+
+  .dashboard-product-item {
+    position: relative;
+    left: -25px;
+  }
 
   .invoice-item > div > li:nth-child(1) {
     position: absolute;

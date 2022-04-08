@@ -6,9 +6,10 @@ function Cart(props) {
   const {
     cart,
     setCart,
-    siteSale
+    sale
   } = props
 
+  const siteSale = sale;
   const [isModal, setModal] = useState(false);
   const [totalCart, setTotal] = useState([]);
 
@@ -26,7 +27,6 @@ function Cart(props) {
 
     setCart(cart.splice(0, index));
   }
-
 
   function getCartTotal() {
 

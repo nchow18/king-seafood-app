@@ -4,6 +4,7 @@ import NoMatch from './pages/NoMatch';
 import Products from './pages/Products';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import Dashboard from './pages/Dashboard';
 import Favorites from './pages/Favorites';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -17,10 +18,12 @@ function App() {
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState([])
   const [fav, setFav] = useState([])
+  const [promo, setPromo] = useState([])
+  const [sale, setSale] = useState()
+  const [promoBanner, setPromoBanner] = useState();
 
   const localCart = localStorage.getItem('user_cart');
   const localFav = localStorage.getItem('user_fav');
-  const siteSale = '10.10';
 
   useEffect(() => {
 
@@ -29,6 +32,7 @@ function App() {
 
     if (checkURL >= 1) {
       Axios.get(`http://localhost:3001/api/products`).then((data) => setProducts(sortProducts(data.data)))
+      Axios.get(`http://localhost:3001/api/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner)})
     } else {
       Axios.get(web).then((data) => data.data)
     }
@@ -97,7 +101,8 @@ function App() {
 
   return (
         <BrowserRouter>
-          <TopPromo />
+          <TopPromo
+            promoBanner={promoBanner} />
           <Header
             cart={cart}
             fav={fav} />
@@ -123,7 +128,7 @@ function App() {
                   render={() => <Cart
                     cart={cart}
                     setCart={setCart}
-                    siteSale={siteSale}
+                    sale={sale}
                     />} />
                 <Route
                   exact path='/favorites'
@@ -133,6 +138,13 @@ function App() {
                     cart={cart}
                     setCart={setCart}
                     />} />
+                <Route
+                  exact path='/dashboard'
+                  render={() => <Dashboard
+                    products={products}
+                    setProducts={setProducts}
+                    promo={promo}
+                    />} />                    
               
                 <Route component={NoMatch} />
               </Switch>

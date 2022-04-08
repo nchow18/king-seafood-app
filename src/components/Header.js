@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/main.css';
 import { NavLink } from 'react-router-dom';
 
@@ -9,12 +9,14 @@ function Header(props) {
     cart
   } = props
 
+  const [link, setLink] = useState('HOME')
+
   return (
     <div className="header-container">
       <div>KINGS SEAFOOD 18</div>
       <div className="header-icons">
         <li>
-          <NavLink style={{ textDecoration: 'none'}} className="header-button" to={`/`}>
+          <NavLink style={{ textDecoration: 'none'}} onClick={() => setLink('HOME')} className={`header-button ${link === 'HOME' && `active`}`} to={`/`}>
             HOME
           </NavLink>
         </li>
@@ -33,6 +35,11 @@ function Header(props) {
             FAVORITES ( {fav.length} )
           </NavLink>
         </li>
+        <li>
+          <NavLink style={{ textDecoration: 'none'}} className="header-button header-lock" to={`/dashboard`}>
+            🔒
+          </NavLink>
+        </li>        
       </div>
     </div>
   )

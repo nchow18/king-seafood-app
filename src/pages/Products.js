@@ -25,7 +25,9 @@ function Products(props) {
       if (products[i].status !== false) {
         for (var y = 0; y < products[i].category.length; y++) {
           if (products[i].category[y].trim() === cat.toLowerCase()) {
-            list.push(products[i]);
+            if (products[i].status === true) {
+              list.push(products[i]);
+            }
           }
         }
       }
