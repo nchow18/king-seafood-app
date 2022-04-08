@@ -105,12 +105,14 @@ function App() {
         promoBanner={promoBanner} />
       <Header
         cart={cart}
-        fav={fav} />
+        fav={fav}
+        promo={promo} />
         <div className="page-content">
           <Switch>
             <Route
               exact path='/'
               render={() => <Home
+                promo={promo}
               />}
               />
             <Route

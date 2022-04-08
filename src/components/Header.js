@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import '../css/main.css';
 import { NavLink } from 'react-router-dom';
 
@@ -6,10 +6,19 @@ function Header(props) {
 
   const {
     fav,
-    cart
+    cart,
+    promo
   } = props
 
   const [link, setLink] = useState('HOME')
+  const [isModal, setModal] = useState(false);
+  const [image, setImage] = useState();
+
+  useEffect(() => {
+    
+  },[])
+
+  console.log(promo);
 
   return (
     <div className="header-container">
@@ -40,6 +49,16 @@ function Header(props) {
             🔒
           </NavLink>
         </li>        
+      </div>
+      {isModal === true && (
+        <div onClick={() => setModal(false)} className="promo-modal"> 
+          <div className="promo-img-container">
+            <img alt="banner" className="promo-img" src={process.env.PUBLIC_URL + `/products/${promo[0].promo_picture}`} />
+          </div>
+        </div>
+      )}
+      <div onClick={() => setModal(true)} className="promo-icon">
+        🎁
       </div>
     </div>
   )
