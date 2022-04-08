@@ -17,6 +17,7 @@ function Dashboard(props) {
   const [dashLink, setDashLink] = useState('Products')
   const code = process.env.REACT_APP_ADMIN;
   const LS = localStorage.getItem('ks-admin-dashboard')
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
 
@@ -43,6 +44,24 @@ function Dashboard(props) {
     }
   }
 
+  const handleClick = () => {
+
+    const currentURL = window.location.href;
+    const updateURL = currentURL.replace('0/dashboard', `1/image-upload`)
+
+    Axios.post(updateURL, image)
+    .then(res => {
+      console.log('Axios response: ', res)
+    })
+  }
+
+  const handleFileInput = (e) => {
+    console.log('handleFileInput working!')
+    console.log(e.target.files[0]);
+    const formData = new FormData(); 
+    formData.append('my-image-file', e.target.files[0], e.target.files[0].name);
+    setImage(formData);
+  }
 
   function sortArray(x, y) {
     if (x.name < y.name) {return -1;}
@@ -86,7 +105,14 @@ function Dashboard(props) {
               <AddProduct
                 products={products}
                 setProducts={setProducts}
-                prodTitle={prodTitle} />   
+                prodTitle={prodTitle} /> 
+
+              <div className="dashboard-title">
+                <li>IMAGE UPLOADER</li>
+                <input id='image' type='file' onChange={handleFileInput}/>
+                <button onClick={() => handleClick()}>UPLOAD IMAGE</button>               
+              </div> 
+                 
               <div className="dashboard-title">UPDATE, DELETE PRODUCTS</div>     
               {products.sort(sortArray).map((prod, index) => (
                 <div key={prod.product_id}>
