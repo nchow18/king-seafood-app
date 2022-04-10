@@ -28,13 +28,14 @@ function App() {
   useEffect(() => {
 
     const checkURL = window.location.href.search('localhost');
-    const web = 'https://kingsseafood18.com/api/products'
+    const web = 'https://kingsseafood18.com/'
 
     if (checkURL >= 1) {
       Axios.get(`http://localhost:3001/api/products`).then((data) => setProducts(sortProducts(data.data)))
       Axios.get(`http://localhost:3001/api/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner)})
     } else {
-      Axios.get(web).then((data) => data.data)
+      Axios.get(`${web} + api/products`).then((data) => setProducts(sortProducts(data.data)))
+      Axios.get(`${web} + api/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner)})
     }
 
     if (localCart === null) {
