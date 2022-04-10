@@ -530,6 +530,9 @@
 
 .dashboard-page {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 250px;
 }
 
 .dashboard-header {
