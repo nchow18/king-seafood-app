@@ -48,7 +48,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
