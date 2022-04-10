@@ -5,7 +5,6 @@ const path = require('path');
 const session = require('express-session');
 const app = express();
 const cors = require('cors');
-const multer = require('multer');
 const bodyParser = require('body-parser');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);

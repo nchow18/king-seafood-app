@@ -98,6 +98,7 @@ function App() {
 
   console.log(cart);
   console.log(fav);
+  console.log(promo);
 
   return (
     <BrowserRouter>
