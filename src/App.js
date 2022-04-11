@@ -28,7 +28,7 @@ function App() {
   const checkURL = window.location.href.search('localhost');
 
   const apiClient = Axios.create({
-    baseURL: 'https://kingsseafood18.com/api',
+    baseURL: 'http://localhost:3001/api',
     timeout: 1000,
     headers: {'X-Customer-Header': 'foobar'}
   })
