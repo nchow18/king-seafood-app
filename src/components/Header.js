@@ -18,8 +18,6 @@ function Header(props) {
     
   },[])
 
-  console.log(promo);
-
   return (
     <div className="header-container">
       <div>KINGS SEAFOOD 18</div>

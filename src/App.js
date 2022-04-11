@@ -28,14 +28,27 @@ function App() {
   useEffect(() => {
 
     const checkURL = window.location.href.search('localhost');
-    const web = 'https://kingsseafood18.com'
+    const web = 'https://kingsseafood18.com';
+
+    const apiClient = Axios.create({
+      baseURL: 'http://localhost:3001/api',
+      timeout: 1000,
+      headers: {'X-Customer-Header': 'foobar'}
+    })
+
+    const apiLive = Axios.create({
+      baseURL: 'https://kingsseafood18.com/api',
+      timeout: 1000,
+      headers: {'X-Customer-Header': 'foobar'}
+    })
 
     if (checkURL >= 1) {
-      Axios.get(`http://localhost:3001/api/products`).then((data) => setProducts(sortProducts(data.data)))
-      Axios.get(`http://localhost:3001/api/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner)})
+
+      apiClient.get(`/products`).then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
+      apiClient.get(`/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
     } else {
-      Axios.get(`http://kingsseafood18.com/api/products`).then((data) => setProducts(sortProducts(data.data)))
-      Axios.get(`http://kingsseafood18.com/api/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner)})
+      apiLive.get(`/products`).then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
+      apiLive.get(`/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
     }
 
     if (localCart === null) {
@@ -62,12 +75,10 @@ function App() {
 
     const arr = data;
 
-    // for (var i = 0; i < data.length; i++) {
-    //   arr[i].picture = JSON.stringify(arr[i].picture).trim().replaceAll('"', '').split(',');
-    //   arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').replaceAll('/','').split(',');
-    // }
-
-    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+      arr[i].picture = JSON.stringify(arr[i].picture).trim().replaceAll('"', '').split(',');
+      arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').replaceAll('/','').split(',');
+    }
 
     return arr;
   }
@@ -99,9 +110,9 @@ function App() {
     localStorage.setItem('user_fav', JSON.stringify(fav))
   }
 
-  console.log(cart);
-  console.log(fav);
-  console.log(promo);
+  // console.log(cart);
+  // console.log(fav);
+  // console.log(promo);
 
   return (
     <BrowserRouter>
