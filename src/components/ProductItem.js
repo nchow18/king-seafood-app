@@ -13,6 +13,18 @@ function ProductItem(props) {
 
   const [update, setUpdate] = useState(null);
 
+  const apiClient = Axios.create({
+    baseURL: 'http://localhost:3001/api',
+    timeout: 1000,
+    headers: {'X-Customer-Header': 'foobar'}
+  })
+
+  const apiLive = Axios.create({
+    baseURL: 'https://kingsseafood18.com/api',
+    timeout: 1000,
+    headers: {'X-Customer-Header': 'foobar'}
+  })
+
   useEffect(() => {
     // setProd(prod);
   },[])
@@ -58,8 +70,7 @@ function ProductItem(props) {
 
   const updateProd = async (event) => {
 
-    const currentURL = window.location.href;
-    const updateURL = currentURL.replace('0/dashboard', `1/api/products/${prod.product_id}`)
+    const currentURL = window.location.href.search('localhost');
 
     const data1 = {
         product_id: formData.product_id,
@@ -79,9 +90,15 @@ function ProductItem(props) {
         new_product: true
       }
 
-      console.log(data1);           
+      console.log(data1);         
+      
+    if (currentURL >= 1) {
+      apiClient.put(`/products/${prod.product_id}`, data1).then((response) => {setUpdate(response.data)});
+    } else {
+      apiLive.put(`/products/${prod.product_id}`, data1).then((response) => {setUpdate(response.data)});
+    }
 
-    Axios.put(updateURL, data1).then((response) => {setUpdate(response.data)});
+
 
     alert(`${formData.name} has been updated!`)
 
@@ -95,7 +112,6 @@ function ProductItem(props) {
     if (confirm) {
 
       const currentURL = window.location.href;
-      const updateURL = currentURL.replace('0/dashboard', `1/api/products/${prod.product_id}`)
       
       for (var i = 0; i < products.length; i++) {
 
@@ -105,7 +121,11 @@ function ProductItem(props) {
         }
       }
 
-      Axios.delete(updateURL, prod.product_id).then((response) => {setUpdate(response.data)});
+      if (currentURL >= 1) {
+        apiClient.delete(`/products/${prod.product_id}`, prod.product_id).then((response) => {setUpdate(response.data)});
+      } else {
+        apiLive.delete(`/products/${prod.product_id}`, prod.product_id).then((response) => {setUpdate(response.data)});
+      }
     }
   }
 

@@ -23,28 +23,52 @@ function Promotion(props) {
     })
   }
 
+  const apiClient = Axios.create({
+    baseURL: 'http://localhost:3001/api',
+    timeout: 1000,
+    headers: {'X-Customer-Header': 'foobar'}
+  })
+
+  const apiLive = Axios.create({
+    baseURL: 'https://kingsseafood18.com/api',
+    timeout: 1000,
+    headers: {'X-Customer-Header': 'foobar'}
+  })
+
+  const currentURL = window.location.href.search('localhost');
+
   function updatePromo() {
 
-    const currentURL = window.location.href;
-    const updateURL = currentURL.replace('0/dashboard', `1/api/details/1`)
+    if (currentURL >= 1) {
+      apiClient.put('/details/1', formData).then((response) => {setUpdate(response.data)})
+    } else {
+      apiLive.put('/details/1', formData).then((response) => {setUpdate(response.data)})
+    }
 
-    Axios.put('http://localhost:3001/api/details/1', formData).then((response) => {setUpdate(response.data)})
 
     alert('Promotions updated')
   }
 
-    const handleClick = () => {
+  const handleClick = () => {
 
-    const currentURL = window.location.href;
-    const updateURL = currentURL.replace('0/dashboard', `1/image-upload`)
-
-    Axios.post('http://localhost:3001/api/image-upload', image)
+  if (currentURL >= 1) {
+    apiClient.post('image-upload', image)
     .then(res => {
       console.log('Axios response: ', res)
     })
 
     alert('Image uploaded successfully')
+  } else {
+    apiLive.post('image-upload', image)
+    .then(res => {
+      console.log('Axios response: ', res)
+    })
+
+    alert('Image uploaded successfully')
+    }
   }
+
+
 
   const handleFileInput = (e) => {
     console.log(e.target.files[0]);
