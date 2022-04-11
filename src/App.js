@@ -39,21 +39,40 @@ function App() {
     headers: {'X-Customer-Header': 'foobar'}
   })
 
+  const headers = {
+    'Content-Type': 'application/json;charset=UTF-8',
+    "Access-Control-Allow-Origin": "*",
+    'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': '*'
+    };
+
   useEffect(() => {
 
     if (checkURL >= 1) {
 
-      apiClient.get(`/products`)
+      apiClient.get(`/products`, {
+        mode: 'cors',
+        headers: headers,
+      })
         .then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
         .catch(error => { console.log(error.response)})
-      apiClient.get(`/details`)
+      apiClient.get(`/details`, {
+        mode: 'cors',
+        headers: headers
+      })
         .then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
         .catch(error => { console.log(error.response)})
     } else {
-      apiLive.get(`/products`)
+      apiLive.get(`/products`, {
+        mode: 'cors',
+        headers: headers
+      })
         .then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
         .catch(error => { console.log(error.response)})
-      apiLive.get(`/details`)
+      apiLive.get(`/details`, {
+        mode: 'cors',
+        headers: headers
+      })
         .then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
         .catch(error => { console.log(error.response)})
     }
