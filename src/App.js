@@ -25,22 +25,21 @@ function App() {
   const localCart = localStorage.getItem('user_cart');
   const localFav = localStorage.getItem('user_fav');
 
+  const checkURL = window.location.href.search('localhost');
+
+  const apiClient = Axios.create({
+    baseURL: 'https://kingsseafood18.com/api',
+    timeout: 1000,
+    headers: {'X-Customer-Header': 'foobar'}
+  })
+
+  const apiLive = Axios.create({
+    baseURL: 'https://kingsseafood18.com/api',
+    timeout: 1000,
+    headers: {'X-Customer-Header': 'foobar'}
+  })
+
   useEffect(() => {
-
-    const checkURL = window.location.href.search('localhost');
-    const web = 'https://kingsseafood18.com';
-
-    const apiClient = Axios.create({
-      baseURL: 'http://localhost:3001/api',
-      timeout: 1000,
-      headers: {'X-Customer-Header': 'foobar'}
-    })
-
-    const apiLive = Axios.create({
-      baseURL: 'https://kingsseafood18.com/api',
-      timeout: 1000,
-      headers: {'X-Customer-Header': 'foobar'}
-    })
 
     if (checkURL >= 1) {
 

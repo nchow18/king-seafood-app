@@ -20,11 +20,11 @@ const sess = {
 };
 
 const PORT = process.env.PORT || 3001;
-const corsOrigin = 'http://localhost:3000';
+const corsOrigin = 'https://kingsseafood18.com';
 
 app.use(session(sess));
 app.use(cors({
-  origin: 'https://kingsseafood18.com',
+  origin: [corsOrigin],
   methods: ['GET', 'POST', 'PUT'],
   credentials: true
 }));
