@@ -62,10 +62,12 @@ function App() {
 
     const arr = data;
 
-    for (var i = 0; i < data.length; i++) {
-      arr[i].picture = JSON.stringify(arr[i].picture).trim().replaceAll('"', '').split(',');
-      arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').replaceAll('/','').split(',');
-    }
+    // for (var i = 0; i < data.length; i++) {
+    //   arr[i].picture = JSON.stringify(arr[i].picture).trim().replaceAll('"', '').split(',');
+    //   arr[i].category = JSON.stringify(arr[i].category).trim().replaceAll('"', '').replaceAll('/','').split(',');
+    // }
+
+    console.log(data);
 
     return arr;
   }
