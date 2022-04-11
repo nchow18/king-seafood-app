@@ -44,11 +44,19 @@ function App() {
 
     if (checkURL >= 1) {
 
-      apiClient.get(`/products`).then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
-      apiClient.get(`/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
+      apiClient.get(`/products`)
+        .then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
+        .catch(error => { console.log(error.response)})
+      apiClient.get(`/details`)
+        .then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
+        .catch(error => { console.log(error.response)})
     } else {
-      apiLive.get(`/products`).then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
-      apiLive.get(`/details`).then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
+      apiLive.get(`/products`)
+        .then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
+        .catch(error => { console.log(error.response)})
+      apiLive.get(`/details`)
+        .then((data) => {setPromo(data.data); setSale(data.data[0].promo_discount); setPromoBanner(data.data[0].promo_banner); console.log(data.data)})
+        .catch(error => { console.log(error.response)})
     }
 
     if (localCart === null) {

@@ -2,7 +2,7 @@
   "name": "kingsseafood18",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kingsseafood18.com",
+  "homepage": "http://kingsseafood18.com",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@stripe/stripe-js": "^1.3.1",
