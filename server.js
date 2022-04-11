@@ -24,7 +24,7 @@ const corsOrigin = 'http://localhost:3000';
 
 app.use(session(sess));
 app.use(cors({
-  origin: [corsOrigin],
+  origin: 'https://kingsseafood18.com',
   methods: ['GET', 'POST', 'PUT'],
   credentials: true
 }));
