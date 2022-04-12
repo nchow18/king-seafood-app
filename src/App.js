@@ -34,7 +34,7 @@ function App() {
   })
 
   const apiLive = Axios.create({
-    baseURL: 'https://kingsseafood18.com/api',
+    baseURL: 'http://kingsseafood18.com/api',
     timeout: 1000,
     headers: {'X-Customer-Header': 'foobar'}
   })
