@@ -21,6 +21,7 @@ function App() {
   const [promo, setPromo] = useState([])
   const [sale, setSale] = useState()
   const [promoBanner, setPromoBanner] = useState();
+  const [test, setTest] = useState();
 
   const localCart = localStorage.getItem('user_cart');
   const localFav = localStorage.getItem('user_fav');
@@ -47,7 +48,6 @@ function App() {
   })
 
   useEffect(() => {
-    
 
     if (checkURL >= 1) {
 
@@ -140,6 +140,7 @@ function App() {
   // console.log(cart);
   // console.log(fav);
   // console.log(promo);
+  console.log(test);
 
   return (
     <BrowserRouter>
