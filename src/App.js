@@ -27,26 +27,27 @@ function App() {
 
   const checkURL = window.location.href.search('localhost');
 
-  const apiClient = Axios.create({
-    baseURL: 'http://localhost:3001/api',
-    timeout: 1000,
-    headers: {'X-Customer-Header': 'foobar'}
-  })
-
-  const apiLive = Axios.create({
-    baseURL: 'http://kingsseafood18.com/api',
-    timeout: 1000,
-    headers: {'X-Customer-Header': 'foobar'}
-  })
-
   const headers = {
     'Content-Type': 'application/json;charset=UTF-8',
     "Access-Control-Allow-Origin": "*",
     'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': '*'
-    };
+  };
+
+  const apiClient = Axios.create({
+    baseURL: 'http://localhost:3001/api',
+    timeout: 1000,
+    headers: headers
+  })
+
+  const apiLive = Axios.create({
+    baseURL: 'http://kingsseafood18.com/api',
+    timeout: 1000,
+    headers: headers
+  })
 
   useEffect(() => {
+    
 
     if (checkURL >= 1) {
 

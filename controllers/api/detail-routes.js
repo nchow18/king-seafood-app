@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
   })
   .then(dbDetailData => {
     res.json(dbDetailData)
-    res.render('index')
   })
   .catch(err => {
     console.log(err);
