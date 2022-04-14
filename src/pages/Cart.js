@@ -19,26 +19,21 @@ function Cart(props) {
 
   }, [cart])
 
-  function removeItem(index) {
-
-    cart.splice(index, 1);
-
-    localStorage.setItem('user_cart', JSON.stringify(cart))
-
-    setCart(cart.splice(0, index));
-  }
-
-  function getCartTotal() {
+  function getCartTotal(newArr) {
 
     var totalPrice = '';
 
-
-     for (var i = 0; i < cart.length; i++) {
-       totalPrice = +totalPrice + +cart[i].new_price;
-      cartPriceArr.push(cart[i].new_price);
+     for (var i = 0; i < newArr.length; i++) {
+       totalPrice = +totalPrice + +newArr[i].new_price;
+      cartPriceArr.push(newArr[i].new_price);
      }
 
-     return totalPrice;
+    if (newArr.length !== 0) {
+     setTotal(totalPrice.toFixed(2));
+    } else {
+      setTotal('0.00')
+    }
+
   }
 
   return (
@@ -51,7 +46,6 @@ function Cart(props) {
             siteSale={siteSale} 
             item={item}
             index={index}
-            removeItem={removeItem}
             setTotal={setTotal}
             totalCart={totalCart}
             getCartTotal={getCartTotal}

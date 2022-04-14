@@ -22,6 +22,7 @@ function App() {
   const [sale, setSale] = useState()
   const [promoBanner, setPromoBanner] = useState();
   const [test, setTest] = useState();
+  const [testLocal, setTestLocal] = useState();
 
   const localCart = localStorage.getItem('user_cart');
   const localFav = localStorage.getItem('user_fav');
@@ -42,12 +43,21 @@ function App() {
   })
 
   const apiLive = Axios.create({
-    baseURL: 'http://kingsseafood18.com/api',
+    baseURL: 'http://localhost:3001/api',
     timeout: 1000,
     headers: headers
   })
 
   useEffect(() => {
+
+
+    // fetch('https://kingsseafood18.com/api/products')
+    //   .then(response => response.json())
+    //   .then(data => setTest(data))
+
+    // fetch('http://localhost:3001/api/products')
+    //   .then(response => response.json())
+    //   .then(data => setTestLocal(data))
 
     if (checkURL >= 1) {
 
@@ -57,6 +67,7 @@ function App() {
       })
         .then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
         .catch(error => { console.log(error.response)})
+
       apiClient.get(`/details`, {
         mode: 'cors',
         headers: headers
@@ -70,6 +81,7 @@ function App() {
       })
         .then((data) => {setProducts(sortProducts(data.data)); console.log(data.data)})
         .catch(error => { console.log(error.response)})
+
       apiLive.get(`/details`, {
         mode: 'cors',
         headers: headers
@@ -140,7 +152,8 @@ function App() {
   // console.log(cart);
   // console.log(fav);
   // console.log(promo);
-  console.log(test);
+  // console.log(test);
+  // console.log(testLocal);
 
   return (
     <BrowserRouter>

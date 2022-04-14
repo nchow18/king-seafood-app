@@ -20,7 +20,7 @@ function ProductItem(props) {
   })
 
   const apiLive = Axios.create({
-    baseURL: 'https://kingsseafood18.com/api',
+    baseURL: 'http://localhost:3001/api',
     timeout: 1000,
     headers: {'X-Customer-Header': 'foobar'}
   })
@@ -97,8 +97,6 @@ function ProductItem(props) {
     } else {
       apiLive.put(`/products/${prod.product_id}`, data1).then((response) => {setUpdate(response.data)});
     }
-
-
 
     alert(`${formData.name} has been updated!`)
 

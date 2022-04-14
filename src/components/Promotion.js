@@ -30,7 +30,7 @@ function Promotion(props) {
   })
 
   const apiLive = Axios.create({
-    baseURL: 'https://kingsseafood18.com/api',
+    baseURL: 'http://localhost:3001/api',
     timeout: 1000,
     headers: {'X-Customer-Header': 'foobar'}
   })

@@ -13,11 +13,21 @@ function Favorites(props) {
   const [pic, setPic] = useState();
 
   function removeFav(index) {
+
+    const newArr = [];
+
+    for (var i = 0; i < fav.length; i++) {
+      if (i !== index) {
+        newArr.push(fav[i])
+      }
+    }
+
+    setCart(newArr);    
     
     if (fav.length === 1) {
       setFav([]);
     } else {
-      setFav(fav.splice(0, index))
+      setFav(newArr)
     }
   }
 

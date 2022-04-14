@@ -8,7 +8,6 @@ function CartItem(props) {
     siteSale,
     item,
     index,
-    removeItem,
     setTotal,
     totalCart,
     getCartTotal,
@@ -19,7 +18,7 @@ function CartItem(props) {
 
   useEffect(() => {
     updateCartTotal()
-  },[])
+  },[cart])
 
   function addQty() {
     item.quantity = qty + 1;
@@ -30,6 +29,23 @@ function CartItem(props) {
     setCart(cart);
 
     updateCartTotal();
+  }
+
+  function removeItem(index) {
+
+    const newArr = [];
+
+    for (var i = 0; i < cart.length; i++) {
+      if (i !== index) {
+        newArr.push(cart[i])
+      }
+    }
+
+    setCart(newArr);
+
+    localStorage.setItem('user_cart', JSON.stringify(newArr))
+
+    getCartTotal(newArr);
   }
 
   function minusQty() {
@@ -110,7 +126,7 @@ function CartItem(props) {
 
     localStorage.setItem('user_cart', JSON.stringify(cart))
 
-    return `RM ${item.new_price}`;
+    return `RM ${item.new_price.toFixed(2)}`;
   }
 
   return (

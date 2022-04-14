@@ -38,7 +38,7 @@ function AddProduct(props) {
   function addProd() {
 
     const currentURL = window.location.href;
-    const updateURL = currentURL.replace('0/dashboard', `1/api/products/`)
+    const updateURL = 'http://localhost:3001/api/products'
 
     const data1 = {
         product_id: formData.product_id,
