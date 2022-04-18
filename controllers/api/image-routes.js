@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const imageUploadPath = './products';
+const imageUploadPath = '../../public/products';
 const multer = require('multer');
 
 const storage = multer.diskStorage({
