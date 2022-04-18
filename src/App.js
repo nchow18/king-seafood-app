@@ -15,17 +15,6 @@ import './css/main.css';
 
 function App() {
 
-  fetch("https://kingsseafood18.com")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (myJson) {
-    console.log(myJson.ip);
-  })
-  .catch(function (error) {
-    console.log("Error: " + error);
-  });
-
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState([])
   const [fav, setFav] = useState([])
