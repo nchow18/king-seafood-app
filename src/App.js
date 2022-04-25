@@ -50,6 +50,9 @@ function App() {
 
   useEffect(() => {
 
+    fetch('http://localhost:3001/api/producted')
+      .then(response => response.json())
+      .then(data => console.log(data))
 
     // fetch('https://kingsseafood18.com/api/products')
     //   .then(response => response.json())

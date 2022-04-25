@@ -19,35 +19,56 @@ const sess = {
   })
 };
 
+const PORT = process.env.PORT || 3001;
+// const debug = require("debug")("server");
+
+
 app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 });
 
-const PORT = process.env.PORT || 3001;
-const corsOrigin = 'http://localhost:3000';
-const corsOptions = {
-  origin: [corsOrigin],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-  crossorigin: true,
-  optionSuccessStatus:200
-}
+// API endpoint
+app.get("/api/producted", (req, res) => {
+  const name = req.query.name || 'World';
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
+});
 
-app.use(session(sess));
-app.use(cors(corsOptions));
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true }));
-// app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, './build')));
+// app.use(function(req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "*")
+//   res.header("Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
+// const PORT = process.env.PORT || 3001;
+// const corsOrigin = 'http://localhost:3000';
+// const corsOptions = {
+//   origin: [corsOrigin],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true,
+//   crossorigin: true,
+//   optionSuccessStatus:200
+// }
+
+// app.use(session(sess));
+app.use(cors());
+
+// app.use(express.json());
+// app.use(express.urlencoded({extended: true }));
+// // app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, './build')));
 
 //turn on routes
 app.use(routes);
 
-// IMAGE UPLOADER SERVER DETAILS
+// // IMAGE UPLOADER SERVER DETAILS
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -63,6 +84,7 @@ sequelize.sync({ force: false }).then(() => {
   NOW LISTENING ON PORT: ${PORT}
   ==============================`));
 });
+
 
 
 
