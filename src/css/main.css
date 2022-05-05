@@ -2,6 +2,52 @@
 
 }
 
+/* product card background colour */
+.product-card-container {
+  background-color: var(--four) !important;
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+
+.category-container li:hover {
+  background-color: var(--four) !important;
+  color: black !important;
+}
+
+.isCategoryActive {
+  background-color: var(--four) !important;
+  color: black !important;
+}
+
+/* cart item background colour */
+.cart-item-container {
+  background-color: var(--four) !important;
+}
+
+/* favorites item background color */
+.favorites-list {
+  background-color: var(--four) !important;
+}
+
+/* header background color */
+.header-container {
+  background-color: var(--one) !important;
+}
+
+/* footer background color */
+.footer-container {
+  background-color: var(--one) !important;
+}
+
+/* products page buttons */
+.add-cart-button {
+  background-color: var(--two) !important;
+}
+
+/* cart page background colors */
+.cart-checkout-button {
+  background-color: var(--two) !important;
+}
+
 .top-promo {
   display: flex;
   justify-content: center;
@@ -13,7 +59,7 @@
   flex-direction: row;
   justify-content: space-between;
   list-style: none;
-  background-color: rgb(0, 187, 0);
+  background-color: var(--one);
   color: white;
   font-weight: bold;
   padding: 10px;
@@ -38,7 +84,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #161616;
+  background-color: var(--one);
   color: white;
   padding: 10px;
 }
@@ -74,10 +120,11 @@
   width: 100%;
   justify-content: center;
   margin-top: 2rem;
+  margin-bottom: 100px;
 }
 
 .product-card-container {
-  background-color: rgb(250, 250, 162);
+  background-color: var(--four);
   padding: 1rem;
   border-radius: 15px;
   margin: 1rem;
@@ -145,21 +192,9 @@
   text-align: center;
 }
 
-.picture-modal {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(0,0,0,0.6);
-}
-
 .picture-modal img {
   height: 80%;
+  border-radius: 15px;
 }
 
 .add-cart-button {
@@ -180,6 +215,11 @@
   width: 50px;
   height: 50px;
   margin: 5px;
+  border-radius: 5px;
+}
+
+.product-card-img-small:hover {
+  opacity: .7;
 }
 
 .favorites-page {
@@ -190,11 +230,12 @@
 
 .favorites-list {
   display: flex;
-  background-color: rgb(250, 250, 162);
+  background-color: var(--four);
   padding: 10px;
   position: relative;
   margin-bottom: 10px;
   box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
+  border-radius: 15px;
 }
 
 .favorites-details {
@@ -236,6 +277,7 @@
 .favorites-list img {
   width: 150px;
   height: 150px;
+  border-radius: 15px;
 }
 
 .cart-item-container {
@@ -243,15 +285,17 @@
   display: flex;
   margin: 10px;
   box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
-  background-color: rgb(250, 250, 162);
+  background-color: var(--four);
   padding: 10px;
   position: relative;
+  border-radius: 15px;
 }
 
 .cart-item-container img {
   height: 75px;
   width: 75px;
   margin-right: 10px;
+  border-radius: 10px;
 }
 
 .cart-button-delete {
@@ -264,6 +308,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 15px;
 }
 
 .cart-button-delete:hover {
@@ -299,6 +344,7 @@
   box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
   font-weight: bold;
   letter-spacing: 5px;
+  border-radius: 10px;
 }
 
 .cart-checkout-button:hover {
@@ -404,6 +450,10 @@
   width: 100%;
   text-align: center;
   margin: 25px 0;
+  background-color: #61E786;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
 }
 
 .dashboard-title > input {
@@ -647,7 +697,7 @@
     font-size: 9px;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(0, 187, 0);
+    background-color: var(--one);
     color: white;
     font-weight: initial;
   }
@@ -701,6 +751,7 @@
   .picture-modal img {
     height: initial;
     width: 90%;
+    border-radius: 15px;
   }
 
   .product-card-img {
@@ -724,6 +775,7 @@
     width: 25px;
     height: 25px;
     margin: 5px;
+    border-radius: 5px;
   }
 
   .favorites-list img {
@@ -742,6 +794,7 @@
 
   .cart-item-container {
     align-items: center;
+    border-radius: 5px;
   }
 
   .cart-item-container img {

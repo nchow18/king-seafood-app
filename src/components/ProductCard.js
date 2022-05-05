@@ -22,9 +22,14 @@ function ProductCard(props) {
       <div className="product-card-content">
         <div className="product-card-details">
           <li>{prod.name}</li>
-          <li>Price: RM {prod.price}</li>
+          {prod.sale_price !== '' && (
+            <li><b>Price: </b><strike>RM {prod.price}</strike> RM {prod.sale_price}</li>
+          )}
+          {prod.sale_price === '' && (
+            <li><b>Price: </b> RM {prod.price}</li>
+          )}
           {prod.bulk_qty !== '' && (
-            <li>Bundle Deal! Buy {prod.bulk_qty} or more for RM {prod.bulk_price} each</li>
+            <li><b>Bundle Deal!</b> Buy <b>{prod.bulk_qty}</b> or more for <b>RM {prod.bulk_price}</b> each</li>
           )}
           {prod.d1 !== '' && (
             <li>» {prod.d1}</li>

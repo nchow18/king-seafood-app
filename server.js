@@ -57,7 +57,7 @@ app.get("/api/producted", (req, res) => {
 //   optionSuccessStatus:200
 // }
 
-// app.use(session(sess));
+app.use(session(sess));
 app.use(cors());
 
 // app.use(express.json());

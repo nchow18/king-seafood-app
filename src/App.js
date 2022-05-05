@@ -50,18 +50,6 @@ function App() {
 
   useEffect(() => {
 
-    fetch('http://localhost:3001/api/producted')
-      .then(response => response.json())
-      .then(data => console.log(data))
-
-    // fetch('https://kingsseafood18.com/api/products')
-    //   .then(response => response.json())
-    //   .then(data => setTest(data))
-
-    // fetch('http://localhost:3001/api/products')
-    //   .then(response => response.json())
-    //   .then(data => setTestLocal(data))
-
     if (checkURL >= 1) {
 
       apiClient.get(`/products`, {
